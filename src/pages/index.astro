@@ -4,6 +4,7 @@ import FeatureCard from "../components/FeatureCard.astro";
 import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
 import IntegrationCard from "../components/IntegrationCard.astro";
+import QuickStartSection from "../components/QuickStartSection.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 import features from "../data/features.json";
 import integrations from "../data/integrations.json";
@@ -26,6 +27,8 @@ const featuredIntegrations = integrations.slice(0, 6);
       <span>Open-source ready</span>
     </div>
   </section>
+
+  <QuickStartSection />
 
   <section class="section" id="features">
     <div class="shell section-heading">
