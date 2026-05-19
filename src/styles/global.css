@@ -39,7 +39,7 @@
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.34);
   --shadow-card: 0 16px 44px rgba(0, 0, 0, 0.24);
   --space-section: clamp(4rem, 8vw, 7rem);
-  --shell: 1040px;
+  --shell: 940px;
 }
 
 [data-theme="light"] {
@@ -1330,7 +1330,7 @@ input {
 }
 
 .feature-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .integration-grid,
