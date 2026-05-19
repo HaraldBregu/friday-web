@@ -23,6 +23,22 @@ bun run build
 bun run preview
 ```
 
+## Deploying to Vercel
+
+The repository includes `vercel.json` so Vercel can build the static Astro
+site with Bun and serve the generated `dist` directory.
+
+Recommended Vercel settings:
+
+- Framework Preset: `Astro`
+- Install Command: `bun install --frozen-lockfile`
+- Build Command: `bun run build`
+- Output Directory: `dist`
+
+Set `PUBLIC_SITE_URL` in Vercel to the final production URL, for example
+`https://friday.example.com`. If it is not set, the build falls back to Vercel's
+deployment URL and then to the placeholder URL in `astro.config.mjs`.
+
 ## Project Structure
 
 ```txt

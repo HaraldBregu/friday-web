@@ -22,8 +22,9 @@ const {
 } = Astro.props;
 
 const pageTitle = title === site.name ? `${site.name} | ${site.tagline}` : `${title} | ${site.name}`;
-const canonicalUrl = new URL(canonical ?? Astro.url.pathname, site.url).toString();
-const imageUrl = new URL(image, site.url).toString();
+const siteBaseUrl = Astro.site ?? new URL(site.url);
+const canonicalUrl = new URL(canonical ?? Astro.url.pathname, siteBaseUrl).toString();
+const imageUrl = new URL(image, siteBaseUrl).toString();
 ---
 
 <!doctype html>
