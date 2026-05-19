@@ -5,6 +5,7 @@
     "": {
       "name": "friday-static-site",
       "dependencies": {
+        "@astroanimate/core": "^0.1.1",
         "@astrojs/rss": "^4.0.12",
         "@astrojs/sitemap": "^3.5.1",
         "@tsparticles/engine": "^4.0.4",
@@ -20,6 +21,8 @@
     },
   },
   "packages": {
+    "@astroanimate/core": ["@astroanimate/core@0.1.1", "", { "peerDependencies": { "astro": "^4.0.0 || ^5.0.0 || ^6.0.0" } }, "sha512-wB59QAVRAGQ0VnO5rE838aZ8uG8l5lILNueELWCoPo7W2uSV9ZAI2Wyqus5LUmwNoRfzCMSBDNggZG/K3UB5wA=="],
+
     "@astrojs/compiler": ["@astrojs/compiler@2.13.1", "", {}, "sha512-f3FN83d2G/v32ipNClRKgYv30onQlMZX1vCeZMjPsMMPl1mDpmbl0+N5BYo4S/ofzqJyS5hvwacEo0CCVDn/Qg=="],
 
     "@astrojs/internal-helpers": ["@astrojs/internal-helpers@0.7.6", "", {}, "sha512-GOle7smBWKfMSP8osUIGOlB5kaHdQLV3foCsf+5Q9Wsuu+C6Fs3Ez/ttXmhjZ1HkSgsogcM1RXSjjOVieHq16Q=="],
