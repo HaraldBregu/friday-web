@@ -11,13 +11,6 @@ const scriptResults = [
   { file: "hw_4.py", output: "Hello, world. That is all." },
   { file: "hw_5.py", output: "Hello world from script five." },
 ];
-
-const previewModes = [
-  { id: "setup", label: "Setup" },
-  { id: "recording", label: "Recording" },
-  { id: "call", label: "Live call" },
-  { id: "text", label: "Text" },
-];
 ---
 
 <section class="hero">
@@ -46,22 +39,6 @@ const previewModes = [
         enhance
         initialScale={0.96}
       >
-        <div aria-label="Preview mode" class="demo-segment" role="tablist">
-          {
-            previewModes.map((mode, index) => (
-              <button
-                aria-selected={index === 0 ? "true" : "false"}
-                class="demo-segment__button"
-                data-demo-state={mode.id}
-                role="tab"
-                type="button"
-              >
-                {mode.label}
-              </button>
-            ))
-          }
-        </div>
-
         <div aria-label="Interactive Friday app preview" class="friday-window" data-window>
           <div class="friday-window__bar">
             <div aria-hidden="true" class="window-lights">
@@ -346,12 +323,11 @@ const previewModes = [
 
   domeWaveCanvases.forEach(setupDomeWave);
 
-  (() => {
-    const demos = document.querySelectorAll("[data-friday-demo]");
+	  (() => {
+	    const demos = document.querySelectorAll("[data-friday-demo]");
 
-    demos.forEach((demo) => {
-      const tabs = Array.from(demo.querySelectorAll("[data-demo-state]"));
-      const form = demo.querySelector("[data-composer]");
+	    demos.forEach((demo) => {
+	      const form = demo.querySelector("[data-composer]");
       const input = demo.querySelector("[data-chat-input]");
       const userMessage = demo.querySelector("[data-user-message]");
       const summary = demo.querySelector("[data-assistant-summary]");
@@ -369,22 +345,12 @@ const previewModes = [
         return `${minutes}:${remaining}`;
       };
 
-      const setMode = (mode) => {
-        demo.dataset.demoMode = mode;
-        if (title) {
-          title.textContent = mode === "setup" ? "Set up Friday" : "Friday";
-        }
-        tabs.forEach((tab) => {
-          const selected = tab.dataset.demoState === mode;
-          tab.setAttribute("aria-selected", selected ? "true" : "false");
-        });
-      };
-
-      tabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-          setMode(tab.dataset.demoState);
-        });
-      });
+	      const setMode = (mode) => {
+	        demo.dataset.demoMode = mode;
+	        if (title) {
+	          title.textContent = mode === "setup" ? "Set up Friday" : "Friday";
+	        }
+	      };
 
       getStarted?.addEventListener("click", () => setMode("recording"));
       skipSetup?.addEventListener("click", () => setMode("recording"));
