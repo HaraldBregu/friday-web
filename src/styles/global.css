@@ -132,15 +132,26 @@ body::before {
   inset: -18%;
   background:
     radial-gradient(circle at 9% 16%, var(--star-primary) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 12% 34%, var(--star-warm) 0 0.75px, transparent 1.55px),
     radial-gradient(circle at 17% 56%, var(--star-cool) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 21% 12%, var(--star-primary) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 24% 44%, var(--star-cool) 0 0.75px, transparent 1.55px),
     radial-gradient(circle at 31% 24%, var(--star-primary) 0 1.1px, transparent 1.9px),
+    radial-gradient(circle at 35% 68%, var(--star-cool) 0 0.85px, transparent 1.65px),
     radial-gradient(circle at 43% 14%, var(--star-warm) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 47% 54%, var(--star-primary) 0 0.75px, transparent 1.55px),
     radial-gradient(circle at 59% 34%, var(--star-cool) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 63% 9%, var(--star-primary) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 68% 82%, var(--star-warm) 0 0.85px, transparent 1.65px),
     radial-gradient(circle at 76% 20%, var(--star-primary) 0 1.15px, transparent 1.95px),
+    radial-gradient(circle at 79% 51%, var(--star-cool) 0 0.75px, transparent 1.55px),
     radial-gradient(circle at 91% 42%, var(--star-warm) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 95% 67%, var(--star-primary) 0 0.85px, transparent 1.65px),
     radial-gradient(circle at 84% 72%, var(--star-cool) 0 1px, transparent 1.8px),
     radial-gradient(circle at 52% 76%, var(--star-primary) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 41% 91%, var(--star-cool) 0 0.75px, transparent 1.55px),
     radial-gradient(circle at 26% 84%, var(--star-warm) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 6% 73%, var(--star-primary) 0 0.8px, transparent 1.6px),
     radial-gradient(circle at 24% 28%, var(--radial-drift-a), transparent 20rem),
     radial-gradient(circle at 74% 18%, var(--radial-drift-b), transparent 24rem);
   opacity: 0.78;
@@ -148,13 +159,22 @@ body::before {
 
 .universe-background::after {
   background:
+    radial-gradient(circle at 5% 49%, var(--star-primary) 0 0.75px, transparent 1.55px),
     radial-gradient(circle at 13% 38%, var(--star-cool) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 18% 21%, var(--star-warm) 0 0.7px, transparent 1.5px),
     radial-gradient(circle at 22% 68%, var(--star-primary) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 29% 7%, var(--star-cool) 0 0.8px, transparent 1.6px),
     radial-gradient(circle at 36% 48%, var(--star-warm) 0 0.85px, transparent 1.65px),
+    radial-gradient(circle at 39% 78%, var(--star-primary) 0 0.75px, transparent 1.55px),
     radial-gradient(circle at 48% 26%, var(--star-primary) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 55% 12%, var(--star-cool) 0 0.75px, transparent 1.55px),
+    radial-gradient(circle at 58% 88%, var(--star-warm) 0 0.8px, transparent 1.6px),
     radial-gradient(circle at 66% 62%, var(--star-cool) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 72% 44%, var(--star-primary) 0 0.75px, transparent 1.55px),
     radial-gradient(circle at 80% 34%, var(--star-primary) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 86% 83%, var(--star-cool) 0 0.8px, transparent 1.6px),
     radial-gradient(circle at 93% 14%, var(--star-warm) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle at 97% 55%, var(--star-primary) 0 0.75px, transparent 1.55px),
     radial-gradient(circle at 70% 58%, var(--radial-drift-c), transparent 28rem),
     radial-gradient(circle at 36% 76%, var(--radial-drift-d), transparent 24rem);
   opacity: 0.64;
