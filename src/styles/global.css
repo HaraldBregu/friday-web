@@ -1,24 +1,35 @@
 :root {
   color-scheme: dark;
-  --font-sans: "Sora", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --color-bg: #05070d;
-  --color-bg-soft: #0a111b;
-  --color-panel: #0d1320;
-  --color-panel-strong: #131b2a;
-  --color-text: #f4f7f5;
-  --color-muted: #aeb8c6;
-  --color-subtle: #7a8798;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --color-bg: #050612;
+  --color-bg-soft: #090d1b;
+  --color-panel: #0b1020;
+  --color-panel-strong: #11172a;
+  --color-text: #f8fbff;
+  --color-muted: #b4bfd2;
+  --color-subtle: #7d8aa3;
   --color-border: rgba(255, 255, 255, 0.12);
   --color-border-strong: rgba(255, 255, 255, 0.2);
-  --color-accent: #5eead4;
-  --color-accent-strong: #a5f3fc;
-  --color-accent-soft: rgba(94, 234, 212, 0.12);
-  --color-cyan: #7dd3fc;
-  --color-violet: #8b7cf6;
-  --color-pink: #c4b5fd;
+  --color-accent: #67e8f9;
+  --color-accent-strong: #f0abfc;
+  --color-accent-soft: rgba(103, 232, 249, 0.12);
+  --color-cyan: #38bdf8;
+  --color-violet: #a78bfa;
+  --color-pink: #f0abfc;
   --color-gold: #fde68a;
+  --radial-body-a: rgba(56, 189, 248, 0.14);
+  --radial-body-b: rgba(240, 171, 252, 0.12);
+  --radial-body-c: rgba(103, 232, 249, 0.08);
+  --radial-bg-a: rgba(56, 189, 248, 0.18);
+  --radial-bg-b: rgba(168, 85, 247, 0.14);
+  --radial-bg-c: rgba(236, 72, 153, 0.1);
+  --radial-bg-d: rgba(103, 232, 249, 0.07);
+  --radial-drift-a: rgba(103, 232, 249, 0.1);
+  --radial-drift-b: rgba(240, 171, 252, 0.11);
+  --radial-drift-c: rgba(168, 85, 247, 0.1);
+  --radial-drift-d: rgba(56, 189, 248, 0.07);
   --radius-md: 16px;
   --radius-lg: 24px;
   --radius-xl: 32px;
@@ -30,20 +41,35 @@
 
 [data-theme="light"] {
   color-scheme: light;
-  --color-bg: #f7faf8;
-  --color-bg-soft: #edf5f0;
+  --color-bg: #f8fbff;
+  --color-bg-soft: #eef5ff;
   --color-panel: #ffffff;
-  --color-panel-strong: #f3f8f5;
-  --color-text: #101612;
-  --color-muted: #51615a;
-  --color-subtle: #6f8078;
-  --color-border: rgba(16, 22, 18, 0.12);
-  --color-border-strong: rgba(16, 22, 18, 0.2);
-  --color-accent: #087c55;
-  --color-accent-strong: #0a6d4d;
-  --color-accent-soft: rgba(8, 124, 85, 0.1);
-  --shadow-soft: 0 24px 80px rgba(20, 48, 36, 0.14);
-  --shadow-card: 0 16px 44px rgba(20, 48, 36, 0.1);
+  --color-panel-strong: #f3f7ff;
+  --color-text: #111827;
+  --color-muted: #4b5d75;
+  --color-subtle: #718097;
+  --color-border: rgba(17, 24, 39, 0.12);
+  --color-border-strong: rgba(17, 24, 39, 0.2);
+  --color-accent: #2563eb;
+  --color-accent-strong: #7c3aed;
+  --color-accent-soft: rgba(37, 99, 235, 0.1);
+  --color-cyan: #0284c7;
+  --color-violet: #7c3aed;
+  --color-pink: #db2777;
+  --color-gold: #d97706;
+  --radial-body-a: rgba(37, 99, 235, 0.12);
+  --radial-body-b: rgba(249, 115, 22, 0.11);
+  --radial-body-c: rgba(20, 184, 166, 0.08);
+  --radial-bg-a: rgba(37, 99, 235, 0.13);
+  --radial-bg-b: rgba(249, 115, 22, 0.12);
+  --radial-bg-c: rgba(219, 39, 119, 0.08);
+  --radial-bg-d: rgba(20, 184, 166, 0.08);
+  --radial-drift-a: rgba(14, 165, 233, 0.1);
+  --radial-drift-b: rgba(249, 115, 22, 0.11);
+  --radial-drift-c: rgba(124, 58, 237, 0.08);
+  --radial-drift-d: rgba(20, 184, 166, 0.07);
+  --shadow-soft: 0 24px 80px rgba(37, 99, 235, 0.13);
+  --shadow-card: 0 16px 44px rgba(37, 99, 235, 0.1);
 }
 
 * {
@@ -73,9 +99,9 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 52% -8%, rgba(125, 211, 252, 0.14), transparent 34rem),
-    radial-gradient(circle at 86% 14%, rgba(139, 124, 246, 0.12), transparent 28rem),
-    radial-gradient(circle at 12% 30%, rgba(94, 234, 212, 0.09), transparent 32rem);
+    radial-gradient(circle at 52% -8%, var(--radial-body-a), transparent 34rem),
+    radial-gradient(circle at 86% 14%, var(--radial-body-b), transparent 28rem),
+    radial-gradient(circle at 12% 30%, var(--radial-body-c), transparent 32rem);
 }
 
 .universe-background {
@@ -85,10 +111,10 @@ body::before {
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 50% -12%, rgba(125, 211, 252, 0.18), transparent 38rem),
-    radial-gradient(circle at 16% 28%, rgba(94, 234, 212, 0.11), transparent 32rem),
-    radial-gradient(circle at 86% 22%, rgba(139, 124, 246, 0.13), transparent 34rem),
-    radial-gradient(ellipse at 50% 94%, rgba(165, 243, 252, 0.07), transparent 34rem);
+    radial-gradient(ellipse at 50% -12%, var(--radial-bg-a), transparent 38rem),
+    radial-gradient(circle at 16% 28%, var(--radial-bg-b), transparent 32rem),
+    radial-gradient(circle at 86% 22%, var(--radial-bg-c), transparent 34rem),
+    radial-gradient(ellipse at 50% 94%, var(--radial-bg-d), transparent 34rem);
   animation: background-radial-shift 18s ease-in-out infinite alternate;
   filter: saturate(1.08);
 }
@@ -99,21 +125,21 @@ body::before {
   position: absolute;
   inset: -18%;
   background:
-    radial-gradient(circle at 24% 28%, rgba(94, 234, 212, 0.1), transparent 20rem),
-    radial-gradient(circle at 74% 18%, rgba(125, 211, 252, 0.11), transparent 24rem);
+    radial-gradient(circle at 24% 28%, var(--radial-drift-a), transparent 20rem),
+    radial-gradient(circle at 74% 18%, var(--radial-drift-b), transparent 24rem);
   opacity: 0.78;
 }
 
 .universe-background::after {
   background:
-    radial-gradient(circle at 70% 58%, rgba(139, 124, 246, 0.1), transparent 28rem),
-    radial-gradient(circle at 36% 76%, rgba(165, 243, 252, 0.06), transparent 24rem);
+    radial-gradient(circle at 70% 58%, var(--radial-drift-c), transparent 28rem),
+    radial-gradient(circle at 36% 76%, var(--radial-drift-d), transparent 24rem);
   opacity: 0.64;
   transform: translate3d(2%, -2%, 0);
 }
 
 [data-theme="light"] .universe-background {
-  opacity: 0.46;
+  opacity: 1;
 }
 
 @keyframes background-radial-shift {
