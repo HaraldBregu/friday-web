@@ -1696,15 +1696,15 @@ input {
     display: none;
   }
 
-  .hero__copy h1,
-  .page-hero h1,
-  .section-heading h2,
-  .split-heading h2,
-  .cta-panel h2 {
-    max-width: 11ch;
-    font-size: clamp(2.55rem, 11vw, 3.2rem);
-    letter-spacing: 0;
-  }
+	  .hero__copy h1,
+	  .page-hero h1,
+	  .section-heading h2,
+	  .split-heading h2,
+	  .cta-panel h2 {
+	    max-width: 11ch;
+	    font-size: clamp(2.35rem, 9.5vw, 2.9rem);
+	    letter-spacing: 0;
+	  }
 
   .section-heading h2,
   .split-heading h2,
@@ -1712,12 +1712,12 @@ input {
     max-width: none;
   }
 
-  .hero__description,
-  .section-heading > p,
-  .page-hero p {
-    font-size: 1rem;
-    overflow-wrap: break-word;
-  }
+	  .hero__description,
+	  .section-heading > p,
+	  .page-hero p {
+	    font-size: 0.92rem;
+	    overflow-wrap: break-word;
+	  }
 
   .hero__metrics,
   .feature-grid,
@@ -1759,9 +1759,9 @@ input {
     padding-inline: 1rem;
   }
 
-  .skip-button {
-    font-size: 0.98rem;
-  }
+	  .skip-button {
+	    font-size: 0.86rem;
+	  }
 
   .window-lights {
     gap: 0.5rem;
@@ -1853,17 +1853,17 @@ input {
     margin-bottom: 1.4rem;
   }
 
-  .setup-badge {
-    font-size: 0.82rem;
-  }
+	  .setup-badge {
+	    font-size: 0.76rem;
+	  }
 
-  .setup-stage h2 {
-    font-size: 2.35rem;
-  }
+	  .setup-stage h2 {
+	    font-size: 2rem;
+	  }
 
-  .setup-stage p {
-    font-size: 1rem;
-  }
+	  .setup-stage p {
+	    font-size: 0.86rem;
+	  }
 
   .setup-footer {
     min-height: 4.7rem;
@@ -1882,21 +1882,21 @@ input {
     width: 2.3rem;
   }
 
-  .setup-primary {
-    min-height: 2.9rem;
-    padding-inline: 0.72rem;
-    font-size: 0.98rem;
-  }
+	  .setup-primary {
+	    min-height: 2.9rem;
+	    padding-inline: 0.72rem;
+	    font-size: 0.86rem;
+	  }
 
   .friday-window__content {
     gap: 0.75rem;
     padding: 1rem 0.9rem 0.8rem;
   }
 
-  .friday-prompt {
-    border-radius: 20px;
-    font-size: 0.98rem;
-  }
+	  .friday-prompt {
+	    border-radius: 20px;
+	    font-size: 0.86rem;
+	  }
 
   .result-card {
     border-radius: 16px;
@@ -1907,9 +1907,9 @@ input {
     font-size: 0.78rem;
   }
 
-  .result-card p {
-    font-size: 0.9rem;
-  }
+	  .result-card p {
+	    font-size: 0.82rem;
+	  }
 
   .composer-time {
     display: none;
