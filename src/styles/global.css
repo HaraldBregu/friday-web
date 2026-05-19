@@ -355,14 +355,12 @@ input {
 }
 
 .button--primary {
-  border-color: rgba(255, 255, 255, 0.32);
-  background:
-    linear-gradient(135deg, var(--color-cyan), var(--color-accent) 38%, var(--color-violet) 72%, var(--color-pink));
-  color: #020409;
+  border-color: rgba(165, 243, 252, 0.36);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-cyan));
+  color: #031018;
   box-shadow:
-    0 0 24px rgba(39, 245, 208, 0.38),
-    0 0 58px rgba(139, 92, 255, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.58);
+    0 10px 32px rgba(94, 234, 212, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.48);
 }
 
 .button--ghost {
@@ -395,17 +393,17 @@ input {
 
 .hero__scene::before {
   background:
-    radial-gradient(ellipse at 42% 18%, rgba(49, 215, 255, 0.18), transparent 28rem),
-    radial-gradient(ellipse at 62% 22%, rgba(255, 79, 196, 0.14), transparent 24rem);
+    radial-gradient(ellipse at 42% 18%, rgba(125, 211, 252, 0.08), transparent 30rem),
+    radial-gradient(ellipse at 64% 20%, rgba(139, 124, 246, 0.08), transparent 26rem);
   mix-blend-mode: screen;
 }
 
 .hero__scene::after {
   background:
-    linear-gradient(90deg, transparent, rgba(49, 215, 255, 0.12), transparent),
-    linear-gradient(0deg, transparent 0 42%, rgba(255, 255, 255, 0.045) 42.2% 42.5%, transparent 42.8% 100%);
+    linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.055), transparent),
+    linear-gradient(0deg, transparent 0 42%, rgba(255, 255, 255, 0.018) 42.2% 42.5%, transparent 42.8% 100%);
   background-size: 100% 100%, 100% 44px;
-  opacity: 0.72;
+  opacity: 0.5;
 }
 
 .hero__inner {
@@ -425,14 +423,12 @@ input {
 .page-hero h1 {
   max-width: 12ch;
   margin: 0;
-  background: linear-gradient(100deg, #ffffff 8%, var(--color-cyan) 35%, var(--color-accent) 52%, var(--color-violet) 74%, var(--color-pink) 92%);
-  background-clip: text;
-  color: transparent;
+  color: var(--color-text);
   font-family: var(--font-display);
   font-size: clamp(4rem, 10vw, 7rem);
   letter-spacing: 0;
   line-height: 0.9;
-  text-shadow: 0 0 34px rgba(49, 215, 255, 0.2);
+  text-shadow: 0 0 28px rgba(125, 211, 252, 0.12);
 }
 
 .hero__description,
@@ -445,7 +441,7 @@ input {
 
 .hero__description {
   margin: 1.2rem auto 0;
-  text-shadow: 0 0 28px rgba(139, 92, 255, 0.26);
+  text-shadow: none;
 }
 
 .hero__actions,
