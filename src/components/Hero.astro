@@ -11,6 +11,7 @@ const scriptResults = [
 ];
 
 const previewModes = [
+  { id: "setup", label: "Setup" },
   { id: "recording", label: "Recording" },
   { id: "call", label: "Live call" },
   { id: "text", label: "Text" },
@@ -59,7 +60,7 @@ const previewModes = [
         </dl>
       </div>
 
-      <div class="friday-demo" data-friday-demo data-state="recording">
+      <div class="friday-demo" data-friday-demo data-state="setup">
         <div aria-label="Preview mode" class="demo-segment" role="tablist">
           {
             previewModes.map((mode, index) => (
@@ -83,10 +84,40 @@ const previewModes = [
               <span class="window-lights__yellow"></span>
               <span></span>
             </div>
-            <strong>Friday</strong>
+            <strong data-window-title>Set up Friday</strong>
+            <button aria-label="Skip setup" class="skip-button" data-skip-setup type="button">
+              Skip
+            </button>
             <button aria-label="Open account panel" class="icon-button" type="button">
               <Icon name="UserRound" size={24} />
             </button>
+          </div>
+
+          <div class="friday-setup-screen">
+            <div class="setup-stage">
+              <canvas aria-hidden="true" class="setup-wave" data-dome-wave></canvas>
+              <span class="setup-badge">
+                <Icon name="Check" size={17} />
+                Setup takes about a minute
+              </span>
+              <h2>Welcome to Friday</h2>
+              <p>
+                Let's get your assistant ready. Connect one AI provider, choose the model
+                Friday should use, and add the tools you want help with.
+              </p>
+            </div>
+            <div class="setup-footer">
+              <div class="setup-progress" aria-label="Welcome step, 1 of 3">
+                <span class="setup-progress__bar"></span>
+                <span></span>
+                <span></span>
+                <strong>Welcome</strong>
+              </div>
+              <button class="setup-primary" data-get-started type="button">
+                <Icon name="ArrowRight" size={24} />
+                Get started
+              </button>
+            </div>
           </div>
 
           <div class="friday-window__content">
@@ -189,7 +220,134 @@ const previewModes = [
   </div>
 </section>
 
-<script is:inline>
+<script>
+  import * as THREE from "three";
+
+  const domeWaveCanvases = document.querySelectorAll("[data-dome-wave]");
+
+  const setupDomeWave = (canvas) => {
+    if (!(canvas instanceof HTMLCanvasElement)) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const segments = 300;
+    const waves = [
+      { amp: 0.28, freq: 1.6, ph: 0.8, sp: 0.58, cL: [0.12, 0.7, 0.62], cM: [0.18, 0.58, 0.88], cR: [0.48, 0.25, 0.8] },
+      { amp: 0.36, freq: 1.9, ph: 0, sp: 0.9, cL: [0.16, 0.84, 0.76], cM: [0.1, 0.6, 1], cR: [0.44, 0.2, 0.93] },
+      { amp: 0.3, freq: 1.7, ph: 2.1, sp: 0.7, cL: [0.2, 0.9, 0.82], cM: [0.14, 0.66, 0.97], cR: [0.56, 0.33, 0.86] },
+      { amp: 0.2, freq: 2.1, ph: 3.5, sp: 0.82, cL: [0.42, 0.28, 0.88], cM: [0.18, 0.6, 0.95], cR: [0.44, 0.3, 0.88] },
+      { amp: 0.24, freq: 2.4, ph: 1.3, sp: 0.65, cL: [0.08, 0.75, 0.7], cM: [0.22, 0.5, 0.92], cR: [0.52, 0.18, 0.84] },
+      { amp: 0.32, freq: 1.4, ph: 4.2, sp: 0.48, cL: [0.14, 0.8, 0.68], cM: [0.16, 0.62, 0.96], cR: [0.4, 0.28, 0.9] },
+      { amp: 0.18, freq: 2.7, ph: 2.8, sp: 1.05, cL: [0.3, 0.55, 0.85], cM: [0.12, 0.58, 0.98], cR: [0.5, 0.22, 0.82] },
+      { amp: 0.26, freq: 1.2, ph: 5.5, sp: 0.4, cL: [0.1, 0.85, 0.74], cM: [0.2, 0.64, 0.94], cR: [0.46, 0.32, 0.88] },
+      { amp: 0.22, freq: 2.9, ph: 0.4, sp: 1.18, cL: [0.38, 0.3, 0.9], cM: [0.15, 0.55, 0.96], cR: [0.48, 0.26, 0.86] },
+      { amp: 0.16, freq: 3.3, ph: 3, sp: 1.3, cL: [0.18, 0.78, 0.65], cM: [0.1, 0.64, 0.99], cR: [0.54, 0.2, 0.82] },
+    ];
+
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const dome = (x) => Math.cos(x * Math.PI * 0.5);
+    const colorAt = (u, left, mid, right) =>
+      u < 0.5
+        ? [lerp(left[0], mid[0], u * 2), lerp(left[1], mid[1], u * 2), lerp(left[2], mid[2], u * 2)]
+        : [lerp(mid[0], right[0], (u - 0.5) * 2), lerp(mid[1], right[1], (u - 0.5) * 2), lerp(mid[2], right[2], (u - 0.5) * 2)];
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setClearColor(0, 0);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(-1, 1, 0.45, -0.45, 0.1, 10);
+    camera.position.z = 5;
+
+    const waveData = waves.map((config, index) => {
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute("position", new THREE.BufferAttribute(new Float32Array((segments + 1) * 3), 3));
+      geometry.setAttribute("color", new THREE.BufferAttribute(new Float32Array((segments + 1) * 3), 3));
+
+      const colors = geometry.attributes.color.array;
+      for (let i = 0; i <= segments; i += 1) {
+        const u = i / segments;
+        const x = u * 2 - 1;
+        const fade = dome(x);
+        const [r, g, b] = colorAt(u, config.cL, config.cM, config.cR);
+        colors[i * 3] = r * fade;
+        colors[i * 3 + 1] = g * fade;
+        colors[i * 3 + 2] = b * fade;
+      }
+      geometry.attributes.color.needsUpdate = true;
+
+      const glowMaterial = new THREE.LineBasicMaterial({
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.2,
+        depthWrite: false,
+      });
+      const coreMaterial = new THREE.LineBasicMaterial({
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.95,
+        depthWrite: false,
+      });
+
+      const glowTop = new THREE.Line(geometry, glowMaterial);
+      const glowBottom = new THREE.Line(geometry, glowMaterial);
+      const core = new THREE.Line(geometry, coreMaterial);
+      glowTop.position.set(0, 0.018, index * 0.05);
+      glowBottom.position.set(0, -0.018, index * 0.05);
+      core.position.z = index * 0.05 + 0.01;
+      scene.add(glowTop, glowBottom, core);
+
+      return { config, geometry, glowMaterial, coreMaterial };
+    });
+
+    const updatePositions = (geometry, config, time) => {
+      const positions = geometry.attributes.position.array;
+      const breath = Math.max(
+        0.2,
+        0.64 + 0.22 * Math.sin(time * 0.68 + config.ph * 0.2) + 0.14 * Math.sin(time * 1.41 + config.ph * 0.5)
+      );
+      for (let i = 0; i <= segments; i += 1) {
+        const u = i / segments;
+        const x = u * 2 - 1;
+        positions[i * 3] = x;
+        positions[i * 3 + 1] = Math.sin(x * Math.PI * config.freq + config.ph + time * config.sp) * config.amp * breath * dome(x);
+        positions[i * 3 + 2] = 0;
+      }
+      geometry.attributes.position.needsUpdate = true;
+    };
+
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        renderer.setSize(rect.width, rect.height, false);
+      }
+    };
+
+    const observer = new ResizeObserver(resize);
+    observer.observe(canvas);
+    resize();
+
+    let frame = 0;
+    const tick = (now) => {
+      frame = window.requestAnimationFrame(tick);
+      waveData.forEach(({ geometry, config }) => updatePositions(geometry, config, now * 0.001));
+      renderer.render(scene, camera);
+    };
+    frame = window.requestAnimationFrame(tick);
+
+    window.addEventListener("beforeunload", () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+      waveData.forEach(({ geometry, glowMaterial, coreMaterial }) => {
+        geometry.dispose();
+        glowMaterial.dispose();
+        coreMaterial.dispose();
+      });
+      renderer.dispose();
+    }, { once: true });
+  };
+
+  domeWaveCanvases.forEach(setupDomeWave);
+
   (() => {
     const demos = document.querySelectorAll("[data-friday-demo]");
 
@@ -202,6 +360,9 @@ const previewModes = [
       const toggle = demo.querySelector("[data-reasoning-toggle]");
       const thoughtPanel = demo.querySelector("[data-thought-panel]");
       const timer = demo.querySelector("[data-recording-time]");
+      const title = demo.querySelector("[data-window-title]");
+      const getStarted = demo.querySelector("[data-get-started]");
+      const skipSetup = demo.querySelector("[data-skip-setup]");
       let elapsed = 13;
 
       const formatTime = (seconds) => {
@@ -212,6 +373,9 @@ const previewModes = [
 
       const setMode = (mode) => {
         demo.dataset.state = mode;
+        if (title) {
+          title.textContent = mode === "setup" ? "Set up Friday" : "Friday";
+        }
         tabs.forEach((tab) => {
           const selected = tab.dataset.demoState === mode;
           tab.setAttribute("aria-selected", selected ? "true" : "false");
@@ -223,6 +387,9 @@ const previewModes = [
           setMode(tab.dataset.demoState);
         });
       });
+
+      getStarted?.addEventListener("click", () => setMode("recording"));
+      skipSetup?.addEventListener("click", () => setMode("recording"));
 
       toggle?.addEventListener("click", () => {
         const expanded = toggle.getAttribute("aria-expanded") === "true";
