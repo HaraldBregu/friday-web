@@ -1,0 +1,121 @@
+---
+const particleOptions = {
+  background: {
+    color: {
+      value: "transparent",
+    },
+  },
+  detectRetina: true,
+  fpsLimit: 60,
+  fullScreen: {
+    enable: false,
+  },
+  interactivity: {
+    events: {
+      onHover: {
+        enable: true,
+        mode: "bubble",
+      },
+      resize: {
+        enable: true,
+      },
+    },
+    modes: {
+      bubble: {
+        distance: 130,
+        duration: 2,
+        opacity: 0.72,
+        size: 2.4,
+      },
+    },
+  },
+  particles: {
+    color: {
+      value: ["#ffffff", "#9ed8ff", "#8f7cff"],
+    },
+    links: {
+      color: "#5bbcff",
+      distance: 140,
+      enable: true,
+      opacity: 0.08,
+      width: 1,
+    },
+    move: {
+      direction: "none",
+      enable: true,
+      outModes: {
+        default: "out",
+      },
+      random: true,
+      speed: 0.22,
+      straight: false,
+    },
+    number: {
+      density: {
+        enable: true,
+      },
+      value: 96,
+    },
+    opacity: {
+      animation: {
+        enable: true,
+        speed: 0.35,
+        sync: false,
+      },
+      value: {
+        min: 0.12,
+        max: 0.74,
+      },
+    },
+    shape: {
+      type: "circle",
+    },
+    size: {
+      animation: {
+        enable: true,
+        speed: 0.7,
+        sync: false,
+      },
+      value: {
+        min: 0.45,
+        max: 2.1,
+      },
+    },
+  },
+};
+---
+
+<div aria-hidden="true" class="universe-background">
+  <div class="universe-background__glow universe-background__glow--one"></div>
+  <div class="universe-background__glow universe-background__glow--two"></div>
+  <div class="universe-background__field" data-particles-options={JSON.stringify(particleOptions)} id="universe-particles"></div>
+  <div class="universe-background__veil"></div>
+</div>
+
+<script>
+  import { tsParticles } from "@tsparticles/engine";
+  import { loadSlim } from "@tsparticles/slim";
+
+  const startUniverse = async () => {
+    const target = document.querySelector("[data-particles-options]");
+    if (!(target instanceof HTMLElement)) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      target.classList.add("is-reduced-motion");
+      return;
+    }
+
+    const rawOptions = target.dataset.particlesOptions;
+    if (!rawOptions) return;
+
+    await loadSlim(tsParticles);
+    await tsParticles.load({
+      id: target.id,
+      options: JSON.parse(rawOptions),
+    });
+  };
+
+  startUniverse().catch((error) => {
+    console.error("Could not start universe background", error);
+  });
+</script>
