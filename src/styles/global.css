@@ -191,6 +191,13 @@ body::before {
   }
 }
 
+@keyframes title-color-flow {
+  to {
+    background-position: 100% 50%;
+    filter: hue-rotate(10deg);
+  }
+}
+
 .site-header,
 main,
 .site-footer {
@@ -523,6 +530,25 @@ input {
   letter-spacing: 0;
   line-height: 0.94;
   text-shadow: 0 0 28px rgba(125, 211, 252, 0.12);
+}
+
+.hero__copy h1 {
+  background:
+    linear-gradient(
+      105deg,
+      var(--color-text) 0%,
+      var(--color-accent) 28%,
+      var(--color-pink) 48%,
+      var(--color-cyan) 68%,
+      var(--color-text) 100%
+    );
+  background-size: 220% 100%;
+  background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 0 28px color-mix(in srgb, var(--color-accent) 18%, transparent),
+    0 0 46px color-mix(in srgb, var(--color-pink) 12%, transparent);
+  animation: title-color-flow 9s ease-in-out infinite alternate;
 }
 
 .hero__description,
