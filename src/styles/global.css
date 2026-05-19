@@ -540,7 +540,7 @@ input {
   position: relative;
   overflow: clip;
   border-bottom: 1px solid var(--color-border);
-  padding-block: clamp(3rem, 7vw, 5rem);
+  padding: clamp(5.4rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
 }
 
 .hero__scene::before,
