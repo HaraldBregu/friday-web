@@ -85,19 +85,24 @@ body::before {
   content: "";
   position: absolute;
   inset: -12%;
-  opacity: 0.68;
+  opacity: 0.95;
   background-image:
-    radial-gradient(circle at 8% 18%, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 26% 72%, rgba(158, 216, 255, 0.82) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 62% 24%, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.7px),
-    radial-gradient(circle at 82% 58%, rgba(143, 124, 255, 0.76) 0 1px, transparent 1.7px);
-  background-size: 240px 220px;
+    radial-gradient(circle at 8% 18%, rgba(255, 255, 255, 0.95) 0 1.3px, transparent 2.2px),
+    radial-gradient(circle at 26% 72%, rgba(158, 216, 255, 0.86) 0 1.2px, transparent 2px),
+    radial-gradient(circle at 62% 24%, rgba(255, 255, 255, 0.78) 0 1.1px, transparent 2px),
+    radial-gradient(circle at 82% 58%, rgba(143, 124, 255, 0.82) 0 1.2px, transparent 2px);
+  background-size: 150px 140px;
   animation: star-drift 86s linear infinite;
 }
 
 .universe-background::after {
-  opacity: 0.42;
-  background-size: 420px 380px;
+  opacity: 0.72;
+  background-image:
+    linear-gradient(116deg, transparent 30%, rgba(57, 148, 255, 0.08) 43%, rgba(143, 124, 255, 0.1) 55%, transparent 70%),
+    radial-gradient(circle at 14% 32%, rgba(255, 255, 255, 0.76) 0 1.2px, transparent 2.1px),
+    radial-gradient(circle at 48% 18%, rgba(158, 216, 255, 0.74) 0 1.1px, transparent 2px),
+    radial-gradient(circle at 74% 68%, rgba(255, 255, 255, 0.68) 0 1.1px, transparent 2px);
+  background-size: 100% 100%, 310px 270px, 360px 320px, 420px 380px;
   animation-duration: 128s;
   animation-direction: reverse;
 }
@@ -138,7 +143,7 @@ body::before {
 }
 
 .universe-background__veil {
-  background: color-mix(in srgb, var(--color-bg) 40%, transparent);
+  background: color-mix(in srgb, var(--color-bg) 26%, transparent);
 }
 
 [data-theme="light"] .universe-background {
