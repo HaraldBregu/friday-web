@@ -1671,11 +1671,12 @@ input {
     max-width: none;
   }
 
-	  .hero__description,
+  .hero__description,
 	  .section-heading > p,
 	  .page-hero p {
 	    font-size: 0.92rem;
-	    overflow-wrap: break-word;
+	    overflow-wrap: normal;
+	    text-wrap: balance;
 	  }
 
   .hero__metrics,
@@ -1790,8 +1791,22 @@ input {
 	    padding-top: 6.3rem;
 	  }
 
+  .hero__copy {
+    max-width: 20rem;
+  }
+
+  .hero__description {
+    max-width: 18.5rem;
+  }
+
   .hero__metrics {
     display: none;
+  }
+
+  .friday-demo {
+    width: min(100%, 326px);
+    max-width: calc(100vw - 2rem);
+    justify-self: center;
   }
 
 	  .friday-window {
