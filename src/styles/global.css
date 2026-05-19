@@ -224,8 +224,7 @@ input {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--color-bg) 86%, transparent);
-  backdrop-filter: blur(16px);
+  background: transparent;
 }
 
 .nav {
