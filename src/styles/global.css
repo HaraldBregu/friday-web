@@ -427,12 +427,13 @@ input {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  min-height: 3rem;
+  min-height: 2.8rem;
   border: 1px solid transparent;
   border-radius: 999px;
-  padding: 0.8rem 1.15rem;
+  padding: 0.72rem 1.05rem;
   font-family: var(--font-display);
-  font-weight: 800;
+  font-size: 0.92rem;
+  font-weight: 760;
   letter-spacing: 0;
   line-height: 1;
   transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
@@ -519,9 +520,9 @@ input {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(4rem, 10vw, 7rem);
+  font-size: clamp(3.15rem, 7.5vw, 5.8rem);
   letter-spacing: 0;
-  line-height: 0.9;
+  line-height: 0.94;
   text-shadow: 0 0 28px rgba(125, 211, 252, 0.12);
 }
 
@@ -530,7 +531,7 @@ input {
 .page-hero p {
   max-width: 42rem;
   color: var(--color-muted);
-  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  font-size: clamp(0.95rem, 1.55vw, 1.08rem);
 }
 
 .hero__description {
@@ -597,15 +598,15 @@ input {
 }
 
 .demo-segment__button {
-  min-height: 2.3rem;
+  min-height: 2.15rem;
   border: 0;
   border-radius: 999px;
   background: transparent;
   color: rgba(255, 255, 255, 0.74);
   cursor: pointer;
   font-family: var(--font-display);
-  font-size: 0.84rem;
-  font-weight: 850;
+  font-size: 0.78rem;
+  font-weight: 760;
   letter-spacing: 0;
   line-height: 1;
 }
@@ -648,7 +649,7 @@ input {
 
 .friday-window__bar strong {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  font-size: clamp(1.05rem, 2.4vw, 1.45rem);
   letter-spacing: 0;
   line-height: 1;
 }
@@ -703,8 +704,8 @@ input {
   color: #f6f6f4;
   cursor: pointer;
   padding: 0.45rem 0.65rem;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 850;
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  font-weight: 760;
 }
 
 .friday-demo[data-demo-mode="setup"] .icon-button {
@@ -809,8 +810,8 @@ input {
   color: #f4f4f2;
   padding: 0.44rem 0.85rem;
   font-family: var(--font-display);
-  font-size: clamp(0.9rem, 1.8vw, 1.12rem);
-  font-weight: 900;
+  font-size: clamp(0.78rem, 1.35vw, 0.95rem);
+  font-weight: 760;
   letter-spacing: 0;
   line-height: 1;
   box-shadow: none;
@@ -821,7 +822,7 @@ input {
   margin: clamp(1.3rem, 3.5vw, 2.4rem) 0 0;
   color: #f7f7f5;
   font-family: var(--font-display);
-  font-size: clamp(2.3rem, 6vw, 4.2rem);
+  font-size: clamp(1.9rem, 4.8vw, 3.35rem);
   letter-spacing: 0;
   line-height: 0.98;
 }
@@ -830,8 +831,8 @@ input {
   max-width: 36rem;
   margin: clamp(1rem, 2vw, 1.35rem) 0 0;
   color: #a9a9a9;
-  font-size: clamp(1.05rem, 2.2vw, 1.42rem);
-  font-weight: 760;
+  font-size: clamp(0.92rem, 1.65vw, 1.12rem);
+  font-weight: 620;
   line-height: 1.55;
 }
 
@@ -882,7 +883,7 @@ input {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  min-height: 3.2rem;
+  min-height: 2.95rem;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 8px;
   background: #e7fbff;
@@ -890,8 +891,8 @@ input {
   cursor: pointer;
   padding: 0.7rem 1rem;
   font-family: var(--font-display);
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 900;
+  font-size: clamp(0.9rem, 1.55vw, 1.05rem);
+  font-weight: 760;
   letter-spacing: 0;
   line-height: 1;
   box-shadow:
