@@ -411,9 +411,9 @@ input {
 
 .demo-segment {
   display: inline-grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.25rem;
-  width: min(100%, 26rem);
+  width: min(100%, 32rem);
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
   background: rgba(4, 20, 19, 0.48);
@@ -510,12 +510,161 @@ input {
   border-radius: 999px;
 }
 
+.skip-button {
+  display: none;
+  justify-self: end;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #f6f6f4;
+  cursor: pointer;
+  padding: 0.45rem 0.65rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 850;
+}
+
+.friday-demo[data-state="setup"] .icon-button {
+  display: none;
+}
+
+.friday-demo[data-state="setup"] .skip-button {
+  display: inline-flex;
+}
+
 .icon-button:hover,
+.skip-button:hover,
 .composer-button:hover,
 .record-button:hover,
 .call-button:hover,
 .end-call-button:hover {
   background: rgba(255, 255, 255, 0.08);
+}
+
+.friday-setup-screen {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  background: #171818;
+}
+
+.friday-demo[data-state="setup"] .friday-setup-screen {
+  display: flex;
+}
+
+.friday-demo[data-state="setup"] .friday-window__content,
+.friday-demo[data-state="setup"] .friday-composer {
+  display: none;
+}
+
+.setup-stage {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(1.6rem, 5vw, 3rem) clamp(1.1rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.setup-wave {
+  width: min(100%, 36rem);
+  height: clamp(6.5rem, 18vw, 10rem);
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.setup-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 8px;
+  background: #2a2a2a;
+  color: #f4f4f2;
+  padding: 0.44rem 0.85rem;
+  font-size: clamp(0.9rem, 1.8vw, 1.12rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.setup-stage h2 {
+  max-width: 14ch;
+  margin: clamp(1.3rem, 3.5vw, 2.4rem) 0 0;
+  color: #f7f7f5;
+  font-size: clamp(2.3rem, 6vw, 4.2rem);
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.setup-stage p {
+  max-width: 36rem;
+  margin: clamp(1rem, 2vw, 1.35rem) 0 0;
+  color: #a9a9a9;
+  font-size: clamp(1.05rem, 2.2vw, 1.42rem);
+  font-weight: 760;
+  line-height: 1.55;
+}
+
+.setup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 5.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #111212;
+  padding: 0.85rem 1.4rem;
+}
+
+.setup-progress {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 0.65rem;
+  color: #a8a8a8;
+  font-weight: 900;
+}
+
+.setup-progress span {
+  display: block;
+  width: 0.72rem;
+  height: 0.72rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: #2f2f2f;
+}
+
+.setup-progress .setup-progress__bar {
+  width: 3rem;
+  height: 0.55rem;
+}
+
+.setup-progress strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.setup-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3.2rem;
+  border: 0;
+  border-radius: 8px;
+  background: #ececec;
+  color: #202223;
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.setup-primary:hover {
+  background: #ffffff;
 }
 
 .friday-window__content {
