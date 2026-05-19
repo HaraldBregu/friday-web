@@ -569,10 +569,43 @@ input {
   text-align: center;
 }
 
-.setup-wave {
+.setup-wave-wrap {
+  position: relative;
   width: min(100%, 36rem);
   height: clamp(6.5rem, 18vw, 10rem);
   margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.setup-wave,
+.setup-wave-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.setup-wave-fallback {
+  filter: drop-shadow(0 0 12px rgba(46, 189, 230, 0.24));
+}
+
+.setup-wave-fallback path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-width: 1.4;
+}
+
+.setup-wave-fallback path:nth-child(1),
+.setup-wave-fallback path:nth-child(4) {
+  stroke: rgba(30, 212, 209, 0.78);
+}
+
+.setup-wave-fallback path:nth-child(2),
+.setup-wave-fallback path:nth-child(5) {
+  stroke: rgba(55, 162, 245, 0.82);
+}
+
+.setup-wave-fallback path:nth-child(3) {
+  stroke: rgba(135, 101, 238, 0.76);
 }
 
 .setup-badge {
@@ -1593,6 +1626,10 @@ input {
     border-radius: 22px;
   }
 
+  .friday-demo[data-state="setup"] .friday-window {
+    height: 34rem;
+  }
+
   .demo-segment {
     gap: 0.18rem;
     padding: 0.22rem;
@@ -1607,7 +1644,7 @@ input {
     padding: 1.15rem 0.9rem;
   }
 
-  .setup-wave {
+  .setup-wave-wrap {
     height: 6.5rem;
     margin-bottom: 1.4rem;
   }
