@@ -426,7 +426,7 @@ input {
   position: relative;
   overflow: clip;
   border-bottom: 1px solid var(--color-border);
-  padding: clamp(5.4rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5rem);
+  padding: clamp(7.4rem, 13vw, 10.5rem) 0 clamp(4rem, 8vw, 6rem);
 }
 
 .hero__scene::before,
@@ -456,11 +456,15 @@ input {
 .hero__inner {
   position: relative;
   display: grid;
-  align-items: start;
-  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+  justify-items: center;
+  gap: clamp(2.6rem, 6vw, 4.6rem);
+  text-align: center;
 }
 
 .hero__copy {
+  display: grid;
+  justify-items: center;
   max-width: 48rem;
   margin-inline: auto;
   text-align: center;
@@ -469,7 +473,7 @@ input {
 .hero__copy h1,
 .page-hero h1 {
   max-width: 12ch;
-  margin: 0;
+  margin: 0 auto;
   color: var(--color-text);
   font-family: var(--font-display);
   font-size: clamp(3.15rem, 7.5vw, 5.8rem);
@@ -1603,7 +1607,7 @@ input {
 @media (max-width: 960px) {
   .hero__inner {
     display: grid;
-    gap: 2rem;
+    gap: 2.6rem;
     min-height: auto;
   }
 
@@ -1688,15 +1692,15 @@ input {
 
   .hero__actions {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
 
 	  .hero__actions .button {
-	    width: 100%;
+	    width: min(100%, 18rem);
 	  }
 
 	  .download-menu {
-	    width: 100%;
+	    width: min(100%, 18rem);
 	  }
 
 	  .download-menu__panel {
@@ -1779,12 +1783,11 @@ input {
 @media (max-width: 520px) {
   .shell {
     width: min(calc(100% - 2rem), 358px);
-    margin-left: 1rem;
-    margin-right: auto;
+    margin-inline: auto;
   }
 
 	  .hero__scene {
-	    padding-top: 4.6rem;
+	    padding-top: 6.3rem;
 	  }
 
   .hero__metrics {
