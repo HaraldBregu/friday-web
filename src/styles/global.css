@@ -897,7 +897,7 @@ input {
 
 .proof-strip {
   border-block: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-panel) 65%, transparent);
+  background: transparent;
 }
 
 .proof-strip__inner {
@@ -1123,7 +1123,7 @@ input {
 
 .site-footer {
   border-top: 1px solid var(--color-border);
-  background: var(--color-bg-soft);
+  background: var(--color-bg);
   padding-block: 3rem 1.5rem;
 }
 
