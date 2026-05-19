@@ -162,7 +162,7 @@ input {
   display: grid;
   gap: 0.05rem;
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
 .brand__text small {
@@ -823,7 +823,7 @@ input {
   max-width: 13ch;
   margin: 0;
   font-size: clamp(2.2rem, 5vw, 4.4rem);
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
   line-height: 1;
 }
 
@@ -906,7 +906,7 @@ input {
 .mission-grid h2 {
   margin: 1.2rem 0 0.45rem;
   font-size: 1.1rem;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 .feature-card p,
@@ -1187,7 +1187,7 @@ input {
 .article-header h1 {
   margin: 0;
   font-size: clamp(2.7rem, 7vw, 5rem);
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
   line-height: 1;
 }
 
@@ -1205,7 +1205,7 @@ input {
   margin-top: 2.5rem;
   color: var(--color-text);
   font-size: 1.8rem;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .article-body p,
@@ -1236,7 +1236,7 @@ input {
 .not-found__panel h1 {
   margin: 0;
   font-size: clamp(2.4rem, 6vw, 4.8rem);
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
   line-height: 1;
 }
 
