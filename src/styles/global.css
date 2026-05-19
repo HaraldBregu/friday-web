@@ -80,6 +80,28 @@ body::before {
   pointer-events: none;
 }
 
+.universe-background::before,
+.universe-background::after {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  opacity: 0.68;
+  background-image:
+    radial-gradient(circle at 8% 18%, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 26% 72%, rgba(158, 216, 255, 0.82) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 62% 24%, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 82% 58%, rgba(143, 124, 255, 0.76) 0 1px, transparent 1.7px);
+  background-size: 240px 220px;
+  animation: star-drift 86s linear infinite;
+}
+
+.universe-background::after {
+  opacity: 0.42;
+  background-size: 420px 380px;
+  animation-duration: 128s;
+  animation-direction: reverse;
+}
+
 .universe-background__field,
 .universe-background__field canvas,
 .universe-background__veil,
@@ -116,11 +138,17 @@ body::before {
 }
 
 .universe-background__veil {
-  background: color-mix(in srgb, var(--color-bg) 58%, transparent);
+  background: color-mix(in srgb, var(--color-bg) 40%, transparent);
 }
 
 [data-theme="light"] .universe-background {
   opacity: 0.38;
+}
+
+@keyframes star-drift {
+  to {
+    transform: translate3d(-5%, 4%, 0);
+  }
 }
 
 .site-header,
