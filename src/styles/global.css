@@ -1798,9 +1798,20 @@ input {
     align-items: stretch;
   }
 
-  .hero__actions .button {
-    width: 100%;
-  }
+	  .hero__actions .button {
+	    width: 100%;
+	  }
+
+	  .download-menu {
+	    width: 100%;
+	  }
+
+	  .download-menu__panel {
+	    left: 0;
+	    width: 100%;
+	    min-width: 0;
+	    transform: none;
+	  }
 
   .demo-segment {
     width: 100%;
