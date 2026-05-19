@@ -625,8 +625,9 @@ input {
 .friday-demo {
   position: relative;
   z-index: 1;
-  width: min(100%, 50rem);
+  width: min(100%, 42rem);
   margin-inline: auto;
+  --friday-app-ratio: 4 / 5;
 }
 
 .friday-demo::before {
@@ -682,7 +683,9 @@ input {
 .friday-window {
   display: flex;
   flex-direction: column;
-  height: clamp(38rem, 76svh, 48rem);
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--friday-app-ratio);
   overflow: hidden;
   border: 1px solid rgba(165, 243, 252, 0.18);
   border-radius: 28px;
