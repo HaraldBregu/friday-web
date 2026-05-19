@@ -227,7 +227,9 @@ const previewModes = [
       toggle?.addEventListener("click", () => {
         const expanded = toggle.getAttribute("aria-expanded") === "true";
         toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
-        thoughtPanel.hidden = expanded;
+        if (thoughtPanel) {
+          thoughtPanel.hidden = expanded;
+        }
       });
 
       form?.addEventListener("submit", (event) => {
