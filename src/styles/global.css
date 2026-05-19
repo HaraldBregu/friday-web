@@ -1244,45 +1244,34 @@ input {
   margin-top: 1.5rem;
 }
 
-@keyframes cursor-blink {
-  0%,
-  45% {
-    opacity: 1;
-  }
-
-  46%,
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes pulse-glow {
+@keyframes bar-wave {
   0%,
   100% {
-    opacity: 0.55;
-    transform: translateX(-6%);
+    transform: scaleY(0.66);
   }
 
   50% {
-    opacity: 0.9;
-    transform: translateX(6%);
-  }
-}
-
-@keyframes ambient-drift {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  50% {
-    transform: translateX(-50%) translateY(1.5rem);
+    transform: scaleY(1.18);
   }
 }
 
 @media (max-width: 960px) {
-  .hero__grid {
-    grid-template-columns: 1fr;
+  .hero__inner {
+    display: grid;
+    gap: 2rem;
+    min-height: auto;
+  }
+
+  .hero__copy {
+    position: relative;
+    top: auto;
+    max-width: 42rem;
+    transform: none;
+  }
+
+  .friday-demo {
+    width: min(100%, 42rem);
+    margin-inline: auto;
   }
 
   .feature-grid,
@@ -1324,7 +1313,7 @@ input {
   .cta-panel h2 {
     max-width: 11ch;
     font-size: clamp(2.55rem, 11vw, 3.2rem);
-    letter-spacing: -0.045em;
+    letter-spacing: 0;
   }
 
   .section-heading h2,
@@ -1361,8 +1350,58 @@ input {
     width: 100%;
   }
 
-  .command-preview {
+  .demo-segment {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .friday-window {
+    height: 34rem;
+    border-radius: 24px;
+  }
+
+  .friday-window__bar {
+    min-height: 4.25rem;
+    padding-inline: 1rem;
+  }
+
+  .window-lights {
+    gap: 0.5rem;
+  }
+
+  .window-lights span {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .friday-prompt {
+    max-width: 86%;
+  }
+
+  .result-card li > span:last-child {
     max-width: 100%;
+  }
+
+  .friday-composer {
+    min-height: 4.55rem;
+    margin-inline: 0.75rem;
+    padding: 0.55rem;
+  }
+
+  .composer-button {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .record-button,
+  .call-button {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .bar-wave,
+  .line-wave {
+    min-width: 5rem;
   }
 
   .split-heading,
@@ -1371,10 +1410,6 @@ input {
     align-items: start;
     flex-direction: column;
   }
-
-  .command-preview__header strong {
-    display: none;
-  }
 }
 
 @media (max-width: 520px) {
@@ -1382,6 +1417,50 @@ input {
     width: min(calc(100% - 2rem), 358px);
     margin-left: 1rem;
     margin-right: auto;
+  }
+
+  .hero__scene {
+    padding-top: 2rem;
+  }
+
+  .hero__metrics {
+    display: none;
+  }
+
+  .friday-window {
+    height: 31rem;
+    border-radius: 22px;
+  }
+
+  .friday-window__content {
+    gap: 1rem;
+    padding: 1rem 0.9rem 0.8rem;
+  }
+
+  .friday-prompt {
+    border-radius: 20px;
+    font-size: 0.98rem;
+  }
+
+  .result-card {
+    border-radius: 16px;
+  }
+
+  .result-card li {
+    font-size: 0.85rem;
+  }
+
+  .composer-time {
+    display: none;
+  }
+
+  .bar-wave,
+  .line-wave {
+    min-width: 3.8rem;
+  }
+
+  .end-call-button {
+    padding-inline: 0.65rem;
   }
 }
 
