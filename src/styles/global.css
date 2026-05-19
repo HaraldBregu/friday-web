@@ -1508,6 +1508,10 @@ input {
     margin-left: 0;
   }
 
+  .demo-segment__button {
+    font-size: 0.78rem;
+  }
+
   .friday-window {
     height: 40rem;
     border-radius: 24px;
@@ -1516,6 +1520,10 @@ input {
   .friday-window__bar {
     min-height: 4.25rem;
     padding-inline: 1rem;
+  }
+
+  .skip-button {
+    font-size: 0.98rem;
   }
 
   .window-lights {
@@ -1583,6 +1591,60 @@ input {
   .friday-window {
     height: 38rem;
     border-radius: 22px;
+  }
+
+  .demo-segment {
+    gap: 0.18rem;
+    padding: 0.22rem;
+  }
+
+  .demo-segment__button {
+    min-height: 2.1rem;
+    font-size: 0.72rem;
+  }
+
+  .setup-stage {
+    padding: 1.15rem 0.9rem;
+  }
+
+  .setup-wave {
+    height: 6.5rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .setup-badge {
+    font-size: 0.82rem;
+  }
+
+  .setup-stage h2 {
+    font-size: 2.35rem;
+  }
+
+  .setup-stage p {
+    font-size: 1rem;
+  }
+
+  .setup-footer {
+    min-height: 4.7rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .setup-progress {
+    gap: 0.45rem;
+  }
+
+  .setup-progress strong {
+    max-width: 5.5rem;
+  }
+
+  .setup-progress .setup-progress__bar {
+    width: 2.3rem;
+  }
+
+  .setup-primary {
+    min-height: 2.9rem;
+    padding-inline: 0.72rem;
+    font-size: 0.98rem;
   }
 
   .friday-window__content {
