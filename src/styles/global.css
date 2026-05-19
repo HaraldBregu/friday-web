@@ -593,6 +593,10 @@ input {
   margin-top: 0.75rem;
 }
 
+.result-card p:last-child {
+  display: none;
+}
+
 .result-card ul {
   display: grid;
   gap: 0.38rem;
@@ -1356,7 +1360,7 @@ input {
   }
 
   .friday-window {
-    height: 36rem;
+    height: 40rem;
     border-radius: 24px;
   }
 
@@ -1428,7 +1432,7 @@ input {
   }
 
   .friday-window {
-    height: 34rem;
+    height: 38rem;
     border-radius: 22px;
   }
 
@@ -1453,10 +1457,6 @@ input {
 
   .result-card p {
     font-size: 0.9rem;
-  }
-
-  .result-card p:last-child {
-    display: none;
   }
 
   .composer-time {
