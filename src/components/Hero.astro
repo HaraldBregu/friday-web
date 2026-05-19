@@ -1,7 +1,7 @@
 ---
 import FadeInText from "@astroanimate/core/FadeInText";
 import ScaleIn from "@astroanimate/core/ScaleIn";
-import site from "../data/site.json";
+import socialLinks from "../data/social-links.json";
 import Icon from "./Icon.astro";
 
 const scriptResults = [
@@ -10,6 +10,14 @@ const scriptResults = [
   { file: "hw_3.py", output: "World says hello back." },
   { file: "hw_4.py", output: "Hello, world. That is all." },
   { file: "hw_5.py", output: "Hello world from script five." },
+];
+
+const githubUrl = socialLinks.find((link) => link.label === "GitHub")?.url ?? "https://github.com/replace-me/friday";
+const releaseBaseUrl = `${githubUrl}/releases/latest/download`;
+const downloadOptions = [
+  { label: "Download for macOS", icon: "Apple", url: `${releaseBaseUrl}/Friday-mac.dmg` },
+  { label: "Download for Linux", icon: "TerminalSquare", url: `${releaseBaseUrl}/Friday-linux.AppImage` },
+  { label: "Download for Windows", icon: "MonitorDown", url: `${releaseBaseUrl}/Friday-windows.exe` },
 ];
 ---
 
@@ -22,9 +30,27 @@ const scriptResults = [
           A desktop AI assistant for tools, files, and focused work.
         </p>
         <div class="hero__actions">
-          <a class="button button--primary" href={site.cta.url}>
-            {site.cta.label}
-            <Icon name="ArrowRight" size={18} />
+          <details class="download-menu">
+            <summary class="button button--primary download-menu__trigger">
+              <Icon name="Download" size={18} />
+              Download
+              <Icon class="download-menu__chevron" name="ChevronDown" size={16} />
+            </summary>
+            <div class="download-menu__panel">
+              {
+                downloadOptions.map((option) => (
+                  <a href={option.url}>
+                    <Icon name={option.icon} size={18} />
+                    <span>{option.label}</span>
+                  </a>
+                ))
+              }
+            </div>
+          </details>
+          <a class="button button--ghost button--github" href={githubUrl}>
+            <Icon name="Github" size={18} />
+            GitHub repo
+            <Icon name="ArrowRight" size={16} />
           </a>
         </div>
       </FadeInText>
