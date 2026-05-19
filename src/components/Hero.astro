@@ -40,7 +40,7 @@ const previewModes = [
         as="div"
         class="friday-demo"
         data-friday-demo
-        data-state="setup"
+        data-demo-mode="setup"
         delay={180}
         duration={700}
         enhance
@@ -370,7 +370,7 @@ const previewModes = [
       };
 
       const setMode = (mode) => {
-        demo.dataset.state = mode;
+        demo.dataset.demoMode = mode;
         if (title) {
           title.textContent = mode === "setup" ? "Set up Friday" : "Friday";
         }
@@ -408,7 +408,7 @@ const previewModes = [
       });
 
       window.setInterval(() => {
-        if (demo.dataset.state !== "recording" || !timer) return;
+        if (demo.dataset.demoMode !== "recording" || !timer) return;
         elapsed += 1;
         timer.textContent = formatTime(elapsed);
       }, 1000);
