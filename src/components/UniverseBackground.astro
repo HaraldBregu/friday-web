@@ -35,9 +35,9 @@ const particleOptions = {
     },
     links: {
       color: "#a5f3fc",
-      distance: 112,
+      distance: 118,
       enable: true,
-      opacity: 0.16,
+      opacity: 0.06,
       width: 1,
     },
     move: {
@@ -54,7 +54,7 @@ const particleOptions = {
       density: {
         enable: true,
       },
-      value: 340,
+      value: 120,
     },
     opacity: {
       animation: {
@@ -63,8 +63,8 @@ const particleOptions = {
         sync: false,
       },
       value: {
-        min: 0.24,
-        max: 0.92,
+        min: 0.12,
+        max: 0.62,
       },
     },
     shape: {
@@ -77,8 +77,8 @@ const particleOptions = {
         sync: false,
       },
       value: {
-        min: 0.34,
-        max: 2.75,
+        min: 0.35,
+        max: 2.15,
       },
     },
   },
@@ -87,6 +87,9 @@ const particleOptions = {
 
 <div aria-hidden="true" class="universe-background">
   <div class="universe-background__galaxy"></div>
+  <div class="universe-background__star-cluster universe-background__star-cluster--main"></div>
+  <div class="universe-background__star-cluster universe-background__star-cluster--left"></div>
+  <div class="universe-background__star-cluster universe-background__star-cluster--right"></div>
   <div class="universe-background__nebula universe-background__nebula--left"></div>
   <div class="universe-background__nebula universe-background__nebula--right"></div>
   <div class="universe-background__comet"></div>
