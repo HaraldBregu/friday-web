@@ -73,9 +73,9 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 52% -8%, rgba(125, 211, 252, 0.12), transparent 34rem),
-    radial-gradient(circle at 86% 14%, rgba(139, 124, 246, 0.1), transparent 28rem),
-    radial-gradient(circle at 12% 30%, rgba(94, 234, 212, 0.08), transparent 32rem);
+    radial-gradient(circle at 52% -8%, rgba(125, 211, 252, 0.14), transparent 34rem),
+    radial-gradient(circle at 86% 14%, rgba(139, 124, 246, 0.12), transparent 28rem),
+    radial-gradient(circle at 12% 30%, rgba(94, 234, 212, 0.09), transparent 32rem);
 }
 
 .universe-background {
@@ -116,8 +116,17 @@ body::before {
 .universe-background__field,
 .universe-background__field canvas,
 .universe-background__veil,
+.universe-background__galaxy,
+.universe-background__nebula,
+.universe-background__comet,
 .universe-background__glow {
   position: absolute;
+}
+
+.universe-background__field,
+.universe-background__field canvas,
+.universe-background__veil,
+.universe-background__glow {
   inset: 0;
 }
 
@@ -138,6 +147,59 @@ body::before {
 .universe-background__glow {
   opacity: 0.55;
   filter: blur(4px) saturate(1.08);
+}
+
+.universe-background__galaxy {
+  top: -7%;
+  left: 50%;
+  width: 155vmax;
+  height: 36vmax;
+  border-radius: 999px;
+  background:
+    radial-gradient(ellipse at 48% 50%, rgba(255, 255, 255, 0.18), transparent 5%),
+    radial-gradient(ellipse at 46% 50%, rgba(165, 243, 252, 0.24), transparent 16%),
+    radial-gradient(ellipse at 58% 47%, rgba(139, 124, 246, 0.22), transparent 28%),
+    radial-gradient(ellipse at 40% 54%, rgba(94, 234, 212, 0.12), transparent 38%),
+    radial-gradient(ellipse at 50% 50%, rgba(125, 211, 252, 0.16), transparent 58%);
+  filter: blur(18px) saturate(1.2);
+  mask-image: radial-gradient(ellipse at center, #000 0 42%, transparent 74%);
+  opacity: 0.72;
+  transform: translateX(-50%) rotate(-13deg);
+  animation: galaxy-breathe 18s ease-in-out infinite alternate;
+}
+
+.universe-background__nebula {
+  width: 42vmax;
+  height: 42vmax;
+  border-radius: 999px;
+  filter: blur(32px);
+  opacity: 0.36;
+  animation: nebula-drift 24s ease-in-out infinite alternate;
+}
+
+.universe-background__nebula--left {
+  top: 18%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(94, 234, 212, 0.28), transparent 66%);
+}
+
+.universe-background__nebula--right {
+  top: 4%;
+  right: -9%;
+  background: radial-gradient(circle, rgba(139, 124, 246, 0.32), transparent 68%);
+  animation-delay: -8s;
+}
+
+.universe-background__comet {
+  top: 16%;
+  left: 66%;
+  width: 16rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(165, 243, 252, 0.5), rgba(255, 255, 255, 0.72), transparent);
+  filter: blur(0.4px);
+  opacity: 0.46;
+  transform: rotate(-22deg);
+  animation: comet-pass 9s ease-in-out infinite;
 }
 
 .universe-background__glow--one {
@@ -163,6 +225,38 @@ body::before {
 @keyframes star-drift {
   to {
     transform: translate3d(-5%, 4%, 0);
+  }
+}
+
+@keyframes galaxy-breathe {
+  to {
+    opacity: 0.88;
+    transform: translateX(-50%) rotate(-11deg) scale(1.03);
+  }
+}
+
+@keyframes nebula-drift {
+  to {
+    transform: translate3d(3%, -2%, 0) scale(1.08);
+  }
+}
+
+@keyframes comet-pass {
+  0%,
+  72%,
+  100% {
+    opacity: 0;
+    transform: translate3d(8rem, -3rem, 0) rotate(-22deg);
+  }
+
+  12%,
+  24% {
+    opacity: 0.48;
+  }
+
+  32% {
+    opacity: 0;
+    transform: translate3d(-18rem, 7rem, 0) rotate(-22deg);
   }
 }
 
