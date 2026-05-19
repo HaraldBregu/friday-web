@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Command from chat",
+    "description": "Turn short messages into plans, code changes, file operations, and follow-ups without changing tools.",
+    "icon": "MessagesSquare"
+  },
+  {
+    "title": "Bring your models",
+    "description": "Route tasks to the provider that fits the job, from fast drafts to deep reasoning and private local runs.",
+    "icon": "Bot"
+  },
+  {
+    "title": "Tool-aware actions",
+    "description": "Connect repos, inboxes, calendars, issue trackers, docs, and internal systems behind clear permissions.",
+    "icon": "PlugZap"
+  },
+  {
+    "title": "Persistent memory",
+    "description": "Keep project context, preferences, and operating rules available across long-running work.",
+    "icon": "Fingerprint"
+  },
+  {
+    "title": "Observable work",
+    "description": "Watch every step, inspect logs, and keep a clean trail of what changed and why.",
+    "icon": "TerminalSquare"
+  },
+  {
+    "title": "Human approval gates",
+    "description": "Set where the assistant can act, where it must pause, and how risky operations are reviewed.",
+    "icon": "ShieldCheck"
+  },
+  {
+    "title": "Composable workflows",
+    "description": "Package repeated tasks into reusable commands that work across teams and projects.",
+    "icon": "Workflow"
+  },
+  {
+    "title": "Channel-native updates",
+    "description": "Send concise progress reports to Slack, Discord, email, or your own notification pipeline.",
+    "icon": "RadioTower"
+  }
+]

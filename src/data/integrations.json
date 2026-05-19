@@ -1,0 +1,56 @@
+[
+  {
+    "name": "GitHub",
+    "category": "Code",
+    "description": "Inspect issues, open pull requests, summarize reviews, and track repository activity.",
+    "icon": "Github"
+  },
+  {
+    "name": "GitLab",
+    "category": "Code",
+    "description": "Connect merge requests, CI status, and project boards to your assistant workspace.",
+    "icon": "GitBranch"
+  },
+  {
+    "name": "Slack",
+    "category": "Channels",
+    "description": "Receive task updates, approvals, and daily summaries in the channels your team already reads.",
+    "icon": "Slack"
+  },
+  {
+    "name": "Discord",
+    "category": "Channels",
+    "description": "Run community workflows and support queues from a server-native assistant.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Gmail",
+    "category": "Productivity",
+    "description": "Draft replies, triage messages, and extract follow-ups while keeping review controls.",
+    "icon": "MailCheck"
+  },
+  {
+    "name": "Calendar",
+    "category": "Productivity",
+    "description": "Prepare agendas, spot conflicts, and create reminders from project context.",
+    "icon": "CalendarDays"
+  },
+  {
+    "name": "Postgres",
+    "category": "Data",
+    "description": "Query operational data through scoped credentials and auditable read-only workflows.",
+    "icon": "Database"
+  },
+  {
+    "name": "Cloudflare",
+    "category": "Infrastructure",
+    "description": "Coordinate deploy previews, DNS checks, queues, workers, and edge runtime tasks.",
+    "icon": "Cloud"
+  },
+  {
+    "name": "Local runtime",
+    "category": "Models",
+    "description": "Run private workloads on local models for sensitive drafts and internal context.",
+    "icon": "Cpu"
+  }
+]

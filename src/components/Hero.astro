@@ -1,0 +1,69 @@
+---
+import site from "../data/site.json";
+import Icon from "./Icon.astro";
+---
+
+<section class="hero section">
+  <div aria-hidden="true" class="hero__ambient"></div>
+  <div class="shell hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">
+        <Icon name="Sparkles" size={16} />
+        Built for developers and operators
+      </p>
+      <h1>One desktop assistant for models, tools, and team channels.</h1>
+      <p class="hero__description">{site.description}</p>
+      <div class="hero__actions">
+        <a class="button button--primary" href={site.cta.url}>
+          {site.cta.label}
+          <Icon name="ArrowRight" size={18} />
+        </a>
+        <a class="button button--ghost" href={site.secondaryCta.url}>
+          {site.secondaryCta.label}
+        </a>
+      </div>
+      <dl aria-label="Product highlights" class="hero__metrics">
+        <div>
+          <dt>8</dt>
+          <dd>starter workflows</dd>
+        </div>
+        <div>
+          <dt>24/7</dt>
+          <dd>background context</dd>
+        </div>
+        <div>
+          <dt>0</dt>
+          <dd>heavy client runtime</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div aria-label="Product command preview" class="command-preview">
+      <div class="command-preview__header">
+        <span></span>
+        <span></span>
+        <span></span>
+        <strong>Friday Command</strong>
+      </div>
+      <div class="command-preview__body">
+        <div class="command-preview__prompt">
+          <span>$</span>
+          <code>friday run "review the release checklist"</code>
+        </div>
+        <div class="command-preview__card">
+          <div>
+            <p>Plan generated</p>
+            <small>4 actions ready for approval</small>
+          </div>
+          <Icon name="CheckCircle2" size={22} />
+        </div>
+        <ul class="command-preview__steps">
+          <li><span></span>Inspect merged pull requests</li>
+          <li><span></span>Draft release notes</li>
+          <li><span></span>Post summary to Slack</li>
+          <li><span></span>Create follow-up issues</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

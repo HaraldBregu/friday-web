@@ -1,0 +1,16 @@
+{
+  "name": "Friday",
+  "tagline": "A desktop AI command center for real work.",
+  "description": "A desktop AI command center that connects models, tools, files, and team channels from one focused chat interface.",
+  "audience": "Developers, founders, and operators who want an AI assistant that can coordinate real workflows.",
+  "url": "https://friday.example.com",
+  "replacementNote": "Replace these defaults with PROJECT_NAME, PROJECT_DESCRIPTION, TARGET_AUDIENCE, CTA_TEXT, CTA_URL, SECONDARY_CTA_TEXT, and SECONDARY_CTA_URL.",
+  "cta": {
+    "label": "Join the waitlist",
+    "url": "#waitlist"
+  },
+  "secondaryCta": {
+    "label": "View integrations",
+    "url": "/integrations"
+  }
+}

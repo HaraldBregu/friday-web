@@ -1,0 +1,67 @@
+---
+import {
+  ArrowRight,
+  BookOpen,
+  Bot,
+  CalendarDays,
+  CheckCircle2,
+  Cloud,
+  Cpu,
+  Database,
+  Fingerprint,
+  Github,
+  GitBranch,
+  HeartHandshake,
+  Mail,
+  MailCheck,
+  MessageSquare,
+  MessagesSquare,
+  Moon,
+  PlugZap,
+  RadioTower,
+  ShieldCheck,
+  Slack,
+  Sparkles,
+  Sun,
+  TerminalSquare,
+  Twitter,
+  Users,
+  Workflow,
+} from "lucide-astro";
+
+const icons = {
+  ArrowRight,
+  BookOpen,
+  Bot,
+  CalendarDays,
+  CheckCircle2,
+  Cloud,
+  Cpu,
+  Database,
+  Fingerprint,
+  Github,
+  GitBranch,
+  HeartHandshake,
+  Mail,
+  MailCheck,
+  MessageSquare,
+  MessagesSquare,
+  Moon,
+  PlugZap,
+  RadioTower,
+  ShieldCheck,
+  Slack,
+  Sparkles,
+  Sun,
+  TerminalSquare,
+  Twitter,
+  Users,
+  Workflow,
+};
+
+const { name = "Sparkles", size = 22, strokeWidth = 1.9 } = Astro.props;
+const className = Astro.props.class ?? "";
+const SelectedIcon = icons[name as keyof typeof icons] ?? Sparkles;
+---
+
+<SelectedIcon aria-hidden="true" class={className} size={size} strokeWidth={strokeWidth} />

@@ -1,0 +1,77 @@
+---
+import CTASection from "../components/CTASection.astro";
+import Icon from "../components/Icon.astro";
+import socialLinks from "../data/social-links.json";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Community"
+  description="The mission, contribution paths, and community links for Friday."
+>
+  <section class="section page-hero">
+    <div class="shell section-heading">
+      <p class="eyebrow">Community</p>
+      <h1>Make useful AI feel accountable, inspectable, and owned by the team.</h1>
+      <p>
+        Friday is designed around a simple belief: assistants should work in
+        the open, explain their actions, and adapt to the workflows people
+        already trust.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--compact">
+    <div class="shell mission-grid">
+      <article>
+        <Icon name="Users" />
+        <h2>Built with operators</h2>
+        <p>
+          The product should reflect how teams actually work: messy context,
+          approval steps, shared channels, and evolving internal rules.
+        </p>
+      </article>
+      <article>
+        <Icon name="BookOpen" />
+        <h2>Documented by default</h2>
+        <p>
+          Workflows, prompts, provider choices, and integration settings should
+          be easy to inspect, improve, and share.
+        </p>
+      </article>
+      <article>
+        <Icon name="HeartHandshake" />
+        <h2>Open to contributors</h2>
+        <p>
+          Add adapters, improve starter workflows, write docs, or help shape
+          the safety model for agentic desktop tools.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--muted" id="contribute">
+    <div class="shell split-heading">
+      <div>
+        <p class="eyebrow">Join in</p>
+        <h2>Follow development and contribute where you can help.</h2>
+      </div>
+    </div>
+    <div class="shell community-links">
+      {
+        socialLinks.map((link) => (
+          <a class="community-link" href={link.url}>
+            <Icon name={link.icon} />
+            <span>{link.label}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow="Contribute a workflow"
+    title="Turn your repeated task into a reusable command."
+    description="Start with the sample data and replace it with your real contribution paths, docs, and repository links."
+  />
+</Layout>

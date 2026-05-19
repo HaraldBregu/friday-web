@@ -1,0 +1,27 @@
+---
+import site from "../data/site.json";
+import Icon from "./Icon.astro";
+
+const {
+  eyebrow = "Ready to replace busywork?",
+  title = "Give your workflows a command center.",
+  description = "Start with a small set of trusted actions, connect the systems you use every day, and expand from there.",
+} = Astro.props;
+---
+
+<section class="section cta-section" id="waitlist">
+  <div class="shell cta-panel">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <div class="cta-panel__actions">
+      <a class="button button--primary" href={site.cta.url}>
+        {site.cta.label}
+        <Icon name="ArrowRight" size={18} />
+      </a>
+      <a class="button button--ghost" href={site.secondaryCta.url}>
+        {site.secondaryCta.label}
+      </a>
+    </div>
+  </div>
+</section>

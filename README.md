@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Friday Static Marketing Site
 
-## Getting Started
+Astro static marketing site for a developer-facing AI/productivity product.
+The current copy uses tasteful defaults because the project placeholders were
+not filled in:
 
-First, run the development server:
+- `PROJECT_NAME`: Friday
+- `PROJECT_DESCRIPTION`: A desktop AI command center that connects models, tools, files, and team channels from one focused chat interface.
+- `TARGET_AUDIENCE`: Developers, founders, and operators
+- `CTA_TEXT`: Join the waitlist
+- `CTA_URL`: `#waitlist`
+- `SECONDARY_CTA_TEXT`: View integrations
+- `SECONDARY_CTA_URL`: `/integrations`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Replace these in [src/data/site.json](src/data/site.json).
+
+## Commands
+
+```sh
+bun install
+bun run dev
+bun run build
+bun run preview
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+public/
+  favicon.svg
+  og-image.svg
+  robots.txt
+src/
+  components/       Reusable Astro components
+  content/blog/     Markdown blog posts
+  data/             JSON content for features, integrations, proof, and links
+  layouts/          Shared page and blog layouts
+  pages/            Static routes and RSS feed
+  styles/global.css Custom CSS variables and responsive styling
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization Notes
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Global colors, spacing, typography, borders, and shadows live in `src/styles/global.css`.
+- Reusable content lives in `src/data/*.json`.
+- Blog posts are Markdown files in `src/content/blog`.
+- SEO defaults, Open Graph image, canonical URLs, and theme initialization are handled in `src/layouts/Layout.astro`.
+- The site is configured for static output in `astro.config.mjs`.
+- Optional analytics can be added in `Layout.astro` near the closing `body` tag, then removed without touching page components.

@@ -1,0 +1,22 @@
+[
+  {
+    "label": "GitHub",
+    "url": "https://github.com/replace-me/friday",
+    "icon": "Github"
+  },
+  {
+    "label": "Discord",
+    "url": "https://discord.gg/replace-me",
+    "icon": "MessageSquare"
+  },
+  {
+    "label": "X",
+    "url": "https://x.com/replace_me",
+    "icon": "Twitter"
+  },
+  {
+    "label": "Email",
+    "url": "mailto:hello@example.com",
+    "icon": "Mail"
+  }
+]

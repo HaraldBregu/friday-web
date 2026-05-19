@@ -1,0 +1,61 @@
+---
+import site from "../data/site.json";
+import socialLinks from "../data/social-links.json";
+import Icon from "./Icon.astro";
+
+const groups = [
+  {
+    title: "Product",
+    links: [
+      { label: "Features", href: "/#features" },
+      { label: "Integrations", href: "/integrations" },
+      { label: "Changelog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Community",
+    links: [
+      { label: "About", href: "/community" },
+      { label: "Contribute", href: "/community#contribute" },
+      { label: "RSS", href: "/rss.xml" },
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/">
+        <span class="brand__mark">F</span>
+        <span class="brand__text">
+          <span>{site.name}</span>
+          <small>{site.tagline}</small>
+        </span>
+      </a>
+      <p>{site.description}</p>
+      <div aria-label="Social links" class="social-links">
+        {
+          socialLinks.map((link) => (
+            <a aria-label={link.label} href={link.url}>
+              <Icon name={link.icon} size={18} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    {
+      groups.map((group) => (
+        <div class="footer-links">
+          <h2>{group.title}</h2>
+          {group.links.map((link) => <a href={link.href}>{link.label}</a>)}
+        </div>
+      ))
+    }
+  </div>
+  <div class="shell footer-bottom">
+    <span>Copyright {new Date().getFullYear()} {site.name}. All rights reserved.</span>
+    <span>Replace company, privacy, and legal details before launch.</span>
+  </div>
+</footer>

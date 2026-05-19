@@ -1,0 +1,36 @@
+---
+import site from "../data/site.json";
+import Icon from "./Icon.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+const links = [
+  { label: "Features", href: "/#features" },
+  { label: "Integrations", href: "/integrations" },
+  { label: "Community", href: "/community" },
+  { label: "Blog", href: "/blog" },
+];
+---
+
+<header class="site-header">
+  <nav aria-label="Primary navigation" class="nav shell">
+    <a aria-label={`${site.name} home`} class="brand" href="/">
+      <span class="brand__mark">F</span>
+      <span class="brand__text">
+        <span>{site.name}</span>
+        <small>Desktop AI</small>
+      </span>
+    </a>
+
+    <div aria-label="Main pages" class="nav__links">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </div>
+
+    <div class="nav__actions">
+      <ThemeToggle />
+      <a class="button button--small button--primary" href={site.cta.url}>
+        {site.cta.label}
+        <Icon name="ArrowRight" size={16} />
+      </a>
+    </div>
+  </nav>
+</header>
