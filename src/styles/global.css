@@ -632,7 +632,7 @@ input {
 .friday-demo::before {
   content: "";
   position: absolute;
-  inset: 2.7rem -1.2rem -1.2rem;
+  inset: -1rem -1.2rem -1.2rem;
   z-index: -1;
   border-radius: 34px;
   background:
