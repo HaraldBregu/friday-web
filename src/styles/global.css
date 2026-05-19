@@ -300,6 +300,21 @@ body::before {
   }
 }
 
+@keyframes star-cluster-drift {
+  to {
+    background-position:
+      18px -12px,
+      -16px 20px,
+      22px 18px,
+      -20px -16px,
+      26px 14px,
+      -18px 24px,
+      20px -20px,
+      -24px 12px,
+      14px 22px;
+  }
+}
+
 @keyframes nebula-drift {
   to {
     transform: translate3d(3%, -2%, 0) scale(1.08);
