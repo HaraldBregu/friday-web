@@ -1,0 +1,250 @@
+---
+import site from "../data/site.json";
+import Icon from "./Icon.astro";
+
+const scriptResults = [
+  { file: "hw_1.py", output: "Hello, world!" },
+  { file: "hw_2.py", output: "Hello, tiny world!" },
+  { file: "hw_3.py", output: "World says hello back." },
+  { file: "hw_4.py", output: "Hello, world. That is all." },
+  { file: "hw_5.py", output: "Hello world from script five." },
+];
+
+const previewModes = [
+  { id: "recording", label: "Recording" },
+  { id: "call", label: "Live call" },
+  { id: "text", label: "Text" },
+];
+---
+
+<section class="hero">
+  <div class="hero__scene">
+    <div aria-hidden="true" class="hero__backdrop">
+      <span class="hero__rail hero__rail--left"></span>
+      <span class="hero__rail hero__rail--right"></span>
+      <span class="hero__token hero__token--one">scripts</span>
+      <span class="hero__token hero__token--two">2 checks</span>
+    </div>
+
+    <div class="shell hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow">
+          <Icon name="Sparkles" size={16} />
+          Desktop AI command center
+        </p>
+        <h1>Friday</h1>
+        <p class="hero__description">{site.description}</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href={site.cta.url}>
+            {site.cta.label}
+            <Icon name="ArrowRight" size={18} />
+          </a>
+          <a class="button button--ghost" href={site.secondaryCta.url}>
+            {site.secondaryCta.label}
+          </a>
+        </div>
+        <dl aria-label="Product highlights" class="hero__metrics">
+          <div>
+            <dt>3</dt>
+            <dd>input modes</dd>
+          </div>
+          <div>
+            <dt>5</dt>
+            <dd>script results</dd>
+          </div>
+          <div>
+            <dt>0</dt>
+            <dd>heavy client runtime</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="friday-demo" data-friday-demo data-state="recording">
+        <div aria-label="Preview mode" class="demo-segment" role="tablist">
+          {
+            previewModes.map((mode, index) => (
+              <button
+                aria-selected={index === 0 ? "true" : "false"}
+                class="demo-segment__button"
+                data-demo-state={mode.id}
+                role="tab"
+                type="button"
+              >
+                {mode.label}
+              </button>
+            ))
+          }
+        </div>
+
+        <div aria-label="Interactive Friday app preview" class="friday-window" data-window>
+          <div class="friday-window__bar">
+            <div aria-hidden="true" class="window-lights">
+              <span class="window-lights__red"></span>
+              <span class="window-lights__yellow"></span>
+              <span></span>
+            </div>
+            <strong>Friday</strong>
+            <button aria-label="Open account panel" class="icon-button" type="button">
+              <Icon name="UserRound" size={24} />
+            </button>
+          </div>
+
+          <div class="friday-window__content">
+            <p class="friday-prompt" data-user-message>
+              run the scripts in the workspace and show me the results
+            </p>
+
+            <button
+              aria-controls="friday-result-card"
+              aria-expanded="true"
+              class="reasoning-toggle"
+              data-reasoning-toggle
+              type="button"
+            >
+              <Icon class="reasoning-toggle__icon" name="ChevronRight" size={18} />
+              <span>Finished</span>
+            </button>
+
+            <div class="thought-panel" data-thought-panel id="friday-result-card">
+              <p class="thought-panel__label">Thought for a moment</p>
+              <article class="result-card">
+                <p data-assistant-summary>
+                  I ran the scripts in the workspace. Here are the results:
+                </p>
+                <ul>
+                  {
+                    scriptResults.map((result) => (
+                      <li>
+                        <code>{result.file}</code>
+                        <span aria-hidden="true">-&gt;</span>
+                        <span>{result.output}</span>
+                      </li>
+                    ))
+                  }
+                </ul>
+                <p>If you want, I can also inspect the scripts and explain how they work.</p>
+              </article>
+            </div>
+          </div>
+
+          <form aria-label="Friday message composer" class="friday-composer" data-composer>
+            <button aria-label="Add attachment" class="composer-button" type="button">
+              <Icon name="Plus" size={24} />
+            </button>
+
+            <div class="composer-pane composer-pane--recording">
+              <button aria-label="Stop recording" class="record-button" type="button">
+                <span></span>
+              </button>
+              <div aria-hidden="true" class="bar-wave">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <output class="composer-time" data-recording-time>0:13</output>
+              <button aria-label="Cancel recording" class="composer-button composer-button--round" type="button">
+                <Icon name="X" size={24} />
+              </button>
+              <button aria-label="Send recording" class="composer-button composer-button--confirm" type="button">
+                <Icon name="Check" size={25} />
+              </button>
+            </div>
+
+            <div class="composer-pane composer-pane--call">
+              <button aria-label="Start voice session" class="call-button" type="button"></button>
+              <svg aria-hidden="true" class="line-wave" viewBox="0 0 300 36">
+                <path d="M0 18 C34 18 42 28 74 19 S118 6 152 17 196 30 228 18 264 7 300 17" />
+                <path d="M0 18 C38 18 50 9 82 18 S130 30 162 17 202 7 236 18 268 27 300 19" />
+              </svg>
+              <button aria-label="Mute microphone" class="composer-button composer-button--round" type="button">
+                <Icon name="Mic" size={22} />
+              </button>
+              <button class="end-call-button" type="button">
+                <span aria-hidden="true">...</span>
+                End
+              </button>
+            </div>
+
+            <div class="composer-pane composer-pane--text">
+              <input
+                aria-label="Message Friday"
+                autocomplete="off"
+                data-chat-input
+                name="message"
+                type="text"
+                value="Hello"
+              />
+              <button aria-label="Use voice input" class="composer-button composer-button--round" type="button">
+                <Icon name="Mic" size={22} />
+              </button>
+              <button aria-label="Send message" class="composer-button composer-button--send" data-send type="submit">
+                <Icon name="ArrowUp" size={24} />
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const demos = document.querySelectorAll("[data-friday-demo]");
+
+    demos.forEach((demo) => {
+      const tabs = Array.from(demo.querySelectorAll("[data-demo-state]"));
+      const form = demo.querySelector("[data-composer]");
+      const input = demo.querySelector("[data-chat-input]");
+      const userMessage = demo.querySelector("[data-user-message]");
+      const summary = demo.querySelector("[data-assistant-summary]");
+      const toggle = demo.querySelector("[data-reasoning-toggle]");
+      const thoughtPanel = demo.querySelector("[data-thought-panel]");
+      const timer = demo.querySelector("[data-recording-time]");
+      let elapsed = 13;
+
+      const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const remaining = String(seconds % 60).padStart(2, "0");
+        return `${minutes}:${remaining}`;
+      };
+
+      const setMode = (mode) => {
+        demo.dataset.state = mode;
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.demoState === mode;
+          tab.setAttribute("aria-selected", selected ? "true" : "false");
+        });
+      };
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          setMode(tab.dataset.demoState);
+        });
+      });
+
+      toggle?.addEventListener("click", () => {
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", expanded ? "false" : "true");
+        thoughtPanel.hidden = expanded;
+      });
+
+      form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const message = input?.value.trim() || "Hello";
+        userMessage.textContent = message;
+        summary.textContent = message.toLowerCase().includes("script")
+          ? "I ran the scripts in the workspace. Here are the results:"
+          : "I can take that from here. I kept the workspace context visible and ready for review:";
+        setMode("text");
+      });
+
+      window.setInterval(() => {
+        if (demo.dataset.state !== "recording" || !timer) return;
+        elapsed += 1;
+        timer.textContent = formatTime(elapsed);
+      }, 1000);
+    });
+  })();
+</script>
