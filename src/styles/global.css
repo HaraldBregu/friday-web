@@ -922,8 +922,8 @@ input {
   background: #e8e8e8;
   color: #202223;
   padding: clamp(1.05rem, 3vw, 1.7rem) clamp(1.3rem, 4vw, 2.1rem);
-  font-size: clamp(1.05rem, 2.2vw, 1.55rem);
-  font-weight: 800;
+  font-size: clamp(0.92rem, 1.8vw, 1.25rem);
+  font-weight: 720;
   line-height: 1.45;
 }
 
@@ -937,8 +937,8 @@ input {
   color: #f4f4f2;
   cursor: pointer;
   padding: 0.15rem 0.25rem;
-  font-size: clamp(0.98rem, 2vw, 1.3rem);
-  font-weight: 900;
+  font-size: clamp(0.86rem, 1.6vw, 1.05rem);
+  font-weight: 760;
 }
 
 .reasoning-toggle__icon {
@@ -957,8 +957,8 @@ input {
 
 .thought-panel__label {
   margin: 0;
-  font-size: clamp(0.98rem, 2vw, 1.25rem);
-  font-weight: 900;
+  font-size: clamp(0.86rem, 1.55vw, 1.04rem);
+  font-weight: 760;
 }
 
 .result-card {
@@ -970,8 +970,8 @@ input {
 
 .result-card p {
   margin: 0;
-  font-size: clamp(1rem, 2vw, 1.28rem);
-  font-weight: 760;
+  font-size: clamp(0.88rem, 1.55vw, 1.05rem);
+  font-weight: 620;
   line-height: 1.5;
 }
 
@@ -992,7 +992,7 @@ input {
 
 .result-card li {
   min-width: 0;
-  font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+  font-size: clamp(0.78rem, 1.3vw, 0.92rem);
   line-height: 1.38;
 }
 
