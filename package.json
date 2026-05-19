@@ -12,7 +12,6 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.5.1",
-    "@tsparticles/astro": "^4.0.4",
     "@tsparticles/engine": "^4.0.4",
     "@tsparticles/slim": "^4.0.4",
     "astro": "^5.15.5",
