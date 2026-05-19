@@ -1960,6 +1960,14 @@ input {
     margin-inline: auto;
   }
 
+  .quickstart-terminal__bar {
+    grid-template-columns: auto 1fr;
+  }
+
+  .quickstart-tabs--platform {
+    grid-column: 1 / -1;
+  }
+
   .feature-grid,
   .integration-grid,
   .testimonial-grid,
@@ -2017,6 +2025,7 @@ input {
 	  }
 
   .hero__metrics,
+  .quickstart-card-grid,
   .feature-grid,
   .integration-grid,
   .testimonial-grid,
@@ -2041,12 +2050,37 @@ input {
 	    width: min(100%, 18rem);
 	  }
 
-	  .download-menu__panel {
+  .download-menu__panel {
 	    left: 0;
 	    width: 100%;
 	    min-width: 0;
 	    transform: none;
 	  }
+
+  .quickstart-heading {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .quickstart-terminal__bar {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.7rem;
+  }
+
+  .quickstart-tabs {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .quickstart-command__line {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .quickstart-command button {
+    grid-column: 2;
+    justify-self: start;
+  }
 
   .demo-segment {
     width: 100%;
