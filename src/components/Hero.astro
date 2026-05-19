@@ -20,44 +20,18 @@ const previewModes = [
 
 <section class="hero">
   <div class="hero__scene">
-    <div aria-hidden="true" class="hero__backdrop">
-      <span class="hero__rail hero__rail--left"></span>
-      <span class="hero__rail hero__rail--right"></span>
-      <span class="hero__token hero__token--one">scripts</span>
-      <span class="hero__token hero__token--two">2 checks</span>
-    </div>
-
     <div class="shell hero__inner">
       <div class="hero__copy">
-        <p class="eyebrow">
-          <Icon name="Sparkles" size={16} />
-          Desktop AI command center
-        </p>
         <h1>Friday</h1>
-        <p class="hero__description">{site.description}</p>
+        <p class="hero__description">
+          A desktop AI assistant for tools, files, and focused work.
+        </p>
         <div class="hero__actions">
           <a class="button button--primary" href={site.cta.url}>
             {site.cta.label}
             <Icon name="ArrowRight" size={18} />
           </a>
-          <a class="button button--ghost" href={site.secondaryCta.url}>
-            {site.secondaryCta.label}
-          </a>
         </div>
-        <dl aria-label="Product highlights" class="hero__metrics">
-          <div>
-            <dt>3</dt>
-            <dd>input modes</dd>
-          </div>
-          <div>
-            <dt>5</dt>
-            <dd>script results</dd>
-          </div>
-          <div>
-            <dt>0</dt>
-            <dd>heavy client runtime</dd>
-          </div>
-        </dl>
       </div>
 
       <div class="friday-demo" data-friday-demo data-state="setup">
