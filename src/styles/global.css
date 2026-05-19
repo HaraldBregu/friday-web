@@ -479,11 +479,11 @@ input {
   z-index: -1;
   border-radius: 34px;
   background:
-    radial-gradient(circle at 18% 22%, rgba(49, 215, 255, 0.32), transparent 22rem),
-    radial-gradient(circle at 76% 18%, rgba(255, 79, 196, 0.24), transparent 24rem),
-    radial-gradient(circle at 52% 78%, rgba(139, 92, 255, 0.32), transparent 26rem);
+    radial-gradient(circle at 18% 22%, rgba(125, 211, 252, 0.14), transparent 22rem),
+    radial-gradient(circle at 74% 22%, rgba(139, 124, 246, 0.1), transparent 24rem),
+    radial-gradient(circle at 52% 78%, rgba(94, 234, 212, 0.1), transparent 26rem);
   filter: blur(24px);
-  opacity: 0.82;
+  opacity: 0.5;
 }
 
 .demo-segment {
@@ -491,15 +491,15 @@ input {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.25rem;
   width: min(100%, 32rem);
-  border: 1px solid rgba(138, 252, 255, 0.28);
+  border: 1px solid rgba(165, 243, 252, 0.2);
   border-radius: 999px;
   background:
-    linear-gradient(135deg, rgba(49, 215, 255, 0.1), rgba(139, 92, 255, 0.08)),
-    rgba(4, 9, 20, 0.62);
+    linear-gradient(135deg, rgba(125, 211, 252, 0.06), rgba(139, 124, 246, 0.05)),
+    rgba(7, 13, 24, 0.72);
   padding: 0.28rem;
   margin: 0 0 0.8rem 1rem;
   backdrop-filter: blur(14px);
-  box-shadow: 0 0 30px rgba(49, 215, 255, 0.12);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18);
 }
 
 .demo-segment__button {
@@ -517,9 +517,9 @@ input {
 }
 
 .demo-segment__button[aria-selected="true"] {
-  background: linear-gradient(135deg, #e8ffff, var(--color-cyan) 42%, var(--color-accent));
-  color: #020409;
-  box-shadow: 0 0 22px rgba(39, 245, 208, 0.42);
+  background: #e7fbff;
+  color: #07101d;
+  box-shadow: 0 8px 20px rgba(125, 211, 252, 0.16);
 }
 
 .friday-window {
@@ -527,17 +527,16 @@ input {
   flex-direction: column;
   height: clamp(38rem, 76svh, 48rem);
   overflow: hidden;
-  border: 2px solid rgba(138, 252, 255, 0.2);
+  border: 1px solid rgba(165, 243, 252, 0.18);
   border-radius: 28px;
   background:
-    radial-gradient(circle at 18% 0%, rgba(49, 215, 255, 0.12), transparent 24rem),
-    radial-gradient(circle at 88% 8%, rgba(255, 79, 196, 0.1), transparent 26rem),
-    #050712;
+    radial-gradient(circle at 18% 0%, rgba(125, 211, 252, 0.08), transparent 24rem),
+    radial-gradient(circle at 88% 8%, rgba(139, 124, 246, 0.06), transparent 26rem),
+    #080d16;
   color: #f6f6f4;
   box-shadow:
     0 24px 58px rgba(0, 0, 0, 0.44),
-    0 0 72px rgba(49, 215, 255, 0.16),
-    0 0 118px rgba(139, 92, 255, 0.12),
+    0 0 52px rgba(125, 211, 252, 0.08),
     0 0 0 2px rgba(0, 0, 0, 0.48) inset;
 }
 
@@ -548,8 +547,8 @@ input {
   min-height: 5.4rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background:
-    linear-gradient(90deg, rgba(49, 215, 255, 0.14), rgba(139, 92, 255, 0.12), rgba(255, 79, 196, 0.12)),
-    #121622;
+    linear-gradient(90deg, rgba(125, 211, 252, 0.08), rgba(139, 124, 246, 0.06)),
+    #111827;
   padding: 1rem 1.4rem;
 }
 
