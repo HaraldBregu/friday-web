@@ -1897,9 +1897,9 @@ input {
     margin-right: auto;
   }
 
-  .hero__scene {
-    padding-top: 2rem;
-  }
+	  .hero__scene {
+	    padding-top: 4.6rem;
+	  }
 
   .hero__metrics {
     display: none;
