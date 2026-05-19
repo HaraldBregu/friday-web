@@ -35,9 +35,9 @@ const particleOptions = {
     },
     links: {
       color: "#a5f3fc",
-      distance: 140,
+      distance: 132,
       enable: true,
-      opacity: 0.08,
+      opacity: 0.1,
       width: 1,
     },
     move: {
@@ -47,14 +47,14 @@ const particleOptions = {
         default: "out",
       },
       random: true,
-      speed: 0.22,
+      speed: 0.18,
       straight: false,
     },
     number: {
       density: {
         enable: true,
       },
-      value: 96,
+      value: 118,
     },
     opacity: {
       animation: {
@@ -63,8 +63,8 @@ const particleOptions = {
         sync: false,
       },
       value: {
-        min: 0.14,
-        max: 0.72,
+        min: 0.16,
+        max: 0.78,
       },
     },
     shape: {
@@ -77,8 +77,8 @@ const particleOptions = {
         sync: false,
       },
       value: {
-        min: 0.5,
-        max: 2.2,
+        min: 0.45,
+        max: 2.35,
       },
     },
   },
@@ -86,6 +86,10 @@ const particleOptions = {
 ---
 
 <div aria-hidden="true" class="universe-background">
+  <div class="universe-background__galaxy"></div>
+  <div class="universe-background__nebula universe-background__nebula--left"></div>
+  <div class="universe-background__nebula universe-background__nebula--right"></div>
+  <div class="universe-background__comet"></div>
   <div class="universe-background__glow universe-background__glow--one"></div>
   <div class="universe-background__glow universe-background__glow--two"></div>
   <div class="universe-background__field" data-particles-options={JSON.stringify(particleOptions)} id="universe-particles"></div>
