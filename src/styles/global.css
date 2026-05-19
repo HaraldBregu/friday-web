@@ -640,7 +640,10 @@ input {
   flex: 1;
   min-height: 0;
   flex-direction: column;
-  background: #171818;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(49, 215, 255, 0.16), transparent 21rem),
+    radial-gradient(circle at 74% 42%, rgba(139, 92, 255, 0.12), transparent 24rem),
+    #11141d;
 }
 
 .friday-demo[data-demo-mode="setup"] .friday-setup-screen {
@@ -680,7 +683,9 @@ input {
 }
 
 .setup-wave-fallback {
-  filter: drop-shadow(0 0 12px rgba(46, 189, 230, 0.24));
+  filter:
+    drop-shadow(0 0 12px rgba(46, 189, 230, 0.36))
+    drop-shadow(0 0 24px rgba(139, 92, 255, 0.22));
 }
 
 .setup-wave-fallback path {
@@ -707,19 +712,28 @@ input {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  border: 1px solid rgba(138, 252, 255, 0.24);
   border-radius: 8px;
-  background: #2a2a2a;
+  background:
+    linear-gradient(135deg, rgba(49, 215, 255, 0.22), rgba(255, 79, 196, 0.14)),
+    rgba(16, 20, 32, 0.86);
   color: #f4f4f2;
   padding: 0.44rem 0.85rem;
+  font-family: var(--font-display);
   font-size: clamp(0.9rem, 1.8vw, 1.12rem);
   font-weight: 900;
+  letter-spacing: 0;
   line-height: 1;
+  box-shadow: 0 0 22px rgba(49, 215, 255, 0.16);
 }
 
 .setup-stage h2 {
   max-width: 14ch;
   margin: clamp(1.3rem, 3.5vw, 2.4rem) 0 0;
-  color: #f7f7f5;
+  background: linear-gradient(95deg, #ffffff, var(--color-cyan) 38%, var(--color-violet) 72%, var(--color-pink));
+  background-clip: text;
+  color: transparent;
+  font-family: var(--font-display);
   font-size: clamp(2.3rem, 6vw, 4.2rem);
   letter-spacing: 0;
   line-height: 0.98;
@@ -741,7 +755,9 @@ input {
   gap: 1rem;
   min-height: 5.35rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background: #111212;
+  background:
+    linear-gradient(90deg, rgba(49, 215, 255, 0.08), rgba(255, 79, 196, 0.08)),
+    #0c1019;
   padding: 0.85rem 1.4rem;
 }
 
@@ -780,19 +796,24 @@ input {
   justify-content: center;
   gap: 0.55rem;
   min-height: 3.2rem;
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 8px;
-  background: #ececec;
-  color: #202223;
+  background: linear-gradient(135deg, #f5ffff, var(--color-cyan) 42%, var(--color-violet));
+  color: #020409;
   cursor: pointer;
   padding: 0.7rem 1rem;
+  font-family: var(--font-display);
   font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 900;
+  letter-spacing: 0;
   line-height: 1;
+  box-shadow:
+    0 0 26px rgba(49, 215, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
 .setup-primary:hover {
-  background: #ffffff;
+  background: linear-gradient(135deg, #ffffff, var(--color-accent) 44%, var(--color-pink));
 }
 
 .friday-window__content {
