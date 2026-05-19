@@ -636,9 +636,9 @@ input {
   min-height: 0;
   flex-direction: column;
   background:
-    radial-gradient(circle at 50% 20%, rgba(49, 215, 255, 0.16), transparent 21rem),
-    radial-gradient(circle at 74% 42%, rgba(139, 92, 255, 0.12), transparent 24rem),
-    #11141d;
+    radial-gradient(circle at 50% 20%, rgba(125, 211, 252, 0.08), transparent 21rem),
+    radial-gradient(circle at 74% 42%, rgba(139, 124, 246, 0.07), transparent 24rem),
+    #111827;
 }
 
 .friday-demo[data-demo-mode="setup"] .friday-setup-screen {
@@ -679,8 +679,8 @@ input {
 
 .setup-wave-fallback {
   filter:
-    drop-shadow(0 0 12px rgba(46, 189, 230, 0.36))
-    drop-shadow(0 0 24px rgba(139, 92, 255, 0.22));
+    drop-shadow(0 0 10px rgba(125, 211, 252, 0.24))
+    drop-shadow(0 0 18px rgba(139, 124, 246, 0.14));
 }
 
 .setup-wave-fallback path {
@@ -707,11 +707,11 @@ input {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  border: 1px solid rgba(138, 252, 255, 0.24);
+  border: 1px solid rgba(165, 243, 252, 0.2);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(49, 215, 255, 0.22), rgba(255, 79, 196, 0.14)),
-    rgba(16, 20, 32, 0.86);
+    linear-gradient(135deg, rgba(125, 211, 252, 0.11), rgba(139, 124, 246, 0.08)),
+    rgba(17, 24, 39, 0.86);
   color: #f4f4f2;
   padding: 0.44rem 0.85rem;
   font-family: var(--font-display);
@@ -719,15 +719,13 @@ input {
   font-weight: 900;
   letter-spacing: 0;
   line-height: 1;
-  box-shadow: 0 0 22px rgba(49, 215, 255, 0.16);
+  box-shadow: none;
 }
 
 .setup-stage h2 {
   max-width: 14ch;
   margin: clamp(1.3rem, 3.5vw, 2.4rem) 0 0;
-  background: linear-gradient(95deg, #ffffff, var(--color-cyan) 38%, var(--color-violet) 72%, var(--color-pink));
-  background-clip: text;
-  color: transparent;
+  color: #f7f7f5;
   font-family: var(--font-display);
   font-size: clamp(2.3rem, 6vw, 4.2rem);
   letter-spacing: 0;
@@ -751,8 +749,8 @@ input {
   min-height: 5.35rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   background:
-    linear-gradient(90deg, rgba(49, 215, 255, 0.08), rgba(255, 79, 196, 0.08)),
-    #0c1019;
+    linear-gradient(90deg, rgba(125, 211, 252, 0.04), rgba(139, 124, 246, 0.04)),
+    #0b111c;
   padding: 0.85rem 1.4rem;
 }
 
@@ -791,10 +789,10 @@ input {
   justify-content: center;
   gap: 0.55rem;
   min-height: 3.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 8px;
-  background: linear-gradient(135deg, #f5ffff, var(--color-cyan) 42%, var(--color-violet));
-  color: #020409;
+  background: #e7fbff;
+  color: #07101d;
   cursor: pointer;
   padding: 0.7rem 1rem;
   font-family: var(--font-display);
@@ -803,12 +801,12 @@ input {
   letter-spacing: 0;
   line-height: 1;
   box-shadow:
-    0 0 26px rgba(49, 215, 255, 0.22),
+    0 10px 24px rgba(125, 211, 252, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
 .setup-primary:hover {
-  background: linear-gradient(135deg, #ffffff, var(--color-accent) 44%, var(--color-pink));
+  background: #ffffff;
 }
 
 .friday-window__content {
