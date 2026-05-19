@@ -91,11 +91,20 @@ const previewModes = [
             <button aria-label="Open account panel" class="icon-button" type="button">
               <Icon name="UserRound" size={24} />
             </button>
-          </div>
+            </div>
 
           <div class="friday-setup-screen">
             <div class="setup-stage">
-              <canvas aria-hidden="true" class="setup-wave" data-dome-wave></canvas>
+              <div class="setup-wave-wrap">
+                <svg aria-hidden="true" class="setup-wave-fallback" viewBox="0 0 640 160">
+                  <path d="M24 82 C112 82 132 38 210 74 S336 120 426 76 532 50 616 82" />
+                  <path d="M24 82 C118 88 154 118 232 84 S348 38 438 80 526 112 616 82" />
+                  <path d="M24 82 C128 72 160 52 244 90 S356 126 444 72 542 62 616 82" />
+                  <path d="M24 82 C110 96 152 64 238 76 S346 100 438 84 540 50 616 82" />
+                  <path d="M24 82 C124 78 170 104 250 68 S352 44 440 88 534 98 616 82" />
+                </svg>
+                <canvas aria-hidden="true" class="setup-wave" data-dome-wave></canvas>
+              </div>
               <span class="setup-badge">
                 <Icon name="Check" size={17} />
                 Setup takes about a minute
@@ -327,11 +336,15 @@ const previewModes = [
     resize();
 
     let frame = 0;
-    const tick = (now) => {
-      frame = window.requestAnimationFrame(tick);
+    const draw = (now) => {
       waveData.forEach(({ geometry, config }) => updatePositions(geometry, config, now * 0.001));
       renderer.render(scene, camera);
     };
+    const tick = (now) => {
+      frame = window.requestAnimationFrame(tick);
+      draw(now);
+    };
+    draw(performance.now());
     frame = window.requestAnimationFrame(tick);
 
     window.addEventListener("beforeunload", () => {
