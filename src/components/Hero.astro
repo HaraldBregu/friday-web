@@ -1,4 +1,6 @@
 ---
+import FadeInText from "@astroanimate/core/FadeInText";
+import ScaleIn from "@astroanimate/core/ScaleIn";
 import site from "../data/site.json";
 import Icon from "./Icon.astro";
 
@@ -21,7 +23,7 @@ const previewModes = [
 <section class="hero">
   <div class="hero__scene">
     <div class="shell hero__inner">
-      <div class="hero__copy">
+      <FadeInText as="div" blur="10px" class="hero__copy" delay={0.05} duration={0.75} yOffset={18}>
         <h1>Friday</h1>
         <p class="hero__description">
           A desktop AI assistant for tools, files, and focused work.
@@ -32,9 +34,18 @@ const previewModes = [
             <Icon name="ArrowRight" size={18} />
           </a>
         </div>
-      </div>
+      </FadeInText>
 
-      <div class="friday-demo" data-friday-demo data-state="setup">
+      <ScaleIn
+        as="div"
+        class="friday-demo"
+        data-friday-demo
+        data-state="setup"
+        delay={180}
+        duration={700}
+        enhance
+        initialScale={0.96}
+      >
         <div aria-label="Preview mode" class="demo-segment" role="tablist">
           {
             previewModes.map((mode, index) => (
@@ -198,7 +209,7 @@ const previewModes = [
             </div>
           </form>
         </div>
-      </div>
+      </ScaleIn>
     </div>
   </div>
 </section>
