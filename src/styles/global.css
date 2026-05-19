@@ -181,6 +181,52 @@ body::before {
   transform: translate3d(2%, -2%, 0);
 }
 
+.universe-background__stars {
+  position: absolute;
+  inset: -22%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.universe-background__stars--far {
+  background-image:
+    radial-gradient(circle, var(--star-primary) 0 0.75px, transparent 1.55px),
+    radial-gradient(circle, var(--star-cool) 0 0.7px, transparent 1.5px),
+    radial-gradient(circle, var(--star-warm) 0 0.65px, transparent 1.45px);
+  background-position:
+    19px 31px,
+    88px 117px,
+    151px 42px;
+  background-size:
+    173px 211px,
+    263px 317px,
+    337px 229px;
+  opacity: 0.42;
+  animation: star-field-far 118s linear infinite;
+}
+
+.universe-background__stars--near {
+  background-image:
+    radial-gradient(circle, var(--star-primary) 0 0.95px, transparent 1.75px),
+    radial-gradient(circle, var(--star-cool) 0 0.85px, transparent 1.65px),
+    radial-gradient(circle, var(--star-warm) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle, var(--star-primary) 0 0.65px, transparent 1.45px);
+  background-position:
+    37px 49px,
+    122px 83px,
+    209px 154px,
+    281px 26px;
+  background-size:
+    137px 163px,
+    199px 241px,
+    271px 191px,
+    349px 293px;
+  opacity: 0.5;
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--color-accent) 30%, transparent));
+  animation: star-field-near 72s linear infinite reverse;
+}
+
 [data-theme="light"] .universe-background {
   opacity: 1;
 }
@@ -195,6 +241,18 @@ body::before {
   to {
     background-position: 100% 50%;
     filter: hue-rotate(10deg);
+  }
+}
+
+@keyframes star-field-far {
+  to {
+    transform: translate3d(-8%, 5%, 0);
+  }
+}
+
+@keyframes star-field-near {
+  to {
+    transform: translate3d(10%, -7%, 0);
   }
 }
 
