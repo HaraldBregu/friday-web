@@ -1,18 +1,9 @@
 ---
-import site from "../data/site.json";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header class="site-header">
-  <nav aria-label="Primary navigation" class="nav shell">
-    <a aria-label={`${site.name} home`} class="brand" href="/">
-      <span class="brand__mark">F</span>
-      <span class="brand__text">
-        <span>{site.name}</span>
-        <small>Desktop AI</small>
-      </span>
-    </a>
-
+  <nav aria-label="Primary navigation" class="nav nav--full">
     <div class="nav__actions">
       <ThemeToggle />
     </div>
