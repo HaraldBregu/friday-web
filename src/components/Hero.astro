@@ -1,0 +1,159 @@
+---
+import product from "../data/friday-product.json";
+import site from "../data/site.json";
+import Icon from "./Icon.astro";
+---
+
+<section class="hero" id="product">
+  <div class="shell hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow">Local-first desktop AI</p>
+      <h1>Friday</h1>
+      <p class="hero__description">
+        A local-first desktop AI copilot for chat, tools, connected apps, scheduled tasks,
+        and voice-assisted workflows.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href={site.cta.url}>
+          <Icon name="Download" size={18} />
+          Get Friday
+        </a>
+        <a class="button button--ghost" href={site.secondaryCta.url}>
+          View features
+          <Icon name="ArrowRight" size={16} />
+        </a>
+      </div>
+      <ul class="hero__signals" aria-label="Friday product highlights">
+        {product.heroSignals.map((signal) => <li>{signal}</li>)}
+      </ul>
+    </div>
+
+    <div aria-label="Friday desktop application preview" class="product-preview">
+      <div class="app-window">
+        <div class="app-window__bar">
+          <div aria-hidden="true" class="window-lights">
+            <span class="window-lights__red"></span>
+            <span class="window-lights__yellow"></span>
+            <span></span>
+          </div>
+          <strong>Friday</strong>
+          <span class="app-window__status">Local workspace</span>
+        </div>
+
+        <div class="app-shell">
+          <aside class="app-sidebar" aria-label="Application navigation">
+            <div class="sidebar-profile">
+              <span class="sidebar-profile__mark">F</span>
+              <span>
+                <strong>Assistant</strong>
+                <small>Model + tools ready</small>
+              </span>
+            </div>
+            <nav>
+              <a class="is-active" href="#assistant">
+                <Icon name="MessagesSquare" size={16} />
+                Chat
+              </a>
+              <a href="#providers">
+                <Icon name="Bot" size={16} />
+                Providers
+              </a>
+              <a href="#connectors">
+                <Icon name="PlugZap" size={16} />
+                Connectors
+              </a>
+              <a href="#automation">
+                <Icon name="CalendarDays" size={16} />
+                Cron
+              </a>
+              <a href="#privacy">
+                <Icon name="ShieldCheck" size={16} />
+                Privacy
+              </a>
+            </nav>
+          </aside>
+
+          <main class="chat-preview" aria-label="Chat preview">
+            <div class="chat-preview__header">
+              <div>
+                <strong>Main Friday assistant</strong>
+                <span>thinking -> using tools -> waiting for approval</span>
+              </div>
+              <span class="status-pill">Streaming</span>
+            </div>
+
+            <div class="prompt-suggestions" aria-label="Prompt suggestions">
+              {product.promptSuggestions.slice(0, 3).map((prompt) => <span>{prompt}</span>)}
+            </div>
+
+            <div class="message-stack">
+              <article class="message message--user">
+                <p>Inspect this project, summarize risk, then run the build after I approve it.</p>
+                <div class="attachment-row">
+                  <span><Icon name="BookOpen" size={14} /> README.md</span>
+                  <span><Icon name="Mic" size={14} /> note.m4a 0:42</span>
+                </div>
+              </article>
+
+              <article class="message message--assistant">
+                <span class="message__label">Friday</span>
+                <p>I found the Astro app structure, checked the content files, and prepared a build command.</p>
+                <div class="tool-activity" aria-label="Tool activity">
+                  <div>
+                    <span>tool call start</span>
+                    <strong>workspace.search</strong>
+                    <small>input: src/pages src/components</small>
+                    <em>completed - 0.8s</em>
+                  </div>
+                  <div>
+                    <span>pending approval</span>
+                    <strong>shell.exec</strong>
+                    <small>input: bun run build</small>
+                    <em>waiting</em>
+                  </div>
+                  <div>
+                    <span>result</span>
+                    <strong>chat.history</strong>
+                    <small>messages: 28, user 9, assistant 14, tool 5</small>
+                    <em>context approx. 18k</em>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <form class="preview-composer" aria-label="Friday prompt input">
+              <button aria-label="Attach file or audio" type="button">
+                <Icon name="Plus" size={18} />
+              </button>
+              <span>Ask Friday to inspect files, write, use tools, or schedule work...</span>
+              <button aria-label="Dictate with microphone" type="button">
+                <Icon name="Mic" size={18} />
+              </button>
+              <button aria-label="Send prompt" type="button">
+                <Icon name="ArrowUp" size={18} />
+              </button>
+            </form>
+          </main>
+
+          <aside class="settings-preview" aria-label="Settings preview">
+            <article>
+              <span>Provider</span>
+              <strong>OpenAI / reasoning high</strong>
+              <small>Key stored locally</small>
+            </article>
+            <article>
+              <span>Voice</span>
+              <strong>Whisper + Rachel</strong>
+              <small>Mic permission controlled</small>
+            </article>
+            <article>
+              <span>Automation</span>
+              <strong>Heartbeat idle</strong>
+              <small>Next check in 15m</small>
+            </article>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
