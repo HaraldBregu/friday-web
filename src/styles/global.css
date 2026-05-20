@@ -665,6 +665,22 @@ input {
   opacity: 0.42;
 }
 
+@media (min-width: 721px) {
+  .friday-demo[data-demo-mode="text"] {
+    --friday-app-ratio: 16 / 11;
+  }
+
+  .friday-demo[data-demo-mode="text"] .friday-composer {
+    min-height: 4.45rem;
+    margin-bottom: 0.85rem;
+    padding: 0.58rem;
+  }
+
+  .friday-demo[data-demo-mode="text"] .result-card {
+    padding: 1rem 1.25rem;
+  }
+}
+
 .demo-segment {
   display: inline-grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
