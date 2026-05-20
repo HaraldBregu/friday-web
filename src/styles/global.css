@@ -39,7 +39,7 @@
   --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.34);
   --shadow-card: 0 16px 44px rgba(0, 0, 0, 0.24);
   --space-section: clamp(4rem, 8vw, 7rem);
-  --shell: 940px;
+  --shell: 1040px;
 }
 
 [data-theme="light"] {
