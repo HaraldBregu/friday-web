@@ -3381,6 +3381,35 @@ body::before {
     height: min(500px, 48vh);
   }
 
+  .desktop-chat {
+    width: min(400px, calc(100vw - 2rem));
+    height: min(500px, 48vh);
+    min-height: 360px;
+    grid-template-rows: 3.95rem minmax(0, 1fr) auto;
+    border-radius: 17px;
+  }
+
+  .desktop-chat__bar {
+    padding: 0.78rem 1rem;
+  }
+
+  .desktop-chat__body {
+    padding: 1rem 1rem 0.8rem;
+  }
+
+  .desktop-chat__assistant {
+    margin-top: 1.55rem;
+  }
+
+  .desktop-chat__composer {
+    min-height: 3rem;
+    margin: 0 0.75rem 0.8rem;
+  }
+
+  .desktop-chat__composer span {
+    font-size: 0.94rem;
+  }
+
   .prompt-console__footer,
   .hero-reference__actions {
     align-items: stretch;
