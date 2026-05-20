@@ -12,6 +12,7 @@ interface Props {
   noindex?: boolean;
   ogTitle?: string;
   ogDescription?: string;
+  hideFooter?: boolean;
 }
 
 const {
@@ -22,6 +23,7 @@ const {
   noindex = false,
   ogTitle,
   ogDescription,
+  hideFooter = false,
 } = Astro.props;
 
 const pageTitle = title === site.name ? `${site.name} - ${site.tagline}` : `${title} | ${site.name}`;
@@ -70,7 +72,7 @@ const openGraphDescription = ogDescription ?? description;
     <main id="content">
       <slot />
     </main>
-    <Footer />
+    {hideFooter ? null : <Footer />}
     <script is:inline>
       (() => {
         const root = document.documentElement;
