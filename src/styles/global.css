@@ -2098,6 +2098,10 @@ input {
     grid-template-columns: 1fr;
   }
 
+  .feature-card--wide {
+    grid-column: auto;
+  }
+
   .hero__actions {
     flex-direction: column;
     align-items: center;
