@@ -1,7 +1,6 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import UniverseBackground from "../components/UniverseBackground.astro";
 import site from "../data/site.json";
 import "../styles/global.css";
 
@@ -11,6 +10,8 @@ interface Props {
   image?: string;
   canonical?: string;
   noindex?: boolean;
+  ogTitle?: string;
+  ogDescription?: string;
 }
 
 const {
@@ -19,12 +20,16 @@ const {
   image = "/og-image.svg",
   canonical,
   noindex = false,
+  ogTitle,
+  ogDescription,
 } = Astro.props;
 
-const pageTitle = title === site.name ? `${site.name} | ${site.tagline}` : `${title} | ${site.name}`;
+const pageTitle = title === site.name ? `${site.name} - ${site.tagline}` : `${title} | ${site.name}`;
 const siteBaseUrl = Astro.site ?? new URL(site.url);
 const canonicalUrl = new URL(canonical ?? Astro.url.pathname, siteBaseUrl).toString();
 const imageUrl = new URL(image, siteBaseUrl).toString();
+const openGraphTitle = ogTitle ?? pageTitle;
+const openGraphDescription = ogDescription ?? description;
 ---
 
 <!doctype html>
@@ -49,19 +54,18 @@ const imageUrl = new URL(image, siteBaseUrl).toString();
     {noindex ? <meta content="noindex, nofollow" name="robots" /> : null}
     <link href={canonicalUrl} rel="canonical" />
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
-    <meta content={pageTitle} property="og:title" />
-    <meta content={description} property="og:description" />
+    <meta content={openGraphTitle} property="og:title" />
+    <meta content={openGraphDescription} property="og:description" />
     <meta content={canonicalUrl} property="og:url" />
     <meta content={imageUrl} property="og:image" />
     <meta content="website" property="og:type" />
     <meta content="summary_large_image" name="twitter:card" />
-    <meta content={pageTitle} name="twitter:title" />
-    <meta content={description} name="twitter:description" />
+    <meta content={openGraphTitle} name="twitter:title" />
+    <meta content={openGraphDescription} name="twitter:description" />
     <meta content={imageUrl} name="twitter:image" />
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
-    <UniverseBackground />
     <Header />
     <main id="content">
       <slot />
