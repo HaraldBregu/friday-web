@@ -21,5 +21,8 @@ const siteUrl =
 export default defineConfig({
   site: siteUrl,
   output: "static",
+  devToolbar: {
+    enabled: false,
+  },
   integrations: [sitemap()],
 });
