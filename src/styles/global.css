@@ -2204,7 +2204,7 @@ input {
   }
 
   .friday-demo {
-    width: min(100%, 326px);
+    width: min(100%, 286px);
     max-width: calc(100vw - 2rem);
     justify-self: center;
     --friday-app-ratio: 4 / 5;
@@ -2243,11 +2243,11 @@ input {
 	  }
 
 	  .setup-stage h2 {
-	    font-size: 2rem;
+	    font-size: 1.72rem;
 	  }
 
 	  .setup-stage p {
-	    font-size: 0.86rem;
+	    font-size: 0.78rem;
 	  }
 
   .setup-footer {
