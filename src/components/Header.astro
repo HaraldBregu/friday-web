@@ -1,11 +1,28 @@
 ---
+import product from "../data/friday-product.json";
+import site from "../data/site.json";
+import Icon from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header class="site-header">
   <nav aria-label="Primary navigation" class="nav nav--full">
+    <a class="brand" href="/#product">
+      <span class="brand__mark">F</span>
+      <span class="brand__text">
+        <span>{site.name}</span>
+        <small>{site.tagline}</small>
+      </span>
+    </a>
+    <div class="nav__links">
+      {product.nav.slice(0, 6).map((item) => <a href={item.href}>{item.label}</a>)}
+    </div>
     <div class="nav__actions">
       <ThemeToggle />
+      <a class="button button--small button--primary" href={site.cta.url}>
+        <Icon name="Download" size={16} />
+        {site.cta.label}
+      </a>
     </div>
   </nav>
 </header>
