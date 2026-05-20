@@ -1,7 +1,6 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import UniverseBackground from "../components/UniverseBackground.astro";
 import site from "../data/site.json";
 import "../styles/global.css";
 
@@ -67,7 +66,6 @@ const openGraphDescription = ogDescription ?? description;
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
-    <UniverseBackground />
     <Header />
     <main id="content">
       <slot />
