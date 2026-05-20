@@ -1,0 +1,343 @@
+---
+import CapabilityCard from "./CapabilityCard.astro";
+import DownloadMenu from "./DownloadMenu.astro";
+import Icon from "./Icon.astro";
+import ProductMockup from "./ProductMockup.astro";
+import SectionHeader from "./SectionHeader.astro";
+import friday from "../data/friday-product.json";
+import site from "../data/site.json";
+
+const metrics = [
+  { value: `${friday.toolCategories.length}+`, label: "workspace tool categories" },
+  { value: `${friday.channelCatalog.length}`, label: "messaging channel options" },
+  { value: "Local", label: "provider keys and app settings" },
+  { value: "Cron", label: "scheduled prompts and jobs" },
+];
+
+const assistantCards = [
+  {
+    icon: "MessagesSquare",
+    label: "Assistant",
+    title: "Chat that can move work forward",
+    description:
+      "Ask Friday to inspect folders, summarize files, draft notes, use configured tools, or prepare follow-up work from one desktop conversation.",
+    items: friday.promptSuggestions,
+  },
+  {
+    icon: "AudioLines",
+    label: "Voice",
+    title: "Audio when typing is not the best input",
+    description:
+      "Dictate into chat, attach recordings, preview audio files, and configure speech providers for hands-free workflows.",
+    items: friday.voiceFeatures.slice(0, 4),
+  },
+  {
+    icon: "Cpu",
+    label: "Providers",
+    title: "Route each task to the right model",
+    description:
+      "Keep provider choice explicit across chat, speech, image, audio, research, and realtime voice providers where configured.",
+    items: friday.providerCategories.slice(0, 8),
+  },
+];
+
+const toolCards = [
+  {
+    icon: "TerminalSquare",
+    label: "Workspace",
+    title: "Files, search, and terminal actions",
+    description:
+      "Friday can read, edit, patch, copy, move, search, and run approved project commands without leaving the desktop app.",
+    items: [
+      "File inspection and edits",
+      "Workspace search",
+      "Builds, tests, and scripts",
+      "Process inspection",
+    ],
+  },
+  {
+    icon: "PlugZap",
+    label: "Tools",
+    title: "Connect apps behind clear permissions",
+    description:
+      "Use MCP, plugins, connectors, browser control, and client-hosted tools with policies that decide when Friday must pause.",
+    items: friday.connectorPolicies,
+  },
+  {
+    icon: "ShieldCheck",
+    label: "Approval",
+    title: "Review risky work before it happens",
+    description:
+      "Writes, deletes, publishes, private data access, and external actions can be routed through permission checks.",
+    items: ["Approve", "Allow trusted tools", "Block or cancel"],
+  },
+  {
+    icon: "Database",
+    label: "Context",
+    title: "Visible work history and local stores",
+    description:
+      "Keep settings, cron schedules, channels, skills, memory, and session state inspectable instead of hidden in a black box.",
+    items: friday.privacyNotes.slice(4, 7),
+  },
+];
+
+const skillCards = [
+  {
+    icon: "Workflow",
+    label: "Skills",
+    title: "Reusable workflows for repeated jobs",
+    description:
+      "Package team instructions, tools, safety rules, and model visibility into skills Friday can select when a task matches.",
+    items: friday.skillUseCases,
+  },
+  {
+    icon: "BookOpen",
+    label: "Metadata",
+    title: "Skills stay inspectable",
+    description:
+      "Skill cards expose their format, version, category, safety posture, author, connected tools, and diagnostics.",
+    items: friday.skillDetails.slice(0, 10),
+  },
+];
+
+const automationCards = [
+  {
+    icon: "CalendarDays",
+    label: "Cron",
+    title: "Schedule prompts and deliveries",
+    description:
+      "Create scheduled work with enabled state, next run, last run, target, delivery, payload, and deletion controls.",
+    items: friday.cronDetails.slice(0, 7),
+  },
+  {
+    icon: "HeartHandshake",
+    label: "Heartbeat",
+    title: "Let Friday wake up with guardrails",
+    description:
+      "Use active hours, pause controls, wake-now actions, queued system events, and visible runner status for background work.",
+    items: friday.heartbeatDetails.slice(0, 8),
+  },
+];
+
+const privacyCards = [
+  {
+    icon: "Fingerprint",
+    title: "Local-first by default",
+    description:
+      "Friday treats workspace paths, chat history, channel IDs, connector metadata, local files, and agent data as private.",
+  },
+  {
+    icon: "ShieldCheck",
+    title: "Secrets stay secrets",
+    description:
+      "API keys, tokens, passwords, private keys, and credentials should not be logged or exposed. Provider keys are stored locally.",
+  },
+  {
+    icon: "Database",
+    title: "User control remains visible",
+    description:
+      "Open app data folders, inspect chat history size, clear active history, and control theme, language, microphone, and keep-awake behavior.",
+  },
+];
+
+const technicalGroups = [
+  {
+    title: "Desktop shell",
+    items: friday.desktopFeatures.slice(0, 7),
+  },
+  {
+    title: "Application foundation",
+    items: friday.technicalFoundation,
+  },
+  {
+    title: "Provider surface",
+    items: friday.providerExamples.slice(0, 18),
+  },
+];
+
+const visibleChannels = friday.channelCatalog.slice(0, 18);
+---
+
+<section class="landing-hero" id="product">
+  <div class="landing-hero__grid" aria-hidden="true"></div>
+  <div class="shell landing-hero__inner">
+    <div class="landing-hero__copy">
+      <p class="hero-kicker">Local-first desktop AI copilot</p>
+      <h1>Friday</h1>
+      <p>
+        {site.description}
+        Work with files, tools, channels, scheduled jobs, and voice from one app,
+        with permissions kept visible.
+      </p>
+      <div class="landing-hero__actions">
+        <DownloadMenu />
+        <a class="button button--ghost" href="#assistant">
+          Explore features
+          <Icon name="ArrowRight" size={17} />
+        </a>
+      </div>
+    </div>
+
+    <ProductMockup />
+  </div>
+</section>
+
+<section class="landing-strip" aria-label="Friday product signals">
+  <div class="shell landing-strip__inner">
+    {metrics.map((metric) => (
+      <div>
+        <strong>{metric.value}</strong>
+        <span>{metric.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<section class="landing-section" id="assistant">
+  <div class="shell">
+    <SectionHeader
+      eyebrow="AI assistant"
+      title="A chat surface that knows when to use tools."
+      description="Friday is not just a text box. It can reason through a request, use configured capabilities, and show the status of the work as it moves."
+    />
+
+    <div class="landing-card-grid landing-card-grid--three">
+      {assistantCards.map((card) => <CapabilityCard {...card} />)}
+    </div>
+
+    <div class="state-board" aria-label="Assistant run states">
+      <div>
+        <span>Run states</span>
+        <h3>Know what Friday is doing before, during, and after each task.</h3>
+      </div>
+      <ul>
+        {friday.assistantStates.map((state) => <li>{state}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="landing-section landing-section--soft" id="tools">
+  <div class="shell">
+    <SectionHeader
+      align="left"
+      eyebrow="Tools and workspace actions"
+      title="Useful actions, not hidden magic."
+      description="Friday keeps common desktop work close: local files, project search, shell commands, browser operations, cron tasks, and configured external systems."
+    />
+    <div class="landing-card-grid landing-card-grid--two">
+      {toolCards.map((card) => <CapabilityCard {...card} />)}
+    </div>
+  </div>
+</section>
+
+<section class="landing-section" id="skills">
+  <div class="shell landing-split">
+    <SectionHeader
+      align="left"
+      eyebrow="Skills"
+      title="Turn repeated work into reusable instructions."
+      description="Skills give Friday task-specific knowledge without burying important safety or tool requirements."
+    />
+    <div class="landing-card-grid">
+      {skillCards.map((card) => <CapabilityCard {...card} />)}
+    </div>
+  </div>
+</section>
+
+<section class="landing-section landing-section--soft" id="connectors">
+  <div class="shell">
+    <SectionHeader
+      eyebrow="Channels and messaging integrations"
+      title="Meet Friday where work already happens."
+      description="Connect team and personal messaging channels with account labels, default targets, allowlists, pairing rules, and runtime status controls."
+    />
+
+    <div class="channel-panel">
+      <div class="channel-cloud" aria-label="Supported messaging channels">
+        {visibleChannels.map((channel) => <span>{channel}</span>)}
+        <span>{friday.channelCatalog.length - visibleChannels.length} more</span>
+      </div>
+      <div class="channel-settings">
+        <h3>Channel controls</h3>
+        <ul>
+          {friday.channelSettings.slice(0, 8).map((setting) => <li>{setting}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="landing-section landing-section--dark" id="automation">
+  <div class="shell">
+    <SectionHeader
+      tone="dark"
+      eyebrow="Automation"
+      title="Scheduled work with a visible runtime."
+      description="Use cron jobs and heartbeat automation for recurring prompts, status checks, and channel updates while keeping pause and inspection controls close."
+    />
+    <div class="landing-card-grid landing-card-grid--two">
+      {automationCards.map((card) => <CapabilityCard {...card} />)}
+    </div>
+  </div>
+</section>
+
+<section class="landing-section" id="privacy">
+  <div class="shell">
+    <SectionHeader
+      eyebrow="Privacy and local-first control"
+      title="Your workspace should stay under your control."
+      description="Friday can connect to external providers and apps, but credentials, local files, history, and automation controls are treated as user-owned surfaces."
+    />
+    <div class="privacy-grid">
+      {privacyCards.map((card) => (
+        <article>
+          <div class="landing-card__icon">
+            <Icon name={card.icon} size={20} />
+          </div>
+          <h3>{card.title}</h3>
+          <p>{card.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="landing-section landing-section--soft" id="technical">
+  <div class="shell">
+    <SectionHeader
+      align="left"
+      eyebrow="Technical foundation"
+      title="Built as a real desktop application."
+      description="Friday combines an Electron desktop shell, typed cross-process contracts, provider adapters, local stores, and testable application layers."
+    />
+    <div class="technical-grid">
+      {technicalGroups.map((group) => (
+        <article>
+          <h3>{group.title}</h3>
+          <ul>
+            {group.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="download-section" id="download">
+  <div class="shell download-section__inner">
+    <p class="hero-kicker">Download Friday</p>
+    <h2>Start with one trusted workflow, then connect more.</h2>
+    <p>
+      Install the desktop app, choose providers, review permissions, and add only
+      the tools, channels, skills, and schedules you want Friday to use.
+    </p>
+    <div class="landing-hero__actions">
+      <DownloadMenu label="Download for desktop" />
+      <a class="button button--ghost" href="#privacy">
+        Review privacy controls
+        <Icon name="ShieldCheck" size={17} />
+      </a>
+    </div>
+  </div>
+</section>
