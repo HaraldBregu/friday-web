@@ -1,11 +1,25 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro";
+import Icon from "./Icon.astro";
 ---
 
 <header class="site-header">
   <nav aria-label="Primary navigation" class="nav nav--full">
+    <a class="brand brand--pill" href="/#product">
+      <span class="brand__mark">F</span>
+      <span class="brand__text">Friday</span>
+    </a>
+    <div class="nav__links">
+      <a href="/#assistant">Product</a>
+      <a href="/#tools">Use cases</a>
+      <a href="/#connectors">Connectors</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#privacy">Privacy</a>
+    </div>
     <div class="nav__actions">
-      <ThemeToggle />
+      <a class="nav__cta" href="/#download">
+        Get started
+        <Icon name="ArrowRight" size={14} />
+      </a>
     </div>
   </nav>
 </header>
