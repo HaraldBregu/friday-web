@@ -24,7 +24,7 @@ const trustMarks = ["OpenAI", "Anthropic", "Google", "Telegram", "GitHub", "Cron
       </p>
     </div>
 
-    <div class="desktop-chat" aria-label="Friday desktop app chat preview">
+    <div class="desktop-chat" aria-label="Friday desktop app chat preview" data-desktop-chat>
       <div class="desktop-chat__bar">
         <div class="desktop-chat__lights" aria-hidden="true">
           <span></span>
@@ -35,7 +35,7 @@ const trustMarks = ["OpenAI", "Anthropic", "Google", "Telegram", "GitHub", "Cron
         <Icon name="UserRound" size={19} />
       </div>
 
-      <div class="desktop-chat__body">
+      <div class="desktop-chat__body" data-chat-messages>
         <div class="desktop-chat__user-bubble">Hello</div>
 
         <div class="desktop-chat__assistant">
@@ -46,15 +46,15 @@ const trustMarks = ["OpenAI", "Anthropic", "Google", "Telegram", "GitHub", "Cron
         <div class="desktop-chat__assistant-message">Hello! How can I help?</div>
       </div>
 
-      <form class="desktop-chat__composer" aria-label="Friday prompt composer">
-        <button aria-label="Add attachment" type="button">
+      <form class="desktop-chat__composer" aria-label="Friday prompt composer" data-chat-form>
+        <button aria-label="Add attachment" data-add-attachment type="button">
           <Icon name="Plus" size={22} />
         </button>
-        <span>Ask anything</span>
-        <button aria-label="Dictate with microphone" type="button">
+        <input aria-label="Ask Friday" autocomplete="off" data-chat-input placeholder="Ask anything" type="text" />
+        <button aria-label="Dictate with microphone" data-mic-toggle type="button">
           <Icon name="Mic" size={21} />
         </button>
-        <button aria-label="Start voice input" class="desktop-chat__voice" type="button">
+        <button aria-label="Send message" class="desktop-chat__voice" type="submit">
           <Icon name="AudioLines" size={22} />
         </button>
       </form>
@@ -86,3 +86,54 @@ const trustMarks = ["OpenAI", "Anthropic", "Google", "Telegram", "GitHub", "Cron
     </div>
   </div>
 </section>
+
+<script>
+  const chat = document.querySelector("[data-desktop-chat]");
+  const form = chat?.querySelector("[data-chat-form]");
+  const input = chat?.querySelector("[data-chat-input]");
+  const messages = chat?.querySelector("[data-chat-messages]");
+  const addAttachment = chat?.querySelector("[data-add-attachment]");
+  const micToggle = chat?.querySelector("[data-mic-toggle]");
+
+  const addAssistantReply = (text) => {
+    const assistant = document.createElement("div");
+    assistant.className = "desktop-chat__assistant";
+    assistant.innerHTML = '<span class="assistant-orb" aria-hidden="true"></span><strong>Friday</strong>';
+
+    const message = document.createElement("div");
+    message.className = "desktop-chat__assistant-message";
+    message.textContent = text;
+
+    messages?.append(assistant, message);
+    messages?.scrollTo({ top: messages.scrollHeight, behavior: "smooth" });
+  };
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!(input instanceof HTMLInputElement) || !messages) return;
+
+    const value = input.value.trim() || "Hello";
+    const userBubble = document.createElement("div");
+    userBubble.className = "desktop-chat__user-bubble";
+    userBubble.textContent = value;
+    messages.append(userBubble);
+    input.value = "";
+    messages.scrollTo({ top: messages.scrollHeight, behavior: "smooth" });
+
+    window.setTimeout(() => {
+      addAssistantReply("I can help with chat, files, tools, providers, channels, or scheduled work.");
+    }, 260);
+  });
+
+  addAttachment?.addEventListener("click", () => {
+    addAssistantReply("Attach a file or audio note and I will keep the action visible before using tools.");
+  });
+
+  micToggle?.addEventListener("click", () => {
+    chat?.toggleAttribute("data-listening");
+    if (input instanceof HTMLInputElement) {
+      input.placeholder = chat?.hasAttribute("data-listening") ? "Listening..." : "Ask anything";
+      input.focus();
+    }
+  });
+</script>
