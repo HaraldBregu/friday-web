@@ -1,0 +1,66 @@
+---
+import socialLinks from "../data/social-links.json";
+import Icon from "./Icon.astro";
+
+const githubUrl = socialLinks.find((link) => link.label === "GitHub")?.url ?? "https://github.com/replace-me/friday";
+const releaseBaseUrl = `${githubUrl}/releases/latest/download`;
+const downloadOptions = [
+  { label: "macOS", icon: "Apple", url: `${releaseBaseUrl}/Friday-mac.dmg` },
+  { label: "Linux", icon: "TerminalSquare", url: `${releaseBaseUrl}/Friday-linux.AppImage` },
+  { label: "Windows", icon: "MonitorDown", url: `${releaseBaseUrl}/Friday-windows.exe` },
+];
+
+const trustMarks = ["OpenAI", "Anthropic", "Google", "Telegram", "GitHub", "Cron", "MCP"];
+---
+
+<section class="hero hero--reference" id="product">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="shell hero-reference__inner">
+    <div class="hero-reference__copy">
+      <h1>Friday</h1>
+      <p>
+        A local-first desktop AI copilot for chat, tools, connected apps,
+        scheduled tasks, and voice-assisted workflows.
+      </p>
+    </div>
+
+    <div class="prompt-console" aria-label="Friday product prompt preview">
+      <p>Ask Friday to inspect files, use tools, connect services, or schedule work...</p>
+      <div class="prompt-console__footer">
+        <button type="button">
+          Create task
+          <Icon name="ChevronDown" size={14} />
+        </button>
+        <a href="#assistant">
+          Explore features
+          <Icon name="ArrowRight" size={14} />
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-reference__actions">
+      <details class="download-menu download-menu--reference">
+        <summary class="button button--primary download-menu__trigger">
+          <Icon name="Download" size={18} />
+          Download Friday
+          <Icon class="download-menu__chevron" name="ChevronDown" size={16} />
+        </summary>
+        <div class="download-menu__panel">
+          {
+            downloadOptions.map((option) => (
+              <a href={option.url}>
+                <Icon name={option.icon} size={18} />
+                <span>{option.label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </details>
+      <a class="button button--ghost" href="#privacy">Read privacy notes</a>
+    </div>
+
+    <div class="hero-trust" aria-label="Representative Friday surfaces">
+      {trustMarks.map((mark) => <span>{mark}</span>)}
+    </div>
+  </div>
+</section>
