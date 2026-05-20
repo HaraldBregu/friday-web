@@ -1,16 +1,15 @@
 {
   "name": "Friday",
-  "tagline": "A desktop AI command center for real work.",
-  "description": "A desktop AI command center that connects models, tools, files, and team channels from one focused chat interface.",
-  "audience": "Developers, founders, and operators who want an AI assistant that can coordinate real workflows.",
+  "tagline": "Desktop AI Copilot",
+  "description": "Friday is a local-first desktop AI copilot for chat, tools, connected apps, scheduled tasks, messaging channels, and voice-assisted workflows.",
+  "audience": "Developers, operators, knowledge workers, writers, creators, and power users who want local control with connected automation.",
   "url": "https://friday.example.com",
-  "replacementNote": "Replace these defaults with PROJECT_NAME, PROJECT_DESCRIPTION, TARGET_AUDIENCE, CTA_TEXT, CTA_URL, SECONDARY_CTA_TEXT, and SECONDARY_CTA_URL.",
   "cta": {
-    "label": "Join the waitlist",
-    "url": "#waitlist"
+    "label": "Download Friday",
+    "url": "#download"
   },
   "secondaryCta": {
-    "label": "View integrations",
-    "url": "/integrations"
+    "label": "Explore features",
+    "url": "#assistant"
   }
 }
