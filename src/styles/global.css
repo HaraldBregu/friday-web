@@ -2529,7 +2529,8 @@ body::before {
     radial-gradient(circle at 50% 24%, rgba(245, 247, 232, 0.86), rgba(137, 157, 118, 0.72) 28%, rgba(47, 67, 42, 0.9) 70%),
     #34452f;
   color: #f9fbf3;
-  min-height: 760px;
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
 .hero-pattern,
@@ -2554,8 +2555,11 @@ body::before {
   position: relative;
   z-index: 1;
   display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  align-content: center;
   justify-items: center;
-  padding: clamp(7rem, 12vw, 9rem) 0 clamp(3.8rem, 8vw, 6rem);
+  padding: clamp(5.2rem, 9vw, 7rem) 0 clamp(2rem, 5vw, 3rem);
   text-align: center;
 }
 
@@ -3203,11 +3207,12 @@ body::before {
   }
 
   .hero--reference {
-    min-height: 690px;
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .hero-reference__inner {
-    padding-top: 6.2rem;
+    padding-top: 5.2rem;
   }
 
   .hero-reference__copy h1 {
