@@ -24,17 +24,68 @@ const trustMarks = ["OpenAI", "Anthropic", "Google", "Telegram", "GitHub", "Cron
       </p>
     </div>
 
-    <div class="prompt-console" aria-label="Friday product prompt preview">
-      <p>Ask Friday to inspect files, use tools, connect services, or schedule work...</p>
-      <div class="prompt-console__footer">
-        <button type="button">
-          Create task
-          <Icon name="ChevronDown" size={14} />
+    <div class="desktop-chat" aria-label="Friday desktop app chat preview">
+      <div class="desktop-chat__bar">
+        <div class="desktop-chat__lights" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <strong>Friday</strong>
+        <Icon name="UserRound" size={19} />
+      </div>
+
+      <div class="desktop-chat__body">
+        <div class="desktop-chat__user-bubble">Hello</div>
+
+        <div class="desktop-chat__assistant">
+          <span class="assistant-orb" aria-hidden="true"></span>
+          <strong>Friday</strong>
+        </div>
+
+        <div class="desktop-chat__assistant-message">Hello! How can I help?</div>
+      </div>
+
+      <form class="desktop-chat__composer" aria-label="Friday prompt composer">
+        <button aria-label="Add attachment" type="button">
+          <Icon name="Plus" size={22} />
         </button>
-        <a href="#product">
-          Preview workflow
-          <Icon name="ArrowRight" size={14} />
-        </a>
+        <span>Ask anything</span>
+        <button aria-label="Dictate with microphone" type="button">
+          <Icon name="Mic" size={21} />
+        </button>
+        <button aria-label="Start voice input" class="desktop-chat__voice" type="button">
+          <Icon name="AudioLines" size={22} />
+        </button>
+      </form>
+    </div>
+
+    <div class="hero-reference__actions">
+      <details class="download-menu download-menu--reference">
+        <summary class="button button--primary download-menu__trigger">
+          <Icon name="Download" size={18} />
+          Download Friday
+          <Icon class="download-menu__chevron" name="ChevronDown" size={16} />
+        </summary>
+        <div class="download-menu__panel">
+          {
+            downloadOptions.map((option) => (
+              <a href={option.url}>
+                <Icon name={option.icon} size={18} />
+                <span>{option.label}</span>
+              </a>
+            ))
+          }
+        </div>
+      </details>
+      <a class="button button--ghost" href="#product">Preview workflow</a>
+    </div>
+
+    <div class="hero-trust" aria-label="Representative Friday surfaces">
+      {trustMarks.map((mark) => <span>{mark}</span>)}
+    </div>
+  </div>
+</section>
       </div>
     </div>
 
