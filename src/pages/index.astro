@@ -1,5 +1,5 @@
 ---
-import Hero from "../components/Hero.astro";
+import LandingPage from "../components/LandingPage.astro";
 import site from "../data/site.json";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -7,9 +7,8 @@ import Layout from "../layouts/Layout.astro";
 <Layout
   title={site.name}
   description={site.description}
-  hideFooter
   ogTitle="Friday"
   ogDescription="A practical desktop AI assistant with provider choice, local controls, tools, connectors, skills, cron tasks, channels, and heartbeat automation."
 >
-  <Hero />
+  <LandingPage />
 </Layout>
