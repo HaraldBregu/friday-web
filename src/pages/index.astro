@@ -1,0 +1,473 @@
+---
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import product from "../data/friday-product.json";
+import site from "../data/site.json";
+import Layout from "../layouts/Layout.astro";
+
+const overviewCards = [
+  {
+    icon: "MessagesSquare",
+    title: "Everyday assistant",
+    description: "Use text chat, prompt suggestions, files, audio attachments, streaming answers, and visible agent states from one desktop surface.",
+  },
+  {
+    icon: "TerminalSquare",
+    title: "Workspace action",
+    description: "Let Friday inspect files, search a workspace, propose edits, run commands, fetch documentation, and open a managed browser when useful.",
+  },
+  {
+    icon: "PlugZap",
+    title: "Connected workflows",
+    description: "Configure providers, connectors, skills, apps, messaging channels, cron schedules, and heartbeat checks without hiding permissions.",
+  },
+  {
+    icon: "ShieldCheck",
+    title: "Local control",
+    description: "Keep settings, provider keys, chat history, user data folders, and tool approvals visible inside a local-first desktop app.",
+  },
+];
+
+const assistantHistory = [
+  "Stored chat history with message counts",
+  "User, assistant, and tool breakdown",
+  "Approximate context size",
+  "Refresh and delete controls"
+];
+
+const providerControls = [
+  "Local provider API key setup and editing",
+  "Keys remain in Friday's local app data and are used only for provider calls",
+  "Main assistant model selection",
+  "OpenAI reasoning effort options: none, minimal, low, medium, high, extra high",
+  "Speech-to-text provider and model selection",
+  "Text-to-speech voice model display",
+  "Image assistant settings are present, but image provider configuration is not available yet"
+];
+
+const connectorActions = [
+  "OpenAI-maintained connector setup for Responses API tool use",
+  "Add, update, enable, disable, and inspect connectors",
+  "Google OAuth connector flow using app environment credentials",
+  "OAuth access token connector flow for other connectors",
+  "Allowed tools list, including the option to allow all available tools",
+  "Deferred tool loading",
+  "Connector status messaging and OAuth connection action"
+];
+
+const appPluginItems = [
+  "List installed apps",
+  "Show app icon, name, and version",
+  "Refresh app list",
+  "Open app folder",
+  "Delete installed apps",
+  "Store apps under user-owned Friday data"
+];
+
+const downloadCards = [
+  { icon: "MonitorDown", title: "Download Friday", description: "Install the Electron desktop app for a local-first assistant surface." },
+  { icon: "Bot", title: "Connect your providers", description: "Add provider keys locally, then choose the model, voice, and reasoning profile for each workflow." },
+  { icon: "Workflow", title: "Automate a workflow", description: "Use tools, connectors, cron tasks, skills, channels, and heartbeat checks with explicit controls." }
+];
+---
+
+<Layout
+  title={site.name}
+  description={site.description}
+  ogTitle="Friday"
+  ogDescription="A practical desktop AI assistant with provider choice, local controls, tools, connectors, skills, cron tasks, channels, and heartbeat automation."
+>
+  <Hero />
+
+  <section class="proof-strip" aria-label="Friday positioning">
+    <div class="shell proof-strip__inner">
+      <span>Desktop AI copilot</span>
+      <span>Local-first controls</span>
+      <span>Tools and approvals</span>
+      <span>Channels and schedules</span>
+    </div>
+  </section>
+
+  <section class="section section--compact">
+    <div class="shell feature-grid feature-grid--four">
+      {overviewCards.map((card) => (
+        <article class="feature-card">
+          <div class="card-icon"><Icon name={card.icon} /></div>
+          <h2>{card.title}</h2>
+          <p>{card.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" id="assistant">
+    <div class="shell section-heading">
+      <p class="eyebrow">Core Assistant</p>
+      <h2>Work with an assistant that can talk, inspect, and act</h2>
+      <p>
+        Friday centers on a conversation with the main assistant. It supports text chat,
+        onboarding prompt suggestions, attached files, audio attachments, and streaming
+        assistant responses for writing, planning, code review, research, and everyday work.
+      </p>
+    </div>
+    <div class="shell content-grid content-grid--balanced">
+      <article class="feature-panel">
+        <Icon name="MessagesSquare" size={28} />
+        <h3>Visible agent state</h3>
+        <p>
+          The app exposes agent states instead of hiding automation behind a spinner.
+          A turn can move through thinking, reasoning, using tools, waiting for approval,
+          answering, completed, cancelled, or error states.
+        </p>
+        <div class="chip-list" aria-label="Agent states">
+          {product.assistantStates.map((state) => <span>{state}</span>)}
+        </div>
+      </article>
+      <article class="feature-panel">
+        <Icon name="TerminalSquare" size={28} />
+        <h3>Inspectable tool activity</h3>
+        <p>
+          Tool calls show when they start, the input Friday is using, the result, current
+          status, duration, and error states. Pending input and approval states stay visible
+          before risky actions continue.
+        </p>
+        <div class="activity-table" role="list" aria-label="Tool activity fields">
+          {["start", "input", "result", "status", "duration", "error"].map((item) => (
+            <span role="listitem">{item}</span>
+          ))}
+        </div>
+      </article>
+      <article class="feature-panel feature-panel--wide">
+        <Icon name="Database" size={28} />
+        <h3>History you can inspect</h3>
+        <p>
+          Stored chat history reports the size and shape of the active conversation so
+          users can understand what context Friday is carrying.
+        </p>
+        <ul class="check-list">
+          {assistantHistory.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--muted" id="tools">
+    <div class="shell split-section">
+      <div class="section-heading section-heading--sticky">
+        <p class="eyebrow">Tool Use</p>
+        <h2>Actions are useful, scoped, and governed</h2>
+        <p>
+          Friday exposes tools only when they help the current turn. Tool selection is
+          policy-driven and scoped per turn, with approvals for write, delete, publish,
+          or private-data access.
+        </p>
+      </div>
+      <div class="capability-list">
+        {product.toolCategories.map((item) => (
+          <article>
+            <Icon name="CheckCircle2" size={18} />
+            <p>{item}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="providers">
+    <div class="shell section-heading">
+      <p class="eyebrow">Providers And Models</p>
+      <h2>Choose models without giving up local key control</h2>
+      <p>
+        Friday keeps provider configuration practical: set up API keys locally, edit them
+        from settings, choose the main assistant model, and configure speech and voice
+        providers without putting secrets in page content or logs.
+      </p>
+    </div>
+    <div class="shell content-grid">
+      <article class="feature-panel">
+        <Icon name="Bot" size={28} />
+        <h3>Provider setup</h3>
+        <ul class="check-list">
+          {providerControls.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+      <article class="feature-panel">
+        <Icon name="Cpu" size={28} />
+        <h3>Coverage categories</h3>
+        <div class="chip-list">
+          {product.providerCategories.map((category) => <span>{category}</span>)}
+        </div>
+      </article>
+      <article class="feature-panel feature-panel--wide">
+        <Icon name="Cloud" size={28} />
+        <h3>Provider examples</h3>
+        <p>
+          The settings model is designed for provider choice across chat, voice, research,
+          media, and specialized model categories.
+        </p>
+        <div class="logo-cloud" aria-label="Provider examples">
+          {product.providerExamples.map((provider) => <span>{provider}</span>)}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--muted" id="voice">
+    <div class="shell split-section">
+      <div class="section-heading section-heading--sticky">
+        <p class="eyebrow">Voice And Audio</p>
+        <h2>Dictate, attach, preview, and hear responses</h2>
+        <p>
+          Friday supports microphone-driven workflows while keeping permission states
+          explicit. Voice features are available from the prompt input and settings.
+        </p>
+      </div>
+      <div class="capability-list">
+        {product.voiceFeatures.map((item) => (
+          <article>
+            <Icon name="Mic" size={18} />
+            <p>{item}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="connectors">
+    <div class="shell section-heading">
+      <p class="eyebrow">Connectors</p>
+      <h2>Connected-app infrastructure with explicit approval policy</h2>
+      <p>
+        Connectors let Friday reach external systems through configured tool surfaces.
+        They are presented as extensible connected-app infrastructure, not as a guarantee
+        that every discovery platform is fully bundled.
+      </p>
+    </div>
+    <div class="shell content-grid content-grid--balanced">
+      <article class="feature-panel">
+        <Icon name="PlugZap" size={28} />
+        <h3>Connector lifecycle</h3>
+        <ul class="check-list">
+          {connectorActions.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+      <article class="feature-panel">
+        <Icon name="ShieldCheck" size={28} />
+        <h3>Approval policies</h3>
+        <div class="stack-list">
+          {product.connectorPolicies.map((policy) => <span>{policy}</span>)}
+        </div>
+      </article>
+      <article class="feature-panel">
+        <Icon name="BookOpen" size={28} />
+        <h3>Inspectable fields</h3>
+        <div class="chip-list">
+          {product.connectorFields.map((field) => <span>{field}</span>)}
+        </div>
+      </article>
+      <article class="feature-panel feature-panel--wide">
+        <Icon name="Workflow" size={28} />
+        <h3>Platform discovery</h3>
+        <p>
+          Friday can surface connector platform discovery for setup paths and future
+          runtime expansion.
+        </p>
+        <div class="logo-cloud">
+          {product.connectorPlatforms.map((platform) => <span>{platform}</span>)}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--muted" id="skills">
+    <div class="shell section-heading">
+      <p class="eyebrow">Skills, Apps, And Plugins</p>
+      <h2>Extend workflows with local instructions and installed app surfaces</h2>
+      <p>
+        Skills are instructions and optional tool-contract hints. They do not grant
+        permissions or bypass runtime policy.
+      </p>
+    </div>
+    <div class="shell content-grid content-grid--balanced">
+      <article class="feature-panel">
+        <Icon name="BookOpen" size={28} />
+        <h3>Skill import and inspection</h3>
+        <p>
+          Import local skills from folders containing <code>SKILL.md</code>, support common
+          Agent Skills folder structures, refresh installed skills, and inspect diagnostics.
+        </p>
+        <div class="chip-list">
+          {product.skillDetails.map((detail) => <span>{detail}</span>)}
+        </div>
+      </article>
+      <article class="feature-panel">
+        <Icon name="Workflow" size={28} />
+        <h3>Skill actions and examples</h3>
+        <p>
+          Download and delete skill actions appear when available. Common uses include:
+        </p>
+        <ul class="check-list">
+          {product.skillUseCases.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+      <article class="feature-panel feature-panel--wide">
+        <Icon name="MonitorDown" size={28} />
+        <h3>Apps and plugins</h3>
+        <p>
+          Installed apps are managed from Friday data owned by the user, with direct
+          visibility into what is installed.
+        </p>
+        <ul class="check-list check-list--columns">
+          {appPluginItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="channels">
+    <div class="shell section-heading">
+      <p class="eyebrow">Messaging Channels</p>
+      <h2>Receive and send messages through channel adapters</h2>
+      <p>
+        Telegram has the bundled runtime implementation. Other channels appear as
+        setup and catalog surfaces unless a runtime is added.
+      </p>
+    </div>
+    <div class="shell content-grid">
+      <article class="feature-panel feature-panel--wide">
+        <Icon name="RadioTower" size={28} />
+        <h3>Channel catalog</h3>
+        <div class="logo-cloud logo-cloud--compact">
+          {product.channelCatalog.map((channel) => <span>{channel}</span>)}
+        </div>
+      </article>
+      <article class="feature-panel feature-panel--wide">
+        <Icon name="ShieldCheck" size={28} />
+        <h3>Channel settings</h3>
+        <ul class="check-list check-list--columns">
+          {product.channelSettings.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--muted" id="automation">
+    <div class="shell section-heading">
+      <p class="eyebrow">Scheduled Tasks And Heartbeat</p>
+      <h2>Schedule controlled checks and periodic awareness</h2>
+      <p>
+        Friday can track cron tasks and run heartbeat checks so the assistant can keep
+        periodic awareness without running hidden automation.
+      </p>
+    </div>
+    <div class="shell content-grid content-grid--balanced">
+      <article class="feature-panel">
+        <Icon name="CalendarDays" size={28} />
+        <h3>Scheduled tasks</h3>
+        <ul class="check-list">
+          {product.cronDetails.map((item) => <li>{item}</li>)}
+        </ul>
+        <p>
+          When exposed to an agent turn, cron tooling can create, list, update, remove,
+          manually run, or wake scheduled jobs.
+        </p>
+      </article>
+      <article class="feature-panel">
+        <Icon name="HeartHandshake" size={28} />
+        <h3>Heartbeat runtime</h3>
+        <ul class="check-list">
+          {product.heartbeatDetails.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="privacy">
+    <div class="shell section-heading">
+      <p class="eyebrow">Privacy, Data, And Control</p>
+      <h2>Local-first does not mean invisible data movement</h2>
+      <p>
+        Friday is designed around local controls and visible settings while still allowing
+        users to connect external AI providers, apps, channels, and connectors when they
+        choose to.
+      </p>
+    </div>
+    <div class="shell privacy-grid">
+      {product.privacyNotes.map((note) => (
+        <article>
+          <Icon name="ShieldCheck" size={20} />
+          <p>{note}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--muted">
+    <div class="shell split-section">
+      <div class="section-heading section-heading--sticky">
+        <p class="eyebrow">Desktop Experience</p>
+        <h2>A practical Electron app surface</h2>
+        <p>
+          Friday behaves like a desktop tool: settings, menus, folders, runtime notices,
+          language, theme, and background-work controls stay close to the assistant.
+        </p>
+      </div>
+      <div class="capability-list">
+        {product.desktopFeatures.map((item) => (
+          <article>
+            <Icon name="MonitorDown" size={18} />
+            <p>{item}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="technical">
+    <div class="shell section-heading">
+      <p class="eyebrow">Technical Foundation</p>
+      <h2>Built as a typed local desktop application</h2>
+      <p>
+        Technical visitors can map product capabilities to the application architecture
+        without reading source code first.
+      </p>
+    </div>
+    <div class="shell technical-list">
+      {product.technicalFoundation.map((item) => (
+        <article>
+          <Icon name="Cpu" size={18} />
+          <p>{item}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cta-section" id="download">
+    <div class="shell cta-panel">
+      <p class="eyebrow">Get Started</p>
+      <h2>Bring Friday into your local workflow</h2>
+      <p>
+        Download Friday, connect your providers, automate a workflow, and read the privacy
+        notes before enabling connected tools or messaging channels.
+      </p>
+      <div class="download-grid">
+        {downloadCards.map((card) => (
+          <article>
+            <Icon name={card.icon} size={26} />
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+          </article>
+        ))}
+      </div>
+      <div class="cta-panel__actions">
+        <a class="button button--primary" href="#product">
+          <Icon name="Download" size={18} />
+          Download Friday
+        </a>
+        <a class="button button--ghost" href="#providers">Connect your providers</a>
+        <a class="button button--ghost" href="#automation">Automate a workflow</a>
+        <a class="button button--ghost" href="#privacy">Read the privacy notes</a>
+      </div>
+    </div>
+  </section>
+</Layout>
