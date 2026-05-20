@@ -2529,8 +2529,10 @@ body::before {
 .hero--reference {
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 24%, rgba(245, 247, 232, 0.86), rgba(137, 157, 118, 0.72) 28%, rgba(47, 67, 42, 0.9) 70%),
-    #34452f;
+    radial-gradient(circle at 50% 30%, rgba(255, 246, 226, 0.16), transparent 24rem),
+    radial-gradient(circle at 26% 28%, rgba(135, 198, 255, 0.12), transparent 28rem),
+    radial-gradient(circle at 78% 18%, rgba(255, 176, 126, 0.11), transparent 24rem),
+    linear-gradient(135deg, #111813 0%, #1d2a22 42%, #101717 100%);
   color: #f9fbf3;
   min-height: 100vh;
   min-height: 100svh;
