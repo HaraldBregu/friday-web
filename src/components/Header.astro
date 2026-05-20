@@ -1,5 +1,6 @@
 ---
 import Icon from "./Icon.astro";
+import friday from "../data/friday-product.json";
 ---
 
 <header class="site-header">
@@ -8,9 +9,12 @@ import Icon from "./Icon.astro";
       <span class="brand__mark">F</span>
       <span class="brand__text">Friday</span>
     </a>
+    <div class="nav__links">
+      {friday.nav.slice(0, 6).map((item) => <a href={`/${item.href}`}>{item.label}</a>)}
+    </div>
     <div class="nav__actions">
-      <a class="nav__cta" href="/#product">
-        Get started
+      <a class="nav__cta" href="/#download">
+        Download
         <Icon name="ArrowRight" size={14} />
       </a>
     </div>
