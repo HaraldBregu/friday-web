@@ -176,6 +176,9 @@ const visibleChannels = friday.channelCatalog.slice(0, 18);
           <Icon name="ArrowRight" size={17} />
         </a>
       </div>
+      <ul class="hero-signal-list" aria-label="Friday control principles">
+        {friday.heroSignals.map((signal) => <li>{signal}</li>)}
+      </ul>
     </div>
 
     <ProductMockup />
