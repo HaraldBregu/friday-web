@@ -2067,6 +2067,10 @@ input {
     align-items: center;
   }
 
+  .friday-demo {
+    --friday-app-ratio: 4 / 5;
+  }
+
 	  .hero__actions .button {
 	    width: min(100%, 18rem);
 	  }
@@ -2118,12 +2122,12 @@ input {
 
 	  .friday-window {
 	    height: auto;
-	    border-radius: 24px;
+	    border-radius: 20px;
 	  }
 
   .friday-window__bar {
-    min-height: 4.25rem;
-    padding-inline: 1rem;
+    min-height: 3.35rem;
+    padding-inline: 0.8rem;
   }
 
 	  .skip-button {
@@ -2135,8 +2139,8 @@ input {
   }
 
   .window-lights span {
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.72rem;
+    height: 0.72rem;
   }
 
   .friday-prompt {
@@ -2203,6 +2207,7 @@ input {
     width: min(100%, 326px);
     max-width: calc(100vw - 2rem);
     justify-self: center;
+    --friday-app-ratio: 4 / 5;
   }
 
 	  .friday-window {
