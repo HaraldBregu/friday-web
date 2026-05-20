@@ -2705,11 +2705,15 @@ body::before {
   display: flex;
   min-height: 0;
   flex-direction: column;
+  overflow-y: auto;
   padding: 1.55rem 1.65rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
 }
 
 .desktop-chat__user-bubble {
   align-self: flex-end;
+  max-width: 78%;
   border-radius: 20px;
   background: #e5e5e3;
   color: #171815;
@@ -2724,6 +2728,10 @@ body::before {
   align-items: center;
   gap: 0.65rem;
   margin-top: 2.25rem;
+}
+
+.desktop-chat__user-bubble + .desktop-chat__assistant {
+  margin-top: 1.4rem;
 }
 
 .assistant-orb {
@@ -2782,17 +2790,37 @@ body::before {
   cursor: pointer;
 }
 
-.desktop-chat__composer span {
+.desktop-chat__composer input {
   min-width: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
   color: rgba(255, 255, 255, 0.6);
   font-size: 1rem;
   font-weight: 520;
+  outline: 0;
   white-space: nowrap;
+}
+
+.desktop-chat__composer input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .desktop-chat__composer .desktop-chat__voice {
   background: #f6f6f1;
   color: #11130f;
+}
+
+.desktop-chat[data-listening] .desktop-chat__composer {
+  border-color: rgba(156, 173, 135, 0.55);
+  box-shadow:
+    0 0 0 3px rgba(156, 173, 135, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.desktop-chat[data-listening] [data-mic-toggle] {
+  background: rgba(156, 173, 135, 0.2);
+  color: #dfe8d5;
 }
 
 .hero-reference__actions {
@@ -3407,7 +3435,7 @@ body::before {
     margin: 0 0.75rem 0.8rem;
   }
 
-  .desktop-chat__composer span {
+  .desktop-chat__composer input {
     font-size: 0.94rem;
   }
 
