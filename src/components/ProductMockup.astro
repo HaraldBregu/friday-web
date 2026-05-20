@@ -1,0 +1,110 @@
+---
+import Icon from "./Icon.astro";
+
+const navItems = [
+  { label: "Chat", icon: "MessagesSquare", active: true },
+  { label: "Tools", icon: "TerminalSquare" },
+  { label: "Skills", icon: "Workflow" },
+  { label: "Channels", icon: "RadioTower" },
+  { label: "Cron", icon: "CalendarDays" },
+  { label: "Privacy", icon: "ShieldCheck" },
+];
+
+const planItems = [
+  "Inspect changed files",
+  "Draft release notes",
+  "Ask before running tests",
+];
+---
+
+<div class="product-window" aria-label="Friday desktop app preview">
+  <div class="product-window__bar">
+    <div class="window-lights" aria-hidden="true">
+      <span class="window-lights__red"></span>
+      <span class="window-lights__yellow"></span>
+      <span></span>
+    </div>
+    <strong>Friday</strong>
+    <span class="window-status">Local workspace</span>
+  </div>
+
+  <div class="product-window__body">
+    <aside class="product-window__nav" aria-label="Friday app areas">
+      {
+        navItems.map((item) => (
+          <span class={item.active ? "is-active" : ""}>
+            <Icon name={item.icon} size={16} />
+            {item.label}
+          </span>
+        ))
+      }
+    </aside>
+
+    <section class="product-window__chat" aria-label="Assistant conversation preview">
+      <div class="chat-bubble chat-bubble--user">
+        Summarize this repo, draft a release note, and ask before running tests.
+      </div>
+
+      <div class="assistant-row">
+        <div class="assistant-mark">
+          <Icon name="Bot" size={17} />
+        </div>
+        <div>
+          <strong>Friday</strong>
+          <span>using tools with approval checks</span>
+        </div>
+      </div>
+
+      <div class="assistant-plan">
+        {planItems.map((item) => <span>{item}</span>)}
+      </div>
+
+      <div class="tool-request">
+        <div>
+          <span>Tool request</span>
+          <strong>Run `bun run build`</strong>
+        </div>
+        <button type="button">
+          <Icon name="CheckCircle2" size={16} />
+          Approve
+        </button>
+      </div>
+    </section>
+
+    <aside class="product-window__rail" aria-label="Workspace action preview">
+      <article>
+        <Icon name="TerminalSquare" size={18} />
+        <span>Workspace</span>
+        <strong>12 files inspected</strong>
+      </article>
+      <article>
+        <Icon name="CalendarDays" size={18} />
+        <span>Scheduled</span>
+        <strong>Daily 9:00 status brief</strong>
+      </article>
+      <article>
+        <Icon name="RadioTower" size={18} />
+        <span>Channel</span>
+        <strong>Telegram paired, Slack ready</strong>
+      </article>
+      <article>
+        <Icon name="ShieldCheck" size={18} />
+        <span>Privacy</span>
+        <strong>Keys and history stay local</strong>
+      </article>
+    </aside>
+  </div>
+
+  <div class="product-window__composer" aria-label="Friday prompt composer preview">
+    <button aria-label="Add attachment" type="button">
+      <Icon name="Plus" size={18} />
+    </button>
+    <span>Ask Friday to use files, tools, voice, or channels...</span>
+    <button aria-label="Voice input" type="button">
+      <Icon name="Mic" size={18} />
+    </button>
+    <button aria-label="Send prompt" class="composer-send" type="button">
+      <Icon name="ArrowRight" size={18} />
+    </button>
+  </div>
+</div>
