@@ -1726,6 +1726,14 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .lp-hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-hero__preview {
+    transform: none;
+  }
+
   .reference-head,
   .features-grid,
   .how-steps,
@@ -1768,6 +1776,36 @@ p {
 
   .lede {
     font-size: 1.04rem;
+  }
+
+  .product-window__bar {
+    grid-template-columns: auto 1fr;
+  }
+
+  .product-window__bar strong {
+    justify-self: start;
+  }
+
+  .window-status {
+    display: none;
+  }
+
+  .product-window__body {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .product-window__nav,
+  .product-window__rail {
+    display: none;
+  }
+
+  .product-window__chat {
+    min-height: 360px;
+  }
+
+  .chat-bubble--user {
+    max-width: 100%;
   }
 
   .features-grid,
