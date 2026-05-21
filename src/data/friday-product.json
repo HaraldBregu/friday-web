@@ -1,12 +1,88 @@
 {
   "nav": [
     { "label": "Product", "href": "#product" },
-    { "label": "Features", "href": "#assistant" },
-    { "label": "Integrations", "href": "#connectors" },
-    { "label": "Automation", "href": "#automation" },
-    { "label": "Privacy", "href": "#privacy" },
-    { "label": "Technical", "href": "#technical" },
+    { "label": "Features", "href": "#features" },
+    { "label": "Workflow", "href": "#workflow" },
+    { "label": "Integrations", "href": "/integrations" },
+    { "label": "Community", "href": "/community" },
+    { "label": "Blog", "href": "/blog" },
     { "label": "Download", "href": "#download" }
+  ],
+  "release": {
+    "version": "v1.0",
+    "platform": "macOS 13+",
+    "phase": "Private beta"
+  },
+  "hero": {
+    "eyebrow": "Local-first desktop AI assistant",
+    "headline": "Friday.",
+    "description": "Summon Friday, ask for help, and get back to the work in front of you. It can use files, tools, channels, schedules, and voice while keeping permissions visible."
+  },
+  "demoSuggestions": [
+    {
+      "question": "Summarize my unread Slacks",
+      "answer": "You have 14 unreads across 3 channels. The thread worth your attention is #launch, where Priya is blocked on the API timeout question and tagged you 11 minutes ago."
+    },
+    {
+      "question": "Draft a polite decline to Maya",
+      "answer": "Hey Maya, thanks so much for the invite. I cannot make Thursday, but I would love to find another time. Want me to send a few options for next week?"
+    },
+    {
+      "question": "What did I do yesterday?",
+      "answer": "You spent the morning on the Friday landing page, shipped a small product update after lunch, and closed the laptop at 18:12."
+    }
+  ],
+  "landingMetrics": [
+    { "value": "Option Space", "label": "desktop shortcut" },
+    { "value": "Local", "label": "keys and app settings" },
+    { "value": "Approval", "label": "before risky actions" },
+    { "value": "Cron", "label": "scheduled prompts" }
+  ],
+  "landingFeatures": [
+    {
+      "key": "01",
+      "title": "Available from the desktop",
+      "description": "Keep Friday close to active work with a fast prompt surface, desktop controls, and context that does not require copying everything into a browser tab."
+    },
+    {
+      "key": "02",
+      "title": "Remembers without hiding the record",
+      "description": "Local stores keep useful context such as settings, skills, channels, schedules, and session state inspectable and deletable."
+    },
+    {
+      "key": "03",
+      "title": "Tools with clear approval",
+      "description": "File edits, terminal commands, connector calls, browser actions, and publishing steps can pause for review before Friday acts."
+    },
+    {
+      "key": "04",
+      "title": "Your choice of model",
+      "description": "Route chat, voice, images, research, and realtime work through the providers you configure instead of being locked into one model."
+    },
+    {
+      "key": "05",
+      "title": "Reusable skills",
+      "description": "Package repeated work into task-specific instructions with visible tools, safety posture, metadata, and diagnostics."
+    },
+    {
+      "key": "06",
+      "title": "Automation you can inspect",
+      "description": "Scheduled prompts, heartbeat events, channel deliveries, and run state stay visible so recurring work remains accountable."
+    }
+  ],
+  "workflowSteps": [
+    {
+      "title": "Ask",
+      "description": "Start with a prompt, voice note, file, or selected workflow from the desktop app."
+    },
+    {
+      "title": "Review",
+      "description": "Friday shows the planned work, tool requests, and permission state before sensitive actions run."
+    },
+    {
+      "title": "Deliver",
+      "description": "Send the result back to chat, a local file, or a connected channel while keeping history available."
+    }
   ],
   "heroSignals": [
     "Local-first desktop control",
