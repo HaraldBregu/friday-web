@@ -1399,11 +1399,15 @@ p {
   .reference-head,
   .features-grid,
   .how-steps,
-  .pricing-grid,
+  .connector-grid,
   .mission-grid,
   .integration-grid,
   .community-links {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .channel-panel {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1438,7 +1442,8 @@ p {
 
   .features-grid,
   .how-steps,
-  .pricing-grid,
+  .connector-grid,
+  .channel-panel,
   .mission-grid,
   .integration-grid,
   .community-links {
