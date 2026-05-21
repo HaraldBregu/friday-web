@@ -53,6 +53,7 @@ html {
 }
 
 body {
+  position: relative;
   min-width: 320px;
   margin: 0;
   background:
@@ -64,6 +65,132 @@ body {
   line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.68;
+}
+
+[data-theme="light"] .starfield {
+  opacity: 0.28;
+}
+
+.starfield__layer {
+  position: absolute;
+  inset: -16%;
+  background-repeat: repeat;
+  will-change: transform, opacity;
+}
+
+.starfield__layer--far {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.58) 0 0.7px, transparent 1.5px),
+    radial-gradient(circle, rgba(243, 198, 111, 0.48) 0 0.8px, transparent 1.7px),
+    radial-gradient(circle, rgba(120, 212, 184, 0.42) 0 0.7px, transparent 1.6px);
+  background-position:
+    18px 34px,
+    88px 119px,
+    151px 48px;
+  background-size:
+    173px 211px,
+    263px 317px,
+    337px 229px;
+  animation: star-drift-far 110s linear infinite;
+}
+
+.starfield__layer--near {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 0.95px, transparent 1.8px),
+    radial-gradient(circle, rgba(243, 198, 111, 0.58) 0 0.9px, transparent 1.8px),
+    radial-gradient(circle, rgba(185, 166, 255, 0.48) 0 0.85px, transparent 1.7px);
+  background-position:
+    37px 51px,
+    122px 83px,
+    209px 154px;
+  background-size:
+    137px 163px,
+    199px 241px,
+    271px 191px;
+  filter: drop-shadow(0 0 4px rgba(243, 198, 111, 0.25));
+  opacity: 0.72;
+  animation: star-drift-near 72s linear infinite reverse, star-twinkle 5.5s ease-in-out infinite;
+}
+
+.starfield__shooting {
+  position: absolute;
+  width: 8rem;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.88), transparent);
+  filter: drop-shadow(0 0 6px rgba(243, 198, 111, 0.5));
+  opacity: 0;
+  transform: rotate(-24deg);
+  animation: shooting-star 9s ease-in-out infinite;
+}
+
+.starfield__shooting--one {
+  top: 18%;
+  left: 64%;
+}
+
+.starfield__shooting--two {
+  top: 44%;
+  left: 16%;
+  animation-delay: 4.5s;
+  animation-duration: 12s;
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes star-drift-far {
+  to {
+    transform: translate3d(-7%, 5%, 0);
+  }
+}
+
+@keyframes star-drift-near {
+  to {
+    transform: translate3d(9%, -7%, 0);
+  }
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.58;
+  }
+
+  50% {
+    opacity: 0.88;
+  }
+}
+
+@keyframes shooting-star {
+  0%,
+  72%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-24deg);
+  }
+
+  78% {
+    opacity: 0.9;
+  }
+
+  86% {
+    opacity: 0;
+    transform: translate3d(-22rem, 10rem, 0) rotate(-24deg);
+  }
 }
 
 button,
