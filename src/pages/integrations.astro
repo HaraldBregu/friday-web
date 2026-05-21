@@ -1,9 +1,11 @@
 ---
 import CTASection from "../components/CTASection.astro";
 import IntegrationCard from "../components/IntegrationCard.astro";
-import integrations from "../data/integrations.json";
+import { getLocaleContent } from "../i18n";
 import Layout from "../layouts/Layout.astro";
 
+const locale = "en";
+const { integrations, integrationsPage } = getLocaleContent(locale);
 const groups = integrations.reduce<Record<string, typeof integrations>>((acc, item) => {
   acc[item.category] = acc[item.category] ?? [];
   acc[item.category].push(item);
@@ -12,17 +14,16 @@ const groups = integrations.reduce<Record<string, typeof integrations>>((acc, it
 ---
 
 <Layout
-  title="Integrations"
-  description="Supported providers, channels, productivity tools, data sources, and infrastructure integrations."
+  alternatePath="/integrations"
+  locale={locale}
+  title={integrationsPage.title}
+  description={integrationsPage.description}
 >
   <section class="section page-hero">
     <div class="shell section-heading">
-      <p class="eyebrow">Integrations</p>
-      <h1>Connect the systems that make work real.</h1>
-      <p>
-        Start with source control and channels, then expand into data,
-        productivity, and infrastructure workflows.
-      </p>
+      <p class="eyebrow">{integrationsPage.eyebrow}</p>
+      <h1>{integrationsPage.heading}</h1>
+      <p>{integrationsPage.intro}</p>
     </div>
   </section>
 
@@ -33,7 +34,7 @@ const groups = integrations.reduce<Record<string, typeof integrations>>((acc, it
           <div class="category-section">
             <div class="category-section__heading">
               <h2>{category}</h2>
-              <span>{items.length} integrations</span>
+              <span>{items.length} {items.length === 1 ? integrationsPage.singular : integrationsPage.plural}</span>
             </div>
             <div class="integration-grid">
               {items.map((integration) => <IntegrationCard integration={integration} />)}
@@ -45,8 +46,9 @@ const groups = integrations.reduce<Record<string, typeof integrations>>((acc, it
   </section>
 
   <CTASection
-    eyebrow="Need a different system?"
-    title="Add the integration that matters to your team."
-    description="Use the JSON data model as a starter, then connect real providers as your product matures."
+    locale={locale}
+    eyebrow={integrationsPage.ctaEyebrow}
+    title={integrationsPage.ctaTitle}
+    description={integrationsPage.ctaDescription}
   />
 </Layout>

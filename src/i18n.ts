@@ -53,7 +53,9 @@ const fridayIt = {
     { label: "Funzioni", href: "#features" },
     { label: "Integrazioni", href: "/integrations" },
     { label: "Operatori", href: "/operators" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Provider", href: "/providers" },
+    { label: "Canali", href: "/channels" },
+    { label: "Strumenti", href: "/tools" },
     { label: "Scarica", href: "#download" },
   ],
   release: {
@@ -752,6 +754,10 @@ const en = {
     channelsPanelTitle: "Channel controls stay explicit.",
     channelsPanelDescription:
       "Configure account labels, default targets, allowlists, pairing rules, runtime state, and delivery behavior before Friday posts into a channel.",
+    operatorsEyebrow: "Operators",
+    operatorsTitle: "Voice, images, video, and music — all provider-agnostic.",
+    providersEyebrow: "AI Providers",
+    providersTitle: "30+ providers. One config.",
     faqEyebrow: "FAQ",
     faqTitle: "Common questions.",
     downloadTitle: "One keystroke away.",
