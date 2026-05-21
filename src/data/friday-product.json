@@ -3,7 +3,8 @@
     { "label": "Product", "href": "#product" },
     { "label": "Features", "href": "#features" },
     { "label": "How it works", "href": "#how" },
-    { "label": "Pricing", "href": "#pricing" },
+    { "label": "Connectors", "href": "#connectors" },
+    { "label": "Channels", "href": "#channels" },
     { "label": "FAQ", "href": "#faq" },
     { "label": "Download", "href": "#download" }
   ],
@@ -93,37 +94,57 @@
     "text": "The first AI tool that respects what I was doing before I opened it.",
     "cite": "Friday design partner"
   },
-  "pricingPlans": [
+  "landingConnectors": [
     {
-      "name": "Personal",
-      "price": "$0",
-      "period": "/ beta",
-      "description": "Everything you need to use Friday with your own provider keys.",
-      "items": [
-        "Local app settings and provider keys",
-        "Chat, files, tools, and voice workflows",
-        "Skills, schedules, and connector controls",
-        "No account required for local use"
-      ],
-      "cta": "Download",
-      "href": "#download"
+      "name": "Google",
+      "label": "Workspace",
+      "description": "Search and summarize workspace context across configured Google services.",
+      "icon": "Cloud"
     },
     {
-      "name": "Pro",
-      "badge": "Coming soon",
-      "price": "$8",
-      "period": "/ month",
-      "description": "For people who want hosted routing, sync, and priority access.",
-      "items": [
-        "Hosted model routing",
-        "Cross-device memory sync",
-        "Priority support",
-        "Early access to new automation surfaces"
-      ],
-      "cta": "Follow updates",
-      "href": "/community#contribute",
-      "featured": true
+      "name": "Gmail",
+      "label": "Email",
+      "description": "Draft replies, triage threads, and pull follow-ups into a Friday task.",
+      "icon": "MailCheck"
+    },
+    {
+      "name": "Calendar",
+      "label": "Scheduling",
+      "description": "Prepare agendas, spot conflicts, and turn meetings into next actions.",
+      "icon": "CalendarDays"
+    },
+    {
+      "name": "Google Drive",
+      "label": "Files",
+      "description": "Use docs, sheets, and shared files as reviewed context for assistant work.",
+      "icon": "Database"
+    },
+    {
+      "name": "GitHub",
+      "label": "Code",
+      "description": "Inspect issues, pull requests, reviews, releases, and repository activity.",
+      "icon": "Github"
+    },
+    {
+      "name": "Notion",
+      "label": "Docs",
+      "description": "Summarize pages, draft updates, and turn team knowledge into workflows.",
+      "icon": "BookOpen"
     }
+  ],
+  "landingChannels": [
+    "Telegram",
+    "WhatsApp",
+    "Slack",
+    "Discord",
+    "Microsoft Teams",
+    "Google Chat",
+    "Signal",
+    "iMessage",
+    "Matrix",
+    "Mattermost",
+    "LINE",
+    "Feishu/Lark"
   ],
   "faqs": [
     {
