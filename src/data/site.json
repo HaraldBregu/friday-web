@@ -1,15 +1,15 @@
 {
   "name": "Friday",
-  "tagline": "Desktop AI Copilot",
-  "description": "Friday is a local-first desktop AI copilot for chat, tools, connected apps, scheduled tasks, messaging channels, and voice-assisted workflows.",
+  "tagline": "Personal AI Assistant for Mac",
+  "description": "Friday is a local-first desktop AI assistant for chat, files, tools, connected apps, scheduled tasks, channels, and voice-assisted workflows.",
   "audience": "Developers, operators, knowledge workers, writers, creators, and power users who want local control with connected automation.",
   "url": "https://friday.example.com",
   "cta": {
-    "label": "Download Friday",
+    "label": "Download for Mac",
     "url": "#download"
   },
   "secondaryCta": {
-    "label": "Explore features",
-    "url": "#assistant"
+    "label": "View integrations",
+    "url": "/integrations"
   }
 }
