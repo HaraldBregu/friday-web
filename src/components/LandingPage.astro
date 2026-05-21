@@ -1,7 +1,7 @@
 ---
 import DownloadMenu from "./DownloadMenu.astro";
 import Icon from "./Icon.astro";
-import MiniAppDemo from "./MiniAppDemo.astro";
+import ProductMockup from "./ProductMockup.astro";
 import friday from "../data/friday-product.json";
 import site from "../data/site.json";
 import socialLinks from "../data/social-links.json";
@@ -13,33 +13,35 @@ const channelHighlights = friday.landingChannels;
 
 <section class="lp-hero" id="product">
   <div class="shell lp-hero__inner">
-    <p class="eyebrow">
-      {friday.release.version}
-      <span>/</span>
-      {friday.release.platform}
-      <span>/</span>
-      {friday.release.phase}
-    </p>
-    <h1 class="wordmark">Friday<span>.</span></h1>
-    <p class="lede">{friday.hero.description}</p>
-    <div class="cta-row">
-      <DownloadMenu label={site.cta.label} />
-      {
-        githubUrl ? (
-          <a class="button button--secondary" href={githubUrl}>
-            <Icon name="Github" size={17} />
-            GitHub
-          </a>
-        ) : null
-      }
-      <a class="text-link" href="/blog">
-        Release notes
-        <Icon name="ArrowRight" size={16} />
-      </a>
+    <div class="lp-hero__copy">
+      <p class="eyebrow">
+        {friday.release.version}
+        <span>/</span>
+        {friday.release.platform}
+        <span>/</span>
+        {friday.release.phase}
+      </p>
+      <h1 class="wordmark">Friday<span>.</span></h1>
+      <p class="lede">{friday.hero.description}</p>
+      <div class="cta-row">
+        <DownloadMenu label={site.cta.label} />
+        {
+          githubUrl ? (
+            <a class="button button--secondary" href={githubUrl}>
+              <Icon name="Github" size={17} />
+              GitHub
+            </a>
+          ) : null
+        }
+        <a class="text-link" href="/blog">
+          Release notes
+          <Icon name="ArrowRight" size={16} />
+        </a>
+      </div>
     </div>
 
-    <div class="mini-app-wrap">
-      <MiniAppDemo />
+    <div class="lp-hero__preview">
+      <ProductMockup />
     </div>
   </div>
 </section>
