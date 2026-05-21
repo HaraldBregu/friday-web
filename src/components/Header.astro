@@ -1,14 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import {
-  getLocaleContent,
-  localeMeta,
-  locales,
-  localizedPath,
-  normalizeLocale,
-  type Locale,
-} from "../i18n";
+import { getLocaleContent, localizedPath, normalizeLocale, type Locale } from "../i18n";
 
 interface Props {
   locale?: Locale;
@@ -17,11 +10,9 @@ interface Props {
 
 const locale = normalizeLocale(Astro.props.locale);
 const { friday, ui } = getLocaleContent(locale);
-const { alternatePath = "/" } = Astro.props;
 
 const visibleNav = friday.nav.filter((item) => item.href !== "#download");
 const navHref = (href: string) => (href.startsWith("#") ? `${localizedPath("/", locale)}${href}` : localizedPath(href, locale));
-const localizedAlternatePath = (targetLocale: Locale) => localizedPath(alternatePath, targetLocale);
 ---
 
 <header class="site-header">
@@ -34,21 +25,6 @@ const localizedAlternatePath = (targetLocale: Locale) => localizedPath(alternate
       {visibleNav.map((item) => <a href={navHref(item.href)}>{item.label}</a>)}
     </div>
     <div class="nav__actions">
-      <div aria-label={ui.languageSwitcher} class="language-switcher">
-        {
-          locales.map((targetLocale) => (
-            <a
-              aria-current={targetLocale === locale ? "true" : undefined}
-              class:list={["language-switcher__link", targetLocale === locale && "is-active"]}
-              href={localizedAlternatePath(targetLocale)}
-              hreflang={localeMeta[targetLocale].hreflang}
-              lang={localeMeta[targetLocale].hreflang}
-            >
-              {localeMeta[targetLocale].shortLabel}
-            </a>
-          ))
-        }
-      </div>
       <ThemeToggle label={ui.themeToggle} />
       <a class="nav__cta" href={`${localizedPath("/", locale)}#download`}>
         {ui.downloadCta}
