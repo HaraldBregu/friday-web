@@ -1,13 +1,15 @@
 ---
 import CTASection from "../components/CTASection.astro";
 import Icon from "../components/Icon.astro";
-import operators from "../data/operators.json";
+import { getLocaleContent } from "../i18n";
 import Layout from "../layouts/Layout.astro";
 
+const locale = "en";
+const { operators, operatorsPage } = getLocaleContent(locale);
 const statusLabel: Record<string, string> = {
-  implemented: "Live",
-  "pending-runtime": "Coming soon",
-  "placeholder": "Planned",
+  implemented: operatorsPage.statusLabel.implemented,
+  "pending-runtime": operatorsPage.statusLabel["pending-runtime"],
+  placeholder: operatorsPage.statusLabel.placeholder,
 };
 
 const statusClass: Record<string, string> = {
@@ -18,18 +20,16 @@ const statusClass: Record<string, string> = {
 ---
 
 <Layout
-  title="Operators"
-  description="Friday's AI operators — speech, text-to-speech, image, video, music, OCR, cron scheduling, and background tasks."
+  alternatePath="/operators"
+  locale={locale}
+  title={operatorsPage.title}
+  description={operatorsPage.description}
 >
   <section class="section page-hero">
     <div class="shell section-heading">
-      <p class="eyebrow">Operators</p>
-      <h1>Every AI job, routed to the right model.</h1>
-      <p>
-        Friday separates concerns. Each operator owns one kind of work —
-        voice, images, video, music, or scheduling — and resolves its own
-        provider and model from your saved settings.
-      </p>
+      <p class="eyebrow">{operatorsPage.eyebrow}</p>
+      <h1>{operatorsPage.heading}</h1>
+      <p>{operatorsPage.intro}</p>
     </div>
   </section>
 
@@ -60,7 +60,7 @@ const statusClass: Record<string, string> = {
               </ul>
 
               <div class="operator-card__providers">
-                <p class="label-xs">Supported providers</p>
+                <p class="label-xs">{operatorsPage.supportedProviders}</p>
                 <p class="provider-list">{op.providers.join(" · ")}</p>
               </div>
             </article>
@@ -71,9 +71,10 @@ const statusClass: Record<string, string> = {
   </section>
 
   <CTASection
-    eyebrow="Bring your own provider"
-    title="Every operator is provider-agnostic."
-    description="Configure your preferred provider and model in Settings. Credentials stay local; the operator resolves them at runtime."
+    locale={locale}
+    eyebrow={operatorsPage.ctaEyebrow}
+    title={operatorsPage.ctaTitle}
+    description={operatorsPage.ctaDescription}
   />
 </Layout>
 
