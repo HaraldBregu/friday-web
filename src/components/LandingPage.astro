@@ -7,6 +7,8 @@ import site from "../data/site.json";
 import socialLinks from "../data/social-links.json";
 
 const githubUrl = socialLinks.find((link) => link.label === "GitHub")?.url;
+const connectorHighlights = friday.landingConnectors;
+const channelHighlights = friday.landingChannels;
 ---
 
 <section class="lp-hero" id="product">
@@ -91,33 +93,52 @@ const githubUrl = socialLinks.find((link) => link.label === "GitHub")?.url;
   </div>
 </section>
 
-<section class="section reference-section" id="pricing">
+<section class="section reference-section" id="connectors">
   <div class="shell">
     <header class="reference-head">
-      <p class="eyebrow">Pricing</p>
-      <h2>Free while Friday is in beta.</h2>
+      <p class="eyebrow">Connectors</p>
+      <h2>Connect Google, calendar, files, and the apps around your day.</h2>
     </header>
-    <div class="pricing-grid">
+    <div class="connector-grid">
       {
-        friday.pricingPlans.map((plan) => (
-          <article class={`pricing-plan ${plan.featured ? "pricing-plan--featured" : ""}`}>
-            {plan.badge ? <span class="pricing-plan__badge">{plan.badge}</span> : null}
-            <p class="pricing-plan__name">{plan.name}</p>
-            <div class="pricing-plan__price">
-              <strong>{plan.price}</strong>
-              <span>{plan.period}</span>
+        connectorHighlights.map((connector) => (
+          <article class="connector-card">
+            <div class="connector-card__top">
+              <div class="card-icon">
+                <Icon name={connector.icon} size={19} />
+              </div>
+              <span>{connector.label}</span>
             </div>
-            <p>{plan.description}</p>
-            <ul>
-              {plan.items.map((item) => <li>{item}</li>)}
-            </ul>
-            <a class={plan.featured ? "pricing-plan__cta pricing-plan__cta--primary" : "pricing-plan__cta"} href={plan.href}>
-              {plan.cta}
-              <Icon name="ArrowRight" size={16} />
-            </a>
+            <h3>{connector.name}</h3>
+            <p>{connector.description}</p>
           </article>
         ))
       }
+    </div>
+    <a class="text-link section-link" href="/integrations">
+      View all integrations
+      <Icon name="ArrowRight" size={16} />
+    </a>
+  </div>
+</section>
+
+<section class="section reference-section" id="channels">
+  <div class="shell">
+    <header class="reference-head">
+      <p class="eyebrow">Channels</p>
+      <h2>Send updates and approvals through the channels teams already use.</h2>
+    </header>
+    <div class="channel-panel">
+      <div class="channel-cloud" aria-label="Supported messaging channels">
+        {channelHighlights.map((channel) => <span>{channel}</span>)}
+      </div>
+      <div class="channel-copy">
+        <h3>Channel controls stay explicit.</h3>
+        <p>
+          Configure account labels, default targets, allowlists, pairing rules,
+          runtime state, and delivery behavior before Friday posts into a channel.
+        </p>
+      </div>
     </div>
   </div>
 </section>
