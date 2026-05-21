@@ -1810,8 +1810,43 @@ p {
   }
 
   .product-window__chat {
-    gap: 0.75rem;
-    padding: 0.85rem;
+    gap: 0.55rem;
+    padding: 0.7rem;
+  }
+
+  .chat-bubble {
+    padding: 0.7rem;
+    font-size: 0.84rem;
+  }
+
+  .assistant-row {
+    gap: 0.55rem;
+  }
+
+  .assistant-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .assistant-plan {
+    gap: 0.45rem;
+  }
+
+  .assistant-plan span {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.78rem;
+  }
+
+  .assistant-plan span:nth-child(3) {
+    display: none;
+  }
+
+  .tool-request {
+    padding: 0.6rem;
+  }
+
+  .tool-request button {
+    padding: 0.45rem 0.55rem;
   }
 
   .chat-bubble--user {
