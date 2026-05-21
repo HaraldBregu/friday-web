@@ -1,19 +1,22 @@
 ---
 import socialLinks from "../data/social-links.json";
-import { getLocaleContent, localizedPath, normalizeLocale, type Locale } from "../i18n";
+import { getLocaleContent, localeMeta, locales, localizedPath, normalizeLocale, type Locale } from "../i18n";
 import Icon from "./Icon.astro";
 
 interface Props {
   locale?: Locale;
+  alternatePath?: string;
 }
 
 const locale = normalizeLocale(Astro.props.locale);
+const { alternatePath = "/" } = Astro.props;
 const { site, ui } = getLocaleContent(locale);
 const groups = ui.footerGroups;
 const footerHref = (href: string) => {
   const [path, hash] = href.split("#");
   return `${localizedPath(path || "/", locale)}${hash ? `#${hash}` : ""}`;
 };
+const localizedAlternatePath = (targetLocale: Locale) => localizedPath(alternatePath, targetLocale);
 ---
 
 <footer class="site-footer">
@@ -32,6 +35,21 @@ const footerHref = (href: string) => {
           socialLinks.map((link) => (
             <a aria-label={link.label} href={link.url}>
               <Icon name={link.icon} size={18} />
+            </a>
+          ))
+        }
+      </div>
+      <div aria-label={ui.languageSwitcher} class="footer-language language-switcher">
+        {
+          locales.map((targetLocale) => (
+            <a
+              aria-current={targetLocale === locale ? "true" : undefined}
+              class:list={["language-switcher__link", targetLocale === locale && "is-active"]}
+              href={localizedAlternatePath(targetLocale)}
+              hreflang={localeMeta[targetLocale].hreflang}
+              lang={localeMeta[targetLocale].hreflang}
+            >
+              {localeMeta[targetLocale].shortLabel}
             </a>
           ))
         }
