@@ -24,16 +24,58 @@
     "icon": "MessageSquare"
   },
   {
+    "name": "Telegram",
+    "category": "Channels",
+    "description": "Send scheduled summaries, alerts, and approval requests to paired Telegram chats.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "WhatsApp",
+    "category": "Channels",
+    "description": "Deliver personal and team updates through configured WhatsApp conversations.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Microsoft Teams",
+    "category": "Channels",
+    "description": "Route status updates and team workflows into Microsoft Teams spaces.",
+    "icon": "Users"
+  },
+  {
+    "name": "Google Chat",
+    "category": "Channels",
+    "description": "Post summaries, task prompts, and notifications into Google Chat rooms.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Signal",
+    "category": "Channels",
+    "description": "Use Signal for private channel notifications and paired direct-message workflows.",
+    "icon": "RadioTower"
+  },
+  {
+    "name": "Google Workspace",
+    "category": "Productivity",
+    "description": "Use configured Google workspace context across mail, calendar, files, and chat.",
+    "icon": "Cloud"
+  },
+  {
     "name": "Gmail",
     "category": "Productivity",
     "description": "Draft replies, triage messages, and extract follow-ups while keeping review controls.",
     "icon": "MailCheck"
   },
   {
-    "name": "Calendar",
+    "name": "Google Calendar",
     "category": "Productivity",
     "description": "Prepare agendas, spot conflicts, and create reminders from project context.",
     "icon": "CalendarDays"
+  },
+  {
+    "name": "Google Drive",
+    "category": "Productivity",
+    "description": "Summarize docs, inspect shared files, and turn Drive context into next actions.",
+    "icon": "Database"
   },
   {
     "name": "Postgres",
