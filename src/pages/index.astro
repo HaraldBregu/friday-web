@@ -1,14 +1,19 @@
 ---
 import LandingPage from "../components/LandingPage.astro";
-import site from "../data/site.json";
+import { getLocaleContent } from "../i18n";
 import Layout from "../layouts/Layout.astro";
+
+const locale = "en";
+const { home, site } = getLocaleContent(locale);
 ---
 
 <Layout
+  alternatePath="/"
+  locale={locale}
   title={site.name}
   description={site.description}
-  ogTitle="Friday"
-  ogDescription="A local-first desktop AI assistant for chat, files, tools, connected apps, scheduled tasks, channels, and voice-assisted workflows."
+  ogTitle={home.ogTitle}
+  ogDescription={home.ogDescription}
 >
-  <LandingPage />
+  <LandingPage locale={locale} />
 </Layout>
