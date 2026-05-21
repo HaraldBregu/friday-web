@@ -14,6 +14,8 @@ const { friday, home, site, ui } = getLocaleContent(locale);
 const githubUrl = socialLinks.find((link) => link.label === "GitHub")?.url;
 const connectorHighlights = friday.landingConnectors;
 const channelHighlights = friday.landingChannels;
+const operatorHighlights = friday.landingOperators;
+const providerGroups = friday.landingProviderGroups;
 ---
 
 <section class="lp-hero" id="product">
@@ -144,6 +146,62 @@ const channelHighlights = friday.landingChannels;
         <p>{home.channelsPanelDescription}</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section reference-section" id="operators">
+  <div class="shell">
+    <header class="reference-head">
+      <p class="eyebrow">{home.operatorsEyebrow}</p>
+      <h2>{home.operatorsTitle}</h2>
+    </header>
+    <div class="operator-highlights">
+      {
+        operatorHighlights.map((op) => (
+          <article class="op-card">
+            <div class="op-card__top">
+              <div class="card-icon">
+                <Icon name={op.icon} size={19} />
+              </div>
+              <span class={op.status === "Live" ? "op-status op-status--live" : "op-status op-status--soon"}>
+                {op.status}
+              </span>
+            </div>
+            <h3>{op.name}</h3>
+            <p>{op.description}</p>
+          </article>
+        ))
+      }
+    </div>
+    <a class="text-link section-link" href={localizedPath("/operators", locale)}>
+      View all operators
+      <Icon name="ArrowRight" size={16} />
+    </a>
+  </div>
+</section>
+
+<section class="section reference-section" id="providers">
+  <div class="shell">
+    <header class="reference-head">
+      <p class="eyebrow">{home.providersEyebrow}</p>
+      <h2>{home.providersTitle}</h2>
+    </header>
+    <div class="provider-groups">
+      {
+        providerGroups.map((group) => (
+          <div class="provider-group">
+            <p class="provider-group__label">{group.label}</p>
+            <div class="provider-group__chips">
+              {group.examples.map((ex) => <span>{ex}</span>)}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <a class="text-link section-link" href={localizedPath("/providers", locale)}>
+      View all providers
+      <Icon name="ArrowRight" size={16} />
+    </a>
   </div>
 </section>
 

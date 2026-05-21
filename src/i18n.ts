@@ -929,6 +929,10 @@ const it = {
     channelsPanelTitle: "I controlli dei canali restano espliciti.",
     channelsPanelDescription:
       "Configura etichette account, target predefiniti, allowlist, regole di pairing, stato runtime e comportamento di consegna prima che Friday pubblichi in un canale.",
+    operatorsEyebrow: "Operatori",
+    operatorsTitle: "Voce, immagini, video e musica — tutti indipendenti dal provider.",
+    providersEyebrow: "Provider AI",
+    providersTitle: "30+ provider. Una sola configurazione.",
     faqEyebrow: "FAQ",
     faqTitle: "Domande comuni.",
     downloadTitle: "A un tasto di distanza.",
