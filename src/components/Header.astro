@@ -1,15 +1,32 @@
 ---
 import Icon from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import friday from "../data/friday-product.json";
+import {
+  getLocaleContent,
+  localeMeta,
+  locales,
+  localizedPath,
+  normalizeLocale,
+  type Locale,
+} from "../i18n";
 
-const visibleNav = friday.nav.filter((item) => item.label !== "Download");
-const navHref = (href: string) => (href.startsWith("#") ? `/${href}` : href);
+interface Props {
+  locale?: Locale;
+  alternatePath?: string;
+}
+
+const locale = normalizeLocale(Astro.props.locale);
+const { friday, ui } = getLocaleContent(locale);
+const { alternatePath = "/" } = Astro.props;
+
+const visibleNav = friday.nav.filter((item) => item.href !== "#download");
+const navHref = (href: string) => (href.startsWith("#") ? `${localizedPath("/", locale)}${href}` : localizedPath(href, locale));
+const localizedAlternatePath = (targetLocale: Locale) => localizedPath(alternatePath, targetLocale);
 ---
 
 <header class="site-header">
-  <nav aria-label="Primary navigation" class="nav">
-    <a class="brand" href="/#product">
+  <nav aria-label={ui.primaryNavigation} class="nav">
+    <a class="brand" href={`${localizedPath("/", locale)}#product`}>
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand__text">Friday</span>
     </a>
@@ -17,9 +34,24 @@ const navHref = (href: string) => (href.startsWith("#") ? `/${href}` : href);
       {visibleNav.map((item) => <a href={navHref(item.href)}>{item.label}</a>)}
     </div>
     <div class="nav__actions">
-      <ThemeToggle />
-      <a class="nav__cta" href="/#download">
-        Download
+      <div aria-label={ui.languageSwitcher} class="language-switcher">
+        {
+          locales.map((targetLocale) => (
+            <a
+              aria-current={targetLocale === locale ? "true" : undefined}
+              class:list={["language-switcher__link", targetLocale === locale && "is-active"]}
+              href={localizedAlternatePath(targetLocale)}
+              hreflang={localeMeta[targetLocale].hreflang}
+              lang={localeMeta[targetLocale].hreflang}
+            >
+              {localeMeta[targetLocale].shortLabel}
+            </a>
+          ))
+        }
+      </div>
+      <ThemeToggle label={ui.themeToggle} />
+      <a class="nav__cta" href={`${localizedPath("/", locale)}#download`}>
+        {ui.downloadCta}
         <Icon name="ArrowRight" size={14} />
       </a>
     </div>

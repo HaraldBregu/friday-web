@@ -1,0 +1,340 @@
+---
+import CTASection from "../components/CTASection.astro";
+import Icon from "../components/Icon.astro";
+import tools from "../data/tools.json";
+import Layout from "../layouts/Layout.astro";
+
+const groups = tools.reduce<Record<string, typeof tools>>((acc, t) => {
+  acc[t.category] = acc[t.category] ?? [];
+  acc[t.category].push(t);
+  return acc;
+}, {});
+
+const categoryIcons: Record<string, string> = {
+  Files: "FolderOpen",
+  Shell: "Terminal",
+  Web: "Globe",
+  Scheduling: "Clock",
+};
+
+const dynamicTools = [
+  { name: "execute_skill", when: "A selected skill is not file-backed" },
+  { name: "startup_files", when: "Bootstrap is pending — the only tool exposed during setup" },
+  { name: "heartbeat_respond", when: "Heartbeat runs with tool reporting enabled" },
+  { name: "Connector tools", when: "Enabled, configured connectors (Gmail, Drive, Calendar, etc.)" },
+  { name: "Plugin tools", when: "Run-scoped assembler with plugin tools included by policy" },
+  { name: "MCP tools", when: "Model Context Protocol servers are explicitly included" },
+  { name: "LSP tools", when: "An LSP runtime supplies language-server capabilities" },
+  { name: "Client tools", when: "The client provides hosted tool definitions" },
+  { name: "tool_search", when: "Run-scoped tool-search compaction is enabled" },
+  { name: "tool_describe", when: "Fetches schema for a hidden tool when compaction is active" },
+  { name: "tool_call", when: "Executes a hidden tool through the managed execution path" },
+];
+---
+
+<Layout
+  title="Agent Tools"
+  description="All 16 local agent tools in Friday — file operations, shell execution, web fetching, browser control, scheduling, and more."
+>
+  <section class="section page-hero">
+    <div class="shell section-heading">
+      <p class="eyebrow">Agent Tools</p>
+      <h1>What Friday can actually do.</h1>
+      <p>
+        16 local tools in the default registry, plus connector, plugin, MCP,
+        and LSP tools when configured. Up to 8 are selected per turn based on
+        the request — ranked by relevance, safety, and cost.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--compact">
+    <div class="shell">
+      <div class="tools-stats">
+        <div class="stat">
+          <strong>16</strong>
+          <span>local tools</span>
+        </div>
+        <div class="stat">
+          <strong>8</strong>
+          <span>exposed per turn</span>
+        </div>
+        <div class="stat">
+          <strong>5</strong>
+          <span>identical calls trigger loop veto</span>
+        </div>
+        <div class="stat">
+          <strong>1 MB</strong>
+          <span>max web_fetch response</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {Object.entries(groups).map(([category, items]) => (
+    <section class="section section--compact">
+      <div class="shell">
+        <header class="tools-group-head">
+          <Icon name={categoryIcons[category] ?? "Sparkles"} size={18} />
+          <h2>{category}</h2>
+          <span>{items.length} tool{items.length !== 1 ? "s" : ""}</span>
+        </header>
+        <div class="tools-grid">
+          {items.map((tool) => (
+            <article class="tool-card">
+              <div class="tool-card__header">
+                <Icon name={tool.icon} size={16} />
+                <code class="tool-name">{tool.name}</code>
+              </div>
+              <p>{tool.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section section--compact">
+    <div class="shell">
+      <header class="tools-group-head">
+        <Icon name="Layers" size={18} />
+        <h2>Dynamic tools</h2>
+        <span>Added only when the condition applies</span>
+      </header>
+      <div class="dynamic-tools-list">
+        {dynamicTools.map((dt) => (
+          <div class="dynamic-tool-row">
+            <code class="tool-name">{dt.name}</code>
+            <p>{dt.when}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--compact">
+    <div class="shell">
+      <header class="tools-group-head">
+        <Icon name="ShieldCheck" size={18} />
+        <h2>How tools are selected</h2>
+      </header>
+      <div class="selection-steps">
+        {[
+          {
+            step: "01",
+            title: "Policy check",
+            desc: "If the user says not to use tools, none are exposed. Bootstrap runs expose startup_files only.",
+          },
+          {
+            step: "02",
+            title: "Candidate filtering",
+            desc: "Disabled tools, tools without required permissions, tools above the safety level, and privacy-constrained tools are removed.",
+          },
+          {
+            step: "03",
+            title: "Ranking",
+            desc: "Remaining tools are scored by request-term match, inferred category, memory preferences, recent success, schema specificity, reliability, cost, and latency.",
+          },
+          {
+            step: "04",
+            title: "Cap at 8",
+            desc: "At most 8 tools reach the provider per turn. File mutation tools automatically keep read available. Skill and heartbeat tools can force their way in.",
+          },
+          {
+            step: "05",
+            title: "Loop detection",
+            desc: "The third identical call in a turn adds a warning. After five identical calls, execution is vetoed and the model receives a loop-detector error.",
+          },
+        ].map(({ step, title, desc }) => (
+          <div class="selection-step">
+            <span class="step-num">{step}</span>
+            <div>
+              <strong>{title}</strong>
+              <p>{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow="Extend the tool surface"
+    title="MCP, plugins, LSP, and client-hosted tools."
+    description="Connect Model Context Protocol servers, plugin registries, or language-server capabilities to add domain-specific tools without modifying the core agent loop."
+  />
+</Layout>
+
+<style>
+  .tools-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    text-align: center;
+  }
+
+  .stat strong {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    line-height: 1;
+  }
+
+  .stat span {
+    font-size: 0.78rem;
+    color: var(--faint);
+  }
+
+  .tools-group-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tools-group-head h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    flex: 1;
+  }
+
+  .tools-group-head span {
+    font-size: 0.75rem;
+    color: var(--faint);
+  }
+
+  .tools-group-head :global(svg) {
+    color: var(--accent);
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .tool-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tool-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .tool-card__header :global(svg) {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .tool-name {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text);
+    background: none;
+    padding: 0;
+  }
+
+  .tool-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .dynamic-tools-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .dynamic-tool-row {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.82rem;
+  }
+
+  .dynamic-tool-row:last-child {
+    border-bottom: none;
+  }
+
+  .dynamic-tool-row p {
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .selection-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .selection-step {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .selection-step:last-child {
+    border-bottom: none;
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    flex-shrink: 0;
+    padding-top: 0.15rem;
+  }
+
+  .selection-step strong {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .selection-step p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dynamic-tool-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+</style>
