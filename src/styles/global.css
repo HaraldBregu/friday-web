@@ -1740,6 +1740,7 @@ p {
   }
 
   .lp-hero__preview {
+    justify-content: flex-start;
     transform: none;
   }
 
@@ -1800,8 +1801,7 @@ p {
   }
 
   .product-window__body {
-    grid-template-columns: 1fr;
-    min-height: auto;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .product-window__nav,
@@ -1810,7 +1810,8 @@ p {
   }
 
   .product-window__chat {
-    min-height: 360px;
+    gap: 0.75rem;
+    padding: 0.85rem;
   }
 
   .chat-bubble--user {
