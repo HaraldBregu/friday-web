@@ -496,6 +496,34 @@ p {
   gap: 0.65rem;
 }
 
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.language-switcher__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0 0.55rem;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.language-switcher__link:hover,
+.language-switcher__link.is-active {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
 .nav__cta,
 .button,
 .theme-toggle {
