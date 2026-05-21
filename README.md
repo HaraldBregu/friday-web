@@ -1,18 +1,12 @@
 # Friday Static Marketing Site
 
-Astro static marketing site for a developer-facing AI/productivity product.
-The current copy uses tasteful defaults because the project placeholders were
-not filled in:
+Astro static marketing site for Friday, a local-first desktop AI assistant for
+chat, files, tools, connected apps, scheduled tasks, channels, and voice-assisted
+workflows.
 
-- `PROJECT_NAME`: Friday
-- `PROJECT_DESCRIPTION`: A desktop AI command center that connects models, tools, files, and team channels from one focused chat interface.
-- `TARGET_AUDIENCE`: Developers, founders, and operators
-- `CTA_TEXT`: Join the waitlist
-- `CTA_URL`: `#waitlist`
-- `SECONDARY_CTA_TEXT`: View integrations
-- `SECONDARY_CTA_URL`: `/integrations`
-
-Replace these in [src/data/site.json](src/data/site.json).
+The home page is built from Astro components, JSON data, custom CSS, and a small
+vanilla JavaScript demo. It intentionally does not use React, Tailwind, or a
+client-side UI framework.
 
 ## Commands
 
@@ -59,6 +53,7 @@ src/
 
 - Global colors, spacing, typography, borders, and shadows live in `src/styles/global.css`.
 - Reusable content lives in `src/data/*.json`.
+- The main landing page content is in `src/data/friday-product.json`.
 - Blog posts are Markdown files in `src/content/blog`.
 - SEO defaults, Open Graph image, canonical URLs, and theme initialization are handled in `src/layouts/Layout.astro`.
 - The site is configured for static output in `astro.config.mjs`.
