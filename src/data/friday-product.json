@@ -2,10 +2,9 @@
   "nav": [
     { "label": "Product", "href": "#product" },
     { "label": "Features", "href": "#features" },
-    { "label": "Workflow", "href": "#workflow" },
-    { "label": "Integrations", "href": "/integrations" },
-    { "label": "Community", "href": "/community" },
-    { "label": "Blog", "href": "/blog" },
+    { "label": "How it works", "href": "#how" },
+    { "label": "Pricing", "href": "#pricing" },
+    { "label": "FAQ", "href": "#faq" },
     { "label": "Download", "href": "#download" }
   ],
   "release": {
@@ -16,7 +15,7 @@
   "hero": {
     "eyebrow": "Local-first desktop AI assistant",
     "headline": "Friday.",
-    "description": "Summon Friday, ask for help, and get back to the work in front of you. It can use files, tools, channels, schedules, and voice while keeping permissions visible."
+    "description": "A desktop AI assistant for macOS. Summon it with Option Space, ask for help, and get back to what you were doing."
   },
   "demoSuggestions": [
     {
@@ -41,47 +40,107 @@
   "landingFeatures": [
     {
       "key": "01",
-      "title": "Available from the desktop",
-      "description": "Keep Friday close to active work with a fast prompt surface, desktop controls, and context that does not require copying everything into a browser tab."
+      "title": "Anywhere on macOS",
+      "description": "Summon Friday from the desktop and keep the current task in view. Files, tools, voice, and workspace context stay close without another browser tab."
     },
     {
       "key": "02",
-      "title": "Remembers without hiding the record",
-      "description": "Local stores keep useful context such as settings, skills, channels, schedules, and session state inspectable and deletable."
+      "title": "Remembers, without hiding the record",
+      "description": "Local stores keep useful context such as settings, skills, schedules, channels, and session state inspectable and deletable."
     },
     {
       "key": "03",
-      "title": "Tools with clear approval",
-      "description": "File edits, terminal commands, connector calls, browser actions, and publishing steps can pause for review before Friday acts."
+      "title": "Desktop, not another tab",
+      "description": "Friday is built around desktop work: files, terminal commands, local settings, provider keys, and approval checks remain visible."
     },
     {
       "key": "04",
       "title": "Your choice of model",
-      "description": "Route chat, voice, images, research, and realtime work through the providers you configure instead of being locked into one model."
+      "description": "Route chat, voice, images, research, and realtime work through configured providers instead of being locked into one model."
     },
     {
       "key": "05",
-      "title": "Reusable skills",
-      "description": "Package repeated work into task-specific instructions with visible tools, safety posture, metadata, and diagnostics."
+      "title": "Scriptable workflows",
+      "description": "Turn repeated tasks into skills, scheduled prompts, connector actions, or channel deliveries with clear permission boundaries."
     },
     {
       "key": "06",
-      "title": "Automation you can inspect",
-      "description": "Scheduled prompts, heartbeat events, channel deliveries, and run state stay visible so recurring work remains accountable."
+      "title": "Honest about uncertainty",
+      "description": "Friday can ask before acting, surface run state, and keep private workspace data under user control instead of pretending every action is safe."
     }
   ],
-  "workflowSteps": [
+  "howSteps": [
     {
+      "label": "STEP 01",
+      "glyph": "Opt Space",
+      "title": "Summon",
+      "description": "Open Friday from the desktop and keep the current work in view."
+    },
+    {
+      "label": "STEP 02",
+      "glyph": "> _",
       "title": "Ask",
-      "description": "Start with a prompt, voice note, file, or selected workflow from the desktop app."
+      "description": "Type, dictate, attach a file, or choose a prepared workflow."
     },
     {
-      "title": "Review",
-      "description": "Friday shows the planned work, tool requests, and permission state before sensitive actions run."
+      "label": "STEP 03",
+      "glyph": "Return",
+      "title": "Return",
+      "description": "Review the answer, approve any sensitive action, and get back to the task."
+    }
+  ],
+  "quote": {
+    "text": "The first AI tool that respects what I was doing before I opened it.",
+    "cite": "Friday design partner"
+  },
+  "pricingPlans": [
+    {
+      "name": "Personal",
+      "price": "$0",
+      "period": "/ beta",
+      "description": "Everything you need to use Friday with your own provider keys.",
+      "items": [
+        "Local app settings and provider keys",
+        "Chat, files, tools, and voice workflows",
+        "Skills, schedules, and connector controls",
+        "No account required for local use"
+      ],
+      "cta": "Download",
+      "href": "#download"
     },
     {
-      "title": "Deliver",
-      "description": "Send the result back to chat, a local file, or a connected channel while keeping history available."
+      "name": "Pro",
+      "badge": "Coming soon",
+      "price": "$8",
+      "period": "/ month",
+      "description": "For people who want hosted routing, sync, and priority access.",
+      "items": [
+        "Hosted model routing",
+        "Cross-device memory sync",
+        "Priority support",
+        "Early access to new automation surfaces"
+      ],
+      "cta": "Follow updates",
+      "href": "/community#contribute",
+      "featured": true
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Does Friday send my data anywhere?",
+      "answer": "Friday is local-first. Data leaves your machine only when you choose an external provider, connector, channel, or hosted service for a task."
+    },
+    {
+      "question": "Will it work on Intel Macs?",
+      "answer": "The landing page targets macOS 13+ and desktop workflows. Final packaging details should be verified against the release artifacts before publishing."
+    },
+    {
+      "question": "Can I use a local model?",
+      "answer": "Friday is designed around provider choice, including local or self-hosted providers where configured."
+    },
+    {
+      "question": "Is the source available?",
+      "answer": "Use the linked repository and release notes as the source of truth for code availability, packaging, and contribution details."
     }
   ],
   "heroSignals": [
