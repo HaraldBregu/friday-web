@@ -1300,26 +1300,14 @@ p {
     font-size: 2.45rem;
   }
 
-  .lp-hero__inner,
-  .split-section,
-  .split-section--reverse,
-  .surface-grid,
-  .privacy-section,
   .footer-grid {
     grid-template-columns: 1fr;
   }
 
-  .split-section--reverse > div:first-child,
-  .split-section--reverse > div:last-child {
-    order: initial;
-  }
-
-  .mini-app {
-    max-width: none;
-  }
-
-  .features-head,
+  .reference-head,
   .features-grid,
+  .how-steps,
+  .pricing-grid,
   .mission-grid,
   .integration-grid,
   .community-links {
@@ -1356,28 +1344,23 @@ p {
     font-size: 1.04rem;
   }
 
-  .metric-strip__inner,
   .features-grid,
+  .how-steps,
+  .pricing-grid,
   .mission-grid,
   .integration-grid,
   .community-links {
     grid-template-columns: 1fr;
   }
 
-  .metric-strip__inner div,
-  .metric-strip__inner div:first-child {
-    border-left: 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .metric-strip__inner div:first-child {
-    border-top: 0;
-  }
-
-  .features-head {
+  .reference-head {
     grid-template-columns: 1fr;
     gap: 1rem;
     margin-bottom: 2.5rem;
+  }
+
+  .mini-app {
+    height: 460px;
   }
 
   .mini-app__titlebar {
