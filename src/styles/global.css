@@ -87,38 +87,99 @@ body {
   will-change: transform, opacity;
 }
 
+.starfield__layer--dust {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.32) 0 0.55px, transparent 1.35px),
+    radial-gradient(circle, rgba(243, 198, 111, 0.28) 0 0.5px, transparent 1.25px),
+    radial-gradient(circle, rgba(120, 212, 184, 0.24) 0 0.5px, transparent 1.25px),
+    radial-gradient(circle, rgba(185, 166, 255, 0.26) 0 0.55px, transparent 1.3px);
+  background-position:
+    11px 17px,
+    53px 81px,
+    127px 39px,
+    191px 143px;
+  background-size:
+    89px 113px,
+    131px 157px,
+    167px 197px,
+    223px 251px;
+  opacity: 0.62;
+  animation: star-drift-dust 150s linear infinite;
+}
+
 .starfield__layer--far {
   background-image:
     radial-gradient(circle, rgba(255, 255, 255, 0.58) 0 0.7px, transparent 1.5px),
     radial-gradient(circle, rgba(243, 198, 111, 0.48) 0 0.8px, transparent 1.7px),
-    radial-gradient(circle, rgba(120, 212, 184, 0.42) 0 0.7px, transparent 1.6px);
+    radial-gradient(circle, rgba(120, 212, 184, 0.42) 0 0.7px, transparent 1.6px),
+    radial-gradient(circle, rgba(185, 166, 255, 0.38) 0 0.75px, transparent 1.65px);
   background-position:
     18px 34px,
     88px 119px,
-    151px 48px;
+    151px 48px,
+    247px 177px;
   background-size:
-    173px 211px,
-    263px 317px,
-    337px 229px;
+    119px 151px,
+    181px 227px,
+    241px 173px,
+    307px 263px;
   animation: star-drift-far 110s linear infinite;
+}
+
+.starfield__layer--mid {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.64) 0 0.8px, transparent 1.65px),
+    radial-gradient(circle, rgba(243, 198, 111, 0.5) 0 0.85px, transparent 1.75px),
+    radial-gradient(circle, rgba(120, 212, 184, 0.42) 0 0.75px, transparent 1.6px);
+  background-position:
+    29px 71px,
+    141px 23px,
+    231px 117px;
+  background-size:
+    151px 191px,
+    211px 167px,
+    283px 239px;
+  opacity: 0.66;
+  animation: star-drift-mid 92s linear infinite;
 }
 
 .starfield__layer--near {
   background-image:
     radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 0.95px, transparent 1.8px),
     radial-gradient(circle, rgba(243, 198, 111, 0.58) 0 0.9px, transparent 1.8px),
-    radial-gradient(circle, rgba(185, 166, 255, 0.48) 0 0.85px, transparent 1.7px);
+    radial-gradient(circle, rgba(185, 166, 255, 0.48) 0 0.85px, transparent 1.7px),
+    radial-gradient(circle, rgba(120, 212, 184, 0.5) 0 0.8px, transparent 1.65px);
   background-position:
     37px 51px,
     122px 83px,
-    209px 154px;
+    209px 154px,
+    317px 31px;
   background-size:
-    137px 163px,
-    199px 241px,
-    271px 191px;
+    101px 137px,
+    157px 199px,
+    223px 169px,
+    277px 241px;
   filter: drop-shadow(0 0 4px rgba(243, 198, 111, 0.25));
   opacity: 0.72;
   animation: star-drift-near 72s linear infinite reverse, star-twinkle 5.5s ease-in-out infinite;
+}
+
+.starfield__layer--sparkle {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(243, 198, 111, 0.76) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(185, 166, 255, 0.62) 0 0.95px, transparent 1.9px);
+  background-position:
+    73px 97px,
+    183px 41px,
+    331px 209px;
+  background-size:
+    359px 421px,
+    487px 367px,
+    563px 449px;
+  opacity: 0.54;
+  filter: drop-shadow(0 0 6px rgba(243, 198, 111, 0.28));
+  animation: star-drift-sparkle 120s linear infinite reverse, star-twinkle 3.8s ease-in-out infinite;
 }
 
 .starfield__shooting {
@@ -145,6 +206,13 @@ body {
   animation-duration: 12s;
 }
 
+.starfield__shooting--three {
+  top: 68%;
+  left: 82%;
+  animation-delay: 7s;
+  animation-duration: 14s;
+}
+
 .site-header,
 main,
 .site-footer {
@@ -158,9 +226,27 @@ main,
   }
 }
 
+@keyframes star-drift-dust {
+  to {
+    transform: translate3d(5%, 4%, 0);
+  }
+}
+
+@keyframes star-drift-mid {
+  to {
+    transform: translate3d(-6%, -4%, 0);
+  }
+}
+
 @keyframes star-drift-near {
   to {
     transform: translate3d(9%, -7%, 0);
+  }
+}
+
+@keyframes star-drift-sparkle {
+  to {
+    transform: translate3d(7%, 6%, 0);
   }
 }
 
