@@ -423,5 +423,50 @@
     "Local stores for app settings, cron schedules, skills, apps, channels, memory, and session state",
     "Testing with Jest, Testing Library, and Playwright",
     "Packaging with electron-vite and electron-builder"
+  ],
+  "landingOperators": [
+    {
+      "name": "Voice in",
+      "description": "Live dictation from the microphone using any STT-capable provider.",
+      "icon": "Mic",
+      "status": "Live"
+    },
+    {
+      "name": "Voice out",
+      "description": "Spoken audio synthesis from assistant responses via ElevenLabs, Cartesia, Deepgram, or OpenAI.",
+      "icon": "Volume2",
+      "status": "Coming soon"
+    },
+    {
+      "name": "Image",
+      "description": "Generate and edit images with Black Forest Labs, Stability AI, Ideogram, or any image provider.",
+      "icon": "Image",
+      "status": "Coming soon"
+    },
+    {
+      "name": "Video",
+      "description": "Async video generation via Runway, Kling, Pika, Luma AI, or any video-capable provider.",
+      "icon": "Video",
+      "status": "Coming soon"
+    },
+    {
+      "name": "Music",
+      "description": "Generate sound, audio, and music with MiniMax, Stability AI, ElevenLabs, or Google.",
+      "icon": "Music",
+      "status": "Coming soon"
+    },
+    {
+      "name": "OCR",
+      "description": "Extract text from images and documents via any configured OCR endpoint.",
+      "icon": "ScanText",
+      "status": "Live"
+    }
+  ],
+  "landingProviderGroups": [
+    { "label": "Chat", "examples": ["OpenAI", "Anthropic", "Google", "xAI", "Mistral", "DeepSeek", "Meta", "Cohere", "Perplexity"] },
+    { "label": "Voice", "examples": ["ElevenLabs", "Deepgram", "Cartesia", "OpenAI Whisper"] },
+    { "label": "Image", "examples": ["Black Forest Labs", "Stability AI", "Ideogram", "OpenAI", "Adobe Firefly"] },
+    { "label": "Video", "examples": ["Runway", "Kling", "Pika", "Luma AI", "OpenAI"] },
+    { "label": "Music", "examples": ["MiniMax", "ElevenLabs", "Stability AI", "Google"] }
   ]
 }

@@ -1,23 +1,18 @@
 ---
 import Icon from "./Icon.astro";
+import { getLocaleContent, normalizeLocale, type Locale } from "../i18n";
 
-const navItems = [
-  { label: "Chat", icon: "MessagesSquare", active: true },
-  { label: "Tools", icon: "TerminalSquare" },
-  { label: "Skills", icon: "Workflow" },
-  { label: "Channels", icon: "RadioTower" },
-  { label: "Cron", icon: "CalendarDays" },
-  { label: "Privacy", icon: "ShieldCheck" },
-];
+interface Props {
+  locale?: Locale;
+}
 
-const planItems = [
-  "Inspect changed files",
-  "Draft release notes",
-  "Ask before running tests",
-];
+const locale = normalizeLocale(Astro.props.locale);
+const { productMockup } = getLocaleContent(locale);
+const navItems = productMockup.navItems;
+const planItems = productMockup.planItems;
 ---
 
-<div class="product-window" aria-label="Friday desktop app preview">
+<div class="product-window" aria-label={productMockup.windowLabel}>
   <div class="product-window__bar">
     <div class="window-lights" aria-hidden="true">
       <span class="window-lights__red"></span>
@@ -25,11 +20,11 @@ const planItems = [
       <span></span>
     </div>
     <strong>Friday</strong>
-    <span class="window-status">Local workspace</span>
+    <span class="window-status">{productMockup.localWorkspace}</span>
   </div>
 
   <div class="product-window__body">
-    <aside class="product-window__nav" aria-label="Friday app areas">
+    <aside class="product-window__nav" aria-label={productMockup.appAreasLabel}>
       {
         navItems.map((item) => (
           <span class={item.active ? "is-active" : ""}>
@@ -40,9 +35,9 @@ const planItems = [
       }
     </aside>
 
-    <section class="product-window__chat" aria-label="Assistant conversation preview">
+    <section class="product-window__chat" aria-label={productMockup.conversationLabel}>
       <div class="chat-bubble chat-bubble--user">
-        Summarize this repo, draft a release note, and ask before running tests.
+        {productMockup.userMessage}
       </div>
 
       <div class="assistant-row">
@@ -51,7 +46,7 @@ const planItems = [
         </div>
         <div>
           <strong>Friday</strong>
-          <span>using tools with approval checks</span>
+          <span>{productMockup.assistantStatus}</span>
         </div>
       </div>
 
@@ -61,49 +56,49 @@ const planItems = [
 
       <div class="tool-request">
         <div>
-          <span>Tool request</span>
-          <strong>Run `bun run build`</strong>
+          <span>{productMockup.toolRequest}</span>
+          <strong>{productMockup.toolCommand}</strong>
         </div>
         <button type="button">
           <Icon name="CheckCircle2" size={16} />
-          Approve
+          {productMockup.approve}
         </button>
       </div>
     </section>
 
-    <aside class="product-window__rail" aria-label="Workspace action preview">
+    <aside class="product-window__rail" aria-label={productMockup.actionPreviewLabel}>
       <article>
         <Icon name="TerminalSquare" size={18} />
-        <span>Workspace</span>
-        <strong>12 files inspected</strong>
+        <span>{productMockup.workspaceLabel}</span>
+        <strong>{productMockup.workspaceValue}</strong>
       </article>
       <article>
         <Icon name="CalendarDays" size={18} />
-        <span>Scheduled</span>
-        <strong>Daily 9:00 status brief</strong>
+        <span>{productMockup.scheduledLabel}</span>
+        <strong>{productMockup.scheduledValue}</strong>
       </article>
       <article>
         <Icon name="RadioTower" size={18} />
-        <span>Channel</span>
-        <strong>Telegram paired, Slack ready</strong>
+        <span>{productMockup.channelLabel}</span>
+        <strong>{productMockup.channelValue}</strong>
       </article>
       <article>
         <Icon name="ShieldCheck" size={18} />
-        <span>Privacy</span>
-        <strong>Keys and history stay local</strong>
+        <span>{productMockup.privacyLabel}</span>
+        <strong>{productMockup.privacyValue}</strong>
       </article>
     </aside>
   </div>
 
-  <div class="product-window__composer" aria-label="Friday prompt composer preview">
-    <button aria-label="Add attachment" type="button">
+  <div class="product-window__composer" aria-label={productMockup.composerLabel}>
+    <button aria-label={productMockup.addAttachment} type="button">
       <Icon name="Plus" size={18} />
     </button>
-    <span>Ask Friday to use files, tools, voice, or channels...</span>
-    <button aria-label="Voice input" type="button">
+    <span>{productMockup.composerPlaceholder}</span>
+    <button aria-label={productMockup.voiceInput} type="button">
       <Icon name="Mic" size={18} />
     </button>
-    <button aria-label="Send prompt" class="composer-send" type="button">
+    <button aria-label={productMockup.sendPrompt} class="composer-send" type="button">
       <Icon name="ArrowRight" size={18} />
     </button>
   </div>
