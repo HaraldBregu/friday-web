@@ -288,10 +288,142 @@
     "icon": "Cpu"
   },
   {
+    "name": "Meta",
+    "category": "AI Providers",
+    "description": "Llama 4 Maverick, Llama 4 Scout, and Llama 3.3 70B for chat and video via the Llama developer portal.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Cohere",
+    "category": "AI Providers",
+    "description": "Command A, Command A Reasoning, Command A Vision, and Aya Vision for chat and speech-to-text.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Alibaba / Qwen",
+    "category": "AI Providers",
+    "description": "Qwen3-Max, Qwen3.5, Qwen3-Coder, and QwQ models via DashScope for chat, image, video, and omni tasks.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Moonshot AI / Kimi",
+    "category": "AI Providers",
+    "description": "Kimi K2.6, K2.5, K2, and Kimi Latest for chat via the Moonshot AI platform.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Z.ai / Zhipu AI",
+    "category": "AI Providers",
+    "description": "GLM-5.1, GLM-5, GLM-4.6, GLM-4.5V, and GLM-Z1 via the BigModel API.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Baidu",
+    "category": "AI Providers",
+    "description": "ERNIE 5.1, ERNIE 5.0, ERNIE X1.1, and ERNIE 4.5 via the Baidu Qianfan platform.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Tencent Hunyuan",
+    "category": "AI Providers",
+    "description": "Hy3 Preview for chat, image, video, and 3D via Tencent Cloud API.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "ByteDance Seed",
+    "category": "AI Providers",
+    "description": "Seed2.0 Pro and Seed2.0 Code via BytePlus ModelArk for chat, image, video, and 3D.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "MiniMax",
+    "category": "AI Providers",
+    "description": "MiniMax M2.7 for chat, text-to-speech, video, and music via the MiniMax API.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Reka AI",
+    "category": "AI Providers",
+    "description": "Reka Core, Reka Flash, and Reka Edge for chat via the OpenAI-compatible Reka API.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "AI21 Labs",
+    "category": "AI Providers",
+    "description": "Jamba Large, Jamba Mini, and Jamba 1.5 models for chat via the AI21 Studio API.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "NVIDIA",
+    "category": "AI Providers",
+    "description": "Nemotron Ultra, Llama Nemotron Super and Nano, and Nemotron VL for chat via NVIDIA NIM.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Luma AI",
+    "category": "AI Providers",
+    "description": "Uni-1 for omni, image, video, and 3D generation via the Dream Machine API.",
+    "icon": "Cpu"
+  },
+  {
     "name": "ElevenLabs",
     "category": "AI Providers",
     "description": "Speech-to-text, text-to-speech, audio, and music. Default TTS provider with Rachel multilingual voice.",
     "icon": "Volume2"
+  },
+  {
+    "name": "Deepgram",
+    "category": "AI Providers",
+    "description": "Nova-3 and Nova-2 for speech-to-text and text-to-speech via the Deepgram API.",
+    "icon": "Mic"
+  },
+  {
+    "name": "Cartesia",
+    "category": "AI Providers",
+    "description": "Sonic Multilingual and Sonic 2 for text-to-speech via the Cartesia API.",
+    "icon": "Volume2"
+  },
+  {
+    "name": "Black Forest Labs",
+    "category": "AI Providers",
+    "description": "FLUX.1 Pro and FLUX.1 Dev for image generation via BFL API. Default image creator provider.",
+    "icon": "Image"
+  },
+  {
+    "name": "Stability AI",
+    "category": "AI Providers",
+    "description": "Stable Image Ultra and Stable Diffusion 3.5 for image, video, and audio generation.",
+    "icon": "Image"
+  },
+  {
+    "name": "Ideogram",
+    "category": "AI Providers",
+    "description": "Ideogram 3.0 and 2.0 for image generation with strong text rendering.",
+    "icon": "Image"
+  },
+  {
+    "name": "Runway",
+    "category": "AI Providers",
+    "description": "Gen-3 Alpha Turbo and Gen-4 for async video generation. Default video creator provider.",
+    "icon": "Video"
+  },
+  {
+    "name": "Kling AI",
+    "category": "AI Providers",
+    "description": "Kling 2.1 Master and Kling 2.0 for image, video, and audio generation via Kuaishou.",
+    "icon": "Video"
+  },
+  {
+    "name": "Pika",
+    "category": "AI Providers",
+    "description": "Pika 2.2 and 2.1 for video generation via the official Pika API through Fal.ai.",
+    "icon": "Video"
+  },
+  {
+    "name": "Adobe Firefly",
+    "category": "AI Providers",
+    "description": "Firefly Image 4 and Video for image and video generation via Adobe Developer Console.",
+    "icon": "Image"
   },
   {
     "name": "Local runtime",

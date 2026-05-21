@@ -1,0 +1,222 @@
+[
+  {
+    "id": "telegram",
+    "name": "Telegram",
+    "runtime": "bundled",
+    "dmPolicy": "allowlist",
+    "threadSupport": true,
+    "description": "The only channel with a bundled runtime. Long polling with exponential reconnect, 4096-char message splitting, forum topic thread support, and inbound deduplication.",
+    "configFields": ["Bot token", "Allow-from list", "Group allow-from list", "Default target", "DM policy"],
+    "docsUrl": "https://core.telegram.org/bots/api"
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": true,
+    "description": "Post summaries, task updates, and approval requests to Slack channels and DMs.",
+    "configFields": ["Bot token", "App ID", "Allow-from list", "Default target", "DM policy"],
+    "docsUrl": "https://docs.slack.dev/apis/"
+  },
+  {
+    "id": "discord",
+    "name": "Discord",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": true,
+    "description": "Community workflows and support queues from a server-native bot.",
+    "configFields": ["Bot token", "Client ID", "Allow-from list", "Default target", "DM policy"],
+    "docsUrl": "https://docs.discord.com/developers/bots"
+  },
+  {
+    "id": "whatsapp",
+    "name": "WhatsApp",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Deliver personal and team updates through WhatsApp Cloud API conversations.",
+    "configFields": ["Phone number", "Token", "Webhook URL", "Allow-from list", "DM policy"],
+    "docsUrl": "https://developers.facebook.com/docs/whatsapp/cloud-api"
+  },
+  {
+    "id": "msteams",
+    "name": "Microsoft Teams",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": true,
+    "description": "Route status updates and team workflows into Microsoft Teams spaces via Graph API.",
+    "configFields": ["App ID", "Client secret", "Tenant ID", "Allow-from list", "Default target"],
+    "docsUrl": "https://learn.microsoft.com/en-us/microsoftteams/platform/overview"
+  },
+  {
+    "id": "googlechat",
+    "name": "Google Chat",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": true,
+    "description": "Post summaries and notifications into Google Chat rooms via the Chat API.",
+    "configFields": ["Bot user ID", "Webhook URL", "Allow-from list", "Default target"],
+    "docsUrl": "https://developers.google.com/workspace/chat"
+  },
+  {
+    "id": "signal",
+    "name": "Signal",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Private channel notifications and direct-message workflows via Signal linked devices.",
+    "configFields": ["Phone number", "Allow-from list", "DM policy"],
+    "docsUrl": "https://support.signal.org/hc/en-us/articles/360007320551-Linked-Devices"
+  },
+  {
+    "id": "imessage",
+    "name": "iMessage",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "macOS-native direct message delivery using the Apple Messages framework.",
+    "configFields": ["Allow-from list", "DM policy"],
+    "docsUrl": "https://developer.apple.com/documentation/messages"
+  },
+  {
+    "id": "matrix",
+    "name": "Matrix",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": true,
+    "description": "Federated, decentralized team notifications using the open Matrix client-server spec.",
+    "configFields": ["Server URL", "Token", "Allow-from list", "Default target"],
+    "docsUrl": "https://spec.matrix.org/latest/client-server-api/"
+  },
+  {
+    "id": "mattermost",
+    "name": "Mattermost",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": true,
+    "description": "Self-hosted or cloud Mattermost workspace updates via the Mattermost integration API.",
+    "configFields": ["Server URL", "Token", "Allow-from list", "Default target"],
+    "docsUrl": "https://developers.mattermost.com/integrate/reference/"
+  },
+  {
+    "id": "line",
+    "name": "LINE",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Send messages and workflow updates through the LINE Messaging API.",
+    "configFields": ["Channel token", "Channel secret", "Allow-from list"],
+    "docsUrl": "https://developers.line.biz/en/docs/messaging-api/"
+  },
+  {
+    "id": "feishu",
+    "name": "Feishu / Lark",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": true,
+    "description": "Enterprise messaging via Feishu Open Platform and Lark Developer API.",
+    "configFields": ["App ID", "App secret", "Allow-from list", "Default target"],
+    "docsUrl": "https://open.feishu.cn/document/home/index"
+  },
+  {
+    "id": "irc",
+    "name": "IRC",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Lightweight IRC channel delivery using IRCv3 specifications.",
+    "configFields": ["Server URL", "Token", "Allow-from list", "Default target"],
+    "docsUrl": "https://ircv3.net/irc/"
+  },
+  {
+    "id": "twitch",
+    "name": "Twitch",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Live-stream bot interactions and notifications in Twitch chat.",
+    "configFields": ["Token", "Allow-from list", "Default target"],
+    "docsUrl": "https://dev.twitch.tv/docs/chat/"
+  },
+  {
+    "id": "nextcloud-talk",
+    "name": "Nextcloud Talk",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Self-hosted Nextcloud Talk rooms via the Talk API and bot/webhook system.",
+    "configFields": ["Server URL", "Token", "Allow-from list"],
+    "docsUrl": "https://nextcloud-talk.readthedocs.io/en/latest/bots/"
+  },
+  {
+    "id": "synology-chat",
+    "name": "Synology Chat",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Notifications and updates to Synology Chat via webhook integration.",
+    "configFields": ["Webhook URL", "Token", "Allow-from list"],
+    "docsUrl": "https://kb.synology.com/en-global/DSM/help/Chat/chat_integration"
+  },
+  {
+    "id": "nostr",
+    "name": "Nostr",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Encrypted direct messages over the decentralized Nostr protocol (NIP-04).",
+    "configFields": ["Token", "Allow-from list"],
+    "docsUrl": "https://github.com/nostr-protocol/nips/blob/master/04.md"
+  },
+  {
+    "id": "qqbot",
+    "name": "QQ Bot",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "QQ bot workflows via the official QQ Bot platform API.",
+    "configFields": ["App ID", "Token", "Allow-from list"],
+    "docsUrl": "https://bot.q.qq.com/wiki/"
+  },
+  {
+    "id": "zalo",
+    "name": "Zalo",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Zalo Official Account messages for Vietnam-based audiences.",
+    "configFields": ["Token", "Allow-from list"],
+    "docsUrl": "https://developers.zalo.me/docs/api/official-account-api-147"
+  },
+  {
+    "id": "tlon",
+    "name": "Tlon / Urbit",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Decentralized Tlon group communication via the Urbit developer API.",
+    "configFields": ["Server URL", "Token"],
+    "docsUrl": "https://dev.tlon.io/"
+  },
+  {
+    "id": "clickclack",
+    "name": "ClickClack",
+    "runtime": "catalog",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "ClickClack platform integration for specialized channel messaging workflows.",
+    "configFields": ["Token", "Allow-from list"],
+    "docsUrl": null
+  },
+  {
+    "id": "qa-channel",
+    "name": "QA Channel",
+    "runtime": "hidden",
+    "dmPolicy": "allowlist",
+    "threadSupport": false,
+    "description": "Internal synthetic test channel. Hidden from the UI.",
+    "configFields": [],
+    "docsUrl": null
+  }
+]

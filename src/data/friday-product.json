@@ -169,19 +169,35 @@
   "faqs": [
     {
       "question": "Does Friday send my data anywhere?",
-      "answer": "Friday is local-first. Data leaves your machine only when you choose an external provider, connector, channel, or hosted service for a task."
+      "answer": "Friday is local-first. Data leaves your machine only when you direct it to: calling an AI provider, syncing a connector, posting to a channel, or running a hosted service. API keys, workspace paths, and chat history stay local."
+    },
+    {
+      "question": "Can I use a local or self-hosted model?",
+      "answer": "Yes. Friday supports any provider with an OpenAI-compatible endpoint — including locally hosted models. Configure a base URL and API key in provider settings to route the agent to your own runtime."
+    },
+    {
+      "question": "How does the tool approval system work?",
+      "answer": "Each connector and tool has a configurable approval policy — always require approval, skip approval for a specific allowed-tool list, or never require approval. Pre-run safety hooks evaluate the prompt before the provider is ever called."
+    },
+    {
+      "question": "Can I choose different AI providers for different tasks?",
+      "answer": "Yes. Configure separate providers for the main assistant, speech-to-text, text-to-speech, image creation, video creation, and music creation. Each operator resolves its own provider and model from your stored settings."
+    },
+    {
+      "question": "How do scheduled tasks work?",
+      "answer": "The cron scheduler supports cron expressions, fixed intervals, and one-time runs — all timezone-aware. Missed-run policies control what happens on startup if a run was skipped. Concurrency policies control what happens when a new run fires while one is still active."
+    },
+    {
+      "question": "What messaging channels does Friday support?",
+      "answer": "Friday has a catalog of 22 channels including Telegram (the only bundled runtime), Slack, Discord, WhatsApp, iMessage, Microsoft Teams, Signal, Matrix, LINE, Feishu, IRC, Twitch, Nextcloud Talk, Nostr, QQ Bot, and more. Each channel can have per-account allow-lists and DM policies."
+    },
+    {
+      "question": "How does context memory work across sessions?",
+      "answer": "Friday uses startup files — AGENTS.md, SOUL.md, IDENTITY.md, USER.md, MEMORY.md, and others — as lower-priority project context injected into every prompt. When a session grows too long, the transcript is automatically compacted: the six most recent entries are kept verbatim and older entries are summarised."
     },
     {
       "question": "Will it work on Intel Macs?",
-      "answer": "The landing page targets macOS 13+ and desktop workflows. Final packaging details should be verified against the release artifacts before publishing."
-    },
-    {
-      "question": "Can I use a local model?",
-      "answer": "Friday is designed around provider choice, including local or self-hosted providers where configured."
-    },
-    {
-      "question": "Is the source available?",
-      "answer": "Use the linked repository and release notes as the source of truth for code availability, packaging, and contribution details."
+      "answer": "The current target is macOS 13+. Final packaging details for Apple Silicon vs. Intel should be verified against the release artifacts."
     }
   ],
   "heroSignals": [
