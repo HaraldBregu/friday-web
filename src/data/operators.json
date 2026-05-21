@@ -1,0 +1,137 @@
+[
+  {
+    "id": "assistant",
+    "name": "AI Assistant",
+    "status": "implemented",
+    "description": "The main Friday agent. Runs a provider-neutral tool loop with system prompts, context compaction, pre-run safety hooks, and memory across sessions.",
+    "icon": "Bot",
+    "providers": ["OpenAI", "Anthropic", "Google", "xAI", "Mistral", "DeepSeek", "Qwen", "Kimi", "Perplexity", "NVIDIA", "and more"],
+    "highlights": [
+      "Any configured chat provider and model",
+      "Pre-run policy hooks block unsafe requests",
+      "Automatic context compaction on overflow",
+      "Per-agent startup files and persistent memory",
+      "Per-run provider and model overrides"
+    ]
+  },
+  {
+    "id": "speech-to-text",
+    "name": "Speech to Text",
+    "status": "implemented",
+    "description": "Live dictation and audio transcription. Streams 24 kHz PCM audio from the microphone and returns partial and final transcript events in real time.",
+    "icon": "Mic",
+    "providers": ["OpenAI Realtime Whisper", "Deepgram", "Any STT-capable provider"],
+    "highlights": [
+      "Real-time streaming transcription",
+      "Echo cancellation and noise suppression",
+      "Configurable language and sample rate",
+      "Provider-agnostic session contract",
+      "Graceful close on renderer teardown"
+    ]
+  },
+  {
+    "id": "text-to-speech",
+    "name": "Text to Speech",
+    "status": "pending-runtime",
+    "description": "Synthesize spoken audio from assistant responses. Configurable voice, format, and streaming style through any TTS-capable provider.",
+    "icon": "Volume2",
+    "providers": ["ElevenLabs", "Deepgram", "Cartesia", "OpenAI", "Any TTS-capable provider"],
+    "highlights": [
+      "Any configured TTS provider and model",
+      "Streaming or batch audio output",
+      "Voice, format, and speed options",
+      "Background task with progress tracking",
+      "Cron-triggered audio delivery"
+    ]
+  },
+  {
+    "id": "image-creator",
+    "name": "Image Creator",
+    "status": "pending-runtime",
+    "description": "Generate and edit images from prompts or reference assets. Supports any image-capable provider with normalized result records.",
+    "icon": "Image",
+    "providers": ["Black Forest Labs", "Stability AI", "Ideogram", "OpenAI", "Google", "Any image-capable provider"],
+    "highlights": [
+      "Text-to-image and image editing",
+      "Aspect ratio and count controls",
+      "Background image.create task",
+      "Cron-scheduled image generation",
+      "Provider-specific adapters behind a shared API"
+    ]
+  },
+  {
+    "id": "video-creator",
+    "name": "Video Creator",
+    "status": "pending-runtime",
+    "description": "Create videos via async generation jobs. Supports prompt-to-video, reference assets, duration, and aspect ratio through any video-capable provider.",
+    "icon": "Video",
+    "providers": ["Runway", "Kling", "Pika", "Luma AI", "OpenAI", "Any video-capable provider"],
+    "highlights": [
+      "Async video generation with polling",
+      "Prompt, duration, and aspect ratio inputs",
+      "Background video.create task",
+      "Cron-triggered video production",
+      "Webhook and download support in adapters"
+    ]
+  },
+  {
+    "id": "music-creator",
+    "name": "Music Creator",
+    "status": "pending-runtime",
+    "description": "Generate music, sound effects, and audio from text prompts. Covers any provider with music or audio generation capability.",
+    "icon": "Music",
+    "providers": ["MiniMax", "Stability AI", "ElevenLabs", "Google", "Suno", "Any sound-capable provider"],
+    "highlights": [
+      "Text-to-music and text-to-audio",
+      "Duration, format, and stem controls",
+      "Background sound.create task",
+      "Cron-triggered audio generation",
+      "Provider-agnostic normalized audio results"
+    ]
+  },
+  {
+    "id": "document-ocr",
+    "name": "Document OCR",
+    "status": "implemented",
+    "description": "Extract text from images and documents via a configured OCR endpoint. Validates image input, posts to the endpoint, and returns extracted text.",
+    "icon": "ScanText",
+    "providers": ["Any OCR endpoint", "Provider/model picker planned"],
+    "highlights": [
+      "Base64 image input with MIME type",
+      "Configurable OCR endpoint",
+      "Background ocr.run task",
+      "Language hint support",
+      "Migration path to provider/model picker"
+    ]
+  },
+  {
+    "id": "cron-scheduler",
+    "name": "Cron Scheduler",
+    "status": "implemented",
+    "description": "Schedule recurring tasks, one-time runs, and interval jobs with timezone support, missed-run handling, concurrency policies, and full audit trails.",
+    "icon": "Clock",
+    "providers": ["Built-in — no external provider required"],
+    "highlights": [
+      "Cron expression, interval, and one-time schedules",
+      "Missed-run policies: skip, run-once, catch-up, fail",
+      "Concurrency policies: skip, queue, cancel-previous",
+      "Timezone-aware with 30-second poll interval",
+      "Agent turn, image, video, sound, and reminder tasks"
+    ]
+  },
+  {
+    "id": "background-tasks",
+    "name": "Background Tasks",
+    "status": "implemented",
+    "description": "Run agent, OCR, image, video, and sound work concurrently. Each task has a lifecycle, progress tracking, cancellation via AbortSignal, and in-memory result storage.",
+    "icon": "Layers",
+    "providers": ["Built-in — delegates to operator modules"],
+    "highlights": [
+      "Concurrent task execution",
+      "Cooperative cancellation via AbortSignal",
+      "Lifecycle events: queued, running, succeeded, failed, cancelled",
+      "No default execution timeout",
+      "Renderer-safe IPC preload API"
+    ]
+  }
+]

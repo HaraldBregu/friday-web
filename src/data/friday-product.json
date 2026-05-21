@@ -2,9 +2,8 @@
   "nav": [
     { "label": "Product", "href": "#product" },
     { "label": "Features", "href": "#features" },
-    { "label": "How it works", "href": "#how" },
-    { "label": "Connectors", "href": "#connectors" },
-    { "label": "Channels", "href": "#channels" },
+    { "label": "Integrations", "href": "/integrations" },
+    { "label": "Operators", "href": "/operators" },
     { "label": "FAQ", "href": "#faq" },
     { "label": "Download", "href": "#download" }
   ],
@@ -120,16 +119,28 @@
       "icon": "Database"
     },
     {
+      "name": "Dropbox",
+      "label": "Cloud files",
+      "description": "Search and access Dropbox files with OAuth-scoped, approval-gated operations.",
+      "icon": "Cloud"
+    },
+    {
+      "name": "Outlook",
+      "label": "Email",
+      "description": "Search and manage Outlook messages via the Microsoft Graph API.",
+      "icon": "Mail"
+    },
+    {
+      "name": "SharePoint",
+      "label": "Docs",
+      "description": "Fetch and search SharePoint documents and sites via Microsoft Graph.",
+      "icon": "FolderOpen"
+    },
+    {
       "name": "GitHub",
       "label": "Code",
       "description": "Inspect issues, pull requests, reviews, releases, and repository activity.",
       "icon": "Github"
-    },
-    {
-      "name": "Notion",
-      "label": "Docs",
-      "description": "Summarize pages, draft updates, and turn team knowledge into workflows.",
-      "icon": "BookOpen"
     }
   ],
   "landingChannels": [
@@ -144,7 +155,16 @@
     "Matrix",
     "Mattermost",
     "LINE",
-    "Feishu/Lark"
+    "Feishu / Lark",
+    "IRC",
+    "Twitch",
+    "Nextcloud Talk",
+    "Synology Chat",
+    "Nostr",
+    "QQ Bot",
+    "Zalo",
+    "Tlon",
+    "ClickClack"
   ],
   "faqs": [
     {

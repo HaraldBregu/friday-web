@@ -12,6 +12,12 @@
     "icon": "GitBranch"
   },
   {
+    "name": "Telegram",
+    "category": "Channels",
+    "description": "Send scheduled summaries, alerts, and approval requests to paired Telegram chats. Bundled runtime with long polling, reconnect logic, and group support.",
+    "icon": "MessageSquare"
+  },
+  {
     "name": "Slack",
     "category": "Channels",
     "description": "Receive task updates, approvals, and daily summaries in the channels your team already reads.",
@@ -24,21 +30,15 @@
     "icon": "MessageSquare"
   },
   {
-    "name": "Telegram",
-    "category": "Channels",
-    "description": "Send scheduled summaries, alerts, and approval requests to paired Telegram chats.",
-    "icon": "MessageSquare"
-  },
-  {
     "name": "WhatsApp",
     "category": "Channels",
-    "description": "Deliver personal and team updates through configured WhatsApp conversations.",
+    "description": "Deliver personal and team updates through configured WhatsApp conversations via the Cloud API.",
     "icon": "MessageSquare"
   },
   {
     "name": "Microsoft Teams",
     "category": "Channels",
-    "description": "Route status updates and team workflows into Microsoft Teams spaces.",
+    "description": "Route status updates and team workflows into Microsoft Teams spaces via the Graph API.",
     "icon": "Users"
   },
   {
@@ -54,28 +54,184 @@
     "icon": "RadioTower"
   },
   {
-    "name": "Google Workspace",
-    "category": "Productivity",
-    "description": "Use configured Google workspace context across mail, calendar, files, and chat.",
+    "name": "iMessage",
+    "category": "Channels",
+    "description": "Connect Friday to iMessage for macOS-native direct message delivery.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Matrix",
+    "category": "Channels",
+    "description": "Use the open Matrix protocol for federated, decentralized team notifications.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Mattermost",
+    "category": "Channels",
+    "description": "Deliver updates into self-hosted or cloud Mattermost workspaces.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "LINE",
+    "category": "Channels",
+    "description": "Send messages and workflow updates through the LINE Messaging API.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Feishu / Lark",
+    "category": "Channels",
+    "description": "Integrate with Feishu and Lark via the open platform for enterprise messaging.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "IRC",
+    "category": "Channels",
+    "description": "Connect to IRC networks using IRCv3 for lightweight, low-latency channel delivery.",
+    "icon": "Terminal"
+  },
+  {
+    "name": "Twitch",
+    "category": "Channels",
+    "description": "Run live-stream workflows and bot interactions in Twitch chat.",
+    "icon": "RadioTower"
+  },
+  {
+    "name": "Nextcloud Talk",
+    "category": "Channels",
+    "description": "Reach self-hosted Nextcloud Talk rooms and bots via the Talk API.",
     "icon": "Cloud"
   },
   {
+    "name": "Synology Chat",
+    "category": "Channels",
+    "description": "Post notifications and updates to Synology Chat via webhook or integration.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Nostr",
+    "category": "Channels",
+    "description": "Publish encrypted direct messages over the decentralized Nostr protocol.",
+    "icon": "RadioTower"
+  },
+  {
+    "name": "QQ Bot",
+    "category": "Channels",
+    "description": "Build QQ bot workflows with the official QQ Bot platform API.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Zalo",
+    "category": "Channels",
+    "description": "Deliver messages through Zalo Official Account for Vietnam-based audiences.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Tlon / Urbit",
+    "category": "Channels",
+    "description": "Connect to decentralized Tlon groups via Urbit for sovereign communication.",
+    "icon": "Globe"
+  },
+  {
+    "name": "ClickClack",
+    "category": "Channels",
+    "description": "Integrate with ClickClack for specialized channel messaging workflows.",
+    "icon": "MessageSquare"
+  },
+  {
     "name": "Gmail",
-    "category": "Productivity",
-    "description": "Draft replies, triage messages, and extract follow-ups while keeping review controls.",
+    "category": "Connectors",
+    "description": "Search, read, draft, send, and manage Gmail messages. OAuth with least-privilege scopes.",
     "icon": "MailCheck"
   },
   {
     "name": "Google Calendar",
-    "category": "Productivity",
-    "description": "Prepare agendas, spot conflicts, and create reminders from project context.",
+    "category": "Connectors",
+    "description": "Find events, prepare agendas, spot conflicts, and create reminders from project context.",
     "icon": "CalendarDays"
   },
   {
     "name": "Google Drive",
-    "category": "Productivity",
-    "description": "Summarize docs, inspect shared files, and turn Drive context into next actions.",
+    "category": "Connectors",
+    "description": "Search files, summarize docs, and turn Drive context into next actions.",
     "icon": "Database"
+  },
+  {
+    "name": "Dropbox",
+    "category": "Connectors",
+    "description": "Search and access Dropbox files via OAuth. Scope-controlled read and write operations.",
+    "icon": "Cloud"
+  },
+  {
+    "name": "Outlook Email",
+    "category": "Connectors",
+    "description": "Search and manage Outlook messages through the Microsoft Graph API.",
+    "icon": "Mail"
+  },
+  {
+    "name": "Outlook Calendar",
+    "category": "Connectors",
+    "description": "List and manage Outlook calendar events via Microsoft Graph.",
+    "icon": "CalendarDays"
+  },
+  {
+    "name": "SharePoint",
+    "category": "Connectors",
+    "description": "Fetch and search SharePoint documents and sites via the Microsoft Graph API.",
+    "icon": "FolderOpen"
+  },
+  {
+    "name": "Microsoft Teams",
+    "category": "Connectors",
+    "description": "Search Teams messages and channels through the Microsoft Graph API.",
+    "icon": "Users"
+  },
+  {
+    "name": "Speech to Text",
+    "category": "Operators",
+    "description": "Live dictation and audio transcription powered by any configured STT provider — OpenAI Realtime, Deepgram, and more.",
+    "icon": "Mic"
+  },
+  {
+    "name": "Text to Speech",
+    "category": "Operators",
+    "description": "Synthesize spoken audio from assistant responses using ElevenLabs, Cartesia, Deepgram, or any TTS-capable provider.",
+    "icon": "Volume2"
+  },
+  {
+    "name": "Image Creator",
+    "category": "Operators",
+    "description": "Generate and edit images through Black Forest Labs, Stability AI, Ideogram, OpenAI, or any image-capable provider.",
+    "icon": "Image"
+  },
+  {
+    "name": "Video Creator",
+    "category": "Operators",
+    "description": "Create video with async generation jobs via Runway, Kling, Pika, Luma AI, or any video-capable provider.",
+    "icon": "Video"
+  },
+  {
+    "name": "Music Creator",
+    "category": "Operators",
+    "description": "Generate music and audio output through MiniMax, Stability AI, ElevenLabs, Google, or any sound-capable provider.",
+    "icon": "Music"
+  },
+  {
+    "name": "Document OCR",
+    "category": "Operators",
+    "description": "Extract text from images and documents through a configured OCR endpoint or provider.",
+    "icon": "ScanText"
+  },
+  {
+    "name": "Cron Scheduler",
+    "category": "Operators",
+    "description": "Schedule recurring tasks, one-time runs, and interval jobs with missed-run handling and concurrency policies.",
+    "icon": "Clock"
+  },
+  {
+    "name": "Background Tasks",
+    "category": "Operators",
+    "description": "Run agent, image, video, sound, and OCR work concurrently with cancellation and lifecycle event tracking.",
+    "icon": "Layers"
   },
   {
     "name": "Postgres",
@@ -90,9 +246,57 @@
     "icon": "Cloud"
   },
   {
-    "name": "Local runtime",
-    "category": "Models",
-    "description": "Run private workloads on local models for sensitive drafts and internal context.",
+    "name": "OpenAI",
+    "category": "AI Providers",
+    "description": "Chat, speech-to-text, text-to-speech, image, and video. GPT-5.5, GPT-5.4, and GPT-5.4 Mini with configurable reasoning effort.",
     "icon": "Cpu"
+  },
+  {
+    "name": "Anthropic",
+    "category": "AI Providers",
+    "description": "Claude Opus, Sonnet, and Haiku models for chat and tool-use workflows.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Google DeepMind",
+    "category": "AI Providers",
+    "description": "Gemini 2.5 Pro, Flash, and Flash-Lite via the OpenAI-compatible Gemini API. Chat, speech, images, video, and music.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "xAI",
+    "category": "AI Providers",
+    "description": "Grok 4.3, Grok 4.3 Fast, and Grok Code Fast for chat, realtime voice, image, and video.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Mistral AI",
+    "category": "AI Providers",
+    "description": "Mistral Large, Medium, Small, and Ministral models for chat with configurable reasoning effort.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "DeepSeek",
+    "category": "AI Providers",
+    "description": "DeepSeek V4-Pro and V4-Flash via the OpenAI-compatible DeepSeek API.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "Perplexity",
+    "category": "AI Providers",
+    "description": "Sonar Reasoning Pro, Sonar Pro, and Sonar Deep Research for web-grounded research chat.",
+    "icon": "Cpu"
+  },
+  {
+    "name": "ElevenLabs",
+    "category": "AI Providers",
+    "description": "Speech-to-text, text-to-speech, audio, and music. Default TTS provider with Rachel multilingual voice.",
+    "icon": "Volume2"
+  },
+  {
+    "name": "Local runtime",
+    "category": "AI Providers",
+    "description": "Run private workloads on local or self-hosted models for sensitive drafts and internal context.",
+    "icon": "Server"
   }
 ]
