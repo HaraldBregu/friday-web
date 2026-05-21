@@ -3,49 +3,49 @@
     "name": "read",
     "category": "Files",
     "description": "Reads a UTF-8 file and returns line-numbered text. Records read state so later write, edit, delete, copy, and move operations can verify the file was seen first.",
-    "icon": "FileText"
+    "icon": "BookOpen"
   },
   {
     "name": "write",
     "category": "Files",
     "description": "Creates or overwrites a UTF-8 file. Existing files must be read earlier in the run before they can be overwritten.",
-    "icon": "FilePen"
+    "icon": "PlugZap"
   },
   {
     "name": "edit",
     "category": "Files",
     "description": "Applies an exact string replacement to a file after it has been read. Targeted and surgical — does not rewrite the whole file.",
-    "icon": "FileEdit"
+    "icon": "Workflow"
   },
   {
     "name": "apply_patch",
     "category": "Files",
     "description": "Applies a unified diff to existing workspace files after affected files have been read. Useful for multi-file changes from a single diff block.",
-    "icon": "FileDiff"
+    "icon": "GitBranch"
   },
   {
     "name": "delete",
     "category": "Files",
     "description": "Deletes a file after it has been read. Directory deletion requires explicit recursive=true. Root paths are guarded.",
-    "icon": "FileX"
+    "icon": "X"
   },
   {
     "name": "copy",
     "category": "Files",
     "description": "Copies one file to another path. Overwriting an existing destination requires prior read state for that destination.",
-    "icon": "FileCopy"
+    "icon": "Copy"
   },
   {
     "name": "move",
     "category": "Files",
     "description": "Moves or renames a file. The source must be read first. Overwriting requires prior destination read state.",
-    "icon": "FileMove"
+    "icon": "ArrowRight"
   },
   {
     "name": "inspect_file",
     "category": "Files",
     "description": "Inspects file bytes, size, MIME type, content preview, and hashes. Returns PNG/JPEG/GIF/WebP image content directly when practical.",
-    "icon": "FileScan"
+    "icon": "ScanText"
   },
   {
     "name": "find",
@@ -63,7 +63,7 @@
     "name": "process",
     "category": "Shell",
     "description": "Lists, reads logs for, or kills background processes started by exec with background=true.",
-    "icon": "Activity"
+    "icon": "Layers"
   },
   {
     "name": "web_fetch",
@@ -75,7 +75,7 @@
     "name": "open_browser",
     "category": "Web",
     "description": "Opens an HTTP or HTTPS URL in the user's default browser.",
-    "icon": "ExternalLink"
+    "icon": "MonitorDown"
   },
   {
     "name": "browser",
