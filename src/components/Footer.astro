@@ -1,26 +1,19 @@
 ---
-import site from "../data/site.json";
 import socialLinks from "../data/social-links.json";
+import { getLocaleContent, localizedPath, normalizeLocale, type Locale } from "../i18n";
 import Icon from "./Icon.astro";
 
-const groups = [
-  {
-    title: "Product",
-    links: [
-      { label: "Features", href: "/#features" },
-      { label: "How it works", href: "/#how" },
-      { label: "Connectors", href: "/#connectors" },
-    ],
-  },
-  {
-    title: "Details",
-    links: [
-      { label: "Channels", href: "/#channels" },
-      { label: "FAQ", href: "/#faq" },
-      { label: "Integrations", href: "/integrations" },
-    ],
-  },
-];
+interface Props {
+  locale?: Locale;
+}
+
+const locale = normalizeLocale(Astro.props.locale);
+const { site, ui } = getLocaleContent(locale);
+const groups = ui.footerGroups;
+const footerHref = (href: string) => {
+  const [path, hash] = href.split("#");
+  return `${localizedPath(path || "/", locale)}${hash ? `#${hash}` : ""}`;
+};
 ---
 
 <footer class="site-footer">
@@ -34,7 +27,7 @@ const groups = [
         </span>
       </a>
       <p>{site.description}</p>
-      <div aria-label="Social links" class="social-links">
+      <div aria-label={ui.socialLinks} class="social-links">
         {
           socialLinks.map((link) => (
             <a aria-label={link.label} href={link.url}>
@@ -49,13 +42,13 @@ const groups = [
       groups.map((group) => (
         <div class="footer-links">
           <h2>{group.title}</h2>
-          {group.links.map((link) => <a href={link.href}>{link.label}</a>)}
+          {group.links.map((link) => <a href={footerHref(link.href)}>{link.label}</a>)}
         </div>
       ))
     }
   </div>
   <div class="shell footer-bottom">
-    <span>Copyright {new Date().getFullYear()} {site.name}. All rights reserved.</span>
-    <span>Review provider, connector, and channel permissions before enabling automation.</span>
+    <span>Copyright {new Date().getFullYear()} {site.name}. {ui.footerRights}</span>
+    <span>{ui.footerPermissionNote}</span>
   </div>
 </footer>
