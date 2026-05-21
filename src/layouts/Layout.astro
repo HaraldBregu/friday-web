@@ -90,7 +90,7 @@ const alternateLinks = alternatePath ? getAlternateLinks(alternatePath, siteBase
     <main id="content">
       <slot />
     </main>
-    {hideFooter ? null : <Footer locale={locale} />}
+    {hideFooter ? null : <Footer alternatePath={alternatePath} locale={locale} />}
     <script is:inline>
       (() => {
         const root = document.documentElement;
