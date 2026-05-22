@@ -733,7 +733,7 @@ p {
 
 .product-window__bar {
   display: grid;
-  grid-template-columns: minmax(96px, 0.6fr) minmax(150px, 1fr) minmax(92px, 0.55fr);
+  grid-template-columns: auto minmax(70px, 0.45fr) minmax(150px, 1fr) auto;
   align-items: center;
   gap: 0.75rem;
   min-height: 46px;
