@@ -747,7 +747,7 @@ p {
   justify-self: center;
   color: #f5f5f5;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 650;
 }
 
 .product-window__profile {
@@ -797,7 +797,7 @@ p {
 .chat-bubble {
   color: #f6f6f6;
   font-size: 0.86rem;
-  font-weight: 650;
+  font-weight: 590;
   line-height: 1.58;
 }
 
@@ -833,7 +833,7 @@ p {
   gap: 0.65rem;
   color: #fff;
   font-size: 0.92rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .assistant-avatar {
@@ -847,26 +847,6 @@ p {
     radial-gradient(circle at 48% 78%, rgba(237, 106, 94, 0.86), transparent 36%),
     linear-gradient(135deg, #6713b8, #eb6c55);
   box-shadow: 0 0 18px rgba(185, 166, 255, 0.28);
-}
-
-.product-window__scrollbar {
-  position: absolute;
-  top: 1rem;
-  right: 0.22rem;
-  bottom: 0.22rem;
-  width: 0.55rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.product-window__scrollbar span {
-  position: absolute;
-  right: 0.1rem;
-  bottom: 0.2rem;
-  width: 0.35rem;
-  height: 7rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.42);
 }
 
 .product-window__attachment {
@@ -936,7 +916,7 @@ p {
   background: transparent;
   color: #aaa;
   font-size: 0.86rem;
-  font-weight: 650;
+  font-weight: 560;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
