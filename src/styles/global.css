@@ -1985,7 +1985,6 @@ p {
   background: var(--surface-strong);
 }
 
-.docs-section-tile :global(svg),
 .docs-section-tile svg {
   color: var(--accent);
 }
