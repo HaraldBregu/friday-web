@@ -1,5 +1,6 @@
 ---
 import DownloadMenu from "./DownloadMenu.astro";
+import DocumentationPreview from "./DocumentationPreview.astro";
 import Icon from "./Icon.astro";
 import ProductMockup from "./ProductMockup.astro";
 import socialLinks from "../data/social-links.json";
@@ -204,6 +205,8 @@ const providerGroups = friday.landingProviderGroups;
     </a>
   </div>
 </section>
+
+{locale === "en" ? <DocumentationPreview /> : null}
 
 <section class="section reference-section" id="faq">
   <div class="shell">
