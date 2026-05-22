@@ -970,6 +970,10 @@ p {
   font-size: 0.72rem;
 }
 
+.assistant-plan span:nth-child(3) {
+  display: none;
+}
+
 .activity-panel {
   display: grid;
   gap: 0.22rem;
@@ -2522,10 +2526,6 @@ p {
   .assistant-plan span {
     padding: 0.5rem 0.6rem;
     font-size: 0.78rem;
-  }
-
-  .assistant-plan span:nth-child(3) {
-    display: none;
   }
 
   .tool-request {
