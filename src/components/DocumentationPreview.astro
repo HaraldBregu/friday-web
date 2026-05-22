@@ -16,7 +16,7 @@ const featuredSources = [
 ];
 const featuredDocs = featuredSources
   .map((sourcePath) => docs.find((doc) => doc.data.sourcePath === sourcePath))
-  .filter(Boolean)
+  .filter((doc): doc is NonNullable<typeof doc> => Boolean(doc))
   .slice(0, 6);
 ---
 
