@@ -2483,6 +2483,10 @@ p {
     display: none;
   }
 
+  .product-window__command {
+    display: none;
+  }
+
   .product-window__body {
     grid-template-columns: minmax(0, 1fr);
   }
