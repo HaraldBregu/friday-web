@@ -1,8 +1,6 @@
-# Friday Static Marketing Site
+# Friday
 
-Astro static marketing site for Friday, a local-first desktop AI assistant for
-chat, files, tools, connected apps, scheduled tasks, channels, and voice-assisted
-workflows.
+A desktop AI assistant for macOS. Summon it with Option Space, ask for help, and get back to what you were doing.
 
 The home page is built from Astro components, JSON data, custom CSS, and a small
 vanilla JavaScript demo. It intentionally does not use React, Tailwind, or a
