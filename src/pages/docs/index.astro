@@ -10,7 +10,7 @@ const groups = groupDocs(docs);
 const categoryCount = groups.length;
 const indexDocs = groups
   .map((group) => group.items.find((doc) => doc.data.sourcePath.endsWith("/index.md")) ?? group.items[0])
-  .filter(Boolean);
+  .filter((doc): doc is NonNullable<typeof doc> => Boolean(doc));
 ---
 
 <Layout
