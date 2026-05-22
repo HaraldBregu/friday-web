@@ -733,6 +733,7 @@ const en = {
           { label: "Channels", href: "/#channels" },
           { label: "FAQ", href: "/#faq" },
           { label: "Integrations", href: "/integrations" },
+          { label: "Docs", href: "/docs" },
         ],
       },
     ],
