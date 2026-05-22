@@ -846,6 +846,7 @@ const en = {
     commandMenuLabel: "Command menu",
     commandShortcut: "Cmd K",
     statusReady: "Ready",
+    profileLabel: "Account",
     appAreasLabel: "Friday app areas",
     conversationLabel: "Assistant conversation preview",
     navItems: [
@@ -857,6 +858,11 @@ const en = {
       { label: "Privacy", icon: "ShieldCheck" },
     ],
     userMessage: "Summarize this repo, draft a release note, and ask before running tests.",
+    chatUserGreeting: "Hi, how are you doing?",
+    chatAssistantGreeting:
+      "I'm doing great, thanks! Ready whenever you want to move beyond greetings and try that test. What do you have in mind?",
+    chatUserFollowup: "Good morning, people. How are you doing today? I am fine, how about you?",
+    chatAssistantFollowup: "Good morning! I'm doing well - glad to hear you're fine too. What's on your agenda today?",
     assistantStatus: "using tools with approval checks",
     planItems: ["Inspect changed files", "Draft release notes", "Ask before running tests"],
     toolActivityLabel: "Tool activity",
@@ -1034,6 +1040,7 @@ const it = {
     commandMenuLabel: "Menu comandi",
     commandShortcut: "Cmd K",
     statusReady: "Pronto",
+    profileLabel: "Account",
     appAreasLabel: "Aree dell'app Friday",
     conversationLabel: "Anteprima conversazione assistente",
     navItems: [
@@ -1045,6 +1052,11 @@ const it = {
       { label: "Privacy", icon: "ShieldCheck" },
     ],
     userMessage: "Riassumi questo repo, prepara una nota di release e chiedi prima di eseguire i test.",
+    chatUserGreeting: "Ciao, come stai?",
+    chatAssistantGreeting:
+      "Sto molto bene, grazie. Sono pronto quando vuoi andare oltre i saluti e provare quel test. Cosa hai in mente?",
+    chatUserFollowup: "Buongiorno a tutti. Come state oggi? Io sto bene, e voi?",
+    chatAssistantFollowup: "Buongiorno! Sto bene, felice di sapere che anche tu stai bene. Cosa hai in agenda oggi?",
     assistantStatus: "usa strumenti con controlli di approvazione",
     planItems: ["Ispeziona file modificati", "Prepara note di release", "Chiedi prima di eseguire i test"],
     toolActivityLabel: "Attivita strumenti",
