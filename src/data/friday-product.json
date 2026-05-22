@@ -7,6 +7,7 @@
     { "label": "Providers", "href": "/providers" },
     { "label": "Channels", "href": "/channels" },
     { "label": "Tools", "href": "/tools" },
+    { "label": "Docs", "href": "/docs" },
     { "label": "Download", "href": "#download" }
   ],
   "release": {
