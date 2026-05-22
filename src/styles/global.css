@@ -723,7 +723,7 @@ p {
   display: flex;
   flex-direction: column;
   width: min(100%, 650px);
-  height: clamp(430px, 43vw, 510px);
+  height: clamp(450px, 46vw, 560px);
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
