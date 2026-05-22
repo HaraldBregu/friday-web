@@ -797,7 +797,7 @@ p {
 .chat-bubble {
   color: #f6f6f6;
   font-size: 0.86rem;
-  font-weight: 590;
+  font-weight: 600;
   line-height: 1.58;
 }
 
@@ -916,7 +916,7 @@ p {
   background: transparent;
   color: #aaa;
   font-size: 0.86rem;
-  font-weight: 560;
+  font-weight: 600;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
