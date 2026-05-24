@@ -99,52 +99,40 @@
   },
   "landingConnectors": [
     {
-      "name": "Google",
-      "label": "Workspace",
-      "description": "Search and summarize workspace context across configured Google services.",
-      "icon": "Cloud"
-    },
-    {
       "name": "Gmail",
-      "label": "Email",
-      "description": "Draft replies, triage threads, and pull follow-ups into a Friday task.",
+      "label": "Local runtime",
+      "description": "Search message ids, read recent or matched emails, draft replies, send messages, and trash mail through OAuth-scoped tools.",
       "icon": "MailCheck"
     },
     {
-      "name": "Calendar",
-      "label": "Scheduling",
-      "description": "Prepare agendas, spot conflicts, and turn meetings into next actions.",
+      "name": "Google Calendar",
+      "label": "Local runtime",
+      "description": "List calendars, search and read events, create events, update schedules, and delete events with connector approval policy.",
       "icon": "CalendarDays"
     },
     {
       "name": "Google Drive",
-      "label": "Files",
-      "description": "Use docs, sheets, and shared files as reviewed context for assistant work.",
+      "label": "Local runtime",
+      "description": "Search files, inspect metadata and permissions, read or download content, and create files when approval rules allow it.",
       "icon": "Database"
     },
     {
-      "name": "Dropbox",
-      "label": "Cloud files",
-      "description": "Search and access Dropbox files with OAuth-scoped, approval-gated operations.",
+      "name": "MCP connectors",
+      "label": "Extension point",
+      "description": "Build OpenAI Responses API MCP descriptors from enabled connector config and materialize tools when the runtime is supplied.",
+      "icon": "PlugZap"
+    },
+    {
+      "name": "Plugin connectors",
+      "label": "Extension point",
+      "description": "Let plugin manifests declare providers, channels, tools, hooks, auth choices, setup entries, and runtime capabilities.",
+      "icon": "Workflow"
+    },
+    {
+      "name": "Catalog connectors",
+      "label": "Provider-hosted",
+      "description": "Dropbox, Outlook, SharePoint, Microsoft Teams, and other catalog entries are exposed for hosted, MCP, or plugin-backed runtimes.",
       "icon": "Cloud"
-    },
-    {
-      "name": "Outlook",
-      "label": "Email",
-      "description": "Search and manage Outlook messages via the Microsoft Graph API.",
-      "icon": "Mail"
-    },
-    {
-      "name": "SharePoint",
-      "label": "Docs",
-      "description": "Fetch and search SharePoint documents and sites via Microsoft Graph.",
-      "icon": "FolderOpen"
-    },
-    {
-      "name": "GitHub",
-      "label": "Code",
-      "description": "Inspect issues, pull requests, reviews, releases, and repository activity.",
-      "icon": "Github"
     }
   ],
   "landingChannels": [
