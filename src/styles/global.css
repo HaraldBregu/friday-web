@@ -699,6 +699,44 @@ p {
   justify-content: center;
 }
 
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+  max-width: 560px;
+}
+
+.hero-metrics div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(24, 21, 16, 0.72);
+  padding: 0.8rem 0.9rem;
+}
+
+[data-theme="light"] .hero-metrics div {
+  background: rgba(255, 253, 248, 0.72);
+}
+
+.hero-metrics strong,
+.hero-metrics span {
+  display: block;
+}
+
+.hero-metrics strong {
+  margin-bottom: 0.22rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.hero-metrics span {
+  color: var(--faint);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
 .text-link,
 .back-link {
   display: inline-flex;
@@ -1182,13 +1220,37 @@ p {
   border-top: 1px solid var(--line);
 }
 
-.feature > p:first-child,
+.feature__meta,
 .how-step > p:first-child {
-  margin-bottom: 1rem;
   color: var(--faint);
   font-family: var(--font-mono);
   font-size: 0.78rem;
   font-weight: 700;
+}
+
+.feature__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.status-pill {
+  flex: 0 1 auto;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--text);
+  padding: 0.25rem 0.55rem;
+  font-size: 0.66rem;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.how-step > p:first-child {
+  margin-bottom: 1rem;
 }
 
 .feature h3 {
