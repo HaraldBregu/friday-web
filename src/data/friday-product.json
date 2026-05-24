@@ -179,8 +179,8 @@
       "answer": "Friday uses startup files — AGENTS.md, SOUL.md, IDENTITY.md, USER.md, MEMORY.md, and others — as lower-priority project context injected into every prompt. When a session grows too long, the transcript is automatically compacted: the six most recent entries are kept verbatim and older entries are summarised."
     },
     {
-      "question": "Will it work on Intel Macs?",
-      "answer": "The current target is macOS 13+. Final packaging details for Apple Silicon vs. Intel should be verified against the release artifacts."
+      "question": "Which desktop platforms are in scope?",
+      "answer": "Friday is an Electron desktop app with package scripts for macOS x64 and arm64, Windows x64, and Linux AppImage builds. Final availability should be verified against the release artifacts."
     }
   ],
   "heroSignals": [
