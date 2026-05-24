@@ -2405,6 +2405,10 @@ p {
     font-size: 1.04rem;
   }
 
+  .hero-metrics {
+    grid-template-columns: 1fr;
+  }
+
   .product-window__bar {
     grid-template-columns: auto 1fr;
   }
