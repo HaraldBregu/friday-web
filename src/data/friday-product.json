@@ -2,23 +2,18 @@
   "nav": [
     { "label": "Product", "href": "#product" },
     { "label": "Features", "href": "#features" },
-    { "label": "Integrations", "href": "/integrations" },
-    { "label": "Operators", "href": "/operators" },
-    { "label": "Providers", "href": "/providers" },
-    { "label": "Channels", "href": "/channels" },
-    { "label": "Tools", "href": "/tools" },
     { "label": "Docs", "href": "/docs" },
     { "label": "Download", "href": "#download" }
   ],
   "release": {
     "version": "v1.0",
-    "platform": "macOS 13+",
+    "platform": "macOS / Windows / Linux",
     "phase": "Private beta"
   },
   "hero": {
     "eyebrow": "Local-first desktop AI assistant",
     "headline": "Friday.",
-    "description": "A desktop AI assistant for macOS. Summon it with Option Space, ask for help, and get back to what you were doing."
+    "description": "A desktop AI assistant with runtime support for agents, subagents, skills, tools, memory, cron, heartbeat, background work, Google connectors, Telegram delivery, and provider-neutral model routing."
   },
   "demoSuggestions": [
     {
@@ -35,66 +30,72 @@
     }
   ],
   "landingMetrics": [
-    { "value": "Option Space", "label": "desktop shortcut" },
-    { "value": "Local", "label": "keys and app settings" },
-    { "value": "Approval", "label": "before risky actions" },
-    { "value": "Cron", "label": "scheduled prompts" }
+    { "value": "Runtime", "label": "agents, skills, cron, heartbeat, tasks" },
+    { "value": "Partial", "label": "channels, connectors, media operators" },
+    { "value": "Local", "label": "settings, sessions, keys, memory" },
+    { "value": "Policy", "label": "tool and connector approval checks" }
   ],
   "landingFeatures": [
     {
       "key": "01",
-      "title": "Anywhere on macOS",
-      "description": "Summon Friday from the desktop and keep the current task in view. Files, tools, voice, and workspace context stay close without another browser tab."
+      "status": "Runtime implemented",
+      "title": "Desktop agent runtime",
+      "description": "Runs provider-neutral agent turns with durable sessions, startup files, selected tools, selected skills, memory, cancellation, compaction, and streamed run state."
     },
     {
       "key": "02",
-      "title": "Remembers, without hiding the record",
-      "description": "Local stores keep useful context such as settings, skills, schedules, channels, and session state inspectable and deletable."
+      "status": "Runtime implemented",
+      "title": "Subagents and delegated work",
+      "description": "Spawns isolated child sessions for scoped work, tracks parent and child metadata, inherits tool policy, and supports cancellation and inspection."
     },
     {
       "key": "03",
-      "title": "Desktop, not another tab",
-      "description": "Friday is built around desktop work: files, terminal commands, local settings, provider keys, and approval checks remain visible."
+      "status": "Runtime implemented",
+      "title": "Skills and local tools",
+      "description": "Discovers local skills, ranks them for the prompt, injects bounded guidance, and exposes file, shell, browser, cron, task, plugin, MCP, and LSP tools when policy allows."
     },
     {
       "key": "04",
-      "title": "Your choice of model",
-      "description": "Route chat, voice, images, research, and realtime work through configured providers instead of being locked into one model."
+      "status": "Runtime implemented",
+      "title": "Background, cron, and heartbeat",
+      "description": "Runs immediate background tasks, restores persisted schedules, handles missed runs, wakes heartbeat, and surfaces only actionable check-in alerts."
     },
     {
       "key": "05",
-      "title": "Scriptable workflows",
-      "description": "Turn repeated tasks into skills, scheduled prompts, connector actions, or channel deliveries with clear permission boundaries."
+      "status": "Partial runtime",
+      "title": "Connectors and channels",
+      "description": "Executes Gmail, Google Calendar, Google Drive, and Telegram locally today, with catalog, MCP, provider-hosted, and plugin extension paths for broader coverage."
     },
     {
       "key": "06",
-      "title": "Honest about uncertainty",
-      "description": "Friday can ask before acting, surface run state, and keep private workspace data under user control instead of pretending every action is safe."
+      "status": "Partial runtime",
+      "title": "Provider and model routing",
+      "description": "Routes assistant and speech-to-text work through configured providers while keeping media, realtime, OCR, embedding, and research model catalogs visible as they mature."
     }
   ],
   "howSteps": [
     {
       "label": "STEP 01",
-      "glyph": "Opt Space",
-      "title": "Summon",
-      "description": "Open Friday from the desktop and keep the current work in view."
+      "glyph": "Config",
+      "title": "Configure",
+      "description": "Choose providers, agents, skills, connectors, channels, workspaces, and approval policy from local settings."
     },
     {
       "label": "STEP 02",
-      "glyph": "> _",
-      "title": "Ask",
-      "description": "Type, dictate, attach a file, or choose a prepared workflow."
+      "glyph": "Run",
+      "title": "Run",
+      "description": "Start work from chat, a channel, a schedule, heartbeat, a background task, or a spawned subagent."
     },
     {
       "label": "STEP 03",
-      "glyph": "Return",
-      "title": "Return",
-      "description": "Review the answer, approve any sensitive action, and get back to the task."
+      "glyph": "Review",
+      "title": "Inspect",
+      "description": "Watch lifecycle events, review tool calls and results, approve sensitive actions, and cancel work when needed."
     }
   ],
   "quote": {
-    "text": "The first AI tool that respects what I was doing before I opened it.",
-    "cite": "Friday design partner"
+    "text": "The docs separate what runs locally today from what is catalog, connector, or plugin surface.",
+    "cite": "Feature documentation"
   },
   "landingConnectors": [
     {
