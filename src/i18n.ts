@@ -739,9 +739,9 @@ const en = {
     howEyebrow: "How it works",
     howTitle: "Set it up once. Run it anywhere.",
     connectorsEyebrow: "Connectors",
-    connectorsTitle: "Google built in. Everything else extensible.",
+    connectorsTitle: "Built-in connectors. Open extension paths.",
     channelsEyebrow: "Channels",
-    channelsTitle: "Telegram today. More channels when you connect them.",
+    channelsTitle: "Messaging channels, wired on your terms.",
     channelsPanelTitle: "Clear runtime status.",
     channelsPanelDescription:
       "Telegram has a bundled adapter with polling, health checks, reconnects, dedupe, and chunked replies. Other catalog channels need an adapter, hosted connector, MCP server, or plugin runtime before local execution.",
@@ -938,9 +938,9 @@ const it = {
     howEyebrow: "Come funziona",
     howTitle: "Configura una volta. Esegui ovunque.",
     connectorsEyebrow: "Connettori",
-    connectorsTitle: "Google incluso. Il resto estensibile.",
+    connectorsTitle: "Connettori inclusi. Percorsi di estensione aperti.",
     channelsEyebrow: "Canali",
-    channelsTitle: "Telegram oggi. Altri canali quando li colleghi.",
+    channelsTitle: "Canali di messaggistica, collegati alle tue regole.",
     channelsPanelTitle: "Stato runtime chiaro.",
     channelsPanelDescription:
       "Telegram ha un adapter incluso con polling, health check, riconnessione, dedupe e risposte segmentate. Gli altri canali del catalogo richiedono adapter, connettore hosted, server MCP o runtime plugin prima dell'esecuzione locale.",
