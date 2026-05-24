@@ -850,10 +850,9 @@ const en = {
     userMessage: "Summarize this repo, draft a release note, and ask before running tests.",
     chatUserGreeting: "Start a background run for the release checklist.",
     chatAssistantGreeting:
-      "I can create an isolated agent.run task, use the allowed tools, and keep progress visible in the task manager.",
-    chatUserFollowup: "Also wake heartbeat if the deploy slips past 5 PM.",
-    chatAssistantFollowup:
-      "Noted. Heartbeat can run a scheduled check-in, respect active hours, and surface only actionable alerts.",
+      "I can create an isolated agent.run task and keep progress visible in the task manager.",
+    chatUserFollowup: "Wake heartbeat if the deploy slips past 5 PM.",
+    chatAssistantFollowup: "Noted. Heartbeat will check active hours and only surface actionable alerts.",
     attachedFile: "project-notes.md",
     removeAttachment: "Remove attachment",
     listeningLabel: "Listening...",
@@ -1051,10 +1050,9 @@ const it = {
     userMessage: "Riassumi questo repo, prepara una nota di release e chiedi prima di eseguire i test.",
     chatUserGreeting: "Avvia un run in background per la checklist release.",
     chatAssistantGreeting:
-      "Posso creare un'attivita agent.run isolata, usare gli strumenti consentiti e tenere l'avanzamento visibile nel task manager.",
-    chatUserFollowup: "Sveglia anche heartbeat se il deploy supera le 17:00.",
-    chatAssistantFollowup:
-      "Ricevuto. Heartbeat puo eseguire un check-in pianificato, rispettare le ore attive e mostrare solo alert azionabili.",
+      "Posso creare un'attivita agent.run isolata e tenere l'avanzamento visibile nel task manager.",
+    chatUserFollowup: "Sveglia heartbeat se il deploy supera le 17:00.",
+    chatAssistantFollowup: "Ricevuto. Heartbeat controllera le ore attive e mostrera solo alert azionabili.",
     attachedFile: "note-progetto.md",
     removeAttachment: "Rimuovi allegato",
     listeningLabel: "Sto ascoltando...",
