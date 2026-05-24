@@ -407,47 +407,47 @@
   ],
   "landingOperators": [
     {
-      "name": "Voice in",
-      "description": "Live dictation from the microphone using any STT-capable provider.",
+      "name": "Background agent run",
+      "description": "Run user-facing agent work in an isolated task session with lifecycle events, progress, result text, errors, and cancellation.",
+      "icon": "Layers",
+      "status": "Live"
+    },
+    {
+      "name": "Subagent run",
+      "description": "Delegate scoped child work with inherited tool policy, optional provider/model overrides, timeouts, and parent-owned inspection.",
+      "icon": "Bot",
+      "status": "Live"
+    },
+    {
+      "name": "Cron scheduler",
+      "description": "Persist schedules, recover them on startup, handle missed runs, and create background agent tasks when work is due.",
+      "icon": "Clock",
+      "status": "Live"
+    },
+    {
+      "name": "Heartbeat",
+      "description": "Run periodic or manual check-ins with active hours, flood guards, quiet successes, and actionable alerts.",
+      "icon": "HeartHandshake",
+      "status": "Live"
+    },
+    {
+      "name": "Speech-to-text",
+      "description": "Stream transcription through OpenAI, Deepgram, ElevenLabs, Mistral, xAI, Qwen, or another configured STT provider.",
       "icon": "Mic",
       "status": "Live"
     },
     {
-      "name": "Voice out",
-      "description": "Spoken audio synthesis from assistant responses via ElevenLabs, Cartesia, Deepgram, or OpenAI.",
-      "icon": "Volume2",
-      "status": "Coming soon"
-    },
-    {
-      "name": "Image",
-      "description": "Generate and edit images with Black Forest Labs, Stability AI, Ideogram, or any image provider.",
-      "icon": "Image",
-      "status": "Coming soon"
-    },
-    {
-      "name": "Video",
-      "description": "Async video generation via Runway, Kling, Pika, Luma AI, or any video-capable provider.",
-      "icon": "Video",
-      "status": "Coming soon"
-    },
-    {
-      "name": "Music",
-      "description": "Generate sound, audio, and music with MiniMax, Stability AI, ElevenLabs, or Google.",
-      "icon": "Music",
-      "status": "Coming soon"
-    },
-    {
       "name": "OCR",
-      "description": "Extract text from images and documents via any configured OCR endpoint.",
+      "description": "Expose OCR as a settings and operator surface while provider selection and full local runtime continue to mature.",
       "icon": "ScanText",
-      "status": "Live"
+      "status": "Coming soon"
     }
   ],
   "landingProviderGroups": [
-    { "label": "Chat", "examples": ["OpenAI", "Anthropic", "Google", "xAI", "Mistral", "DeepSeek", "Meta", "Cohere", "Perplexity"] },
-    { "label": "Voice", "examples": ["ElevenLabs", "Deepgram", "Cartesia", "OpenAI Whisper"] },
-    { "label": "Image", "examples": ["Black Forest Labs", "Stability AI", "Ideogram", "OpenAI", "Adobe Firefly"] },
-    { "label": "Video", "examples": ["Runway", "Kling", "Pika", "Luma AI", "OpenAI"] },
-    { "label": "Music", "examples": ["MiniMax", "ElevenLabs", "Stability AI", "Google"] }
+    { "label": "Assistant", "examples": ["Anthropic", "OpenAI", "Mistral", "DeepSeek", "Qwen", "OpenAI-compatible"] },
+    { "label": "Speech", "examples": ["OpenAI", "Deepgram", "ElevenLabs", "Mistral", "xAI", "Qwen"] },
+    { "label": "Catalogs", "examples": ["Text-to-speech", "Realtime voice", "Image", "Video", "Music", "3D", "Embedding"] },
+    { "label": "Research", "examples": ["Research chat", "Web-aware providers", "Provider-hosted tools"] },
+    { "label": "Extensions", "examples": ["Plugin providers", "MCP tools", "Client-hosted tools", "Agent harnesses"] }
   ]
 }
