@@ -137,26 +137,17 @@
   ],
   "landingChannels": [
     "Telegram",
-    "WhatsApp",
-    "Slack",
     "Discord",
+    "Slack",
     "Microsoft Teams",
     "Google Chat",
+    "WhatsApp",
     "Signal",
-    "iMessage",
     "Matrix",
     "Mattermost",
-    "LINE",
-    "Feishu / Lark",
     "IRC",
-    "Twitch",
-    "Nextcloud Talk",
-    "Synology Chat",
-    "Nostr",
-    "QQ Bot",
-    "Zalo",
-    "Tlon",
-    "ClickClack"
+    "iMessage",
+    "Feishu / Lark"
   ],
   "faqs": [
     {
