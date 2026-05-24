@@ -90,43 +90,43 @@ const fridayIt = {
   landingFeatures: [
     {
       key: "01",
-      status: "Runtime implementato",
-      title: "Runtime agent desktop",
+      status: "Runtime live",
+      title: "Runtime agent",
       description:
         "Esegue turni agent neutri rispetto al provider con sessioni durevoli, file di avvio, strumenti selezionati, skill, memoria, cancellazione, compattazione e stato run in streaming.",
     },
     {
       key: "02",
-      status: "Runtime implementato",
-      title: "Subagent e lavoro delegato",
+      status: "Runtime live",
+      title: "Subagent",
       description:
         "Avvia sessioni figlie isolate per lavoro mirato, traccia metadati parent e child, eredita la policy strumenti e supporta cancellazione e ispezione.",
     },
     {
       key: "03",
-      status: "Runtime implementato",
-      title: "Skill e strumenti locali",
+      status: "Runtime live",
+      title: "Skill",
       description:
         "Scopre skill locali, le ordina rispetto al prompt, inserisce guida limitata ed espone file, shell, browser, cron, task, plugin, MCP e LSP quando la policy lo consente.",
     },
     {
       key: "04",
-      status: "Runtime implementato",
-      title: "Background, cron e heartbeat",
+      status: "Runtime live",
+      title: "Background",
       description:
         "Esegue attivita immediate in background, ripristina pianificazioni persistite, gestisce run saltati, sveglia heartbeat e mostra solo alert azionabili.",
     },
     {
       key: "05",
       status: "Runtime parziale",
-      title: "Connettori e canali",
+      title: "Connettori",
       description:
         "Esegue Gmail, Google Calendar, Google Drive e Telegram in locale oggi, con percorsi catalogo, MCP, provider-hosted e plugin per copertura piu ampia.",
     },
     {
       key: "06",
       status: "Runtime parziale",
-      title: "Routing provider e modelli",
+      title: "Routing modelli",
       description:
         "Instrada assistente e speech-to-text attraverso provider configurati mantenendo visibili cataloghi media, realtime, OCR, embedding e ricerca mentre maturano.",
     },

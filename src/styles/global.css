@@ -1212,10 +1212,13 @@ p {
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 3.25rem 2rem;
+  gap: 2rem;
 }
 
 .feature {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   padding-top: 1.25rem;
   border-top: 1px solid var(--line);
 }
@@ -1240,11 +1243,11 @@ p {
   flex: 0 1 auto;
   max-width: 100%;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--accent-soft);
   color: var(--text);
-  padding: 0.25rem 0.55rem;
-  font-size: 0.66rem;
+  padding: 0.22rem 0.5rem;
+  font-size: 0.62rem;
   line-height: 1.2;
   text-align: right;
 }
@@ -1254,6 +1257,8 @@ p {
 }
 
 .feature h3 {
+  font-size: 1.06rem;
+  line-height: 1.25;
   margin-bottom: 0.75rem;
 }
 

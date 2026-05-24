@@ -38,38 +38,38 @@
   "landingFeatures": [
     {
       "key": "01",
-      "status": "Runtime implemented",
-      "title": "Desktop agent runtime",
+      "status": "Live runtime",
+      "title": "Agent runtime",
       "description": "Runs provider-neutral agent turns with durable sessions, startup files, selected tools, selected skills, memory, cancellation, compaction, and streamed run state."
     },
     {
       "key": "02",
-      "status": "Runtime implemented",
-      "title": "Subagents and delegated work",
+      "status": "Live runtime",
+      "title": "Subagents",
       "description": "Spawns isolated child sessions for scoped work, tracks parent and child metadata, inherits tool policy, and supports cancellation and inspection."
     },
     {
       "key": "03",
-      "status": "Runtime implemented",
-      "title": "Skills and local tools",
+      "status": "Live runtime",
+      "title": "Skills",
       "description": "Discovers local skills, ranks them for the prompt, injects bounded guidance, and exposes file, shell, browser, cron, task, plugin, MCP, and LSP tools when policy allows."
     },
     {
       "key": "04",
-      "status": "Runtime implemented",
-      "title": "Background, cron, and heartbeat",
+      "status": "Live runtime",
+      "title": "Background work",
       "description": "Runs immediate background tasks, restores persisted schedules, handles missed runs, wakes heartbeat, and surfaces only actionable check-in alerts."
     },
     {
       "key": "05",
       "status": "Partial runtime",
-      "title": "Connectors and channels",
+      "title": "Connectors",
       "description": "Executes Gmail, Google Calendar, Google Drive, and Telegram locally today, with catalog, MCP, provider-hosted, and plugin extension paths for broader coverage."
     },
     {
       "key": "06",
       "status": "Partial runtime",
-      "title": "Provider and model routing",
+      "title": "Model routing",
       "description": "Routes assistant and speech-to-text work through configured providers while keeping media, realtime, OCR, embedding, and research model catalogs visible as they mature."
     }
   ],
