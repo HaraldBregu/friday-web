@@ -200,9 +200,9 @@ const fridayIt = {
         "Friday e local-first. I dati lasciano la tua macchina solo quando scegli un provider esterno, un connettore, un canale o un servizio hosted per un'attivita.",
     },
     {
-      question: "Funzionera sui Mac Intel?",
+      question: "Quali piattaforme desktop sono previste?",
       answer:
-        "La landing page punta a macOS 13+ e ai workflow desktop. I dettagli finali di packaging vanno verificati sugli artefatti di release prima della pubblicazione.",
+        "Friday e un'app Electron desktop con script di pacchetto per macOS x64 e arm64, Windows x64 e Linux AppImage. La disponibilita finale va verificata sugli artefatti di release.",
     },
     {
       question: "Posso usare un modello locale?",
