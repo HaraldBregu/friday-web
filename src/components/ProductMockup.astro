@@ -139,6 +139,8 @@ const { productMockup } = getLocaleContent(locale);
         thread.scrollTop = thread.scrollHeight;
       };
 
+      scrollToLatest();
+
       form.addEventListener("submit", (event) => {
         event.preventDefault();
         const text = input.value.trim();
