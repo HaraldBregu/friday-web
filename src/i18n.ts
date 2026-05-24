@@ -31,13 +31,13 @@ const localizedCategory: Record<string, string> = {
 
 const siteIt = {
   ...siteEn,
-  tagline: "Assistente AI personale per Mac",
+  tagline: "Assistente AI desktop personale",
   description:
-    "Friday e un assistente AI desktop local-first per chat, file, strumenti, app connesse, attivita pianificate, canali e flussi di lavoro assistiti dalla voce.",
+    "Friday e un assistente AI desktop local-first per run agent, file, strumenti, skill, app connesse, attivita pianificate, canali e flussi di lavoro assistiti dalla voce.",
   audience:
     "Sviluppatori, operatori, knowledge worker, writer, creator e power user che vogliono controllo locale con automazione connessa.",
   cta: {
-    label: "Scarica per Mac",
+    label: "Scarica app desktop",
     url: "#download",
   },
   secondaryCta: {
@@ -51,11 +51,7 @@ const fridayIt = {
   nav: [
     { label: "Prodotto", href: "#product" },
     { label: "Funzioni", href: "#features" },
-    { label: "Integrazioni", href: "/integrations" },
-    { label: "Operatori", href: "/operators" },
-    { label: "Provider", href: "/providers" },
-    { label: "Canali", href: "/channels" },
-    { label: "Strumenti", href: "/tools" },
+    { label: "Docs", href: "/docs" },
     { label: "Scarica", href: "#download" },
   ],
   release: {
@@ -66,7 +62,7 @@ const fridayIt = {
     eyebrow: "Assistente AI desktop local-first",
     headline: "Friday.",
     description:
-      "Un assistente AI desktop per macOS. Richiamalo con Option Space, chiedi aiuto e torna subito a quello che stavi facendo.",
+      "Un assistente AI desktop con runtime per agenti, subagent, skill, strumenti, memoria, cron, heartbeat, lavoro in background, connettori Google, consegna Telegram e routing modello neutrale rispetto al provider.",
   },
   demoSuggestions: [
     {
@@ -86,72 +82,78 @@ const fridayIt = {
     },
   ],
   landingMetrics: [
-    { value: "Option Space", label: "scorciatoia desktop" },
-    { value: "Locale", label: "chiavi e impostazioni app" },
-    { value: "Approvazione", label: "prima delle azioni rischiose" },
-    { value: "Cron", label: "prompt pianificati" },
+    { value: "Runtime", label: "agenti, skill, cron, heartbeat, attivita" },
+    { value: "Parziale", label: "canali, connettori, operatori media" },
+    { value: "Locale", label: "impostazioni, sessioni, chiavi, memoria" },
+    { value: "Policy", label: "controlli approvazione strumenti e connettori" },
   ],
   landingFeatures: [
     {
       key: "01",
-      title: "Ovunque su macOS",
+      status: "Runtime implementato",
+      title: "Runtime agent desktop",
       description:
-        "Richiama Friday dal desktop e mantieni visibile l'attivita corrente. File, strumenti, voce e contesto di lavoro restano vicini senza aprire un'altra scheda del browser.",
+        "Esegue turni agent neutri rispetto al provider con sessioni durevoli, file di avvio, strumenti selezionati, skill, memoria, cancellazione, compattazione e stato run in streaming.",
     },
     {
       key: "02",
-      title: "Ricorda, senza nascondere il registro",
+      status: "Runtime implementato",
+      title: "Subagent e lavoro delegato",
       description:
-        "Gli archivi locali mantengono ispezionabili e cancellabili contesto utile come impostazioni, skill, pianificazioni, canali e stato della sessione.",
+        "Avvia sessioni figlie isolate per lavoro mirato, traccia metadati parent e child, eredita la policy strumenti e supporta cancellazione e ispezione.",
     },
     {
       key: "03",
-      title: "Desktop, non un'altra scheda",
+      status: "Runtime implementato",
+      title: "Skill e strumenti locali",
       description:
-        "Friday e pensato per il lavoro desktop: file, comandi terminale, impostazioni locali, chiavi provider e controlli di approvazione restano visibili.",
+        "Scopre skill locali, le ordina rispetto al prompt, inserisce guida limitata ed espone file, shell, browser, cron, task, plugin, MCP e LSP quando la policy lo consente.",
     },
     {
       key: "04",
-      title: "Il modello lo scegli tu",
+      status: "Runtime implementato",
+      title: "Background, cron e heartbeat",
       description:
-        "Instrada chat, voce, immagini, ricerca e lavoro realtime attraverso provider configurati invece di restare bloccato su un solo modello.",
+        "Esegue attivita immediate in background, ripristina pianificazioni persistite, gestisce run saltati, sveglia heartbeat e mostra solo alert azionabili.",
     },
     {
       key: "05",
-      title: "Workflow scriptabili",
+      status: "Runtime parziale",
+      title: "Connettori e canali",
       description:
-        "Trasforma attivita ripetute in skill, prompt pianificati, azioni di connettori o consegne su canale con confini di permesso chiari.",
+        "Esegue Gmail, Google Calendar, Google Drive e Telegram in locale oggi, con percorsi catalogo, MCP, provider-hosted e plugin per copertura piu ampia.",
     },
     {
       key: "06",
-      title: "Onesto sull'incertezza",
+      status: "Runtime parziale",
+      title: "Routing provider e modelli",
       description:
-        "Friday puo chiedere prima di agire, mostrare lo stato di esecuzione e mantenere i dati privati del workspace sotto il controllo dell'utente.",
+        "Instrada assistente e speech-to-text attraverso provider configurati mantenendo visibili cataloghi media, realtime, OCR, embedding e ricerca mentre maturano.",
     },
   ],
   howSteps: [
     {
       label: "PASSO 01",
-      glyph: "Opt Space",
-      title: "Richiama",
-      description: "Apri Friday dal desktop e tieni visibile il lavoro corrente.",
+      glyph: "Config",
+      title: "Configura",
+      description: "Scegli provider, agenti, skill, connettori, canali, workspace e policy di approvazione dalle impostazioni locali.",
     },
     {
       label: "PASSO 02",
-      glyph: "> _",
-      title: "Chiedi",
-      description: "Scrivi, detta, allega un file o scegli un workflow preparato.",
+      glyph: "Run",
+      title: "Esegui",
+      description: "Avvia lavoro dalla chat, da un canale, da una pianificazione, heartbeat, un'attivita in background o un subagent.",
     },
     {
       label: "PASSO 03",
-      glyph: "Return",
-      title: "Torna al lavoro",
-      description: "Rivedi la risposta, approva ogni azione sensibile e riprendi l'attivita.",
+      glyph: "Review",
+      title: "Ispeziona",
+      description: "Segui eventi di ciclo vita, chiamate strumenti e risultati, approva azioni sensibili e cancella lavoro quando serve.",
     },
   ],
   quote: {
-    text: "Il primo strumento AI che rispetta quello che stavo facendo prima di aprirlo.",
-    cite: "Design partner di Friday",
+    text: "La documentazione distingue cio che gira localmente oggi da cataloghi, connettori e superfici plugin.",
+    cite: "Documentazione feature",
   },
   landingConnectors: [
     {
