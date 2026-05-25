@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Starfield from "../components/Starfield.astro";
+import Daylight from "../components/Daylight.astro";
 import { getAlternateLinks, getLocaleContent, localeMeta, normalizeLocale, type Locale } from "../i18n";
 import "../styles/global.css";
 
@@ -14,6 +15,7 @@ interface Props {
   ogTitle?: string;
   ogDescription?: string;
   hideFooter?: boolean;
+  wide?: boolean;
   locale?: Locale;
   alternatePath?: string;
 }
@@ -29,6 +31,7 @@ const {
   ogTitle,
   ogDescription,
   hideFooter = false,
+  wide = false,
   alternatePath,
 } = Astro.props;
 
@@ -83,9 +86,10 @@ const alternateLinks = alternatePath ? getAlternateLinks(alternatePath, siteBase
     <meta content={openGraphDescription} name="twitter:description" />
     <meta content={imageUrl} name="twitter:image" />
   </head>
-  <body>
+  <body class:list={[wide && "layout--wide"]}>
     <a class="skip-link" href="#content">{ui.skipToContent}</a>
     <Starfield />
+    <Daylight />
     <Header alternatePath={alternatePath} locale={locale} />
     <main id="content">
       <slot />

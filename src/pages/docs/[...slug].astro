@@ -29,8 +29,9 @@ const minutes = readingTime(doc.body);
   canonical={currentPath}
   title={doc.data.title}
   description={doc.data.description}
+  wide={true}
 >
-  <section class="docs-reader shell">
+  <section class="docs-reader">
     <aside class="docs-sidebar" aria-label={`${doc.data.category} documentation`}>
       <a class="back-link" href="/docs">
         <Icon name="ArrowRight" size={15} class="back-link__icon" />
