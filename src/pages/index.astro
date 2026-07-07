@@ -1,0 +1,173 @@
+---
+import friday from "../data/friday-product.json";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title={`${friday.name} - ${friday.tagline}`} description={friday.description}>
+  <main>
+    <section class="hero" id="top">
+      <div class="shell hero__inner">
+        <p class="eyebrow">Desktop AI copilot</p>
+        <h1>{friday.name}</h1>
+        <p class="tagline">{friday.tagline}</p>
+        <p class="lede">{friday.description}</p>
+        <p class="intro">{friday.intro}</p>
+      </div>
+    </section>
+
+    <section class="section section--compact" aria-labelledby="contents-title">
+      <div class="shell">
+        <h2 id="contents-title">Table of contents</h2>
+        <nav class="toc" aria-label="Table of contents">
+          {friday.tableOfContents.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+      </div>
+    </section>
+
+    <section class="section" id="what-friday-is">
+      <div class="shell section-grid">
+        <div>
+          <p class="eyebrow">What Friday is</p>
+          <h2>{friday.whatFridayIs.title}</h2>
+        </div>
+        <div class="prose">
+          <p>{friday.whatFridayIs.body}</p>
+          <p>{friday.whatFridayIs.closing}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="who-its-for">
+      <div class="shell section-grid">
+        <div>
+          <p class="eyebrow">Who it's for</p>
+          <h2>Built for people who want AI to do real work.</h2>
+        </div>
+        <ul class="check-list">
+          {friday.audiences.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="key-ideas">
+      <div class="shell">
+        <p class="eyebrow">Key ideas in one minute</p>
+        <h2>Local, permissioned, extensible, and automatable.</h2>
+        <div class="card-grid">
+          {
+            friday.keyIdeas.map((idea) => (
+              <article class="card">
+                <h3>{idea.title}</h3>
+                <p>{idea.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="feature-overview">
+      <div class="shell">
+        <p class="eyebrow">Feature overview</p>
+        <h2>What Friday can do.</h2>
+        <div class="feature-list">
+          {
+            friday.features.map((feature, index) => (
+              <article class="feature" id={`feature-${index + 1}`}>
+                <span class="feature__number">{String(index + 1).padStart(2, "0")}</span>
+                <div class="feature__body">
+                  <h3>{feature.title}</h3>
+                  {"body" in feature ? <p>{feature.body}</p> : null}
+                  {"items" in feature ? (
+                    <ul>
+                      {feature.items.map((item) => <li>{item}</li>)}
+                    </ul>
+                  ) : null}
+                  {"tools" in feature ? (
+                    <div class="tool-table">
+                      {feature.tools.map((tool) => (
+                        <div class="tool-row">
+                          <strong>{tool.name}</strong>
+                          <span>{tool.description}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                  {"closing" in feature ? <p>{feature.closing}</p> : null}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="request-flow">
+      <div class="shell section-grid">
+        <div>
+          <p class="eyebrow">How a request flows through Friday</p>
+          <h2>From request to verified result.</h2>
+        </div>
+        <ol class="steps">
+          {friday.requestFlow.map((step) => <li>{step}</li>)}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="privacy-security">
+      <div class="shell section-grid">
+        <div>
+          <p class="eyebrow">Privacy and security</p>
+          <h2>You stay in control of data and actions.</h2>
+        </div>
+        <div>
+          <ul class="check-list">
+            {friday.privacySecurity.map((item) => <li>{item}</li>)}
+          </ul>
+          <p class="note">{friday.privacyNote}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="platforms-languages">
+      <div class="shell section-grid">
+        <div>
+          <p class="eyebrow">Platforms and languages</p>
+          <h2>Desktop across the major operating systems.</h2>
+        </div>
+        <ul class="check-list">
+          {friday.platformsLanguages.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="getting-started">
+      <div class="shell section-grid">
+        <div>
+          <p class="eyebrow">Getting started</p>
+          <h2>Connect a provider, then start chatting.</h2>
+        </div>
+        <ol class="steps">
+          {friday.gettingStarted.map((step) => <li>{step}</li>)}
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="glossary">
+      <div class="shell">
+        <p class="eyebrow">Glossary</p>
+        <h2>Terms used by Friday.</h2>
+        <dl class="glossary">
+          {
+            friday.glossary.map((entry) => (
+              <div>
+                <dt>{entry.term}</dt>
+                <dd>{entry.definition}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+  </main>
+</Layout>
