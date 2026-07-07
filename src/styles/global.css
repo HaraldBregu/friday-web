@@ -242,9 +242,9 @@ body {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(178, 216, 255, 0.42) 0%,
-    rgba(200, 228, 255, 0.2) 16%,
-    rgba(220, 236, 255, 0.06) 32%,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(160, 160, 160, 0.05) 16%,
+    rgba(80, 80, 80, 0.04) 32%,
     transparent 50%
   );
 }
@@ -643,13 +643,13 @@ p {
   top: 0;
   z-index: 20;
   border-bottom: 1px solid var(--line);
-  background: rgba(9, 9, 30, 0.86);
+  background: rgba(5, 5, 5, 0.88);
   backdrop-filter: blur(14px) saturate(130%);
   -webkit-backdrop-filter: blur(14px) saturate(130%);
 }
 
 [data-theme="light"] .site-header {
-  background: rgba(243, 242, 238, 0.9);
+  background: rgba(8, 8, 8, 0.9);
 }
 
 .nav {
