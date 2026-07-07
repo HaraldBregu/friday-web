@@ -62,7 +62,7 @@ const fridayIt = {
     eyebrow: "Assistente AI desktop local-first",
     headline: "Friday.",
     description:
-      "Un assistente AI desktop con runtime per agenti, subagent, skill, strumenti, memoria, cron, heartbeat, lavoro in background, connettori Google, consegna Telegram e routing modello neutrale rispetto al provider.",
+      "Il tuo copilota AI desktop per le attivita quotidiane. Scrivi o parla in linguaggio naturale e Friday puo leggere e scrivere file, cercare sul web, generare immagini, trascrivere la voce, parlare, lavorare su pianificazione e collegarsi agli strumenti che gia usi.",
   },
   demoSuggestions: [
     {
@@ -82,137 +82,147 @@ const fridayIt = {
     },
   ],
   landingMetrics: [
-    { value: "Runtime", label: "agenti, skill, cron, heartbeat, attivita" },
-    { value: "Parziale", label: "canali, connettori, operatori media" },
-    { value: "Locale", label: "impostazioni, sessioni, chiavi, memoria" },
-    { value: "Policy", label: "controlli approvazione strumenti e connettori" },
+    { value: "Desktop", label: "app nativa per macOS, Windows e Linux" },
+    { value: "Chiavi tue", label: "scegli provider e modelli AI" },
+    { value: "Locale", label: "impostazioni, credenziali, cronologia e memoria" },
+    { value: "Approva", label: "controlli espliciti prima delle azioni sensibili" },
   ],
   landingFeatures: [
     {
       key: "01",
-      status: "Runtime live",
-      title: "Runtime agent",
+      status: "Chat",
+      title: "Chat che agisce",
       description:
-        "Esegue turni agent neutri rispetto al provider con sessioni durevoli, file di avvio, strumenti selezionati, skill, memoria, cancellazione, compattazione e stato run in streaming.",
+        "Chiedi in linguaggio naturale e Friday usa gli strumenti per completare il lavoro: leggere file, scrivere documenti, cercare sul web, eseguire comandi, generare immagini e restituire un risultato concreto.",
     },
     {
       key: "02",
-      status: "Runtime live",
-      title: "Subagent",
+      status: "Local-first",
+      title: "I tuoi dati restano tuoi",
       description:
-        "Avvia sessioni figlie isolate per lavoro mirato, traccia metadati parent e child, eredita la policy strumenti e supporta cancellazione e ispezione.",
+        "Friday gira come app desktop. Chiavi provider, impostazioni, credenziali, cronologia e file di lavoro vivono sulla tua macchina invece che in un chatbot web.",
     },
     {
       key: "03",
-      status: "Runtime live",
-      title: "Skill",
+      status: "Permessi",
+      title: "Il lavoro sensibile richiede approvazione",
       description:
-        "Scopre skill locali, le ordina rispetto al prompt, inserisce guida limitata ed espone file, shell, browser, cron, task, plugin, MCP e LSP quando la policy lo consente.",
+        "Scrivere file, inviare messaggi, leggere dati privati dai connettori e toccare servizi esterni passa da prompt di permesso espliciti.",
     },
     {
       key: "04",
-      status: "Runtime live",
-      title: "Background",
+      status: "Voce",
+      title: "Dettatura e lettura ad alta voce",
       description:
-        "Esegue attivita immediate in background, ripristina pianificazioni persistite, gestisce run saltati, sveglia heartbeat e mostra solo alert azionabili.",
+        "Parla invece di digitare, trascrivi registrazioni e fai leggere le risposte da Friday usando i provider e le voci che configuri.",
     },
     {
       key: "05",
-      status: "Runtime parziale",
-      title: "Connettori",
+      status: "Estendibile",
+      title: "Skill, connettori e MCP",
       description:
-        "Esegue Gmail, Google Calendar, Google Drive e Telegram in locale oggi, con percorsi catalogo, MCP, provider-hosted e plugin per copertura piu ampia.",
+        "Insegna a Friday workflow riutilizzabili, collega Google, Microsoft, Dropbox o tool server personalizzati ed esponi nuove capacita tramite Model Context Protocol.",
     },
     {
       key: "06",
-      status: "Runtime parziale",
-      title: "Routing modelli",
+      status: "Automazione",
+      title: "Pianificazioni e health check",
       description:
-        "Instrada assistente e speech-to-text attraverso provider configurati mantenendo visibili cataloghi media, realtime, OCR, embedding e ricerca mentre maturano.",
+        "Esegui lavori ricorrenti, riepiloghi giornalieri, pulizie periodiche e health check basati su checklist anche quando non stai chattando.",
     },
   ],
   howSteps: [
     {
       label: "PASSO 01",
-      glyph: "Config",
-      title: "Configura",
-      description: "Scegli provider, agenti, skill, connettori, canali, workspace e policy di approvazione dalle impostazioni locali.",
+      glyph: "Chiedi",
+      title: "Fai una richiesta",
+      description: "Scrivi o detta cosa vuoi. Friday capisce obiettivo, vincoli e output atteso e fa domande solo quando qualcosa di critico e ambiguo.",
     },
     {
       label: "PASSO 02",
-      glyph: "Run",
-      title: "Esegui",
-      description: "Avvia lavoro dalla chat, da un canale, da una pianificazione, heartbeat, un'attivita in background o un subagent.",
+      glyph: "Piano",
+      title: "Sceglie gli strumenti",
+      description: "Seleziona file, comandi, ricerca web, browser, generazione immagini, skill, connettori, tool MCP, subagent o workflow pianificati adatti al compito.",
     },
     {
       label: "PASSO 03",
-      glyph: "Review",
-      title: "Ispeziona",
-      description: "Segui eventi di ciclo vita, chiamate strumenti e risultati, approva azioni sensibili e cancella lavoro quando serve.",
+      glyph: "Agisci",
+      title: "Approvi e verifichi",
+      description: "Le azioni sensibili si fermano per conferma. Friday controlla il risultato e restituisce una risposta, file, immagine, job pianificato o altro artefatto pronto.",
     },
   ],
   quote: {
-    text: "La documentazione distingue cio che gira localmente oggi da cataloghi, connettori e superfici plugin.",
-    cite: "Documentazione feature",
+    text: "A differenza di un chatbot web, Friday gira sulla tua macchina e lavora con provider, credenziali e permessi scelti da te.",
+    cite: "Product brief Friday",
   },
   landingConnectors: [
     {
-      name: "Gmail",
-      label: "Runtime locale",
-      description: "Cerca id messaggio, legge email recenti o abbinate, prepara bozze, invia messaggi e cestina mail tramite strumenti OAuth-scoped.",
+      name: "Google",
+      label: "Famiglia connettori",
+      description: "Collega Gmail, Google Calendar e Google Drive per lavorare su email, calendario e file cloud tramite strumenti autorizzati.",
       icon: "MailCheck",
     },
     {
-      name: "Google Calendar",
-      label: "Runtime locale",
-      description: "Elenca calendari, cerca e legge eventi, crea eventi, aggiorna pianificazioni ed elimina eventi con policy di approvazione connettore.",
+      name: "Microsoft",
+      label: "Famiglia connettori",
+      description: "Outlook email, Outlook Calendar, SharePoint e Microsoft Teams sono superfici connettore per account di lavoro e spazi team.",
       icon: "CalendarDays",
     },
     {
-      name: "Google Drive",
-      label: "Runtime locale",
-      description: "Cerca file, ispeziona metadati e permessi, legge o scarica contenuti e crea file quando le regole di approvazione lo permettono.",
+      name: "Dropbox",
+      label: "Famiglia connettori",
+      description: "Dai a Friday accesso controllato ai file Dropbox quando un workflow deve cercare, leggere, creare o aggiornare documenti condivisi.",
       icon: "Database",
     },
     {
-      name: "Connettori MCP",
+      name: "Server MCP remoti",
       label: "Estensione",
-      description: "Costruisce descrittori MCP per OpenAI Responses API da configurazioni abilitate e materializza tool quando il runtime e fornito.",
+      description: "Collega tool server hosted via HTTP con autenticazione opzionale a token o chiave, poi rendi disponibili i loro strumenti all'assistente.",
       icon: "PlugZap",
     },
     {
-      name: "Connettori plugin",
+      name: "Server MCP locali",
       label: "Estensione",
-      description: "Permette ai manifest plugin di dichiarare provider, canali, strumenti, hook, auth, setup e capacita runtime.",
+      description: "Esegui tool server stdio locali sulla tua macchina per aggiungere capacita specifiche senza cambiare l'app.",
       icon: "Workflow",
     },
     {
-      name: "Catalogo connettori",
-      label: "Provider-hosted",
-      description: "Dropbox, Outlook, SharePoint, Microsoft Teams e altri cataloghi restano esposti per runtime hosted, MCP o plugin-backed.",
+      name: "Canali di messaggistica",
+      label: "Chat da ovunque",
+      description: "Usa Telegram oggi, con un catalogo piu ampio pronto per Slack, Discord, WhatsApp, Signal, Matrix, Teams e altri quando gli adapter sono abilitati.",
       icon: "Cloud",
     },
   ],
   faqs: [
     {
+      question: "Che cos'e Friday?",
+      answer:
+        "Friday e un copilota AI desktop nativo per attivita quotidiane. Chatti in linguaggio naturale e puo usare strumenti per leggere e scrivere file, cercare sul web, generare immagini, trascrivere voce, parlare, eseguire lavoro pianificato e collegarsi a servizi esterni.",
+    },
+    {
       question: "Friday invia i miei dati da qualche parte?",
       answer:
-        "Friday e local-first. I dati lasciano la tua macchina solo quando scegli un provider esterno, un connettore, un canale o un servizio hosted per un'attivita.",
+        "Friday e local-first. I dati lasciano la tua macchina solo quando un'attivita richiede un provider AI, connettore, canale, richiesta web o servizio hosted che hai configurato.",
     },
     {
-      question: "Quali piattaforme desktop sono previste?",
+      question: "Devo usare un provider AI specifico?",
       answer:
-        "Friday e un'app Electron desktop con script di pacchetto per macOS x64 e arm64, Windows x64 e Linux AppImage. La disponibilita finale va verificata sugli artefatti di release.",
+        "No. Friday e bring-your-own-AI. Aggiungi le tue chiavi provider e scegli provider e modello per assistente, speech-to-text, text-to-speech, immagini e servizi media futuri.",
     },
     {
-      question: "Posso usare un modello locale?",
+      question: "Come funzionano i permessi?",
       answer:
-        "Friday e progettato attorno alla scelta del provider, inclusi provider locali o self-hosted dove configurati.",
+        "Le azioni che scrivono, eliminano, pubblicano, inviano messaggi, accedono a dati privati o toccano account richiedono approvazione esplicita prima di procedere.",
     },
     {
-      question: "Il codice sorgente e disponibile?",
+      question: "Friday puo lavorare fuori dall'app?",
       answer:
-        "Usa il repository collegato e le note di release come fonte autorevole per disponibilita del codice, packaging e dettagli di contribuzione.",
+        "Si. I canali permettono di parlare con Friday da piattaforme di messaggistica. Telegram e live oggi; il catalogo include Slack, Discord, Microsoft Teams, WhatsApp, Signal, Matrix, Mattermost, Google Chat, LINE, IRC, Twitch e altri.",
+    },
+    {
+      question: "Quali piattaforme desktop sono supportate?",
+      answer:
+        "Friday e costruito con Electron per Windows, macOS Intel e Apple Silicon, e Linux. L'interfaccia supporta inglese e italiano, con tema chiaro, scuro e di sistema.",
     },
   ],
 } satisfies typeof fridayEn;
