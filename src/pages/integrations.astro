@@ -1,0 +1,54 @@
+---
+import CTASection from "../components/CTASection.astro";
+import IntegrationCard from "../components/IntegrationCard.astro";
+import { getLocaleContent } from "../i18n";
+import Layout from "../layouts/Layout.astro";
+
+const locale = "en";
+const { integrations, integrationsPage } = getLocaleContent(locale);
+const groups = integrations.reduce<Record<string, typeof integrations>>((acc, item) => {
+  acc[item.category] = acc[item.category] ?? [];
+  acc[item.category].push(item);
+  return acc;
+}, {});
+---
+
+<Layout
+  alternatePath="/integrations"
+  locale={locale}
+  title={integrationsPage.title}
+  description={integrationsPage.description}
+>
+  <section class="section page-hero">
+    <div class="shell section-heading">
+      <p class="eyebrow">{integrationsPage.eyebrow}</p>
+      <h1>{integrationsPage.heading}</h1>
+      <p>{integrationsPage.intro}</p>
+    </div>
+  </section>
+
+  <section class="section section--compact">
+    <div class="shell category-list">
+      {
+        Object.entries(groups).map(([category, items]) => (
+          <div class="category-section">
+            <div class="category-section__heading">
+              <h2>{category}</h2>
+              <span>{items.length} {items.length === 1 ? integrationsPage.singular : integrationsPage.plural}</span>
+            </div>
+            <div class="integration-grid">
+              {items.map((integration) => <IntegrationCard integration={integration} />)}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <CTASection
+    locale={locale}
+    eyebrow={integrationsPage.ctaEyebrow}
+    title={integrationsPage.ctaTitle}
+    description={integrationsPage.ctaDescription}
+  />
+</Layout>

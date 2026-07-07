@@ -1,0 +1,18 @@
+---
+import Icon from "../components/Icon.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Page not found" description="This page could not be found." noindex>
+  <section class="section not-found">
+    <div class="shell not-found__panel">
+      <p class="eyebrow">404</p>
+      <h1>This page is not available.</h1>
+      <p>The route may have moved, or the link may need to be updated.</p>
+      <a class="button button--primary" href="/">
+        Return home
+        <Icon name="ArrowRight" size={18} />
+      </a>
+    </div>
+  </section>
+</Layout>

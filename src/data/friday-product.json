@@ -1,192 +1,449 @@
 {
-  "name": "Friday",
-  "tagline": "Your desktop AI copilot for everyday tasks.",
-  "description": "Friday is a desktop application that puts a capable, personal AI assistant on your computer. You chat with it in plain language, and it gets real work done: it reads and writes files, searches the web, generates images, transcribes your voice, speaks back, runs on a schedule, and connects to the tools and messaging apps you already use.",
-  "intro": "Unlike a website chatbot, Friday runs as a native app on your machine. You bring your own AI provider keys, your data and credentials stay local, and every action that touches your files, accounts, or the outside world passes through explicit permission checks.",
-  "tableOfContents": [
-    { "label": "What Friday is", "href": "#what-friday-is" },
-    { "label": "Who it's for", "href": "#who-its-for" },
-    { "label": "Key ideas in one minute", "href": "#key-ideas" },
-    { "label": "Feature overview", "href": "#feature-overview" },
-    { "label": "How a request flows through Friday", "href": "#request-flow" },
-    { "label": "Privacy and security", "href": "#privacy-security" },
-    { "label": "Platforms and languages", "href": "#platforms-languages" },
-    { "label": "Getting started", "href": "#getting-started" },
-    { "label": "Glossary", "href": "#glossary" }
+  "nav": [
+    { "label": "Product", "href": "#product" },
+    { "label": "Features", "href": "#features" },
+    { "label": "Docs", "href": "/docs" },
+    { "label": "Download", "href": "#download" }
   ],
-  "whatFridayIs": {
-    "title": "What Friday is",
-    "body": "Friday is a native desktop app for Windows, macOS, and Linux built on Electron. At its core is an AI agent: not just a chat window, but an assistant that can take actions on your behalf using a set of tools. You describe a goal in natural language, and Friday plans, uses the right tools, and returns a concrete result: a written file, an answer with sources, a generated image, a scheduled job, a transcribed recording, and more.",
-    "closing": "You stay in control. Friday works with the AI providers you choose and pay for, keeps its working data on your own machine, and asks for permission before doing anything sensitive."
+  "release": {
+    "version": "v1.0",
+    "platform": "macOS / Windows / Linux",
+    "phase": "Private beta"
   },
-  "audiences": [
-    "Anyone who wants a personal AI assistant that lives on their desktop instead of a browser tab.",
-    "Professionals and power users who want the AI to actually do things: manage files, draft documents, automate recurring tasks, and pull from their email, calendar, and cloud storage.",
-    "People who care about privacy and prefer to use their own AI provider accounts and keep data local.",
-    "Tinkerers and teams who want to extend the assistant with custom skills, tool servers, and messaging integrations."
-  ],
-  "keyIdeas": [
-    { "title": "Chat that acts.", "description": "Talk to Friday like a person; it uses tools to complete the task, not just describe it." },
-    { "title": "Bring your own AI.", "description": "Plug in your own API keys for the model providers you prefer. Friday is not locked to a single vendor." },
-    { "title": "Local first.", "description": "The app, your settings, credentials, and conversation history live on your device." },
-    { "title": "Permissioned.", "description": "Writing files, sending messages, or accessing private data requires explicit approval." },
-    { "title": "Extensible.", "description": "Add skills, connect external tools via MCP, and reach the assistant from your favorite chat apps." },
-    { "title": "Automatable.", "description": "Schedule the assistant to run jobs on a recurring basis, and run periodic health checks." }
-  ],
-  "features": [
+  "hero": {
+    "eyebrow": "Local-first desktop AI assistant",
+    "headline": "Friday.",
+    "description": "Your desktop AI copilot for everyday tasks. Chat in plain language and Friday can read and write files, search the web, generate images, transcribe your voice, speak back, run on a schedule, and connect to the tools you already use."
+  },
+  "demoSuggestions": [
     {
-      "title": "The AI assistant (chat)",
-      "body": "The heart of Friday is a conversational assistant. You type or speak a request, and it responds in a clean, readable chat with full Markdown, syntax-highlighted code blocks, and inline images.",
-      "items": [
-        "It takes action. When a task needs it, the assistant reaches for tools to read files, search the web, generate an image, and more, then weaves the results into its answer.",
-        "Transparent tool activity. You can see what the assistant is doing, grouped by tool, as it works.",
-        "Permission prompts. When an action is sensitive, Friday shows a confirmation card so you approve before it happens.",
-        "Natural, direct tone. The assistant is tuned to sound human and practical, brief for quick questions and more careful for complex work.",
-        "Session history. Conversations are saved locally so you can revisit or clear them."
-      ]
+      "question": "Summarize my unread Slacks",
+      "answer": "You have 14 unreads across 3 channels. The thread worth your attention is #launch, where Priya is blocked on the API timeout question and tagged you 11 minutes ago."
     },
     {
-      "title": "Agent tools",
-      "body": "Tools are the assistant's hands. Depending on your setup, Friday can read, write, edit, patch, run commands, search the web, fetch pages, drive a browser, generate images, schedule jobs, load skills, spin up subagents, and use tools exposed by connected MCP servers.",
-      "tools": [
-        { "name": "Read / write / edit files", "description": "Open, create, and modify files in your workspace, with safety checks and approval prompts before changes." },
-        { "name": "Apply patch", "description": "Make precise, surgical edits to existing files." },
-        { "name": "Run commands & processes", "description": "Execute shell commands and longer-running processes to build, test, or automate work." },
-        { "name": "Web search", "description": "Look things up on the internet for fresh, accurate information." },
-        { "name": "Web fetch", "description": "Pull the contents of a specific page or URL." },
-        { "name": "Web browser", "description": "Drive a real browser to interact with web pages when a simple fetch isn't enough." },
-        { "name": "Create image", "description": "Generate images from a text description." },
-        { "name": "Schedule (cron)", "description": "Create, update, pause, resume, list, and run scheduled jobs." },
-        { "name": "Load skills", "description": "Pull in a reusable skill to handle a class of work." },
-        { "name": "Subagents", "description": "Spin up focused helper agents for independent parts of a larger task." },
-        { "name": "MCP tools", "description": "Use any tool exposed by a connected MCP server." }
-      ],
-      "closing": "The assistant uses tools only when they improve the result, and treats their output as evidence rather than instructions. It won't send messages, change records, delete data, or touch production systems without clear authorization."
+      "question": "Draft a polite decline to Maya",
+      "answer": "Hey Maya, thanks so much for the invite. I cannot make Thursday, but I would love to find another time. Want me to send a few options for next week?"
     },
     {
-      "title": "Voice: dictation and read-aloud",
-      "items": [
-        "Speech-to-text transcription lets you talk instead of type, with support for real-time dictation as you speak.",
-        "Text-to-speech lets the assistant read its replies aloud in a natural voice.",
-        "You choose which provider and voice model powers each direction, and grant microphone permission on your own terms."
-      ]
-    },
-    {
-      "title": "Image generation",
-      "body": "Describe an image in words and Friday creates it, using the image provider and model you select. Generated images appear directly in the conversation and can be saved. This is exposed both as a chat tool and as its own dedicated image workspace in settings."
-    },
-    {
-      "title": "Providers: bring your own AI",
-      "body": "Friday doesn't ship a single built-in model. Instead, you connect the AI providers you want to use by adding your own API keys. Each capability can use a different provider and model, so you can mix and match for quality, cost, and speed.",
-      "items": [
-        "Assistant: the chat/agent brain.",
-        "Speech-to-Text: transcription of your voice.",
-        "Text-to-Speech: the assistant's spoken voice.",
-        "Text-to-Image: image generation.",
-        "Text-to-Video: coming soon.",
-        "Music / Audio: coming soon."
-      ],
-      "closing": "Provider adapters normalize many different vendors into one consistent interface, including OpenAI-compatible providers. API keys are stored as credentials in local settings and are never displayed back in plain text once saved."
-    },
-    {
-      "title": "Skills",
-      "body": "Skills are reusable capabilities that teach Friday how to handle a particular kind of work, so it doesn't have to rediscover the same workflow every time. A skill can bundle instructions, reference material, templates, schemas, and optional executable behavior.",
-      "items": [
-        "Install and manage example skills or download more into your personal skill library, then enable or disable each one.",
-        "Automatic discovery selects relevant enabled skills before answering.",
-        "Skills run within declared limits, and unsafe or disabled skills are blocked with an audit of why a skill was chosen or rejected."
-      ]
-    },
-    {
-      "title": "Connectors",
-      "body": "Connectors link Friday to the external services where your work lives, so the assistant can act on your email, calendar, files, and workspaces.",
-      "items": [
-        "Google: Gmail, Google Calendar, Google Drive.",
-        "Microsoft: Outlook email, Outlook calendar, SharePoint, Microsoft Teams.",
-        "Dropbox: file storage."
-      ],
-      "closing": "Connectors are powered by MCP. Secrets are referenced securely rather than pasted into plain records, and actions that read private data or make changes go through Friday's permission checks."
-    },
-    {
-      "title": "MCP servers",
-      "body": "Friday supports the Model Context Protocol, an open standard for giving AI assistants access to external tools and data.",
-      "items": [
-        "Remote MCP servers: hosted tool servers reached over HTTP, with optional token/key auth.",
-        "Local stdio MCP servers: tools that run as a local process on your machine."
-      ],
-      "closing": "Once connected, the tools that server provides become available to the assistant automatically."
-    },
-    {
-      "title": "Channels: chat from anywhere",
-      "body": "Channels let you talk to Friday from outside the app, through the messaging platforms you already use. A message arrives from a channel, Friday runs an agent turn, and the reply is delivered back through the same channel.",
-      "items": [
-        "Live today: Telegram.",
-        "Catalog ready: Slack, Discord, Microsoft Teams, WhatsApp, Signal, Matrix, Mattermost, Google Chat, LINE, IRC, Twitch, and more.",
-        "Access control: each channel has its own configuration, enabled state, direct-message policy, and securely stored secrets."
-      ]
-    },
-    {
-      "title": "Task scheduler",
-      "body": "Friday can work on a schedule, even when you're not actively chatting. The task scheduler lets you set up recurring jobs, a daily summary, a periodic check, a routine cleanup, and have the assistant run them automatically.",
-      "items": [
-        "Create, update, pause, resume, list, and run schedules on demand.",
-        "Each schedule runs an agent turn with its own instructions, using the provider and model you choose for scheduled work."
-      ]
-    },
-    {
-      "title": "Health checks",
-      "body": "The health feature runs the assistant on a periodic interval against a checklist you define, so Friday can proactively verify that things are in order and report back. You set the interval, the provider/model, and the checklist instructions that describe what healthy means for your setup."
-    },
-    {
-      "title": "Memory and personalization",
-      "body": "Friday builds up a personal working context so it gets more useful over time.",
-      "items": [
-        "Memory: durable facts and preferences the assistant should remember across conversations.",
-        "User profile and identity: who you are and how you like the assistant to behave.",
-        "Workspace: a local working area where the assistant keeps and edits the files it produces."
-      ],
-      "closing": "This personalization stays on your device and shapes how the assistant responds and acts."
+      "question": "What did I do yesterday?",
+      "answer": "You spent the morning on the Friday landing page, shipped a small product update after lunch, and closed the laptop at 18:12."
     }
   ],
-  "requestFlow": [
-    "You make a request in chat, typed or spoken.",
-    "Friday understands the goal, constraints, and expected output. If something critical is ambiguous, it asks a focused question; otherwise it proceeds with a reasonable, reversible assumption.",
-    "It plans and picks tools, skills, connectors, or subagents.",
-    "It acts, with permission. Sensitive actions prompt you for approval first.",
-    "It verifies and responds with a concrete, ready-to-use answer or artifact.",
-    "It remembers what matters and, if scheduled, can repeat the work automatically later."
+  "landingMetrics": [
+    { "value": "Desktop", "label": "native app for macOS, Windows, and Linux" },
+    { "value": "BYO keys", "label": "choose your own AI providers and models" },
+    { "value": "Local", "label": "settings, credentials, history, and memory" },
+    { "value": "Approval", "label": "explicit checks before sensitive actions" }
   ],
-  "privacySecurity": [
-    "Local by default. The app, your settings, provider keys, connector credentials, and conversation history live on your own machine.",
-    "Bring your own keys. You use your own AI provider accounts; Friday doesn't put a vendor in between.",
-    "Secrets stay secret. API keys and channel/connector credentials are stored as credentials and are not shown in plain text after saving, not logged, and not rendered.",
-    "Explicit permissions. Any tool or connector action that writes, deletes, publishes, or reads private data must pass a permission check.",
-    "Hardened app shell. The user interface runs in a locked-down, sandboxed environment with strict isolation from the underlying system, and browser windows are created through safe defaults."
+  "landingFeatures": [
+    {
+      "key": "01",
+      "status": "Chat",
+      "title": "Chat that acts",
+      "description": "Ask in plain language and Friday uses tools to complete the work: read files, draft documents, search the web, run commands, generate images, and return a concrete result."
+    },
+    {
+      "key": "02",
+      "status": "Local first",
+      "title": "Your data stays yours",
+      "description": "Friday runs as a desktop app. Provider keys, settings, credentials, history, and working files live on your machine instead of inside a website chatbot."
+    },
+    {
+      "key": "03",
+      "status": "Permissioned",
+      "title": "Sensitive work requires approval",
+      "description": "Writing files, sending messages, reading private connector data, and touching outside services pass through explicit permission prompts before anything happens."
+    },
+    {
+      "key": "04",
+      "status": "Voice",
+      "title": "Dictation and read-aloud",
+      "description": "Speak instead of type, transcribe recordings, and have Friday read replies back using the speech providers and voices you configure."
+    },
+    {
+      "key": "05",
+      "status": "Extensible",
+      "title": "Skills, connectors, and MCP",
+      "description": "Teach Friday reusable workflows, connect Google, Microsoft, Dropbox, or custom tool servers, and expose new capabilities through Model Context Protocol."
+    },
+    {
+      "key": "06",
+      "status": "Automation",
+      "title": "Schedules and health checks",
+      "description": "Run recurring assistant jobs, daily summaries, periodic cleanups, and checklist-based health checks even when you are not actively chatting."
+    }
   ],
-  "privacyNote": "Friday does not currently claim any formal regulated-data certification. Review your own AI providers' and connected services' terms for how they handle data you send them.",
-  "platformsLanguages": [
-    "Platforms: Windows, macOS (Intel and Apple Silicon), and Linux.",
-    "Interface languages: English and Italian, with a language switcher in settings.",
-    "Appearance: Light, dark, and system themes.",
-    "Convenience: A command menu for quick navigation, plus optional menu-bar/tray presence."
+  "howSteps": [
+    {
+      "label": "STEP 01",
+      "glyph": "Ask",
+      "title": "Make a request",
+      "description": "Type or dictate what you want. Friday understands the goal, constraints, and expected output, then asks only when something critical is ambiguous."
+    },
+    {
+      "label": "STEP 02",
+      "glyph": "Plan",
+      "title": "Pick tools",
+      "description": "It chooses the right files, commands, web search, browser, image generation, skill, connector, MCP tool, subagent, or scheduled workflow for the task."
+    },
+    {
+      "label": "STEP 03",
+      "glyph": "Act",
+      "title": "Approve and verify",
+      "description": "Sensitive actions pause for confirmation. Friday then checks the result and returns an answer, file, image, scheduled job, or other ready-to-use artifact."
+    }
   ],
-  "gettingStarted": [
-    "Install and open Friday on your computer.",
-    "Add a provider key in Settings -> Providers.",
-    "Pick which provider and model powers the assistant, and optionally transcription, voice, and image generation.",
-    "Start chatting and approve any permission prompts for actions that touch your files or accounts.",
-    "Extend it by enabling skills, connecting Google/Microsoft/Dropbox accounts, adding MCP tool servers, linking Telegram, or scheduling a recurring task."
+  "quote": {
+    "text": "Unlike a website chatbot, Friday runs on your machine and works through the providers, credentials, and permissions you choose.",
+    "cite": "Friday product brief"
+  },
+  "landingConnectors": [
+    {
+      "name": "Google",
+      "label": "Connector family",
+      "description": "Connect Gmail, Google Calendar, and Google Drive so Friday can help with email, schedules, and cloud files through permissioned tools.",
+      "icon": "MailCheck"
+    },
+    {
+      "name": "Microsoft",
+      "label": "Connector family",
+      "description": "Outlook email, Outlook Calendar, SharePoint, and Microsoft Teams are represented as connector surfaces for work accounts and team spaces.",
+      "icon": "CalendarDays"
+    },
+    {
+      "name": "Dropbox",
+      "label": "Connector family",
+      "description": "Give Friday controlled access to Dropbox files when a workflow needs to search, read, create, or update shared documents.",
+      "icon": "Database"
+    },
+    {
+      "name": "Remote MCP servers",
+      "label": "Extension point",
+      "description": "Connect hosted tool servers over HTTP with optional token or key authentication, then make their tools available to the assistant.",
+      "icon": "PlugZap"
+    },
+    {
+      "name": "Local MCP servers",
+      "label": "Extension point",
+      "description": "Run local stdio tool servers on your machine so domain-specific capabilities can plug into Friday without changing the app.",
+      "icon": "Workflow"
+    },
+    {
+      "name": "Messaging channels",
+      "label": "Chat from anywhere",
+      "description": "Use Telegram today, with a broader channel catalog ready for Slack, Discord, WhatsApp, Signal, Matrix, Teams, and more as adapters are enabled.",
+      "icon": "Cloud"
+    }
   ],
-  "glossary": [
-    { "term": "Agent / Assistant", "definition": "The AI that chats with you and takes actions using tools." },
-    { "term": "Provider", "definition": "An AI vendor, accessed with your API key, that powers a capability like chat, transcription, speech, or images." },
-    { "term": "Model service", "definition": "A capability slot such as Assistant, Speech-to-Text, Text-to-Speech, or Text-to-Image that you assign a provider and model to." },
-    { "term": "Tool", "definition": "A specific action the assistant can perform, such as reading a file or searching the web." },
-    { "term": "Skill", "definition": "A reusable, packaged workflow that teaches Friday how to handle a class of tasks." },
-    { "term": "Connector", "definition": "A link to an external service so the assistant can work with your email, calendar, and files." },
-    { "term": "MCP (Model Context Protocol)", "definition": "An open standard for connecting external tools and data to the assistant." },
-    { "term": "Channel", "definition": "A messaging platform you can use to reach Friday from outside the app." },
-    { "term": "Task scheduler (cron)", "definition": "Recurring jobs that run the assistant automatically." },
-    { "term": "Health check", "definition": "A periodic, checklist-driven run that verifies your setup and reports back." }
+  "landingChannels": [
+    "Telegram",
+    "Discord",
+    "Slack",
+    "Microsoft Teams",
+    "Google Chat",
+    "WhatsApp",
+    "Signal",
+    "Matrix",
+    "Mattermost",
+    "IRC",
+    "iMessage",
+    "Feishu / Lark"
+  ],
+  "faqs": [
+    {
+      "question": "What is Friday?",
+      "answer": "Friday is a native desktop AI copilot for everyday tasks. You chat with it in plain language and it can use tools to read and write files, search the web, generate images, transcribe voice, speak back, run scheduled work, and connect to external services."
+    },
+    {
+      "question": "Does Friday send my data anywhere?",
+      "answer": "Friday is local-first. Data leaves your machine only when a task requires an AI provider, connector, channel, web request, or hosted service you configured. Provider keys, credentials, settings, memory, and conversation history live locally."
+    },
+    {
+      "question": "Do I have to use one specific AI provider?",
+      "answer": "No. Friday is bring-your-own-AI. Add your own provider keys and choose the provider and model for the assistant, speech-to-text, text-to-speech, image generation, and future media services. OpenAI-compatible endpoints can be configured too."
+    },
+    {
+      "question": "How does permissioning work?",
+      "answer": "Actions that write, delete, publish, send messages, access private data, or touch accounts require explicit approval. Friday shows a confirmation prompt before sensitive work proceeds."
+    },
+    {
+      "question": "Can Friday work from outside the app?",
+      "answer": "Yes. Channels let you talk to Friday from messaging platforms. Telegram is live today, and the channel catalog includes Slack, Discord, Microsoft Teams, WhatsApp, Signal, Matrix, Mattermost, Google Chat, LINE, IRC, Twitch, and more."
+    },
+    {
+      "question": "What can be automated?",
+      "answer": "Use the scheduler for recurring assistant jobs such as daily summaries, routine checks, cleanup tasks, and reminders. Health checks can run periodically against a checklist and report only when attention is needed."
+    },
+    {
+      "question": "Which desktop platforms are supported?",
+      "answer": "Friday is built with Electron for Windows, macOS on Intel and Apple Silicon, and Linux. The interface supports English and Italian, with light, dark, and system themes."
+    },
+    {
+      "question": "Is Friday certified for regulated data?",
+      "answer": "Friday does not currently claim a formal regulated-data certification. Review your own AI providers' and connected services' terms for how they handle data you send them."
+    }
+  ],
+  "heroSignals": [
+    "Local-first desktop control",
+    "Provider choice",
+    "Permissioned tools",
+    "Visible history"
+  ],
+  "assistantStates": [
+    "thinking",
+    "reasoning",
+    "using tools",
+    "waiting for approval",
+    "answering",
+    "completed",
+    "cancelled",
+    "error"
+  ],
+  "promptSuggestions": [
+    "Inspect this folder and summarize the project",
+    "Draft a release note from recent changes",
+    "Run the test command after approval",
+    "Turn this recording into a task list"
+  ],
+  "toolCategories": [
+    "Read, write, edit, patch, copy, move, delete, inspect, and search local files",
+    "Run shell commands and manage longer-running processes",
+    "Search the web and fetch current pages or URLs",
+    "Drive a managed browser when a page needs real interaction",
+    "Create images from text descriptions",
+    "Create, update, pause, resume, list, and run scheduled jobs",
+    "Load reusable skills and run selected skill workflows",
+    "Use connector, plugin, MCP, LSP, and client-hosted tools when configured"
+  ],
+  "providerCategories": [
+    "Assistant",
+    "Speech-to-Text",
+    "Text-to-Speech",
+    "Text-to-Image",
+    "Text-to-Video",
+    "Music / Audio",
+    "OpenAI-compatible endpoints"
+  ],
+  "providerExamples": [
+    "OpenAI",
+    "Anthropic",
+    "Google",
+    "Meta",
+    "xAI",
+    "Mistral",
+    "Cohere",
+    "DeepSeek",
+    "Qwen",
+    "Kimi",
+    "Z.ai",
+    "Baidu",
+    "Tencent Hunyuan",
+    "ByteDance Seed",
+    "MiniMax",
+    "ElevenLabs",
+    "Deepgram",
+    "Cartesia",
+    "Black Forest Labs",
+    "Midjourney",
+    "Adobe Firefly",
+    "Kling",
+    "Runway",
+    "Luma AI",
+    "Stability AI",
+    "Ideogram",
+    "Pika",
+    "Suno",
+    "Reka",
+    "AI21",
+    "Perplexity",
+    "NVIDIA"
+  ],
+  "voiceFeatures": [
+    "Microphone permission controls",
+    "Speech-to-text dictation into chat",
+    "Audio recording from the prompt input",
+    "Audio file attachments with preview and duration display",
+    "Provider and model selection for transcription",
+    "Text-to-speech configuration for read-aloud replies"
+  ],
+  "connectorFields": [
+    "Connector name",
+    "Connector type",
+    "Server label",
+    "Description",
+    "Authorization",
+    "Scopes",
+    "Tools",
+    "Setup instructions"
+  ],
+  "connectorPolicies": [
+    "Always require approval",
+    "Skip approval for allowed tools",
+    "Never require approval"
+  ],
+  "connectorPlatforms": [
+    "Composio",
+    "Pipedream Connect",
+    "Zapier",
+    "Nango",
+    "Merge Agent Handler",
+    "Workato",
+    "Tray.ai",
+    "Boomi",
+    "MuleSoft Anypoint Platform"
+  ],
+  "skillDetails": [
+    "id",
+    "format",
+    "version",
+    "category",
+    "safety",
+    "visibility",
+    "author",
+    "tools",
+    "connectors",
+    "tags",
+    "model visibility",
+    "folder",
+    "skill file",
+    "diagnostics"
+  ],
+  "skillUseCases": [
+    "Research briefs",
+    "Data quality checks",
+    "Release note drafting",
+    "Team-specific workflow instructions"
+  ],
+  "channelCatalog": [
+    "ClickClack",
+    "Discord",
+    "Feishu/Lark",
+    "Google Chat",
+    "iMessage",
+    "IRC",
+    "LINE",
+    "Matrix",
+    "Mattermost",
+    "Microsoft Teams",
+    "Nextcloud Talk",
+    "Nostr",
+    "QQ Bot",
+    "Signal",
+    "Slack",
+    "Synology Chat",
+    "Telegram",
+    "Tlon",
+    "Twitch",
+    "WhatsApp",
+    "Zalo",
+    "Zalo Personal"
+  ],
+  "channelSettings": [
+    "Enable or disable channel",
+    "Account label",
+    "Bot token or platform token",
+    "Phone number for phone-based channels",
+    "Server URL for server and workspace channels",
+    "Webhook URL",
+    "Default target",
+    "Direct message policy: allowlist, pairing, open, or deny",
+    "Allowed sender lists for direct messages and groups",
+    "Runtime status",
+    "Telegram start, reconnect, and stop actions"
+  ],
+  "cronDetails": [
+    "List scheduled tasks",
+    "Enabled or disabled state",
+    "Schedule display",
+    "Next run and last run information",
+    "Details page with id, schedule, target, delivery, timestamps, prompt, and payload",
+    "Delete scheduled tasks"
+  ],
+  "heartbeatDetails": [
+    "Heartbeat runtime enable and pause control",
+    "Runner active or idle status",
+    "Configured agent count",
+    "Next due time",
+    "Timing controls with 5m, 15m, 30m, 1h, and disable presets",
+    "Optional active hours with start, end, and timezone",
+    "Last event status, timestamp, duration, channel, reason, and preview",
+    "Manual wake-now action",
+    "System event input that can be sent immediately or queued for the next heartbeat"
+  ],
+  "privacyNotes": [
+    "Friday is local-first but can connect to external AI providers, channels, apps, and connectors when you configure them.",
+    "API keys, tokens, passwords, private keys, and credentials are secrets and should not be logged or exposed.",
+    "Provider keys are stored locally and only used for provider calls.",
+    "Settings, credentials, conversation history, memory, workspace paths, channel IDs, connector metadata, local files, and agent data are treated as private.",
+    "Users can inspect chat history size and clear conversation history.",
+    "Application data and user data folders can be opened from settings.",
+    "App settings include theme, language, translucency, menu bar visibility, keep-awake behavior, and microphone control.",
+    "Tool and connector actions that write, delete, publish, send messages, or access private data should pass permission checks."
+  ],
+  "desktopFeatures": [
+    "Electron desktop app",
+    "Tray and menu bar support with show, hide, and quit",
+    "Theme modes: light, dark, and system",
+    "Translucency controls for light and dark themes",
+    "Language support: English and Italian",
+    "Keep computer active toggle for background work",
+    "Access to app data and user data folders",
+    "Navigation through settings sections and command/search surfaces",
+    "Error boundaries, loading states, empty states, and status notices"
+  ],
+  "technicalFoundation": [
+    "Electron, Node.js, TypeScript, React, Tailwind CSS, and shadcn-style components",
+    "Main-process services under src/main",
+    "Renderer code under src/renderer/src",
+    "Cross-process API contracts under src/shared and src/preload",
+    "Provider adapters behind a provider abstraction",
+    "Local stores for app settings, cron schedules, skills, apps, channels, memory, and session state",
+    "Testing with Jest, Testing Library, and Playwright",
+    "Packaging with electron-vite and electron-builder"
+  ],
+  "landingOperators": [
+    {
+      "name": "Assistant chat",
+      "description": "Run agent turns from a clean Markdown chat, with visible tool activity, session history, and permission prompts for sensitive actions.",
+      "icon": "Layers",
+      "status": "Live"
+    },
+    {
+      "name": "Voice",
+      "description": "Dictate requests with speech-to-text and have Friday read replies aloud through the voice provider and model you choose.",
+      "icon": "Bot",
+      "status": "Live"
+    },
+    {
+      "name": "Cron scheduler",
+      "description": "Create, update, pause, resume, list, and run recurring assistant jobs with their own instructions, provider, and model.",
+      "icon": "Clock",
+      "status": "Live"
+    },
+    {
+      "name": "Health checks",
+      "description": "Run periodic checklist-driven assistant checks and report back when something in your setup needs attention.",
+      "icon": "HeartHandshake",
+      "status": "Live"
+    },
+    {
+      "name": "Image generation",
+      "description": "Create images from text descriptions in chat or the image workspace using the provider and model you select.",
+      "icon": "Image",
+      "status": "Live"
+    },
+    {
+      "name": "Video and audio",
+      "description": "Text-to-video and music/audio services are planned as additional model-service slots.",
+      "icon": "ScanText",
+      "status": "Coming soon"
+    }
+  ],
+  "landingProviderGroups": [
+    { "label": "Assistant", "examples": ["OpenAI", "Anthropic", "Google", "Mistral", "DeepSeek", "Qwen", "OpenAI-compatible"] },
+    { "label": "Speech-to-Text", "examples": ["OpenAI", "Deepgram", "ElevenLabs", "Mistral", "xAI", "Qwen"] },
+    { "label": "Text-to-Speech", "examples": ["OpenAI", "ElevenLabs", "Cartesia", "provider-specific voices"] },
+    { "label": "Text-to-Image", "examples": ["OpenAI", "Black Forest Labs", "Midjourney", "Stability AI", "Ideogram"] },
+    { "label": "Coming soon", "examples": ["Text-to-Video", "Music / Audio", "additional media services"] }
   ]
 }
