@@ -234,7 +234,7 @@ body {
 }
 
 [data-theme="light"] .daylight {
-  display: block;
+  display: none;
 }
 
 .daylight__sky {
@@ -934,12 +934,12 @@ p {
   min-width: 0;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(17, 17, 48, 0.8);
+  background: rgba(17, 17, 17, 0.86);
   padding: 0.8rem 0.9rem;
 }
 
 [data-theme="light"] .hero-metrics div {
-  background: rgba(243, 242, 238, 0.8);
+  background: rgba(18, 18, 18, 0.86);
 }
 
 .hero-metrics strong,
@@ -1104,10 +1104,10 @@ p {
   border-radius: 50%;
   background:
     radial-gradient(circle at 30% 28%, rgba(243, 198, 111, 0.95), transparent 31%),
-    radial-gradient(circle at 70% 35%, rgba(185, 166, 255, 0.9), transparent 34%),
-    radial-gradient(circle at 48% 78%, rgba(237, 106, 94, 0.86), transparent 36%),
-    linear-gradient(135deg, #6713b8, #eb6c55);
-  box-shadow: 0 0 18px rgba(185, 166, 255, 0.28);
+    radial-gradient(circle at 70% 35%, rgba(220, 220, 220, 0.72), transparent 34%),
+    radial-gradient(circle at 48% 78%, rgba(120, 120, 120, 0.86), transparent 36%),
+    linear-gradient(135deg, #111111, #3a3a3a);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
 }
 
 .product-window__attachment {
