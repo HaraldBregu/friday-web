@@ -648,7 +648,7 @@ p {
 }
 
 [data-theme="light"] .site-header {
-  background: rgba(8, 8, 8, 0.9);
+  background: rgba(243, 242, 238, 0.9);
 }
 
 .nav {
@@ -938,7 +938,7 @@ p {
 }
 
 [data-theme="light"] .hero-metrics div {
-  background: rgba(18, 18, 18, 0.86);
+  background: rgba(249, 248, 244, 0.86);
 }
 
 .hero-metrics strong,
