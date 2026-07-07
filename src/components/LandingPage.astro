@@ -12,6 +12,11 @@ interface Props {
 
 const locale = normalizeLocale(Astro.props.locale);
 const { friday, home, site, ui } = getLocaleContent(locale);
+
+const sp = (t: string) => {
+  const i = t.indexOf("|");
+  return i === -1 ? [t, ""] : [t.slice(0, i), t.slice(i + 1)];
+};
 const githubUrl = socialLinks.find((link) => link.label === "GitHub")?.url;
 const landingMetrics = friday.landingMetrics;
 const connectorHighlights = friday.landingConnectors;
@@ -68,8 +73,8 @@ const providerGroups = friday.landingProviderGroups;
 <section class="section reference-section" id="features">
   <div class="shell">
     <header class="reference-head">
-      <p class="eyebrow">{home.featuresEyebrow}</p>
-      <h2>{home.featuresTitle}</h2>
+      <span class="section-tag">§ 01 — {home.featuresEyebrow}</span>
+      <h2>{sp(home.featuresTitle)[0]}{sp(home.featuresTitle)[1] && <><br/><span class="heading-muted">{sp(home.featuresTitle)[1]}</span></>}</h2>
     </header>
     <div class="features-grid">
       {
@@ -77,7 +82,6 @@ const providerGroups = friday.landingProviderGroups;
           <article class="feature">
             <div class="feature__meta">
               <span>{feature.key}</span>
-              <span class="status-pill">{feature.status}</span>
             </div>
             <h3>{feature.title}</h3>
             <p>{feature.description}</p>
@@ -91,8 +95,8 @@ const providerGroups = friday.landingProviderGroups;
 <section class="section reference-section" id="how">
   <div class="shell">
     <header class="reference-head">
-      <p class="eyebrow">{home.howEyebrow}</p>
-      <h2>{home.howTitle}</h2>
+      <span class="section-tag">§ 02 — {home.howEyebrow}</span>
+      <h2>{sp(home.howTitle)[0]}{sp(home.howTitle)[1] && <><br/><span class="heading-muted">{sp(home.howTitle)[1]}</span></>}</h2>
     </header>
     <div class="how-steps">
       {
@@ -120,8 +124,8 @@ const providerGroups = friday.landingProviderGroups;
 <section class="section reference-section" id="connectors">
   <div class="shell">
     <header class="reference-head">
-      <p class="eyebrow">{home.connectorsEyebrow}</p>
-      <h2>{home.connectorsTitle}</h2>
+      <span class="section-tag">§ 03 — {home.connectorsEyebrow}</span>
+      <h2>{sp(home.connectorsTitle)[0]}{sp(home.connectorsTitle)[1] && <><br/><span class="heading-muted">{sp(home.connectorsTitle)[1]}</span></>}</h2>
     </header>
     <div class="connector-grid">
       {
@@ -149,8 +153,8 @@ const providerGroups = friday.landingProviderGroups;
 <section class="section reference-section" id="channels">
   <div class="shell">
     <header class="reference-head">
-      <p class="eyebrow">{home.channelsEyebrow}</p>
-      <h2>{home.channelsTitle}</h2>
+      <span class="section-tag">§ 04 — {home.channelsEyebrow}</span>
+      <h2>{sp(home.channelsTitle)[0]}{sp(home.channelsTitle)[1] && <><br/><span class="heading-muted">{sp(home.channelsTitle)[1]}</span></>}</h2>
     </header>
     <div class="channel-panel">
       <div class="channel-cloud" aria-label={ui.supportedChannels}>
@@ -167,8 +171,8 @@ const providerGroups = friday.landingProviderGroups;
 <section class="section reference-section" id="operators">
   <div class="shell">
     <header class="reference-head">
-      <p class="eyebrow">{home.operatorsEyebrow}</p>
-      <h2>{home.operatorsTitle}</h2>
+      <span class="section-tag">§ 05 — {home.operatorsEyebrow}</span>
+      <h2>{sp(home.operatorsTitle)[0]}{sp(home.operatorsTitle)[1] && <><br/><span class="heading-muted">{sp(home.operatorsTitle)[1]}</span></>}</h2>
     </header>
     <div class="operator-highlights">
       {
@@ -198,8 +202,8 @@ const providerGroups = friday.landingProviderGroups;
 <section class="section reference-section" id="providers">
   <div class="shell">
     <header class="reference-head">
-      <p class="eyebrow">{home.providersEyebrow}</p>
-      <h2>{home.providersTitle}</h2>
+      <span class="section-tag">§ 06 — {home.providersEyebrow}</span>
+      <h2>{sp(home.providersTitle)[0]}{sp(home.providersTitle)[1] && <><br/><span class="heading-muted">{sp(home.providersTitle)[1]}</span></>}</h2>
     </header>
     <div class="provider-groups">
       {
@@ -224,8 +228,10 @@ const providerGroups = friday.landingProviderGroups;
 
 <section class="section reference-section" id="faq">
   <div class="shell">
-    <header class="reference-head">
-      <p class="eyebrow">{home.faqEyebrow}</p>
+    <header class="reference-head reference-head--right">
+      <div class="section-tag-row">
+        <span class="section-tag">§ 07 · {home.faqEyebrow}</span>
+      </div>
       <h2>{home.faqTitle}</h2>
     </header>
     <div class="faq-list">
