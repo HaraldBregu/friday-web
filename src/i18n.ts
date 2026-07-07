@@ -193,6 +193,51 @@ const fridayIt = {
       icon: "Cloud",
     },
   ],
+  landingOperators: [
+    {
+      name: "Chat assistente",
+      description: "Esegui turni agent da una chat Markdown pulita, con attivita strumenti visibile, cronologia sessione e prompt di permesso per azioni sensibili.",
+      icon: "Layers",
+      status: "Live",
+    },
+    {
+      name: "Voce",
+      description: "Detta richieste con speech-to-text e fai leggere le risposte da Friday tramite il provider voce e il modello che scegli.",
+      icon: "Bot",
+      status: "Live",
+    },
+    {
+      name: "Scheduler cron",
+      description: "Crea, aggiorna, pausa, riprendi, elenca ed esegui lavori assistente ricorrenti con istruzioni, provider e modello dedicati.",
+      icon: "Clock",
+      status: "Live",
+    },
+    {
+      name: "Health check",
+      description: "Esegui controlli periodici basati su checklist e ricevi un report quando qualcosa nella configurazione richiede attenzione.",
+      icon: "HeartHandshake",
+      status: "Live",
+    },
+    {
+      name: "Generazione immagini",
+      description: "Crea immagini da descrizioni testuali in chat o nel workspace immagini usando il provider e il modello selezionati.",
+      icon: "Image",
+      status: "Live",
+    },
+    {
+      name: "Video e audio",
+      description: "Text-to-video e music/audio sono previsti come slot aggiuntivi di model service.",
+      icon: "ScanText",
+      status: "Coming soon",
+    },
+  ],
+  landingProviderGroups: [
+    { label: "Assistente", examples: ["OpenAI", "Anthropic", "Google", "Mistral", "DeepSeek", "Qwen", "OpenAI-compatible"] },
+    { label: "Speech-to-Text", examples: ["OpenAI", "Deepgram", "ElevenLabs", "Mistral", "xAI", "Qwen"] },
+    { label: "Text-to-Speech", examples: ["OpenAI", "ElevenLabs", "Cartesia", "voci provider-specific"] },
+    { label: "Text-to-Image", examples: ["OpenAI", "Black Forest Labs", "Midjourney", "Stability AI", "Ideogram"] },
+    { label: "In arrivo", examples: ["Text-to-Video", "Music / Audio", "servizi media aggiuntivi"] },
+  ],
   faqs: [
     {
       question: "Che cos'e Friday?",
