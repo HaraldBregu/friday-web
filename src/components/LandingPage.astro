@@ -194,7 +194,7 @@ const providerGroups = friday.landingProviderGroups;
       }
     </div>
     <a class="text-link section-link" href={localizedPath("/operators", locale)}>
-      View all operators
+      {locale === "it" ? "Vedi tutti i workflow" : "View all workflows"}
       <Icon name="ArrowRight" size={16} />
     </a>
   </div>
@@ -219,7 +219,7 @@ const providerGroups = friday.landingProviderGroups;
       }
     </div>
     <a class="text-link section-link" href={localizedPath("/providers", locale)}>
-      View all providers
+      {locale === "it" ? "Vedi tutti i provider" : "View all providers"}
       <Icon name="ArrowRight" size={16} />
     </a>
   </div>
