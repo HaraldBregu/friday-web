@@ -2,45 +2,45 @@
   color-scheme: dark;
   --font-sans: "Geist", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "Space Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --bg: #09091e;
-  --bg-muted: #0d0d28;
-  --surface: #111130;
-  --surface-strong: #181840;
-  --text: #ededff;
-  --muted: #9898c0;
-  --faint: #6868a0;
-  --line: rgba(160, 160, 255, 0.1);
-  --line-strong: rgba(160, 160, 255, 0.18);
+  --bg: #050505;
+  --bg-muted: #0a0a0a;
+  --surface: #111111;
+  --surface-strong: #1a1a1a;
+  --text: #f4f4f4;
+  --muted: #a7a7a7;
+  --faint: #737373;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
   --accent: #f3c66f;
   --accent-text: #15110a;
   --accent-soft: rgba(243, 198, 111, 0.14);
   --green: #78d4b8;
-  --purple: #b9a6ff;
+  --purple: #d8d8d8;
   --red: #ed6a5e;
   --yellow: #f5bf4f;
-  --shadow: 0 22px 70px rgba(0, 0, 30, 0.5);
+  --shadow: 0 22px 70px rgba(0, 0, 0, 0.72);
   --shell: 1080px;
   --section-space: 6.5rem;
   --radius: 8px;
 }
 
 [data-theme="light"] {
-  color-scheme: light;
-  --bg: #f3f2ee;
-  --bg-muted: #eae8e2;
-  --surface: #f9fbff;
-  --surface-strong: #e8efff;
-  --text: #101828;
-  --muted: #4c5880;
-  --faint: #7888b0;
-  --line: rgba(30, 60, 160, 0.1);
-  --line-strong: rgba(30, 60, 160, 0.18);
-  --accent: #1c6f5b;
-  --accent-text: #f9fbff;
-  --accent-soft: rgba(28, 111, 91, 0.12);
-  --green: #1c6f5b;
-  --purple: #6d55b8;
-  --shadow: 0 22px 70px rgba(30, 60, 160, 0.1);
+  color-scheme: dark;
+  --bg: #080808;
+  --bg-muted: #101010;
+  --surface: #151515;
+  --surface-strong: #202020;
+  --text: #f6f6f6;
+  --muted: #b0b0b0;
+  --faint: #7d7d7d;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --accent: #f3c66f;
+  --accent-text: #15110a;
+  --accent-soft: rgba(243, 198, 111, 0.14);
+  --green: #78d4b8;
+  --purple: #d8d8d8;
+  --shadow: 0 22px 70px rgba(0, 0, 0, 0.66);
 }
 
 * {
@@ -57,7 +57,7 @@ body {
   min-width: 320px;
   margin: 0;
   background:
-    linear-gradient(180deg, rgba(243, 198, 111, 0.07) 0%, rgba(185, 166, 255, 0.05) 16rem, transparent 32rem),
+    linear-gradient(180deg, rgba(243, 198, 111, 0.08) 0%, rgba(255, 255, 255, 0.025) 16rem, transparent 32rem),
     var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
