@@ -429,7 +429,7 @@
     {
       "name": "Image generation",
       "description": "Create images from text descriptions in chat or the image workspace using the provider and model you select.",
-      "icon": "Mic",
+      "icon": "Image",
       "status": "Live"
     },
     {
