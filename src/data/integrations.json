@@ -138,54 +138,6 @@
     "icon": "MessageSquare"
   },
   {
-    "name": "Gmail",
-    "category": "Connectors",
-    "description": "Search, read, draft, send, and manage Gmail messages. OAuth with least-privilege scopes.",
-    "icon": "MailCheck"
-  },
-  {
-    "name": "Google Calendar",
-    "category": "Connectors",
-    "description": "Find events, prepare agendas, spot conflicts, and create reminders from project context.",
-    "icon": "CalendarDays"
-  },
-  {
-    "name": "Google Drive",
-    "category": "Connectors",
-    "description": "Search files, summarize docs, and turn Drive context into next actions.",
-    "icon": "Database"
-  },
-  {
-    "name": "Dropbox",
-    "category": "Connectors",
-    "description": "Search and access Dropbox files via OAuth. Scope-controlled read and write operations.",
-    "icon": "Cloud"
-  },
-  {
-    "name": "Outlook Email",
-    "category": "Connectors",
-    "description": "Search and manage Outlook messages through the Microsoft Graph API.",
-    "icon": "Mail"
-  },
-  {
-    "name": "Outlook Calendar",
-    "category": "Connectors",
-    "description": "List and manage Outlook calendar events via Microsoft Graph.",
-    "icon": "CalendarDays"
-  },
-  {
-    "name": "SharePoint",
-    "category": "Connectors",
-    "description": "Fetch and search SharePoint documents and sites via the Microsoft Graph API.",
-    "icon": "FolderOpen"
-  },
-  {
-    "name": "Microsoft Teams",
-    "category": "Connectors",
-    "description": "Search Teams messages and channels through the Microsoft Graph API.",
-    "icon": "Users"
-  },
-  {
     "name": "Speech to Text",
     "category": "Operators",
     "description": "Live dictation and audio transcription powered by any configured STT provider — OpenAI Realtime, Deepgram, and more.",

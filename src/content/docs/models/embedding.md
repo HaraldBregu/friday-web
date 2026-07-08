@@ -42,7 +42,7 @@ Dependencies:
 
 The module should store only provider/model ids and non-secret index
 configuration in `embedding`. Credentials, base URLs, and API keys must stay on
-configured provider records or secret-backed connector records.
+configured provider records.
 
 Do not expose a Settings model picker for embedding until the provider catalog,
 index behavior, and runtime adapters are implemented.

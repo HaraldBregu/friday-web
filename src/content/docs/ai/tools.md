@@ -26,9 +26,8 @@ The agent first evaluates the user message with a tool-use policy.
   no tools.
 
 The default `AgentService` path builds the local tool set from the full local
-registry, denies `startup_files` by default, and adds enabled configured
-connector tools. It can then add dynamic tools for bootstrap, heartbeat, and
-skills.
+registry and denies `startup_files` by default. It can then add dynamic tools
+for bootstrap, heartbeat, and skills.
 
 There is also a run-scoped tool assembler for plugin, MCP, LSP, client-hosted,
 and tool-search catalog workflows. That path is available in the codebase, but
@@ -71,7 +70,6 @@ These tools are added only when the corresponding runtime condition applies.
 | `startup_files` | Added only for pending primary bootstrap runs. During bootstrap, it is the only local tool exposed. |
 | `heartbeat_respond` | Added for heartbeat runs when heartbeat tool reporting is enabled. |
 | `execute_skill` | Added when skill discovery selects an executable skill that is not read from a file-backed location. |
-| Connector tools | Added for enabled, configured connectors. Names are derived from the connector server label and raw tool name. |
 | Media generation tools | Added when a text-to-speech, text-to-video, or text-to-image module is configured with a capable provider/model and runtime adapter. |
 | Plugin tools | Available through the run-scoped assembler when plugin tools are included by policy. |
 | MCP tools | Available through the run-scoped assembler when MCP tools are explicitly included. |
@@ -126,8 +124,6 @@ The default service path narrows the candidate list for each turn.
 - Ranking scores tools by request term matches, inferred category, memory
   preferences, recent success, schema specificity, reliability, cost, latency,
   and safety.
-- Google Calendar, Google Drive, and Gmail requests force matching connector
-  tools into the prompt even when ranking would omit them.
 - File mutation tools `write`, `edit`, `apply_patch`, `delete`, `copy`, and
   `move` automatically keep `read` available when it exists.
 - Skill selection can force a skill's required or allowed tools into the prompt.

@@ -22,7 +22,6 @@ export const localeMeta: Record<Locale, { label: string; shortLabel: string; hre
 const localizedCategory: Record<string, string> = {
   Code: "Codice",
   Channels: "Canali",
-  Connectors: "Connettori",
   Operators: "Operatori",
   Data: "Dati",
   Infrastructure: "Infrastruttura",
@@ -107,7 +106,7 @@ const fridayIt = {
       status: "Permessi",
       title: "Il lavoro sensibile richiede approvazione",
       description:
-        "Scrivere file, inviare messaggi, leggere dati privati dai connettori e toccare servizi esterni passa da prompt di permesso espliciti.",
+        "Scrivere file, inviare messaggi e toccare servizi esterni passa da prompt di permesso espliciti.",
     },
     {
       key: "04",
@@ -119,9 +118,9 @@ const fridayIt = {
     {
       key: "05",
       status: "Estendibile",
-      title: "Skill, connettori e MCP",
+      title: "Skill e MCP",
       description:
-        "Insegna a Friday workflow riutilizzabili, collega Google, Microsoft, Dropbox o tool server personalizzati ed esponi nuove capacita tramite Model Context Protocol.",
+        "Insegna a Friday workflow riutilizzabili ed esponi nuove capacita tramite il Model Context Protocol.",
     },
     {
       key: "06",
@@ -142,7 +141,7 @@ const fridayIt = {
       label: "PASSO 02",
       glyph: "Piano",
       title: "Sceglie gli strumenti",
-      description: "Seleziona file, comandi, ricerca web, browser, generazione immagini, skill, connettori, tool MCP, subagent o workflow pianificati adatti al compito.",
+      description: "Seleziona file, comandi, ricerca web, browser, generazione immagini, skill, tool MCP, subagent o workflow pianificati adatti al compito.",
     },
     {
       label: "PASSO 03",
@@ -155,25 +154,7 @@ const fridayIt = {
     text: "A differenza di un chatbot web, Friday gira sulla tua macchina e lavora con provider, credenziali e permessi scelti da te.",
     cite: "Product brief Friday",
   },
-  landingConnectors: [
-    {
-      name: "Google",
-      label: "Famiglia connettori",
-      description: "Collega Gmail, Google Calendar e Google Drive per lavorare su email, calendario e file cloud tramite strumenti autorizzati.",
-      icon: "MailCheck",
-    },
-    {
-      name: "Microsoft",
-      label: "Famiglia connettori",
-      description: "Outlook email, Outlook Calendar, SharePoint e Microsoft Teams sono superfici connettore per account di lavoro e spazi team.",
-      icon: "CalendarDays",
-    },
-    {
-      name: "Dropbox",
-      label: "Famiglia connettori",
-      description: "Dai a Friday accesso controllato ai file Dropbox quando un workflow deve cercare, leggere, creare o aggiornare documenti condivisi.",
-      icon: "Database",
-    },
+  landingMcp: [
     {
       name: "Server MCP remoti",
       label: "Estensione",
@@ -187,10 +168,10 @@ const fridayIt = {
       icon: "Workflow",
     },
     {
-      name: "Canali di messaggistica",
-      label: "Chat da ovunque",
-      description: "Usa Telegram oggi, con un catalogo piu ampio pronto per Slack, Discord, WhatsApp, Signal, Matrix, Teams e altri quando gli adapter sono abilitati.",
-      icon: "Cloud",
+      name: "Qualsiasi tool MCP",
+      label: "Estensione",
+      description: "Esponi nuove capacita all'assistente tramite il Model Context Protocol, l'unico modo supportato per estendere gli strumenti di Friday.",
+      icon: "Plus",
     },
   ],
   landingOperators: [
@@ -247,7 +228,7 @@ const fridayIt = {
     {
       question: "Friday invia i miei dati da qualche parte?",
       answer:
-        "Friday e local-first. I dati lasciano la tua macchina solo quando un'attivita richiede un provider AI, connettore, canale, richiesta web o servizio hosted che hai configurato.",
+        "Friday e local-first. I dati lasciano la tua macchina solo quando un'attivita richiede un provider AI, canale, server MCP, richiesta web o servizio hosted che hai configurato.",
     },
     {
       question: "Devo usare un provider AI specifico?",
@@ -411,54 +392,6 @@ const integrationsIt = [
     category: localizedCategory.Channels,
     description: "Integra ClickClack per workflow specializzati di messaggistica su canale.",
     icon: "MessageSquare",
-  },
-  {
-    name: "Gmail",
-    category: localizedCategory.Connectors,
-    description: "Cerca, leggi, scrivi bozze, invia e gestisci messaggi Gmail. OAuth con ambiti a privilegio minimo.",
-    icon: "MailCheck",
-  },
-  {
-    name: "Google Calendar",
-    category: localizedCategory.Connectors,
-    description: "Trova eventi, prepara agende, individua conflitti e crea promemoria dal contesto di progetto.",
-    icon: "CalendarDays",
-  },
-  {
-    name: "Google Drive",
-    category: localizedCategory.Connectors,
-    description: "Cerca file, riassume documenti e trasforma il contesto Drive in prossime azioni.",
-    icon: "Database",
-  },
-  {
-    name: "Dropbox",
-    category: localizedCategory.Connectors,
-    description: "Cerca e accede ai file Dropbox via OAuth. Operazioni di lettura e scrittura controllate per ambito.",
-    icon: "Cloud",
-  },
-  {
-    name: "Outlook Email",
-    category: localizedCategory.Connectors,
-    description: "Cerca e gestisce messaggi Outlook tramite Microsoft Graph API.",
-    icon: "Mail",
-  },
-  {
-    name: "Outlook Calendar",
-    category: localizedCategory.Connectors,
-    description: "Elenca e gestisce eventi del calendario Outlook tramite Microsoft Graph.",
-    icon: "CalendarDays",
-  },
-  {
-    name: "SharePoint",
-    category: localizedCategory.Connectors,
-    description: "Recupera e cerca documenti e siti SharePoint tramite Microsoft Graph API.",
-    icon: "FolderOpen",
-  },
-  {
-    name: "Microsoft Teams",
-    category: localizedCategory.Connectors,
-    description: "Cerca messaggi e canali Teams tramite Microsoft Graph API.",
-    icon: "Users",
   },
   {
     name: "Da voce a testo",
@@ -769,7 +702,7 @@ const en = {
         links: [
           { label: "Features", href: "/#features" },
           { label: "How it works", href: "/#how" },
-          { label: "Connectors", href: "/#connectors" },
+          { label: "MCP", href: "/#mcp" },
         ],
       },
       {
@@ -783,23 +716,23 @@ const en = {
       },
     ],
     footerRights: "All rights reserved.",
-    footerPermissionNote: "Review provider, connector, and channel permissions before enabling automation.",
+    footerPermissionNote: "Review provider, tool, and channel permissions before enabling automation.",
   },
   home: {
     ogTitle: "Friday",
     ogDescription:
-      "A native desktop AI copilot for everyday tasks, with local credentials, bring-your-own providers, permissioned tools, voice, image generation, connectors, channels, and scheduled work.",
+      "A native desktop AI copilot for everyday tasks, with local credentials, bring-your-own providers, permissioned tools, voice, image generation, MCP tools, channels, and scheduled work.",
     featuresEyebrow: "Features",
     featuresTitle: "A capable assistant,|running on your desktop.",
     howEyebrow: "How it works",
     howTitle: "Ask naturally.|Approve real actions.",
-    connectorsEyebrow: "Connectors",
-    connectorsTitle: "Connect the tools|where your work lives.",
+    mcpEyebrow: "MCP",
+    mcpTitle: "Extend Friday|with MCP servers.",
     channelsEyebrow: "Channels",
     channelsTitle: "Chat with Friday|from anywhere.",
     channelsPanelTitle: "Telegram live today, broader catalog ready.",
     channelsPanelDescription:
-      "Connect a Telegram bot and chat with Friday from your phone or desktop. Other channel entries become active as their runtime adapters, hosted connectors, MCP servers, or plugins are enabled.",
+      "Connect a Telegram bot and chat with Friday from your phone or desktop. Other channel entries become active as their runtime adapters, MCP servers, or plugins are enabled.",
     operatorsEyebrow: "Workflows",
     operatorsTitle: "Voice, images, schedules,|and health checks.",
     providersEyebrow: "AI Providers",
@@ -905,8 +838,33 @@ const en = {
     userMessage: "Summarize this repo, draft a release note, and ask before running tests.",
     chatUserGreeting: "Run the release checklist.",
     chatAssistantGreeting: "I will read the checklist, inspect the project files, and ask before editing or running commands.",
-    chatUserFollowup: "Also make an image for the announcement.",
+    chatMessages: [
+      { role: "user", text: "Check my calendar for tomorrow." },
+      {
+        role: "assistant",
+        text: "You have three events: a 9:30 standup, lunch with Marco at 13:00, and a design review at 16:00.",
+      },
+      { role: "user", text: "Create a task to follow up with the design team." },
+      {
+        role: "assistant",
+        text: "Added “Follow up with the design team” to your tasks, due Friday, with a 9:00 reminder.",
+      },
+      { role: "user", text: "Send an email to Sara with the launch date." },
+      {
+        role: "assistant",
+        text: "Drafted an email to Sara confirming the launch on July 15. I'll ask before sending it.",
+      },
+    ],
+    chatUserFollowup: "Now make a sunny summer scene of Rome from today's forecast.",
     chatAssistantFollowup: "Ready. I will use the configured image provider and show the result here.",
+    imageHeader: "Created image",
+    imageAlt: "Generated sunny summer scene in a Roman piazza with the Colosseum",
+    imageCaption:
+      "Here's a sunny Roman summer scene inspired by today's forecast: clear skies, 33°C at noon, and zero chance of rain. A perfect day for the Eternal City.",
+    copyLabel: "Copy",
+    readAloudLabel: "Read aloud",
+    regenerateLabel: "Regenerate",
+    historyLabel: "History",
     attachedFile: "project-notes.md",
     removeAttachment: "Remove attachment",
     listeningLabel: "Listening...",
@@ -940,7 +898,7 @@ const en = {
     addAttachment: "Add attachment",
     voiceInput: "Voice input",
     sendPrompt: "Send prompt",
-    composerPlaceholder: "Ask Friday to use files, tools, voice, or channels...",
+    composerPlaceholder: "Ask anything",
   },
 };
 
@@ -969,7 +927,7 @@ const it = {
         links: [
           { label: "Funzioni", href: "/#features" },
           { label: "Come funziona", href: "/#how" },
-          { label: "Connettori", href: "/#connectors" },
+          { label: "MCP", href: "/#mcp" },
         ],
       },
       {
@@ -982,23 +940,23 @@ const it = {
       },
     ],
     footerRights: "Tutti i diritti riservati.",
-    footerPermissionNote: "Rivedi i permessi di provider, connettori e canali prima di abilitare l'automazione.",
+    footerPermissionNote: "Rivedi i permessi di provider, strumenti e canali prima di abilitare l'automazione.",
   },
   home: {
     ogTitle: "Friday",
     ogDescription:
-      "Un copilota AI desktop nativo per le attivita quotidiane, con credenziali locali, provider scelti da te, strumenti autorizzati, voce, immagini, connettori, canali e lavoro pianificato.",
+      "Un copilota AI desktop nativo per le attivita quotidiane, con credenziali locali, provider scelti da te, strumenti autorizzati, voce, immagini, strumenti MCP, canali e lavoro pianificato.",
     featuresEyebrow: "Funzioni",
     featuresTitle: "Un assistente capace,|sul tuo desktop.",
     howEyebrow: "Come funziona",
     howTitle: "Chiedi in modo naturale.|Approva le azioni reali.",
-    connectorsEyebrow: "Connettori",
-    connectorsTitle: "Collega gli strumenti|dove vive il tuo lavoro.",
+    mcpEyebrow: "MCP",
+    mcpTitle: "Estendi Friday|con i server MCP.",
     channelsEyebrow: "Canali",
     channelsTitle: "Parla con Friday|da ovunque.",
     channelsPanelTitle: "Telegram live oggi, catalogo piu ampio pronto.",
     channelsPanelDescription:
-      "Collega un bot Telegram e parla con Friday dal telefono o dal desktop. Gli altri canali diventano attivi quando vengono abilitati adapter runtime, connettori hosted, server MCP o plugin.",
+      "Collega un bot Telegram e parla con Friday dal telefono o dal desktop. Gli altri canali diventano attivi quando vengono abilitati adapter runtime, server MCP o plugin.",
     operatorsEyebrow: "Workflow",
     operatorsTitle: "Voce, immagini, pianificazioni,|e health check.",
     providersEyebrow: "Provider AI",
@@ -1104,8 +1062,33 @@ const it = {
     userMessage: "Riassumi questo repo, prepara una nota di release e chiedi prima di eseguire i test.",
     chatUserGreeting: "Esegui la checklist release.",
     chatAssistantGreeting: "Leggo la checklist, ispeziono i file del progetto e chiedo prima di modificare o eseguire comandi.",
-    chatUserFollowup: "Crea anche un'immagine per l'annuncio.",
+    chatMessages: [
+      { role: "user", text: "Controlla il mio calendario per domani." },
+      {
+        role: "assistant",
+        text: "Hai tre eventi: standup alle 9:30, pranzo con Marco alle 13:00 e design review alle 16:00.",
+      },
+      { role: "user", text: "Crea un task per ricontattare il team di design." },
+      {
+        role: "assistant",
+        text: "Aggiunto “Ricontattare il team di design” ai tuoi task, scadenza venerdi, con promemoria alle 9:00.",
+      },
+      { role: "user", text: "Invia un'email a Sara con la data di lancio." },
+      {
+        role: "assistant",
+        text: "Ho preparato una bozza per Sara che conferma il lancio il 15 luglio. Chiedo prima di inviarla.",
+      },
+    ],
+    chatUserFollowup: "Ora crea una scena estiva e soleggiata di Roma dalle previsioni di oggi.",
     chatAssistantFollowup: "Pronto. Uso il provider immagini configurato e mostro il risultato qui.",
+    imageHeader: "Immagine creata",
+    imageAlt: "Scena estiva e soleggiata generata in una piazza romana con il Colosseo",
+    imageCaption:
+      "Ecco una scena estiva e soleggiata di Roma ispirata alle previsioni di oggi: cielo sereno, 33°C a mezzogiorno e zero probabilita di pioggia. Una giornata perfetta per la Citta Eterna.",
+    copyLabel: "Copia",
+    readAloudLabel: "Leggi ad alta voce",
+    regenerateLabel: "Rigenera",
+    historyLabel: "Cronologia",
     attachedFile: "note-progetto.md",
     removeAttachment: "Rimuovi allegato",
     listeningLabel: "Sto ascoltando...",
@@ -1139,7 +1122,7 @@ const it = {
     addAttachment: "Aggiungi allegato",
     voiceInput: "Input vocale",
     sendPrompt: "Invia prompt",
-    composerPlaceholder: "Chiedi a Friday di usare file, strumenti, voce o canali...",
+    composerPlaceholder: "Chiedi qualsiasi cosa",
   },
 } satisfies typeof en;
 

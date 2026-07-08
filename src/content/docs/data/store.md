@@ -14,8 +14,8 @@ The source of truth for this document is:
 - `src/main/store/types.ts` for persisted schema names.
 - `src/main/store/service.ts` for normalization, defaults, and read/write
   behavior.
-- Module docs under `docs/models`, `docs/tasks`, `docs/channels`, and
-  `docs/connectors` for each root owner's behavior.
+- Module docs under `docs/models`, `docs/tasks`, and `docs/channels` for each
+  root owner's behavior.
 
 ## Design Rules
 
@@ -24,11 +24,9 @@ The source of truth for this document is:
   and safe `options`.
 - Keep model provider credentials in `modelProviders`.
 - Keep channel credentials under `channel` account records.
-- Keep connector credentials in connector-owned records or credential
-  references.
 - Keep task records out of persistent settings.
-- Keep schedule payloads free of credentials, provider records, channel tokens,
-  and connector secrets.
+- Keep schedule payloads free of credentials, provider records, and channel
+  tokens.
 - Store static labels, docs paths, and runtime status in code constants, not in
   user settings.
 
@@ -50,7 +48,7 @@ interface SettingsStore {
 	taskScheduler?: TaskSchedulerSettings;
 	backgroundTask?: BackgroundTaskSettings;
 	heartbeat?: HeartbeatStoreState;
-	connectors?: ConnectorConfig[];
+	mcp?: McpServerConfig[];
 	channel?: Channel;
 	appSettings?: AppSettings;
 	appPermissions?: AppPermissionSettings;
@@ -78,7 +76,7 @@ docs filenames may use kebab-case, but persisted settings keys should not.
 | `taskScheduler`  | Task scheduler    | [scheduled.md](/docs/tasks/scheduled/)                        | Managed schedule state, Friday cron state, and legacy cron task state. |
 | `backgroundTask` | Background task   | [background.md](/docs/tasks/background/)                      | Task policy settings only; task records stay in memory.                |
 | `heartbeat`      | Heartbeat         | [tasks/scheduled.md](/docs/tasks/scheduled/)                  | Heartbeat run state and last delivered heartbeat text by key.          |
-| `connectors`     | Connectors        | [connectors/index.md](/docs/connectors/)                | Connector configuration records and credential references.             |
+| `mcp`            | MCP               | [tools.md](/docs/ai/tools/)                             | MCP server configuration records and credential references.            |
 | `channel`        | Channels          | [channels/index.md](/docs/channels/)                    | Channel defaults, account settings, tokens, routing, and allowlists.   |
 | `appSettings`    | App settings      | [settings-page.md](/docs/ui/settings-page/)                   | App-level non-permission settings such as keep-awake.                  |
 | `appPermissions` | App permissions   | [settings-page.md](/docs/ui/settings-page/)                   | User toggles for app-level microphone and camera enablement.           |
@@ -105,7 +103,7 @@ before writing them. Read APIs that expose configured providers return the
 provider without `apiKey`.
 
 Module settings reference model providers by id. They do not duplicate API keys
-or raw provider records in task, schedule, channel, connector, or tool payloads.
+or raw provider records in task, schedule, channel, MCP, or tool payloads.
 
 ## Model Module Settings
 
@@ -156,8 +154,8 @@ interface EmbeddingModuleSettings extends ModelModuleSettings {
 }
 ```
 
-Embedding credentials still belong in `modelProviders` or connector-specific
-secret storage, not inside `embedding`.
+Embedding credentials still belong in `modelProviders` secret storage, not
+inside `embedding`.
 
 ## Task Scheduler Settings
 

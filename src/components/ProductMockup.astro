@@ -26,8 +26,13 @@ const { productMockup } = getLocaleContent(locale);
       <span></span>
     </div>
     <strong>Friday</strong>
-    <div class="product-window__profile" aria-label={productMockup.profileLabel}>
-      <Icon name="UserRound" size={18} />
+    <div class="product-window__bar-actions">
+      <button class="product-window__icon-btn" type="button" aria-label={productMockup.profileLabel}>
+        <Icon name="UserRound" size={19} />
+      </button>
+      <button class="product-window__icon-btn" type="button" aria-label={productMockup.historyLabel}>
+        <Icon name="History" size={19} />
+      </button>
     </div>
   </div>
 
@@ -47,6 +52,22 @@ const { productMockup } = getLocaleContent(locale);
         </div>
       </article>
 
+      {
+        productMockup.chatMessages.map((message) =>
+          message.role === "user" ? (
+            <div class="chat-bubble chat-bubble--user">{message.text}</div>
+          ) : (
+            <article class="assistant-turn">
+              <div class="assistant-row">
+                <span class="assistant-avatar" aria-hidden="true" />
+                <strong>Friday</strong>
+              </div>
+              <div class="chat-bubble chat-bubble--assistant">{message.text}</div>
+            </article>
+          )
+        )
+      }
+
       <div class="chat-bubble chat-bubble--user">
         {productMockup.chatUserFollowup}
       </div>
@@ -56,9 +77,34 @@ const { productMockup } = getLocaleContent(locale);
           <span class="assistant-avatar" aria-hidden="true"></span>
           <strong>Friday</strong>
         </div>
-        <div class="chat-bubble chat-bubble--assistant">
-          {productMockup.chatAssistantFollowup}
-        </div>
+        <figure class="chat-image">
+          <figcaption class="chat-image__head">
+            <Icon name="Image" size={15} />
+            <span>{productMockup.imageHeader}</span>
+            <Icon name="ChevronDown" size={15} />
+          </figcaption>
+          <img
+            class="chat-image__media"
+            src="/hero-generated-image.jpg"
+            alt={productMockup.imageAlt}
+            width="812"
+            height="446"
+            loading="lazy"
+            decoding="async"
+          />
+          <p class="chat-image__caption">{productMockup.imageCaption}</p>
+          <div class="chat-image__actions">
+            <button type="button" aria-label={productMockup.copyLabel}>
+              <Icon name="Copy" size={17} />
+            </button>
+            <button type="button" aria-label={productMockup.readAloudLabel}>
+              <Icon name="Volume2" size={17} />
+            </button>
+            <button type="button" aria-label={productMockup.regenerateLabel}>
+              <Icon name="Reply" size={17} />
+            </button>
+          </div>
+        </figure>
       </article>
     </div>
 

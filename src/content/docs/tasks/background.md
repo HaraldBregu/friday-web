@@ -41,7 +41,7 @@ for the current app session.
 The background task module owns work that can run at the same time as other
 work in the app. A task can represent any executable unit, including an agent
 run, OCR job, TTS job, image generation job, video generation job, sound
-generation job, embedding job, API call, connector sync, local function, or
+generation job, embedding job, API call, local function, or
 file operation.
 
 ## Core Requirements

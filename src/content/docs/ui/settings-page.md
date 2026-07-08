@@ -16,7 +16,7 @@ The settings overview groups navigation cards into:
 | --- | --- |
 | General | General, System, Providers, Channels |
 | Capabilities | Model settings |
-| AI Features | Skills, Connectors |
+| AI Features | Skills, MCP |
 | Automation | Heartbeat, Cron, Task Manager, Apps |
 
 Each overview card navigates to a route from the settings navigation constants.

@@ -53,7 +53,6 @@ Documented scheduled task examples include:
 | `reminder.show` | Cron example | Demonstrates reminder-style scheduled work. |
 | `cron.maintenance` | Cron example | Demonstrates maintenance scheduled work. |
 | `memory.compact` | Cron example | Demonstrates memory compaction scheduled work. |
-| `connector.sync` | Cron example | Demonstrates connector sync scheduled work. |
 | `ai.agent.run` | Cron example | Demonstrates an agent scheduled task shape. |
 
 Cron payloads must not store API keys, base URLs, webhook secrets, raw provider

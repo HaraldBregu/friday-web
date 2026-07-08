@@ -20,7 +20,7 @@ and future runtime boundaries.
 
 - Each module owns its dependencies and hides provider-specific behavior behind
   adapters.
-- Credentials stay on configured provider or connector records, never in task,
+- Credentials stay on configured provider records, never in task,
   schedule, channel, or tool payloads.
 - Tool wrappers call modules; they do not become the module boundary.
 - Service APIs are main-process boundaries that UI, IPC, tasks, schedules, and

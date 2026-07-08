@@ -19,7 +19,7 @@ The agent module owns the provider-neutral parts of an agent run:
 - managing per-agent startup files used as lower-priority project context
 
 It does not own provider-specific streaming, UI state, session persistence,
-global tool construction, connector discovery, or workspace file APIs. Those
+global tool construction, MCP discovery, or workspace file APIs. Those
 are assembled by the higher-level service layer before calling into this module.
 
 ## Module Contract

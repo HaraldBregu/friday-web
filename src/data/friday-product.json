@@ -40,37 +40,37 @@
       "key": "01",
       "status": "Chat",
       "title": "Chat that acts",
-      "description": "Ask in plain language and Friday uses tools to complete the work: read files, draft documents, search the web, run commands, generate images, and return a concrete result."
+      "description": "Ask in plain language and Friday uses tools to finish the job — reads files, drafts documents, searches the web, runs commands, and generates images."
     },
     {
       "key": "02",
       "status": "Local first",
-      "title": "Your data stays yours",
-      "description": "Friday runs as a desktop app. Provider keys, settings, credentials, history, and working files live on your machine instead of inside a website chatbot."
+      "title": "Local and private",
+      "description": "Friday is a desktop app. Your keys, settings, credentials, history, and files stay on your machine, not inside a website chatbot."
     },
     {
       "key": "03",
       "status": "Permissioned",
-      "title": "Sensitive work requires approval",
-      "description": "Writing files, sending messages, reading private connector data, and touching outside services pass through explicit permission prompts before anything happens."
+      "title": "Approval before action",
+      "description": "Writing files, sending messages, and reaching outside services each need your explicit approval before Friday proceeds."
     },
     {
       "key": "04",
       "status": "Voice",
-      "title": "Dictation and read-aloud",
-      "description": "Speak instead of type, transcribe recordings, and have Friday read replies back using the speech providers and voices you configure."
+      "title": "Speak and listen",
+      "description": "Dictate instead of typing, transcribe recordings, and have Friday read replies aloud in the voices you choose."
     },
     {
       "key": "05",
       "status": "Extensible",
-      "title": "Skills, connectors, and MCP",
-      "description": "Teach Friday reusable workflows, connect Google, Microsoft, Dropbox, or custom tool servers, and expose new capabilities through Model Context Protocol."
+      "title": "Skills and MCP",
+      "description": "Teach Friday reusable workflows and expose new tools through the Model Context Protocol."
     },
     {
       "key": "06",
       "status": "Automation",
-      "title": "Schedules and health checks",
-      "description": "Run recurring assistant jobs, daily summaries, periodic cleanups, and checklist-based health checks even when you are not actively chatting."
+      "title": "Schedules and checks",
+      "description": "Run recurring jobs, daily summaries, and health checks on a schedule, even when you are not actively chatting."
     }
   ],
   "howSteps": [
@@ -84,7 +84,7 @@
       "label": "STEP 02",
       "glyph": "Plan",
       "title": "Pick tools",
-      "description": "It chooses the right files, commands, web search, browser, image generation, skill, connector, MCP tool, subagent, or scheduled workflow for the task."
+      "description": "It chooses the right files, commands, web search, browser, image generation, skill, MCP tool, subagent, or scheduled workflow for the task."
     },
     {
       "label": "STEP 03",
@@ -97,25 +97,7 @@
     "text": "Unlike a website chatbot, Friday runs on your machine and works through the providers, credentials, and permissions you choose.",
     "cite": "Friday product brief"
   },
-  "landingConnectors": [
-    {
-      "name": "Google",
-      "label": "Connector family",
-      "description": "Connect Gmail, Google Calendar, and Google Drive so Friday can help with email, schedules, and cloud files through permissioned tools.",
-      "icon": "MailCheck"
-    },
-    {
-      "name": "Microsoft",
-      "label": "Connector family",
-      "description": "Outlook email, Outlook Calendar, SharePoint, and Microsoft Teams are represented as connector surfaces for work accounts and team spaces.",
-      "icon": "CalendarDays"
-    },
-    {
-      "name": "Dropbox",
-      "label": "Connector family",
-      "description": "Give Friday controlled access to Dropbox files when a workflow needs to search, read, create, or update shared documents.",
-      "icon": "Database"
-    },
+  "landingMcp": [
     {
       "name": "Remote MCP servers",
       "label": "Extension point",
@@ -125,14 +107,14 @@
     {
       "name": "Local MCP servers",
       "label": "Extension point",
-      "description": "Run local stdio tool servers on your machine so domain-specific capabilities can plug into Friday without changing the app.",
+      "description": "Run local stdio tool servers on your machine so domain-specific capabilities plug into Friday without changing the app.",
       "icon": "Workflow"
     },
     {
-      "name": "Messaging channels",
-      "label": "Chat from anywhere",
-      "description": "Use Telegram today, with a broader channel catalog ready for Slack, Discord, WhatsApp, Signal, Matrix, Teams, and more as adapters are enabled.",
-      "icon": "Cloud"
+      "name": "Any MCP client tool",
+      "label": "Extension point",
+      "description": "Expose new capabilities to the assistant through the open Model Context Protocol, the single supported way to extend Friday's tool surface.",
+      "icon": "Plus"
     }
   ],
   "landingChannels": [
@@ -156,7 +138,7 @@
     },
     {
       "question": "Does Friday send my data anywhere?",
-      "answer": "Friday is local-first. Data leaves your machine only when a task requires an AI provider, connector, channel, web request, or hosted service you configured. Provider keys, credentials, settings, memory, and conversation history live locally."
+      "answer": "Friday is local-first. Data leaves your machine only when a task requires an AI provider, channel, MCP server, web request, or hosted service you configured. Provider keys, credentials, settings, memory, and conversation history live locally."
     },
     {
       "question": "Do I have to use one specific AI provider?",
@@ -213,7 +195,7 @@
     "Create images from text descriptions",
     "Create, update, pause, resume, list, and run scheduled jobs",
     "Load reusable skills and run selected skill workflows",
-    "Use connector, plugin, MCP, LSP, and client-hosted tools when configured"
+    "Use plugin, MCP, LSP, and client-hosted tools when configured"
   ],
   "providerCategories": [
     "Assistant",
@@ -266,32 +248,6 @@
     "Provider and model selection for transcription",
     "Text-to-speech configuration for read-aloud replies"
   ],
-  "connectorFields": [
-    "Connector name",
-    "Connector type",
-    "Server label",
-    "Description",
-    "Authorization",
-    "Scopes",
-    "Tools",
-    "Setup instructions"
-  ],
-  "connectorPolicies": [
-    "Always require approval",
-    "Skip approval for allowed tools",
-    "Never require approval"
-  ],
-  "connectorPlatforms": [
-    "Composio",
-    "Pipedream Connect",
-    "Zapier",
-    "Nango",
-    "Merge Agent Handler",
-    "Workato",
-    "Tray.ai",
-    "Boomi",
-    "MuleSoft Anypoint Platform"
-  ],
   "skillDetails": [
     "id",
     "format",
@@ -301,7 +257,6 @@
     "visibility",
     "author",
     "tools",
-    "connectors",
     "tags",
     "model visibility",
     "folder",
@@ -371,14 +326,14 @@
     "System event input that can be sent immediately or queued for the next heartbeat"
   ],
   "privacyNotes": [
-    "Friday is local-first but can connect to external AI providers, channels, apps, and connectors when you configure them.",
+    "Friday is local-first but can connect to external AI providers, channels, and MCP servers when you configure them.",
     "API keys, tokens, passwords, private keys, and credentials are secrets and should not be logged or exposed.",
     "Provider keys are stored locally and only used for provider calls.",
-    "Settings, credentials, conversation history, memory, workspace paths, channel IDs, connector metadata, local files, and agent data are treated as private.",
+    "Settings, credentials, conversation history, memory, workspace paths, channel IDs, MCP server metadata, local files, and agent data are treated as private.",
     "Users can inspect chat history size and clear conversation history.",
     "Application data and user data folders can be opened from settings.",
     "App settings include theme, language, translucency, menu bar visibility, keep-awake behavior, and microphone control.",
-    "Tool and connector actions that write, delete, publish, send messages, or access private data should pass permission checks."
+    "Tool and MCP actions that write, delete, publish, send messages, or access private data should pass permission checks."
   ],
   "desktopFeatures": [
     "Electron desktop app",

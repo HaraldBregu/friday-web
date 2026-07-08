@@ -19,7 +19,7 @@ const sp = (t: string) => {
 };
 const githubUrl = socialLinks.find((link) => link.label === "GitHub")?.url;
 const landingMetrics = friday.landingMetrics;
-const connectorHighlights = friday.landingConnectors;
+const mcpHighlights = friday.landingMcp;
 const channelHighlights = friday.landingChannels;
 const operatorHighlights = friday.landingOperators;
 const providerGroups = friday.landingProviderGroups;
@@ -122,32 +122,28 @@ const providerGroups = friday.landingProviderGroups;
   </div>
 </section>
 
-<section class="section reference-section" id="connectors">
+<section class="section reference-section" id="mcp">
   <div class="shell">
     <header class="reference-head">
-      <span class="section-tag">§ 03 — {home.connectorsEyebrow}</span>
-      <h2>{sp(home.connectorsTitle)[0]}{sp(home.connectorsTitle)[1] && <><br/><span class="heading-muted">{sp(home.connectorsTitle)[1]}</span></>}</h2>
+      <span class="section-tag">§ 03 — {home.mcpEyebrow}</span>
+      <h2>{sp(home.mcpTitle)[0]}{sp(home.mcpTitle)[1] && <><br/><span class="heading-muted">{sp(home.mcpTitle)[1]}</span></>}</h2>
     </header>
-    <div class="connector-grid">
+    <div class="mcp-grid">
       {
-        connectorHighlights.map((connector) => (
-          <article class="connector-card">
-            <div class="connector-card__top">
+        mcpHighlights.map((item) => (
+          <article class="mcp-card">
+            <div class="mcp-card__top">
               <div class="card-icon">
-                <Icon name={connector.icon} size={19} />
+                <Icon name={item.icon} size={19} />
               </div>
-              <span>{connector.label}</span>
+              <span>{item.label}</span>
             </div>
-            <h3>{connector.name}</h3>
-            <p>{connector.description}</p>
+            <h3>{item.name}</h3>
+            <p>{item.description}</p>
           </article>
         ))
       }
     </div>
-    <a class="text-link section-link" href={localizedPath("/integrations", locale)}>
-      {ui.viewAllIntegrations}
-      <Icon name="ArrowRight" size={16} />
-    </a>
   </div>
 </section>
 

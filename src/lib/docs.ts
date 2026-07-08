@@ -5,7 +5,6 @@ export type DocEntry = CollectionEntry<"docs">;
 export const categoryIcons: Record<string, string> = {
   AI: "Bot",
   Channels: "RadioTower",
-  Connectors: "PlugZap",
   Core: "Layers",
   Data: "Database",
   Models: "Sparkles",

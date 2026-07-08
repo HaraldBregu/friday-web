@@ -26,12 +26,12 @@
   },
   {
     "title": "Human approval gates",
-    "description": "Configure where the assistant can act freely, where it must pause, and how connector and tool operations are reviewed before execution.",
+    "description": "Configure where the assistant can act freely, where it must pause, and how tool and MCP operations are reviewed before execution.",
     "icon": "ShieldCheck"
   },
   {
     "title": "Composable skills",
-    "description": "Package repeated tasks into named skills with required tools, connector permissions, visibility rules, and model guidance. Skill discovery runs at the start of each turn.",
+    "description": "Package repeated tasks into named skills with required tools, permissions, visibility rules, and model guidance. Skill discovery runs at the start of each turn.",
     "icon": "Workflow"
   },
   {

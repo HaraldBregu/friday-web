@@ -17,7 +17,7 @@ window frame, title bar, command menu, route transitions, and chat mode context.
 | --- | --- | --- |
 | Start page | `/start` | First-run setup before the user lands on Home. |
 | Home page | `/home` | Chatbot UI for the main Friday assistant. |
-| Settings | `/settings/*` | Ongoing configuration for providers, model settings, channels, skills, connectors, automation, and system settings. |
+| Settings | `/settings/*` | Ongoing configuration for providers, model settings, channels, skills, MCP servers, automation, and system settings. |
 
 The default route redirects to `/start`. The legacy `/config` route also
 redirects to `/start`.

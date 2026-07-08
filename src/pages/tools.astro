@@ -21,7 +21,6 @@ const dynamicTools = [
   { name: "execute_skill", when: "A selected skill is not file-backed" },
   { name: "startup_files", when: "Bootstrap is pending — the only tool exposed during setup" },
   { name: "heartbeat_respond", when: "Heartbeat runs with tool reporting enabled" },
-  { name: "Connector tools", when: "Enabled, configured connectors (Gmail, Drive, Calendar, etc.)" },
   { name: "Plugin tools", when: "Run-scoped assembler with plugin tools included by policy" },
   { name: "MCP tools", when: "Model Context Protocol servers are explicitly included" },
   { name: "LSP tools", when: "An LSP runtime supplies language-server capabilities" },
@@ -41,7 +40,7 @@ const dynamicTools = [
       <p class="eyebrow">Agent Tools</p>
       <h1>What Friday can actually do.</h1>
       <p>
-        16 local tools in the default registry, plus connector, plugin, MCP,
+        16 local tools in the default registry, plus plugin, MCP,
         and LSP tools when configured. Up to 8 are selected per turn based on
         the request — ranked by relevance, safety, and cost.
       </p>
