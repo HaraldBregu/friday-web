@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.5.1",
     "@tsparticles/engine": "^4.0.4",
     "@tsparticles/slim": "^4.0.4",
-    "astro": "^5.15.5",
+    "astro": "^7.0.7",
     "lucide-astro": "^0.468.0",
     "three": "^0.184.0"
   },
