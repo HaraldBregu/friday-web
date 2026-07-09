@@ -11,6 +11,8 @@ const categoryCount = groups.length;
 const indexDocs = groups
   .map((group) => group.items.find((doc) => doc.data.sourcePath.endsWith("/index.md")) ?? group.items[0])
   .filter((doc): doc is NonNullable<typeof doc> => Boolean(doc));
+const primaryDoc = indexDocs[0];
+const secondaryDocs = indexDocs.slice(1, 4);
 ---
 
 <Layout
@@ -22,12 +24,19 @@ const indexDocs = groups
     <div class="shell docs-hero__inner">
       <div class="section-heading">
         <p class="eyebrow">Documentation</p>
-        <h1>Friday product documentation.</h1>
+        <h1>Friday product documentation</h1>
         <p>
           Start with what Friday is, then explore the assistant, tools,
           providers, skills, MCP servers, channels, automation, memory, privacy,
           platforms, and setup flow.
         </p>
+        <div class="docs-hero__actions" aria-label="Documentation quick links">
+          <a class="button button--primary" href={primaryDoc ? docsPath(primaryDoc.data.sourcePath) : "#start-here"}>
+            Start reading
+            <Icon name="ArrowRight" size={16} />
+          </a>
+          <a class="button button--ghost" href="#browse-sections">Browse sections</a>
+        </div>
       </div>
       <div class="docs-hero__stats" aria-label="Documentation summary">
         <div>
@@ -46,39 +55,62 @@ const indexDocs = groups
     </div>
   </section>
 
-  <section class="section section--compact">
+  <section class="section section--compact" id="browse-sections">
     <div class="shell docs-section-grid" aria-label="Documentation sections">
       {
         groups.map((group) => (
           <a class="docs-section-tile" href={`#${categoryId(group.category)}`}>
-            <Icon name={categoryIcons[group.category] ?? "BookOpen"} size={18} />
-            <strong>{group.category}</strong>
-            <span>{group.items.length} {group.items.length === 1 ? "page" : "pages"}</span>
+            <span class="docs-section-tile__icon">
+              <Icon name={categoryIcons[group.category] ?? "BookOpen"} size={18} />
+            </span>
+            <span>
+              <strong>{group.category}</strong>
+              <small>{group.items.length} {group.items.length === 1 ? "page" : "pages"}</small>
+            </span>
+            <Icon name="ArrowRight" size={14} />
           </a>
         ))
       }
     </div>
   </section>
 
-  <section class="section section--compact">
+  <section class="section section--compact" id="start-here">
     <div class="shell">
       <header class="docs-group-head">
         <Icon name="BookOpen" size={18} />
         <h2>Start Here</h2>
         <span>{indexDocs.length} section guides</span>
       </header>
-      <div class="docs-card-grid">
+      <div class="docs-start-grid">
         {
-          indexDocs.map((doc) => (
-            <DocCard
-              title={doc.data.title}
-              description={doc.data.description}
-              href={docsPath(doc.data.sourcePath)}
-              category={doc.data.category}
-              icon={categoryIcons[doc.data.category] ?? "BookOpen"}
-            />
-          ))
+          primaryDoc ? (
+            <a class="docs-featured-guide" href={docsPath(primaryDoc.data.sourcePath)}>
+              <span class="docs-featured-guide__label">
+                <Icon name={categoryIcons[primaryDoc.data.category] ?? "BookOpen"} size={16} />
+                Recommended first read
+              </span>
+              <strong>{primaryDoc.data.title}</strong>
+              <span>{primaryDoc.data.description}</span>
+              <span class="doc-card__link">
+                Open guide
+                <Icon name="ArrowRight" size={14} />
+              </span>
+            </a>
+          ) : null
         }
+        <div class="docs-start-list">
+          {
+            secondaryDocs.map((doc) => (
+              <DocCard
+                title={doc.data.title}
+                description={doc.data.description}
+                href={docsPath(doc.data.sourcePath)}
+                category={doc.data.category}
+                icon={categoryIcons[doc.data.category] ?? "BookOpen"}
+              />
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
