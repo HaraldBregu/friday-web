@@ -17,8 +17,8 @@
   },
   "demoSuggestions": [
     {
-      "question": "Summarize my unread Slacks",
-      "answer": "You have 14 unreads across 3 channels. The thread worth your attention is #launch, where Priya is blocked on the API timeout question and tagged you 11 minutes ago."
+      "question": "Summarize my Discord mentions",
+      "answer": "You have 4 direct mentions across 2 channels. The thread worth your attention is #launch, where Priya is blocked on the API timeout question and tagged you 11 minutes ago."
     },
     {
       "question": "Draft a polite decline to Maya",
@@ -119,17 +119,7 @@
   ],
   "landingChannels": [
     "Telegram",
-    "Discord",
-    "Slack",
-    "Microsoft Teams",
-    "Google Chat",
-    "WhatsApp",
-    "Signal",
-    "Matrix",
-    "Mattermost",
-    "IRC",
-    "iMessage",
-    "Feishu / Lark"
+    "Discord"
   ],
   "faqs": [
     {
@@ -150,7 +140,7 @@
     },
     {
       "question": "Can Friday work from outside the app?",
-      "answer": "Yes. Channels let you talk to Friday from messaging platforms. Telegram is live today, and the channel catalog includes Slack, Discord, Microsoft Teams, WhatsApp, Signal, Matrix, Mattermost, Google Chat, LINE, IRC, Twitch, and more."
+      "answer": "Yes. Channels let you talk to Friday from messaging platforms. Telegram and Discord are supported today, with per-channel access control and channel secrets."
     },
     {
       "question": "What can be automated?",
@@ -270,28 +260,9 @@
     "Team-specific workflow instructions"
   ],
   "channelCatalog": [
-    "ClickClack",
     "Discord",
-    "Feishu/Lark",
-    "Google Chat",
-    "iMessage",
-    "IRC",
-    "LINE",
-    "Matrix",
-    "Mattermost",
-    "Microsoft Teams",
-    "Nextcloud Talk",
-    "Nostr",
-    "QQ Bot",
-    "Signal",
-    "Slack",
-    "Synology Chat",
     "Telegram",
-    "Tlon",
-    "Twitch",
-    "WhatsApp",
-    "Zalo",
-    "Zalo Personal"
+    "future channel adapters"
   ],
   "channelSettings": [
     "Enable or disable channel",
@@ -304,7 +275,7 @@
     "Direct message policy: allowlist, pairing, open, or deny",
     "Allowed sender lists for direct messages and groups",
     "Runtime status",
-    "Telegram start, reconnect, and stop actions"
+    "Reliable delivery and reconnect behavior"
   ],
   "cronDetails": [
     "List scheduled tasks",
