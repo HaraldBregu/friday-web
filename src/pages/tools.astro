@@ -14,35 +14,25 @@ const categoryIcons: Record<string, string> = {
   Files: "FolderOpen",
   Shell: "Terminal",
   Web: "Globe",
-  Scheduling: "Clock",
+  Media: "Image",
+  Automation: "Clock",
+  Extension: "PlugZap",
 };
-
-const dynamicTools = [
-  { name: "execute_skill", when: "A selected skill is not file-backed" },
-  { name: "startup_files", when: "Bootstrap is pending — the only tool exposed during setup" },
-  { name: "heartbeat_respond", when: "Heartbeat runs with tool reporting enabled" },
-  { name: "Plugin tools", when: "Run-scoped assembler with plugin tools included by policy" },
-  { name: "MCP tools", when: "Model Context Protocol servers are explicitly included" },
-  { name: "LSP tools", when: "An LSP runtime supplies language-server capabilities" },
-  { name: "Client tools", when: "The client provides hosted tool definitions" },
-  { name: "tool_search", when: "Run-scoped tool-search compaction is enabled" },
-  { name: "tool_describe", when: "Fetches schema for a hidden tool when compaction is active" },
-  { name: "tool_call", when: "Executes a hidden tool through the managed execution path" },
-];
 ---
 
 <Layout
   title="Agent Tools"
-  description="All 16 local agent tools in Friday — file operations, shell execution, web fetching, browser control, scheduling, and more."
+  description="Friday's assistant uses permissioned tools for files, commands, web work, images, scheduling, skills, subagents, and MCP."
 >
   <section class="section page-hero">
     <div class="shell section-heading">
       <p class="eyebrow">Agent Tools</p>
       <h1>What Friday can actually do.</h1>
       <p>
-        16 local tools in the default registry, plus plugin, MCP,
-        and LSP tools when configured. Up to 8 are selected per turn based on
-        the request — ranked by relevance, safety, and cost.
+        Tools are the assistant's hands. Friday uses them only when they improve
+        the result, treats their output as evidence, and asks for approval before
+        sensitive actions such as writing files, sending messages, deleting data,
+        or touching accounts.
       </p>
     </div>
   </section>
@@ -51,20 +41,20 @@ const dynamicTools = [
     <div class="shell">
       <div class="tools-stats">
         <div class="stat">
-          <strong>16</strong>
-          <span>local tools</span>
+          <strong>{tools.length}</strong>
+          <span>tool families</span>
         </div>
         <div class="stat">
-          <strong>8</strong>
-          <span>exposed per turn</span>
+          <strong>Approval</strong>
+          <span>before sensitive actions</span>
         </div>
         <div class="stat">
-          <strong>5</strong>
-          <span>identical calls trigger loop veto</span>
+          <strong>MCP</strong>
+          <span>for external tools</span>
         </div>
         <div class="stat">
-          <strong>1 MB</strong>
-          <span>max web_fetch response</span>
+          <strong>Local</strong>
+          <span>for files and credentials</span>
         </div>
       </div>
     </div>
@@ -96,24 +86,6 @@ const dynamicTools = [
   <section class="section section--compact">
     <div class="shell">
       <header class="tools-group-head">
-        <Icon name="Layers" size={18} />
-        <h2>Dynamic tools</h2>
-        <span>Added only when the condition applies</span>
-      </header>
-      <div class="dynamic-tools-list">
-        {dynamicTools.map((dt) => (
-          <div class="dynamic-tool-row">
-            <code class="tool-name">{dt.name}</code>
-            <p>{dt.when}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--compact">
-    <div class="shell">
-      <header class="tools-group-head">
         <Icon name="ShieldCheck" size={18} />
         <h2>How tools are selected</h2>
       </header>
@@ -122,27 +94,27 @@ const dynamicTools = [
           {
             step: "01",
             title: "Policy check",
-            desc: "If the user says not to use tools, none are exposed. Bootstrap runs expose startup_files only.",
+            desc: "The assistant decides whether a tool is useful for the request and skips tools for direct answers.",
           },
           {
             step: "02",
             title: "Candidate filtering",
-            desc: "Disabled tools, tools without required permissions, tools above the safety level, and privacy-constrained tools are removed.",
+            desc: "Sensitive tools require the appropriate permission path before they can touch files, accounts, private data, or outside services.",
           },
           {
             step: "03",
             title: "Ranking",
-            desc: "Remaining tools are scored by request-term match, inferred category, memory preferences, recent success, schema specificity, reliability, cost, and latency.",
+            desc: "Friday selects the files, commands, web search, browser, image generation, scheduler, skill, subagent, or MCP tool that fits the task.",
           },
           {
             step: "04",
-            title: "Cap at 8",
-            desc: "At most 8 tools reach the provider per turn. File mutation tools automatically keep read available. Skill and heartbeat tools can force their way in.",
+            title: "Approval",
+            desc: "Writing, deleting, publishing, sending messages, or accessing private data pauses for explicit confirmation.",
           },
           {
             step: "05",
-            title: "Loop detection",
-            desc: "The third identical call in a turn adds a warning. After five identical calls, execution is vetoed and the model receives a loop-detector error.",
+            title: "Verification",
+            desc: "Friday checks the result against the request and returns a concrete answer, file, image, scheduled job, or other artifact.",
           },
         ].map(({ step, title, desc }) => (
           <div class="selection-step">
@@ -158,9 +130,9 @@ const dynamicTools = [
   </section>
 
   <CTASection
-    eyebrow="Extend the tool surface"
-    title="MCP, plugins, LSP, and client-hosted tools."
-    description="Connect Model Context Protocol servers, plugin registries, or language-server capabilities to add domain-specific tools without modifying the core agent loop."
+    eyebrow="Permissioned actions"
+    title="Friday acts, but you stay in control."
+    description="The assistant will not send messages, change records, delete data, or touch production systems without clear authorization."
   />
 </Layout>
 

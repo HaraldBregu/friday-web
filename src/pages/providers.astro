@@ -5,41 +5,37 @@ import providers from "../data/providers.json";
 import Layout from "../layouts/Layout.astro";
 
 const capabilityColors: Record<string, string> = {
-  "Chat": "cap--blue",
-  "Research chat": "cap--blue",
-  "Speech-to-text": "cap--green",
-  "Text-to-speech": "cap--green",
-  "Realtime voice": "cap--green",
-  "Audio": "cap--green",
-  "Image": "cap--purple",
-  "Video": "cap--yellow",
-  "3D": "cap--yellow",
-  "Omni": "cap--accent",
-  "Music": "cap--pink",
+  "Assistant": "cap--blue",
+  "Speech-to-Text": "cap--green",
+  "Text-to-Speech": "cap--green",
+  "Text-to-Image": "cap--purple",
+  "Text-to-Video": "cap--yellow",
+  "Music / Audio": "cap--pink",
 };
 
 const allCapabilities = [...new Set(providers.flatMap((p) => p.capabilities))].sort();
 
-const chatProviders = providers.filter((p) => p.capabilities.includes("Chat") || p.capabilities.includes("Research chat"));
+const assistantProviders = providers.filter((p) => p.capabilities.includes("Assistant"));
 const voiceProviders = providers.filter((p) =>
-  p.capabilities.some((c) => ["Speech-to-text", "Text-to-speech", "Realtime voice", "Audio"].includes(c))
+  p.capabilities.some((c) => ["Speech-to-Text", "Text-to-Speech"].includes(c))
 );
-const imageProviders = providers.filter((p) => p.capabilities.includes("Image"));
-const videoProviders = providers.filter((p) => p.capabilities.includes("Video") || p.capabilities.includes("3D") || p.capabilities.includes("Omni"));
-const musicProviders = providers.filter((p) => p.capabilities.includes("Music"));
+const imageProviders = providers.filter((p) => p.capabilities.includes("Text-to-Image"));
+const futureProviders = providers.filter((p) => p.capabilities.includes("Text-to-Video") || p.capabilities.includes("Music / Audio"));
 ---
 
 <Layout
   title="AI Providers"
-  description="All 30+ AI providers supported by Friday — chat, voice, image, video, music, and local models."
+  description="Friday lets you bring your own AI provider keys and choose providers by capability."
 >
   <section class="section page-hero">
     <div class="shell section-heading">
       <p class="eyebrow">AI Providers</p>
-      <h1>Every model, under your control.</h1>
+      <h1>Bring your own AI.</h1>
       <p>
-        Configure any of 30+ providers for your assistant, voice, images,
-        video, and music. Credentials stay local. Models resolve at runtime.
+        Add your own API keys, then choose which provider and model powers the
+        assistant, speech-to-text, text-to-speech, image generation, and future
+        media services. Credentials stay local and are never displayed back in
+        plain text after saving.
       </p>
     </div>
   </section>
@@ -55,11 +51,10 @@ const musicProviders = providers.filter((p) => p.capabilities.includes("Music"))
   </section>
 
   {[
-    { label: "Chat & Research", icon: "Bot", items: chatProviders },
+    { label: "Assistant", icon: "Bot", items: assistantProviders },
     { label: "Voice", icon: "Mic", items: voiceProviders },
     { label: "Image", icon: "Image", items: imageProviders },
-    { label: "Video & 3D", icon: "Video", items: videoProviders },
-    { label: "Music & Audio", icon: "Music", items: musicProviders },
+    { label: "Coming soon media slots", icon: "Video", items: futureProviders },
   ].map(({ label, icon, items }) => (
     <section class="section section--compact">
       <div class="shell">
@@ -102,9 +97,9 @@ const musicProviders = providers.filter((p) => p.capabilities.includes("Music"))
   ))}
 
   <CTASection
-    eyebrow="OpenAI-compatible by default"
-    title="Any endpoint that speaks OpenAI works."
-    description="Point Friday at a local runtime, a private deployment, or any OpenAI-compatible API. Configure base URL and API key in provider settings."
+    eyebrow="Provider choice"
+    title="Each capability can use a different provider."
+    description="Mix providers for quality, cost, and speed while keeping provider keys in local settings."
   />
 </Layout>
 
