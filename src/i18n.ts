@@ -255,266 +255,82 @@ const fridayIt = {
 
 const integrationsIt = [
   {
-    name: "GitHub",
-    category: localizedCategory.Code,
-    description: "Ispeziona issue, apri pull request, riassumi review e monitora l'attivita dei repository.",
-    icon: "Github",
-  },
-  {
-    name: "GitLab",
-    category: localizedCategory.Code,
-    description: "Collega merge request, stato CI e project board al workspace del tuo assistente.",
-    icon: "GitBranch",
-  },
-  {
     name: "Telegram",
     category: localizedCategory.Channels,
     description:
-      "Invia riepiloghi pianificati, alert e richieste di approvazione alle chat Telegram abbinate. Runtime incluso con long polling, logica di riconnessione e supporto gruppi.",
+      "Parla con Friday da Telegram tramite un bot configurato, con stato abilitato, allowlist, target e policy DM.",
     icon: "MessageSquare",
-  },
-  {
-    name: "Slack",
-    category: localizedCategory.Channels,
-    description: "Ricevi aggiornamenti, approvazioni e riepiloghi giornalieri nei canali che il tuo team gia segue.",
-    icon: "Slack",
   },
   {
     name: "Discord",
     category: localizedCategory.Channels,
-    description: "Esegui workflow community e code di supporto da un assistente nativo del server.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "WhatsApp",
-    category: localizedCategory.Channels,
-    description: "Consegnare aggiornamenti personali e di team tramite conversazioni WhatsApp configurate con Cloud API.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "Microsoft Teams",
-    category: localizedCategory.Channels,
-    description: "Instrada aggiornamenti di stato e workflow di team negli spazi Microsoft Teams tramite Graph API.",
-    icon: "Users",
-  },
-  {
-    name: "Google Chat",
-    category: localizedCategory.Channels,
-    description: "Pubblica riepiloghi, prompt di attivita e notifiche nelle stanze Google Chat.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "Signal",
-    category: localizedCategory.Channels,
-    description: "Usa Signal per notifiche private di canale e workflow di messaggi diretti abbinati.",
-    icon: "RadioTower",
-  },
-  {
-    name: "iMessage",
-    category: localizedCategory.Channels,
-    description: "Collega Friday a iMessage per consegna messaggi diretti nativa su macOS.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "Matrix",
-    category: localizedCategory.Channels,
-    description: "Usa il protocollo Matrix aperto per notifiche di team federate e decentralizzate.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "Mattermost",
-    category: localizedCategory.Channels,
-    description: "Consegnare aggiornamenti in workspace Mattermost self-hosted o cloud.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "LINE",
-    category: localizedCategory.Channels,
-    description: "Invia messaggi e aggiornamenti workflow tramite LINE Messaging API.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "Feishu / Lark",
-    category: localizedCategory.Channels,
-    description: "Integra Feishu e Lark tramite la piattaforma open per messaggistica enterprise.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "IRC",
-    category: localizedCategory.Channels,
-    description: "Connettiti a reti IRC usando IRCv3 per consegna su canale leggera e a bassa latenza.",
-    icon: "Terminal",
-  },
-  {
-    name: "Twitch",
-    category: localizedCategory.Channels,
-    description: "Esegui workflow live-stream e interazioni bot nella chat Twitch.",
-    icon: "RadioTower",
-  },
-  {
-    name: "Nextcloud Talk",
-    category: localizedCategory.Channels,
-    description: "Raggiungi stanze e bot Nextcloud Talk self-hosted tramite Talk API.",
-    icon: "Cloud",
-  },
-  {
-    name: "Synology Chat",
-    category: localizedCategory.Channels,
-    description: "Pubblica notifiche e aggiornamenti su Synology Chat tramite webhook o integrazione.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "Nostr",
-    category: localizedCategory.Channels,
-    description: "Pubblica messaggi diretti cifrati sul protocollo decentralizzato Nostr.",
-    icon: "RadioTower",
-  },
-  {
-    name: "QQ Bot",
-    category: localizedCategory.Channels,
-    description: "Costruisci workflow QQ bot con l'API ufficiale della piattaforma QQ Bot.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "Zalo",
-    category: localizedCategory.Channels,
-    description: "Consegnare messaggi tramite Zalo Official Account per audience basate in Vietnam.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "Tlon / Urbit",
-    category: localizedCategory.Channels,
-    description: "Connettiti a gruppi Tlon decentralizzati tramite Urbit per comunicazione sovrana.",
-    icon: "Globe",
-  },
-  {
-    name: "ClickClack",
-    category: localizedCategory.Channels,
-    description: "Integra ClickClack per workflow specializzati di messaggistica su canale.",
-    icon: "MessageSquare",
-  },
-  {
-    name: "Da voce a testo",
-    category: localizedCategory.Operators,
     description:
-      "Dettatura live e trascrizione audio tramite qualsiasi provider STT configurato, come OpenAI Realtime, Deepgram e altri.",
+      "Raggiungi Friday da Discord con un bot e ricevi le risposte nello stesso canale o thread.",
+    icon: "MessageSquare",
+  },
+  {
+    name: "Server MCP remoti",
+    category: "MCP",
+    description: "Collega tool server hosted via HTTP con autenticazione opzionale a token o chiave.",
+    icon: "PlugZap",
+  },
+  {
+    name: "Server MCP locali",
+    category: "MCP",
+    description: "Esegui tool server stdio come processi locali per aggiungere strumenti specifici a Friday.",
+    icon: "Workflow",
+  },
+  {
+    name: "Skill",
+    category: "Estensione",
+    description:
+      "Installa o importa workflow riutilizzabili con istruzioni, riferimenti, template, schemi e comportamento eseguibile opzionale.",
+    icon: "BookOpen",
+  },
+  {
+    name: "Endpoint compatibili OpenAI",
+    category: localizedCategory["AI Providers"],
+    description: "Punta Friday ad altri provider compatibili configurando endpoint e chiave API.",
+    icon: "Cpu",
+  },
+  {
+    name: "Provider assistente",
+    category: localizedCategory["AI Providers"],
+    description: "Usa il tuo account provider e modello per chat e agente.",
+    icon: "Bot",
+  },
+  {
+    name: "Provider voce",
+    category: localizedCategory["AI Providers"],
+    description:
+      "Scegli provider e modello separati per dettatura speech-to-text e lettura text-to-speech.",
     icon: "Mic",
   },
   {
-    name: "Da testo a voce",
-    category: localizedCategory.Operators,
-    description:
-      "Sintetizza audio parlato dalle risposte dell'assistente usando ElevenLabs, Cartesia, Deepgram o qualsiasi provider TTS.",
-    icon: "Volume2",
-  },
-  {
-    name: "Creatore immagini",
-    category: localizedCategory.Operators,
-    description:
-      "Genera e modifica immagini tramite Black Forest Labs, Stability AI, Ideogram, OpenAI o qualsiasi provider per immagini.",
+    name: "Provider immagini",
+    category: localizedCategory["AI Providers"],
+    description: "Genera immagini tramite il provider e modello text-to-image che selezioni.",
     icon: "Image",
   },
   {
-    name: "Creatore video",
-    category: localizedCategory.Operators,
+    name: "Task scheduler",
+    category: "Automazione",
     description:
-      "Crea video con job di generazione asincroni tramite Runway, Kling, Pika, Luma AI o qualsiasi provider video.",
-    icon: "Video",
-  },
-  {
-    name: "Creatore musica",
-    category: localizedCategory.Operators,
-    description:
-      "Genera musica e output audio tramite MiniMax, Stability AI, ElevenLabs, Google o qualsiasi provider audio.",
-    icon: "Music",
-  },
-  {
-    name: "OCR documenti",
-    category: localizedCategory.Operators,
-    description: "Estrai testo da immagini e documenti tramite endpoint OCR o provider configurato.",
-    icon: "ScanText",
-  },
-  {
-    name: "Scheduler Cron",
-    category: localizedCategory.Operators,
-    description:
-      "Pianifica attivita ricorrenti, esecuzioni singole e job a intervallo con gestione dei run mancati e policy di concorrenza.",
+      "Esegui lavori assistente ricorrenti come riepiloghi giornalieri, controlli periodici o pulizie di routine.",
     icon: "Clock",
   },
   {
-    name: "Attivita in background",
-    category: localizedCategory.Operators,
-    description:
-      "Esegui lavoro agent, immagini, video, audio e OCR in parallelo con cancellazione e tracciamento degli eventi di ciclo vita.",
-    icon: "Layers",
+    name: "Health check",
+    category: "Automazione",
+    description: "Fai eseguire a Friday controlli periodici sulla tua checklist e ricevi report sullo stato.",
+    icon: "HeartHandshake",
   },
   {
-    name: "Postgres",
+    name: "Workspace locale",
     category: localizedCategory.Data,
-    description: "Interroga dati operativi con credenziali limitate e workflow leggibili e auditabili.",
+    description:
+      "Mantieni file prodotti, dati di lavoro, impostazioni, credenziali, memoria e cronologia sul tuo computer.",
     icon: "Database",
-  },
-  {
-    name: "Cloudflare",
-    category: localizedCategory.Infrastructure,
-    description: "Coordina anteprime deploy, controlli DNS, code, worker e attivita edge runtime.",
-    icon: "Cloud",
-  },
-  {
-    name: "OpenAI",
-    category: localizedCategory["AI Providers"],
-    description:
-      "Chat, speech-to-text, text-to-speech, immagini e video. GPT-5.5, GPT-5.4 e GPT-5.4 Mini con reasoning effort configurabile.",
-    icon: "Cpu",
-  },
-  {
-    name: "Anthropic",
-    category: localizedCategory["AI Providers"],
-    description: "Modelli Claude Opus, Sonnet e Haiku per chat e workflow con uso di strumenti.",
-    icon: "Cpu",
-  },
-  {
-    name: "Google DeepMind",
-    category: localizedCategory["AI Providers"],
-    description:
-      "Gemini 2.5 Pro, Flash e Flash-Lite tramite Gemini API compatibile con OpenAI. Chat, voce, immagini, video e musica.",
-    icon: "Cpu",
-  },
-  {
-    name: "xAI",
-    category: localizedCategory["AI Providers"],
-    description: "Grok 4.3, Grok 4.3 Fast e Grok Code Fast per chat, voce realtime, immagini e video.",
-    icon: "Cpu",
-  },
-  {
-    name: "Mistral AI",
-    category: localizedCategory["AI Providers"],
-    description: "Modelli Mistral Large, Medium, Small e Ministral per chat con reasoning effort configurabile.",
-    icon: "Cpu",
-  },
-  {
-    name: "DeepSeek",
-    category: localizedCategory["AI Providers"],
-    description: "DeepSeek V4-Pro e V4-Flash tramite DeepSeek API compatibile con OpenAI.",
-    icon: "Cpu",
-  },
-  {
-    name: "Perplexity",
-    category: localizedCategory["AI Providers"],
-    description: "Sonar Reasoning Pro, Sonar Pro e Sonar Deep Research per chat di ricerca basata sul web.",
-    icon: "Cpu",
-  },
-  {
-    name: "ElevenLabs",
-    category: localizedCategory["AI Providers"],
-    description: "Speech-to-text, text-to-speech, audio e musica. Provider TTS predefinito con voce Rachel multilingue.",
-    icon: "Volume2",
-  },
-  {
-    name: "Runtime locale",
-    category: localizedCategory["AI Providers"],
-    description: "Esegui carichi privati su modelli locali o self-hosted per bozze sensibili e contesto interno.",
-    icon: "Server",
   },
 ] satisfies typeof integrationsEn;
 
