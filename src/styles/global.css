@@ -2531,7 +2531,7 @@ p {
   align-items: center;
   gap: 0.45rem;
   width: fit-content;
-  margin-bottom: auto;
+  margin-bottom: 4rem;
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -2543,7 +2543,7 @@ p {
   position: relative;
   z-index: 1;
   max-width: 12ch;
-  margin-top: 4rem;
+  margin-top: 0;
   color: var(--text);
   font-size: 2.15rem;
   font-weight: 600;
