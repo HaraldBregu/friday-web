@@ -740,7 +740,7 @@ const en = {
     faqEyebrow: "FAQ",
     faqTitle: "Common questions.",
     downloadTitle: "Get Friday for desktop.",
-    downloadLabel: "Download desktop app",
+    downloadLabel: "Donwload",
     releaseFootnote: "desktop builds",
   },
   integrationsPage: {
