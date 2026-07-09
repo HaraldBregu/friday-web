@@ -4,11 +4,15 @@ export type DocEntry = CollectionEntry<"docs">;
 
 export const categoryIcons: Record<string, string> = {
   AI: "Bot",
+  Automation: "Clock",
   Channels: "RadioTower",
   Core: "Layers",
   Data: "Database",
+  Extension: "PlugZap",
   Models: "Sparkles",
+  Privacy: "ShieldCheck",
   Providers: "Server",
+  Product: "BookOpen",
   "Renderer UI": "Monitor",
   System: "Cpu",
   Tasks: "Clock",

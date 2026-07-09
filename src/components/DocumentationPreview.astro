@@ -7,12 +7,12 @@ import { categoryIcons, docsPath, groupDocs } from "../lib/docs";
 const docs = (await getCollection("docs")).sort((a, b) => a.data.sourcePath.localeCompare(b.data.sourcePath));
 const groups = groupDocs(docs);
 const featuredSources = [
-  "models/index.md",
-  "providers/index.md",
-  "channels/index.md",
-  "ui/index.md",
-  "system/index.md",
-  "ai/tools.md",
+  "overview.md",
+  "features.md",
+  "providers.md",
+  "skills-and-mcp.md",
+  "channels.md",
+  "privacy.md",
 ];
 const featuredDocs = featuredSources
   .map((sourcePath) => docs.find((doc) => doc.data.sourcePath === sourcePath))
