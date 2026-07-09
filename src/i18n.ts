@@ -65,9 +65,9 @@ const fridayIt = {
   },
   demoSuggestions: [
     {
-      question: "Riassumi i miei Slack non letti",
+      question: "Riassumi le mie menzioni Discord",
       answer:
-        "Hai 14 messaggi non letti in 3 canali. Il thread da guardare e #launch: Priya e bloccata sulla domanda del timeout API e ti ha taggato 11 minuti fa.",
+        "Hai 4 menzioni dirette in 2 canali. Il thread da guardare e #launch: Priya e bloccata sulla domanda del timeout API e ti ha taggato 11 minuti fa.",
     },
     {
       question: "Scrivi un rifiuto gentile a Maya",
@@ -243,7 +243,7 @@ const fridayIt = {
     {
       question: "Friday puo lavorare fuori dall'app?",
       answer:
-        "Si. I canali permettono di parlare con Friday da piattaforme di messaggistica. Telegram e live oggi; il catalogo include Slack, Discord, Microsoft Teams, WhatsApp, Signal, Matrix, Mattermost, Google Chat, LINE, IRC, Twitch e altri.",
+        "Si. I canali permettono di parlare con Friday da piattaforme di messaggistica. Telegram e Discord sono supportati oggi, con controllo accessi e segreti separati per ogni canale.",
     },
     {
       question: "Quali piattaforme desktop sono supportate?",
@@ -730,9 +730,9 @@ const en = {
     mcpTitle: "Extend Friday|with MCP servers.",
     channelsEyebrow: "Channels",
     channelsTitle: "Chat with Friday|from anywhere.",
-    channelsPanelTitle: "Telegram live today, broader catalog ready.",
+    channelsPanelTitle: "Telegram and Discord supported today.",
     channelsPanelDescription:
-      "Connect a Telegram bot and chat with Friday from your phone or desktop. Other channel entries become active as their runtime adapters, MCP servers, or plugins are enabled.",
+      "Connect a Telegram or Discord bot and chat with Friday from your phone or desktop, with per-channel access control and delivery back through the same channel.",
     operatorsEyebrow: "Workflows",
     operatorsTitle: "Voice, images, schedules,|and health checks.",
     providersEyebrow: "AI Providers",
@@ -794,11 +794,11 @@ const en = {
   operatorsPage: {
     title: "Operators",
     description:
-      "Friday's AI operators - speech, text-to-speech, image, video, music, OCR, cron scheduling, and background tasks.",
+      "Friday workflows for chat, tools, voice, images, skills, MCP, channels, scheduling, health checks, and memory.",
     eyebrow: "Operators",
-    heading: "Every AI job, routed to the right model.",
+    heading: "The assistant capabilities, grouped by workflow.",
     intro:
-      "Friday separates concerns. Each operator owns one kind of work - voice, images, video, music, or scheduling - and resolves its own provider and model from your saved settings.",
+      "Friday combines a permissioned assistant with local data, provider choice, channels, skills, MCP tools, scheduled work, and health checks.",
     supportedProviders: "Supported providers",
     statusLabel: {
       implemented: "Live",
@@ -890,7 +890,7 @@ const en = {
     scheduledLabel: "Scheduled",
     scheduledValue: "Daily 9:00 brief",
     channelLabel: "Channel",
-    channelValue: "Telegram + Slack",
+    channelValue: "Telegram + Discord",
     privacyLabel: "Privacy",
     privacyValue: "Local keys",
     actionPreviewLabel: "Workspace action preview",
@@ -954,9 +954,9 @@ const it = {
     mcpTitle: "Estendi Friday|con i server MCP.",
     channelsEyebrow: "Canali",
     channelsTitle: "Parla con Friday|da ovunque.",
-    channelsPanelTitle: "Telegram live oggi, catalogo piu ampio pronto.",
+    channelsPanelTitle: "Telegram e Discord supportati oggi.",
     channelsPanelDescription:
-      "Collega un bot Telegram e parla con Friday dal telefono o dal desktop. Gli altri canali diventano attivi quando vengono abilitati adapter runtime, server MCP o plugin.",
+      "Collega un bot Telegram o Discord e parla con Friday dal telefono o dal desktop, con controllo accessi per canale e risposta nello stesso canale.",
     operatorsEyebrow: "Workflow",
     operatorsTitle: "Voce, immagini, pianificazioni,|e health check.",
     providersEyebrow: "Provider AI",
@@ -1018,11 +1018,11 @@ const it = {
   operatorsPage: {
     title: "Operatori",
     description:
-      "Gli operatori AI di Friday: speech, text-to-speech, immagini, video, musica, OCR, pianificazione cron e attivita in background.",
+      "Workflow Friday per chat, strumenti, voce, immagini, skill, MCP, canali, pianificazione, health check e memoria.",
     eyebrow: "Operatori",
-    heading: "Ogni lavoro AI, instradato al modello giusto.",
+    heading: "Le capacita dell'assistente, raggruppate per workflow.",
     intro:
-      "Friday separa le responsabilita. Ogni operatore gestisce un tipo di lavoro - voce, immagini, video, musica o pianificazione - e risolve provider e modello dalle impostazioni salvate.",
+      "Friday combina un assistente autorizzato con dati locali, scelta dei provider, canali, skill, strumenti MCP, lavoro pianificato e health check.",
     supportedProviders: "Provider supportati",
     statusLabel: {
       implemented: "Attivo",
@@ -1114,7 +1114,7 @@ const it = {
     scheduledLabel: "Pianificato",
     scheduledValue: "Brief alle 9:00",
     channelLabel: "Canale",
-    channelValue: "Telegram + Slack",
+    channelValue: "Telegram + Discord",
     privacyLabel: "Privacy",
     privacyValue: "Chiavi locali",
     actionPreviewLabel: "Anteprima azioni workspace",
