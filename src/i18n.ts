@@ -374,6 +374,27 @@ const integrationsIt = [
     icon: "MessageSquare",
   },
   {
+    name: "Slack",
+    category: localizedCategory.Channels,
+    description:
+      "Canale workspace in arrivo per conversazioni di team, approvazioni e risposte assistente nel thread originale.",
+    icon: "MessageSquare",
+  },
+  {
+    name: "WhatsApp",
+    category: localizedCategory.Channels,
+    description:
+      "Canale mobile in arrivo per richieste personali rapide e check-in con l'assistente.",
+    icon: "MessageSquare",
+  },
+  {
+    name: "Email",
+    category: localizedCategory.Channels,
+    description:
+      "Canale asincrono in arrivo per richieste, riepiloghi e workflow di follow-up.",
+    icon: "MessageSquare",
+  },
+  {
     name: "Server MCP remoti",
     category: "MCP",
     description: "Collega tool server hosted via HTTP con autenticazione opzionale a token o chiave.",
