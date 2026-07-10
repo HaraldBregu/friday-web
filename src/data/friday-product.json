@@ -118,8 +118,36 @@
     }
   ],
   "landingChannels": [
-    "Telegram",
-    "Discord"
+    {
+      "name": "Telegram",
+      "status": "Live",
+      "description": "Bundled bot channel for phone or desktop chat, with allowlists, DM policy, targets, and replies through the same chat.",
+      "icon": "MessageSquare"
+    },
+    {
+      "name": "Discord",
+      "status": "Coming soon",
+      "description": "Planned adapter for server and direct-message workflows once the runtime channel is registered.",
+      "icon": "MessagesSquare"
+    },
+    {
+      "name": "Slack",
+      "status": "Coming soon",
+      "description": "Planned workspace channel for team conversations, approvals, and delivery back to the originating thread.",
+      "icon": "MessageSquare"
+    },
+    {
+      "name": "WhatsApp",
+      "status": "Coming soon",
+      "description": "Planned personal messaging channel for mobile-first check-ins and assistant replies.",
+      "icon": "MessageSquare"
+    },
+    {
+      "name": "Email",
+      "status": "Coming soon",
+      "description": "Planned asynchronous channel for brief requests, summaries, and follow-up workflows.",
+      "icon": "Mail"
+    }
   ],
   "faqs": [
     {
@@ -140,7 +168,7 @@
     },
     {
       "question": "Can Friday work from outside the app?",
-      "answer": "Yes. Channels let you talk to Friday from messaging platforms. Telegram and Discord are supported today, with per-channel access control and channel secrets."
+      "answer": "Yes. Channels let you talk to Friday from messaging platforms. Telegram is supported today, with per-channel access control and channel secrets. Discord, Slack, WhatsApp, and Email are coming soon."
     },
     {
       "question": "What can be automated?",
@@ -260,8 +288,11 @@
     "Team-specific workflow instructions"
   ],
   "channelCatalog": [
-    "Discord",
     "Telegram",
+    "Discord",
+    "Slack",
+    "WhatsApp",
+    "Email",
     "future channel adapters"
   ],
   "channelSettings": [
@@ -363,6 +394,68 @@
       "description": "Text-to-video and music/audio services are planned as additional model-service slots.",
       "icon": "ScanText",
       "status": "Coming soon"
+    }
+  ],
+  "landingOperatorGroups": [
+    {
+      "label": "Assistant",
+      "description": "The core runtime that plans, asks for approval, uses tools, and returns concrete results.",
+      "items": [
+        {
+          "name": "Assistant chat",
+          "description": "Run agent turns from a clean Markdown chat, with visible tool activity, session history, and permission prompts for sensitive actions.",
+          "icon": "Layers",
+          "status": "Live"
+        }
+      ]
+    },
+    {
+      "label": "Generation",
+      "description": "Separate media operators for voice, images, video, and audio so each capability can use its own provider and model.",
+      "items": [
+        {
+          "name": "Voice generation",
+          "description": "Dictate with speech-to-text and generate read-aloud replies through the voice provider and model you choose.",
+          "icon": "Volume2",
+          "status": "Live"
+        },
+        {
+          "name": "Image generation",
+          "description": "Create images from text descriptions in chat or the image workspace using the provider and model you select.",
+          "icon": "Image",
+          "status": "Live"
+        },
+        {
+          "name": "Video generation",
+          "description": "Text-to-video is planned as its own provider-backed generation slot.",
+          "icon": "Video",
+          "status": "Coming soon"
+        },
+        {
+          "name": "Audio generation",
+          "description": "Music and sound generation are planned as separate model-service slots.",
+          "icon": "AudioLines",
+          "status": "Coming soon"
+        }
+      ]
+    },
+    {
+      "label": "Automation",
+      "description": "Background tools that run scheduled work and periodic checks without mixing them into media generation.",
+      "items": [
+        {
+          "name": "Cron scheduler",
+          "description": "Create, update, pause, resume, list, and run recurring assistant jobs with their own instructions, provider, and model.",
+          "icon": "Clock",
+          "status": "Live"
+        },
+        {
+          "name": "Health checks",
+          "description": "Run periodic checklist-driven assistant checks and report back when something in your setup needs attention.",
+          "icon": "HeartHandshake",
+          "status": "Live"
+        }
+      ]
     }
   ],
   "landingProviderGroups": [
