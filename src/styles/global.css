@@ -2077,7 +2077,6 @@ p {
     transform: translateY(-2px);
   }
 
-  .channel-cloud:hover,
   .channel-brief:hover,
   .channel-copy:hover {
     border-color: var(--line-strong);
