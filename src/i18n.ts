@@ -485,18 +485,37 @@ const en = {
       {
         title: "Product",
         links: [
+          { label: "Home", href: "/" },
           { label: "Features", href: "/#features" },
           { label: "How it works", href: "/#how" },
           { label: "MCP", href: "/#mcp" },
+          { label: "Tools", href: "/tools" },
+          { label: "Docs", href: "/docs" },
         ],
       },
       {
-        title: "Details",
+        title: "Solutions",
+        links: [
+          { label: "Enterprise", href: "/enterprise" },
+          { label: "Education", href: "/education" },
+          { label: "Personal", href: "/personal" },
+        ],
+      },
+      {
+        title: "Explore",
         links: [
           { label: "Channels", href: "/#channels" },
-          { label: "FAQ", href: "/#faq" },
           { label: "Integrations", href: "/integrations" },
-          { label: "Docs", href: "/docs" },
+          { label: "Providers", href: "/providers" },
+          { label: "Operators", href: "/operators" },
+        ],
+      },
+      {
+        title: "Company",
+        links: [
+          { label: "Community", href: "/community" },
+          { label: "Blog", href: "/blog" },
+          { label: "FAQ", href: "/#faq" },
         ],
       },
     ],
@@ -710,17 +729,37 @@ const it = {
       {
         title: "Prodotto",
         links: [
+          { label: "Home", href: "/" },
           { label: "Funzioni", href: "/#features" },
           { label: "Come funziona", href: "/#how" },
           { label: "MCP", href: "/#mcp" },
+          { label: "Strumenti", href: "/tools" },
+          { label: "Docs", href: "/docs" },
         ],
       },
       {
-        title: "Dettagli",
+        title: "Soluzioni",
+        links: [
+          { label: "Enterprise", href: "/enterprise" },
+          { label: "Education", href: "/education" },
+          { label: "Personal", href: "/personal" },
+        ],
+      },
+      {
+        title: "Esplora",
         links: [
           { label: "Canali", href: "/#channels" },
-          { label: "FAQ", href: "/#faq" },
           { label: "Integrazioni", href: "/integrations" },
+          { label: "Provider", href: "/providers" },
+          { label: "Operatori", href: "/operators" },
+        ],
+      },
+      {
+        title: "Company",
+        links: [
+          { label: "Community", href: "/community" },
+          { label: "Blog", href: "/blog" },
+          { label: "FAQ", href: "/#faq" },
         ],
       },
     ],
