@@ -5,6 +5,7 @@ import channels from "../data/channels.json";
 import Layout from "../layouts/Layout.astro";
 
 const supported = channels.filter((c) => c.runtime === "supported");
+const planned = channels.filter((c) => c.runtime !== "supported");
 
 const dmPolicyLabels: Record<string, string> = {
   allowlist: "Allowlist",
@@ -16,16 +17,17 @@ const dmPolicyLabels: Record<string, string> = {
 
 <Layout
   title="Channels"
-  description="Friday channels let you chat with your desktop assistant from Telegram and Discord."
+  description="Friday channels let you chat with your desktop assistant from Telegram today, with more adapters coming soon."
 >
   <section class="section page-hero">
     <div class="shell section-heading">
       <p class="eyebrow">Channels</p>
-      <h1>Chat with Friday from Telegram and Discord.</h1>
+      <h1>Chat with Friday from Telegram.</h1>
       <p>
         A message arrives from a channel, Friday runs an agent turn, and the
         reply is delivered back through the same channel. Each channel has its
-        own enabled state, secrets, allow-lists, targets, and DM policy.
+        own enabled state, secrets, allow-lists, targets, and DM policy. Telegram
+        is supported today; additional adapters are planned.
       </p>
     </div>
   </section>
@@ -36,7 +38,7 @@ const dmPolicyLabels: Record<string, string> = {
         <article class="channel-explainer-card">
           <Icon name="Zap" size={18} />
           <h3>Supported today</h3>
-          <p>Telegram and Discord can be connected as bot channels for inbound and outbound assistant chat.</p>
+          <p>Telegram can be connected as a bot channel for inbound and outbound assistant chat.</p>
         </article>
         <article class="channel-explainer-card">
           <Icon name="PlugZap" size={18} />
@@ -56,7 +58,7 @@ const dmPolicyLabels: Record<string, string> = {
     <div class="shell">
       <header class="channel-group-head">
         <h2>Supported channels</h2>
-        <span>{supported.length} channels</span>
+        <span>{supported.length} channel</span>
       </header>
       <div class="channel-grid">
         {supported.map((ch) => (
@@ -84,6 +86,46 @@ const dmPolicyLabels: Record<string, string> = {
             {ch.docsUrl && (
               <a class="channel-card__link" href={ch.docsUrl} target="_blank" rel="noopener noreferrer">
                 Official docs <Icon name="ArrowRight" size={13} />
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--compact">
+    <div class="shell">
+      <header class="channel-group-head">
+        <h2>Coming soon</h2>
+        <span>{planned.length} adapters</span>
+      </header>
+      <div class="channel-grid">
+        {planned.map((ch) => (
+          <article class="channel-card channel-card--planned">
+            <div class="channel-card__header">
+              <h3>{ch.name}</h3>
+              <span class="badge badge--yellow">Coming soon</span>
+            </div>
+            <p class="channel-card__desc">{ch.description}</p>
+            <div class="channel-card__meta">
+              <div class="meta-row">
+                <span class="meta-label">Planned DM default</span>
+                <span class="meta-val">{dmPolicyLabels[ch.dmPolicy] ?? ch.dmPolicy}</span>
+              </div>
+              <div class="meta-row">
+                <span class="meta-label">Thread support</span>
+                <span class="meta-val">{ch.threadSupport ? "Planned" : "Not planned"}</span>
+              </div>
+            </div>
+            {ch.configFields.length > 0 && (
+              <div class="channel-card__fields">
+                {ch.configFields.map((f) => <span>{f}</span>)}
+              </div>
+            )}
+            {ch.docsUrl && (
+              <a class="channel-card__link" href={ch.docsUrl} target="_blank" rel="noopener noreferrer">
+                Platform docs <Icon name="ArrowRight" size={13} />
               </a>
             )}
           </article>
@@ -197,6 +239,10 @@ const dmPolicyLabels: Record<string, string> = {
 
   .channel-card--live {
     border-color: rgba(120, 212, 184, 0.25);
+  }
+
+  .channel-card--planned {
+    border-color: rgba(245, 191, 79, 0.18);
   }
 
   .channel-card__header {
