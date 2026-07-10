@@ -87,9 +87,9 @@
     "id": "channels",
     "name": "Channels",
     "status": "implemented",
-    "description": "Talk to Friday from Telegram or Discord and receive replies back through the same channel.",
+    "description": "Talk to Friday from Telegram today and receive replies back through the same channel. Discord, Slack, WhatsApp, and Email are planned adapters.",
     "icon": "RadioTower",
-    "providers": ["Telegram", "Discord"],
+    "providers": ["Telegram", "Discord coming soon", "Slack coming soon", "WhatsApp coming soon", "Email coming soon"],
     "highlights": [
       "Bot-based messaging",
       "Reliable delivery and reconnection",
