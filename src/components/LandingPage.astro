@@ -21,7 +21,7 @@ const githubUrl = socialLinks.find((link) => link.label === "GitHub")?.url;
 const landingMetrics = friday.landingMetrics;
 const mcpHighlights = friday.landingMcp;
 const channelHighlights = friday.landingChannels;
-const operatorHighlights = friday.landingOperators;
+const operatorGroups = friday.landingOperatorGroups;
 const providerGroups = friday.landingProviderGroups;
 ---
 
@@ -154,8 +154,23 @@ const providerGroups = friday.landingProviderGroups;
       <h2>{sp(home.channelsTitle)[0]}{sp(home.channelsTitle)[1] && <><br/><span class="heading-muted">{sp(home.channelsTitle)[1]}</span></>}</h2>
     </header>
     <div class="channel-panel">
-      <div class="channel-cloud" aria-label={ui.supportedChannels}>
-        {channelHighlights.map((channel) => <span>{channel}</span>)}
+      <div class="channel-grid-brief" aria-label={ui.supportedChannels}>
+        {
+          channelHighlights.map((channel) => (
+            <article class={channel.status === "Live" ? "channel-brief channel-brief--live" : "channel-brief channel-brief--soon"}>
+              <div class="channel-brief__top">
+                <span class="card-icon">
+                  <Icon name={channel.icon} size={18} />
+                </span>
+                <span class={channel.status === "Live" ? "channel-status channel-status--live" : "channel-status channel-status--soon"}>
+                  {channel.status}
+                </span>
+              </div>
+              <h3>{channel.name}</h3>
+              <p>{channel.description}</p>
+            </article>
+          ))
+        }
       </div>
       <div class="channel-copy">
         <h3>{home.channelsPanelTitle}</h3>
@@ -171,21 +186,35 @@ const providerGroups = friday.landingProviderGroups;
       <span class="section-tag">§ 05 — {home.operatorsEyebrow}</span>
       <h2>{sp(home.operatorsTitle)[0]}{sp(home.operatorsTitle)[1] && <><br/><span class="heading-muted">{sp(home.operatorsTitle)[1]}</span></>}</h2>
     </header>
-    <div class="operator-highlights">
+    <div class="operator-groups">
       {
-        operatorHighlights.map((op) => (
-          <article class="op-card">
-            <div class="op-card__top">
-              <div class="card-icon">
-                <Icon name={op.icon} size={19} />
+        operatorGroups.map((group) => (
+          <section class="operator-group" aria-label={group.label}>
+            <div class="operator-group__head">
+              <div>
+                <p>{group.label}</p>
+                <span>{group.description}</span>
               </div>
-              <span class={op.status === "Live" ? "op-status op-status--live" : "op-status op-status--soon"}>
-                {op.status}
-              </span>
             </div>
-            <h3>{op.name}</h3>
-            <p>{op.description}</p>
-          </article>
+            <div class="operator-highlights">
+              {
+                group.items.map((op) => (
+                  <article class="op-card">
+                    <div class="op-card__top">
+                      <div class="card-icon">
+                        <Icon name={op.icon} size={19} />
+                      </div>
+                      <span class={op.status === "Live" ? "op-status op-status--live" : "op-status op-status--soon"}>
+                        {op.status}
+                      </span>
+                    </div>
+                    <h3>{op.name}</h3>
+                    <p>{op.description}</p>
+                  </article>
+                ))
+              }
+            </div>
+          </section>
         ))
       }
     </div>
