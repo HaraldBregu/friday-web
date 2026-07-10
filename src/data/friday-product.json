@@ -17,8 +17,8 @@
   },
   "demoSuggestions": [
     {
-      "question": "Summarize my Discord mentions",
-      "answer": "You have 4 direct mentions across 2 channels. The thread worth your attention is #launch, where Priya is blocked on the API timeout question and tagged you 11 minutes ago."
+      "question": "Summarize my Telegram messages",
+      "answer": "You have 4 direct messages and 2 group threads. The thread worth your attention is #launch, where Priya is blocked on the API timeout question and tagged you 11 minutes ago."
     },
     {
       "question": "Draft a polite decline to Maya",
