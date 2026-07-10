@@ -916,15 +916,15 @@ p {
 .lp-hero {
   position: relative;
   overflow: clip;
-  padding: 6.5rem 0;
+  padding: 6rem 0 7rem;
 }
 
 .lp-hero__inner {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(400px, 1fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.08fr);
   align-items: center;
-  gap: clamp(3rem, 6vw, 6rem);
-  max-width: 1040px;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  max-width: 1080px;
 }
 
 .lp-hero__copy {
@@ -954,7 +954,7 @@ p {
 }
 
 .wordmark {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   font-size: clamp(4rem, 9vw, 7.75rem);
   font-weight: 700;
   line-height: 0.95;
@@ -966,11 +966,11 @@ p {
 }
 
 .lede {
-  max-width: 36ch;
-  margin-bottom: 2rem;
-  color: var(--text);
-  font-size: 1.25rem;
-  line-height: 1.55;
+  max-width: 52ch;
+  margin-bottom: 2.25rem;
+  color: var(--muted);
+  font-size: 1.18rem;
+  line-height: 1.68;
   text-wrap: pretty;
 }
 
@@ -983,6 +983,45 @@ p {
 
 .cta-row--center {
   justify-content: center;
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+  max-width: 560px;
+}
+
+.hero-metrics div {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(17, 17, 17, 0.86);
+  padding: 0.8rem 0.9rem;
+  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+}
+
+[data-theme="light"] .hero-metrics div {
+  background: rgba(249, 248, 244, 0.86);
+}
+
+.hero-metrics strong,
+.hero-metrics span {
+  display: block;
+}
+
+.hero-metrics strong {
+  margin-bottom: 0.22rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.hero-metrics span {
+  color: var(--faint);
+  font-size: 0.78rem;
+  line-height: 1.35;
 }
 
 .text-link,
@@ -1019,8 +1058,8 @@ p {
 .product-window {
   display: flex;
   flex-direction: column;
-  width: min(100%, 440px);
-  height: clamp(390px, 42vw, 460px);
+  width: min(100%, 420px);
+  height: clamp(500px, 52vw, 590px);
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.12);
   border-radius: 22px;
