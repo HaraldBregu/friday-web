@@ -6,7 +6,7 @@ Source: `src/pages/channels.astro`
 
 ## Purpose
 
-The channels page lists messaging channels supported by Friday and separates bundled runtime channels from catalog channels. It also explains DM policy modes and the inbound message flow.
+The channels page lists Telegram as the supported Friday channel today and separates planned adapters from bundled runtime channels. It also explains DM policy modes and the inbound message flow.
 
 ## Content Sources
 
