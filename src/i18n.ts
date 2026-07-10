@@ -58,10 +58,9 @@ const fridayIt = {
     phase: "Beta privata",
   },
   hero: {
-    eyebrow: "Assistente AI desktop local-first",
+    eyebrow: "AI desktop local-first",
     headline: "Friday.",
-    description:
-      "Il tuo copilota AI desktop per le attivita quotidiane. Scrivi o parla in linguaggio naturale e Friday puo leggere e scrivere file, cercare sul web, generare immagini, trascrivere la voce, parlare, lavorare su pianificazione e collegarsi agli strumenti che gia usi.",
+    description: "Chatta, crea e porta a termine il lavoro quotidiano — direttamente dal desktop.",
   },
   demoSuggestions: [
     {
@@ -601,7 +600,7 @@ const en = {
     ],
     userMessage: "Summarize this repo, draft a release note, and ask before running tests.",
     chatUserGreeting: "Run the release checklist.",
-    chatAssistantGreeting: "I will read the checklist, inspect the project files, and ask before editing or running commands.",
+    chatAssistantGreeting: "I’ll inspect the project and ask before making changes.",
     chatMessages: [
       { role: "user", text: "Check my calendar for tomorrow." },
       {
@@ -825,7 +824,7 @@ const it = {
     ],
     userMessage: "Riassumi questo repo, prepara una nota di release e chiedi prima di eseguire i test.",
     chatUserGreeting: "Esegui la checklist release.",
-    chatAssistantGreeting: "Leggo la checklist, ispeziono i file del progetto e chiedo prima di modificare o eseguire comandi.",
+    chatAssistantGreeting: "Ispeziono il progetto e chiedo prima di fare modifiche.",
     chatMessages: [
       { role: "user", text: "Controlla il mio calendario per domani." },
       {
