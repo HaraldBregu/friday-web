@@ -1193,6 +1193,61 @@ p {
     0 0 0 1px rgba(255, 255, 255, 0.09);
 }
 
+.chat-image {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.chat-image__head {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #9a9a9a;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.chat-image__media {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.chat-image__caption {
+  margin: 0;
+  color: #f1f1f1;
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.chat-image__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.chat-image__actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0;
+  background: transparent;
+  color: #b4b4b4;
+}
+
+.chat-image__actions button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f1f1;
+}
+
 .product-window__attachment {
   position: absolute;
   left: 1.55rem;
@@ -2004,6 +2059,12 @@ p {
 }
 
 @media (hover: hover) {
+.hero-metrics div:hover {
+  border-color: var(--line-strong);
+  background: var(--surface);
+  transform: translateY(-2px);
+}
+
   .feature:hover {
     border-color: var(--accent);
     transform: translateY(-2px);
@@ -3080,34 +3141,16 @@ p {
     font-size: 1.04rem;
   }
 
-  .cta-row {
-    display: grid;
+  .hero-metrics {
     grid-template-columns: 1fr;
-    width: 100%;
-  }
-
-  .lp-hero__preview,
-  .product-window {
-    width: 100%;
-    max-width: 100%;
   }
 
   .product-window__bar {
-    grid-template-columns: auto 1fr auto;
-    padding-inline: 0.9rem;
+    grid-template-columns: auto 1fr;
   }
 
   .product-window__bar strong {
-    justify-self: center;
-  }
-
-  .product-window__thread {
-    padding-inline: 1.1rem;
-  }
-
-  .product-window__composer {
-    right: 0.75rem;
-    left: 0.75rem;
+    justify-self: start;
   }
 
   .window-status {
@@ -3135,7 +3178,6 @@ p {
   .chat-bubble {
     padding: 0.7rem;
     font-size: 0.84rem;
-    overflow-wrap: anywhere;
   }
 
   .assistant-row {
