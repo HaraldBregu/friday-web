@@ -50,6 +50,7 @@ const fridayIt = {
   nav: [
     { label: "Prodotto", href: "#product" },
     { label: "Funzioni", href: "#features" },
+    { label: "Roadmap", href: "/roadmap" },
     { label: "Docs", href: "/docs" },
     { label: "Scarica", href: "#download" },
   ],

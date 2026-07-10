@@ -1,0 +1,209 @@
+---
+import CTASection from "../components/CTASection.astro";
+import Icon from "../components/Icon.astro";
+import Layout from "../layouts/Layout.astro";
+
+const audiences = [
+  {
+    icon: "Users",
+    eyebrow: "Enterprise",
+    title: "Coordinate work across the organization.",
+    groups: [
+      {
+        title: "Workflow & process management",
+        items: [
+          "Map, manage, and improve internal processes.",
+          "Find workflow bottlenecks and suggest practical improvements.",
+          "Run long-running and recurring work in the background.",
+          "Monitor systems, agents, and workflows with health checks.",
+        ],
+      },
+      {
+        title: "AI agents & tooling",
+        items: [
+          "Customize MCP servers for company-specific systems.",
+          "Give sales, support, HR, engineering, operations, and finance dedicated tools.",
+          "Build, install, and reuse custom skills.",
+          "Create task-specific agents with clear roles and permissions.",
+        ],
+      },
+      {
+        title: "Collaboration & memory",
+        items: [
+          "Share memory between users, teams, and agents.",
+          "Scope memory across company, team, and project contexts.",
+          "Establish reliable user-to-agent and agent-to-agent communication.",
+        ],
+      },
+      {
+        title: "Admin & control",
+        items: [
+          "Manage permissions for people, teams, agents, tools, and memories.",
+          "Keep audit logs for agent actions and background tasks.",
+          "Support compliance, security, and data-governance requirements.",
+        ],
+      },
+    ],
+  },
+  {
+    icon: "BookOpen",
+    eyebrow: "Students",
+    title: "Turn ideas into finished projects.",
+    groups: [
+      {
+        title: "Project building",
+        items: [
+          "Guide projects from idea through completion.",
+          "Offer templates for coding, research, presentations, and assignments.",
+          "Organize milestones, tasks, notes, and resources in one place.",
+        ],
+      },
+      {
+        title: "Sharing & customization",
+        items: [
+          "Share work with classmates, teachers, and mentors.",
+          "Create collaborative workspaces with feedback, comments, and version history.",
+          "Personalize workspaces, agents, tools, study plans, and learning guidance.",
+        ],
+      },
+    ],
+  },
+  {
+    icon: "HeartHandshake",
+    eyebrow: "Families",
+    title: "Make home coordination less demanding.",
+    groups: [
+      {
+        title: "Household coordination",
+        items: [
+          "Manage shared tasks, schedules, chores, shopping lists, and appointments.",
+          "Keep a shared memory for routines, preferences, dates, and recurring needs.",
+          "Set appropriate permissions for parents, children, and other family members.",
+        ],
+      },
+      {
+        title: "Planning & reminders",
+        items: [
+          "Schedule recurring household reminders.",
+          "Plan calendars, trips, meals, and budgets together.",
+          "Coordinate responsibilities across the family.",
+        ],
+      },
+    ],
+  },
+  {
+    icon: "UserRound",
+    eyebrow: "Personal",
+    title: "Keep your context with you.",
+    groups: [
+      {
+        title: "Cross-device continuity",
+        items: [
+          "Keep the same personal brain and memory across devices.",
+          "Resume tasks from phone, laptop, tablet, or desktop.",
+          "Sync preferences, history, projects, files, and context.",
+        ],
+      },
+      {
+        title: "Personal productivity",
+        items: [
+          "Manage goals, tasks, routines, and long-term projects.",
+          "Automate reminders, research, monitoring, and recurring summaries.",
+          "Adapt personal agents for work, learning, health, finance, and daily planning.",
+        ],
+      },
+    ],
+  },
+];
+
+const themes = [
+  "Customizable AI agents",
+  "Shared and scoped memory",
+  "Background task automation",
+  "MCP server customization",
+  "Dedicated workflow tools",
+  "Agent-to-agent communication",
+  "Process optimization",
+  "Cross-device continuity",
+  "Collaboration across teams and households",
+];
+---
+
+<Layout
+  title="Product Roadmap"
+  description="The product direction for Friday: customizable AI agents, shared memory, background automation, and coordination for organizations and individuals."
+>
+  <section class="section page-hero">
+    <div class="shell section-heading roadmap-intro">
+      <p class="eyebrow">Product roadmap</p>
+      <h1>AI coordination that fits how people work and live.</h1>
+      <p>
+        Friday helps companies, teams, students, families, and individuals manage workflows,
+        remove bottlenecks, and coordinate work through customizable AI agents, shared memory,
+        and background automation.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--compact" aria-labelledby="roadmap-themes">
+    <div class="shell">
+      <header class="roadmap-section-head">
+        <p class="eyebrow">Product themes</p>
+        <h2 id="roadmap-themes">The building blocks behind every workspace.</h2>
+      </header>
+      <ul class="theme-list">
+        {themes.map((theme) => <li><Icon name="Check" size={16} />{theme}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  {audiences.map((audience, index) => (
+    <section class:list={["section", "roadmap-audience", index % 2 === 1 && "section--muted"]}>
+      <div class="shell">
+        <header class="roadmap-audience-head">
+          <span class="roadmap-audience-icon"><Icon name={audience.icon} size={22} /></span>
+          <div>
+            <p class="eyebrow">{audience.eyebrow}</p>
+            <h2>{audience.title}</h2>
+          </div>
+        </header>
+        <div class="roadmap-groups">
+          {audience.groups.map((group) => (
+            <article class="roadmap-group">
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => <li><Icon name="Check" size={15} />{item}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <CTASection
+    eyebrow="Building in the open"
+    title="The roadmap is a direction, not a promise."
+    description="Friday is designed around useful, permissioned automation that keeps people in control."
+  />
+</Layout>
+
+<style>
+  .roadmap-intro { max-width: 800px; }
+  .roadmap-section-head { max-width: 660px; margin-bottom: 1.8rem; }
+  .roadmap-section-head h2, .roadmap-audience-head h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -0.035em; }
+  .theme-list { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
+  .theme-list li { display: inline-flex; align-items: center; gap: 0.45rem; border: 1px solid var(--line); border-radius: 999px; padding: 0.6rem 0.8rem; color: var(--text-soft); font-size: 0.9rem; }
+  .theme-list svg, .roadmap-group li svg { flex: 0 0 auto; color: var(--accent); }
+  .roadmap-audience { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+  .roadmap-audience-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+  .roadmap-audience-head .eyebrow { margin-bottom: 0.35rem; }
+  .roadmap-audience-icon { display: grid; flex: 0 0 auto; width: 48px; height: 48px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); }
+  .roadmap-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .roadmap-group { border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 1.65rem); background: var(--surface); }
+  .roadmap-group h3 { margin: 0 0 1rem; font-size: 1.05rem; }
+  .roadmap-group ul { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
+  .roadmap-group li { display: flex; align-items: flex-start; gap: 0.55rem; color: var(--text-soft); font-size: 0.94rem; line-height: 1.5; }
+  .roadmap-group li svg { margin-top: 0.23rem; }
+  @media (max-width: 700px) { .roadmap-groups { grid-template-columns: 1fr; } .theme-list { gap: 0.5rem; } .theme-list li { font-size: 0.84rem; } }
+</style>
