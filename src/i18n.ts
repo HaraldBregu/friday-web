@@ -65,9 +65,9 @@ const fridayIt = {
   },
   demoSuggestions: [
     {
-      question: "Riassumi le mie menzioni Discord",
+      question: "Riassumi i miei messaggi Telegram",
       answer:
-        "Hai 4 menzioni dirette in 2 canali. Il thread da guardare e #launch: Priya e bloccata sulla domanda del timeout API e ti ha taggato 11 minuti fa.",
+        "Hai 4 messaggi diretti e 2 thread di gruppo. Il thread da guardare e #launch: Priya e bloccata sulla domanda del timeout API e ti ha taggato 11 minuti fa.",
     },
     {
       question: "Scrivi un rifiuto gentile a Maya",
@@ -174,6 +174,43 @@ const fridayIt = {
       icon: "Plus",
     },
   ],
+  landingChannels: [
+    {
+      name: "Telegram",
+      status: "Attivo",
+      description:
+        "Canale bot incluso per chat da telefono o desktop, con allowlist, policy DM, target e risposte nella stessa chat.",
+      icon: "MessageSquare",
+    },
+    {
+      name: "Discord",
+      status: "In arrivo",
+      description:
+        "Adapter pianificato per workflow server e messaggi diretti quando il runtime channel sara registrato.",
+      icon: "MessagesSquare",
+    },
+    {
+      name: "Slack",
+      status: "In arrivo",
+      description:
+        "Canale workspace pianificato per conversazioni di team, approvazioni e risposta nel thread originale.",
+      icon: "MessageSquare",
+    },
+    {
+      name: "WhatsApp",
+      status: "In arrivo",
+      description:
+        "Canale di messaggistica personale pianificato per check-in mobile-first e risposte assistente.",
+      icon: "MessageSquare",
+    },
+    {
+      name: "Email",
+      status: "In arrivo",
+      description:
+        "Canale asincrono pianificato per richieste brevi, riepiloghi e workflow di follow-up.",
+      icon: "Mail",
+    },
+  ],
   landingOperators: [
     {
       name: "Chat assistente",
@@ -212,6 +249,75 @@ const fridayIt = {
       status: "Coming soon",
     },
   ],
+  landingOperatorGroups: [
+    {
+      label: "Assistente",
+      description: "Il runtime centrale che pianifica, chiede approvazione, usa strumenti e restituisce risultati concreti.",
+      items: [
+        {
+          name: "Chat assistente",
+          description:
+            "Esegui turni agent da una chat Markdown pulita, con attivita strumenti visibile, cronologia sessione e prompt di permesso per azioni sensibili.",
+          icon: "Layers",
+          status: "Live",
+        },
+      ],
+    },
+    {
+      label: "Generazione",
+      description:
+        "Operatori media separati per voce, immagini, video e audio, cosi ogni capacita puo usare provider e modello propri.",
+      items: [
+        {
+          name: "Generazione voce",
+          description:
+            "Detta con speech-to-text e genera risposte lette ad alta voce tramite il provider voce e il modello che scegli.",
+          icon: "Volume2",
+          status: "Live",
+        },
+        {
+          name: "Generazione immagini",
+          description:
+            "Crea immagini da descrizioni testuali in chat o nel workspace immagini usando provider e modello selezionati.",
+          icon: "Image",
+          status: "Live",
+        },
+        {
+          name: "Generazione video",
+          description: "Text-to-video e pianificato come slot di generazione separato basato su provider.",
+          icon: "Video",
+          status: "In arrivo",
+        },
+        {
+          name: "Generazione audio",
+          description: "Musica e suono sono pianificati come slot model-service separati.",
+          icon: "AudioLines",
+          status: "In arrivo",
+        },
+      ],
+    },
+    {
+      label: "Automazione",
+      description:
+        "Strumenti background per lavoro pianificato e controlli periodici, separati dalla generazione media.",
+      items: [
+        {
+          name: "Scheduler cron",
+          description:
+            "Crea, aggiorna, pausa, riprendi, elenca ed esegui lavori assistente ricorrenti con istruzioni, provider e modello dedicati.",
+          icon: "Clock",
+          status: "Live",
+        },
+        {
+          name: "Health check",
+          description:
+            "Esegui controlli periodici basati su checklist e ricevi un report quando qualcosa nella configurazione richiede attenzione.",
+          icon: "HeartHandshake",
+          status: "Live",
+        },
+      ],
+    },
+  ],
   landingProviderGroups: [
     { label: "Assistente", examples: ["OpenAI", "Anthropic", "Google", "Mistral", "DeepSeek", "Qwen", "OpenAI-compatible"] },
     { label: "Speech-to-Text", examples: ["OpenAI", "Deepgram", "ElevenLabs", "Mistral", "xAI", "Qwen"] },
@@ -243,7 +349,7 @@ const fridayIt = {
     {
       question: "Friday puo lavorare fuori dall'app?",
       answer:
-        "Si. I canali permettono di parlare con Friday da piattaforme di messaggistica. Telegram e Discord sono supportati oggi, con controllo accessi e segreti separati per ogni canale.",
+        "Si. I canali permettono di parlare con Friday da piattaforme di messaggistica. Telegram e supportato oggi, con controllo accessi e segreti del canale. Discord, Slack, WhatsApp ed Email sono in arrivo.",
     },
     {
       question: "Quali piattaforme desktop sono supportate?",
@@ -265,7 +371,7 @@ const integrationsIt = [
     name: "Discord",
     category: localizedCategory.Channels,
     description:
-      "Raggiungi Friday da Discord con un bot e ricevi le risposte nello stesso canale o thread.",
+      "Adapter pianificato per raggiungere Friday da Discord e ricevere risposte nello stesso canale o thread.",
     icon: "MessageSquare",
   },
   {
@@ -388,11 +494,11 @@ const en = {
     mcpTitle: "Extend Friday|with MCP servers.",
     channelsEyebrow: "Channels",
     channelsTitle: "Chat with Friday|from anywhere.",
-    channelsPanelTitle: "Telegram and Discord supported today.",
+    channelsPanelTitle: "Telegram is supported today.",
     channelsPanelDescription:
-      "Connect a Telegram or Discord bot and chat with Friday from your phone or desktop, with per-channel access control and delivery back through the same channel.",
+      "Connect a Telegram bot and chat with Friday from your phone or desktop. Discord, Slack, WhatsApp, and Email are visible as coming-soon channel adapters.",
     operatorsEyebrow: "Workflows",
-    operatorsTitle: "Voice, images, schedules,|and health checks.",
+    operatorsTitle: "Generation and automation,|split by workflow.",
     providersEyebrow: "AI Providers",
     providersTitle: "Bring your own AI.|Mix models by capability.",
     faqEyebrow: "FAQ",
@@ -548,7 +654,7 @@ const en = {
     scheduledLabel: "Scheduled",
     scheduledValue: "Daily 9:00 brief",
     channelLabel: "Channel",
-    channelValue: "Telegram + Discord",
+    channelValue: "Telegram live",
     privacyLabel: "Privacy",
     privacyValue: "Local keys",
     actionPreviewLabel: "Workspace action preview",
@@ -612,11 +718,11 @@ const it = {
     mcpTitle: "Estendi Friday|con i server MCP.",
     channelsEyebrow: "Canali",
     channelsTitle: "Parla con Friday|da ovunque.",
-    channelsPanelTitle: "Telegram e Discord supportati oggi.",
+    channelsPanelTitle: "Telegram e supportato oggi.",
     channelsPanelDescription:
-      "Collega un bot Telegram o Discord e parla con Friday dal telefono o dal desktop, con controllo accessi per canale e risposta nello stesso canale.",
+      "Collega un bot Telegram e parla con Friday dal telefono o dal desktop. Discord, Slack, WhatsApp ed Email sono visibili come adapter in arrivo.",
     operatorsEyebrow: "Workflow",
-    operatorsTitle: "Voce, immagini, pianificazioni,|e health check.",
+    operatorsTitle: "Generazione e automazione,|separate per workflow.",
     providersEyebrow: "Provider AI",
     providersTitle: "Porta la tua AI.|Combina modelli per capacita.",
     faqEyebrow: "FAQ",
@@ -772,7 +878,7 @@ const it = {
     scheduledLabel: "Pianificato",
     scheduledValue: "Brief alle 9:00",
     channelLabel: "Canale",
-    channelValue: "Telegram + Discord",
+    channelValue: "Telegram attivo",
     privacyLabel: "Privacy",
     privacyValue: "Chiavi locali",
     actionPreviewLabel: "Anteprima azioni workspace",
