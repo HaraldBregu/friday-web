@@ -23,6 +23,7 @@ const mcpHighlights = friday.landingMcp;
 const channelHighlights = friday.landingChannels;
 const operatorGroups = friday.landingOperatorGroups;
 const providerGroups = friday.landingProviderGroups;
+const isLiveStatus = (status: string) => status === "Live" || status === "Attivo";
 ---
 
 <section class="lp-hero" id="product">
@@ -157,12 +158,12 @@ const providerGroups = friday.landingProviderGroups;
       <div class="channel-grid-brief" aria-label={ui.supportedChannels}>
         {
           channelHighlights.map((channel) => (
-            <article class={channel.status === "Live" ? "channel-brief channel-brief--live" : "channel-brief channel-brief--soon"}>
+            <article class={isLiveStatus(channel.status) ? "channel-brief channel-brief--live" : "channel-brief channel-brief--soon"}>
               <div class="channel-brief__top">
                 <span class="card-icon">
                   <Icon name={channel.icon} size={18} />
                 </span>
-                <span class={channel.status === "Live" ? "channel-status channel-status--live" : "channel-status channel-status--soon"}>
+                <span class={isLiveStatus(channel.status) ? "channel-status channel-status--live" : "channel-status channel-status--soon"}>
                   {channel.status}
                 </span>
               </div>
@@ -204,7 +205,7 @@ const providerGroups = friday.landingProviderGroups;
                       <div class="card-icon">
                         <Icon name={op.icon} size={19} />
                       </div>
-                      <span class={op.status === "Live" ? "op-status op-status--live" : "op-status op-status--soon"}>
+                      <span class={isLiveStatus(op.status) ? "op-status op-status--live" : "op-status op-status--soon"}>
                         {op.status}
                       </span>
                     </div>
