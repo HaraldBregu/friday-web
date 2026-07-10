@@ -8,7 +8,25 @@
   {
     "name": "Discord",
     "category": "Channels",
-    "description": "Reach Friday from Discord with a bot connection and route replies back through the same channel or thread.",
+    "description": "Coming-soon adapter for Discord server and direct-message workflows, with replies routed back through the same channel or thread.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Slack",
+    "category": "Channels",
+    "description": "Coming-soon workspace channel for team conversations, approvals, and assistant replies in the originating thread.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "WhatsApp",
+    "category": "Channels",
+    "description": "Coming-soon mobile messaging channel for quick personal requests and assistant check-ins.",
+    "icon": "MessageSquare"
+  },
+  {
+    "name": "Email",
+    "category": "Channels",
+    "description": "Coming-soon asynchronous channel for requests, summaries, and follow-up workflows.",
     "icon": "MessageSquare"
   },
   {
