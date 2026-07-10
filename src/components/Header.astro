@@ -13,6 +13,11 @@ const { friday, ui } = getLocaleContent(locale);
 
 const visibleNav = friday.nav.filter((item) => item.href !== "#download");
 const navHref = (href: string) => (href.startsWith("#") ? `${localizedPath("/", locale)}${href}` : localizedPath(href, locale));
+const roadmapLinks = [
+  { label: "Enterprise", href: "/enterprise" },
+  { label: "Education", href: "/education" },
+  { label: "Personal", href: "/personal" },
+];
 ---
 
 <header class="site-header">
@@ -23,6 +28,12 @@ const navHref = (href: string) => (href.startsWith("#") ? `${localizedPath("/", 
     </a>
     <div class="nav__links">
       {visibleNav.map((item) => <a href={navHref(item.href)}>{item.label}</a>)}
+      <details class="nav-dropdown">
+        <summary>Solutions <Icon name="ChevronDown" size={14} /></summary>
+        <div class="nav-dropdown__panel">
+          {roadmapLinks.map((item) => <a href={navHref(item.href)}>{item.label}</a>)}
+        </div>
+      </details>
     </div>
     <div class="nav__actions">
       <ThemeToggle label={ui.themeToggle} />

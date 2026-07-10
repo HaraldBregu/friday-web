@@ -1,0 +1,11 @@
+---
+import RoadmapAudiencePage from "../components/RoadmapAudiencePage.astro";
+
+const groups = [
+  { title: "Workflow & process management", items: ["Map, manage, and optimize internal processes.", "Identify bottlenecks and suggest workflow improvements.", "Run long-running and recurring work in the background.", "Monitor systems, agents, and workflows with health checks."] },
+  { title: "AI agents & tooling", items: ["Customize MCP servers for company systems.", "Provide dedicated tools for sales, support, HR, engineering, operations, and finance.", "Build, install, and reuse custom skills.", "Enable task-specific agents with clear roles and permissions."] },
+  { title: "Collaboration & memory", items: ["Share memory between users, teams, and agents.", "Set company-wide, team, and project-specific memory scopes.", "Support user-to-agent and agent-to-agent communication for coordinated workflows."] },
+  { title: "Admin & control", items: ["Manage permissions for users, teams, agents, tools, and memories.", "Keep audit logs for agent actions and background tasks.", "Meet compliance, security, and data-governance requirements."] },
+];
+---
+<RoadmapAudiencePage icon="Users" eyebrow="Enterprise" title="Coordinate work across the organization." description="Help companies and teams manage workflows, reduce bottlenecks, and run reliable AI-assisted operations." groups={groups} />

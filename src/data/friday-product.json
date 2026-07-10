@@ -2,7 +2,6 @@
   "nav": [
     { "label": "Product", "href": "#product" },
     { "label": "Features", "href": "#features" },
-    { "label": "Roadmap", "href": "/roadmap" },
     { "label": "Docs", "href": "/docs" },
     { "label": "Download", "href": "#download" }
   ],
