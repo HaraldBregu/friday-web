@@ -1,6 +1,6 @@
 ---
 title: "Channels"
-description: "Talk to Friday from Telegram and Discord with per-channel access control."
+description: "Talk to Friday from Telegram today, with additional channel adapters coming soon."
 category: "Channels"
 sourcePath: "channels.md"
 order: 40
@@ -13,7 +13,15 @@ Supported today:
 | Channel | Notes |
 | --- | --- |
 | Telegram | Connect a bot and chat from your phone or desktop. |
-| Discord | Connect a bot for server or direct-message workflows. |
+
+Coming soon:
+
+| Channel | Notes |
+| --- | --- |
+| Discord | Planned adapter for server or direct-message workflows. |
+| Slack | Planned workspace channel for team threads and approvals. |
+| WhatsApp | Planned mobile messaging channel for quick requests. |
+| Email | Planned asynchronous channel for summaries and follow-ups. |
 
 ## Access Control
 
