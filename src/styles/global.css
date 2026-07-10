@@ -3041,12 +3041,34 @@ p {
     font-size: 1.04rem;
   }
 
+  .cta-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .lp-hero__preview,
+  .product-window {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .product-window__bar {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
+    padding-inline: 0.9rem;
   }
 
   .product-window__bar strong {
-    justify-self: start;
+    justify-self: center;
+  }
+
+  .product-window__thread {
+    padding-inline: 1.1rem;
+  }
+
+  .product-window__composer {
+    right: 0.75rem;
+    left: 0.75rem;
   }
 
   .window-status {
@@ -3074,6 +3096,7 @@ p {
   .chat-bubble {
     padding: 0.7rem;
     font-size: 0.84rem;
+    overflow-wrap: anywhere;
   }
 
   .assistant-row {
