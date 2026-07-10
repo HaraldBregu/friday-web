@@ -89,7 +89,8 @@ const { productMockup } = getLocaleContent(locale);
             alt={productMockup.imageAlt}
             width="812"
             height="446"
-            loading="lazy"
+            loading="eager"
+            fetchpriority="high"
             decoding="async"
           />
           <p class="chat-image__caption">{productMockup.imageCaption}</p>

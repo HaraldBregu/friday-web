@@ -57,6 +57,7 @@ body {
   min-width: 320px;
   margin: 0;
   background:
+    radial-gradient(circle at 72% 8rem, rgba(243, 198, 111, 0.055), transparent 24rem),
     linear-gradient(180deg, rgba(243, 198, 111, 0.08) 0%, rgba(255, 255, 255, 0.025) 16rem, transparent 32rem),
     var(--bg);
   color: var(--text);
@@ -616,6 +617,7 @@ h3 {
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.08;
+  text-wrap: balance;
 }
 
 h1 {
@@ -643,6 +645,7 @@ p {
   z-index: 20;
   border-bottom: 1px solid var(--line);
   background: rgba(5, 5, 5, 0.88);
+  box-shadow: 0 1px 18px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(14px) saturate(130%);
   -webkit-backdrop-filter: blur(14px) saturate(130%);
 }
@@ -709,6 +712,31 @@ p {
 .footer-links a:hover,
 .footer-bottom a:hover {
   color: var(--text);
+}
+
+.nav__links a {
+  position: relative;
+  padding-block: 0.55rem;
+  transition: color 0.16s ease;
+}
+
+.nav__links a::after {
+  position: absolute;
+  right: 0;
+  bottom: 0.25rem;
+  left: 0;
+  height: 1px;
+  background: var(--accent);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.5);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.nav__links a:hover::after,
+.nav__links a:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .nav__actions {
@@ -782,14 +810,22 @@ p {
   background: var(--surface-strong);
 }
 
+.nav__cta:active,
+.button:active,
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
 .button--primary {
   border-color: var(--accent);
   background: var(--accent);
+  box-shadow: 0 8px 26px rgba(243, 198, 111, 0.12);
   color: var(--accent-text);
 }
 
 .button--primary:hover {
   background: var(--accent);
+  box-shadow: 0 10px 32px rgba(243, 198, 111, 0.2);
   color: var(--accent-text);
 }
 
@@ -851,6 +887,15 @@ p {
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow);
+  transform-origin: top left;
+  animation: menu-reveal 0.14s ease-out;
+}
+
+@keyframes menu-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-0.3rem) scale(0.98);
+  }
 }
 
 .download-menu__panel a {
@@ -869,6 +914,8 @@ p {
 }
 
 .lp-hero {
+  position: relative;
+  overflow: clip;
   padding: 6rem 0 7rem;
 }
 
@@ -885,10 +932,25 @@ p {
 }
 
 .lp-hero__preview {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   min-width: 0;
   transform: translateY(1.2rem);
+}
+
+.lp-hero__preview::before {
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  right: -18%;
+  width: 120%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-soft), transparent 68%);
+  content: "";
+  filter: blur(12px);
+  pointer-events: none;
 }
 
 .wordmark {
@@ -908,6 +970,8 @@ p {
   margin-bottom: 2.25rem;
   color: var(--muted);
   font-size: 1.18rem;
+  line-height: 1.68;
+  text-wrap: pretty;
 }
 
 .cta-row {
@@ -935,6 +999,7 @@ p {
   border-radius: var(--radius);
   background: rgba(17, 17, 17, 0.86);
   padding: 0.8rem 0.9rem;
+  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
 }
 
 [data-theme="light"] .hero-metrics div {
@@ -968,9 +1033,20 @@ p {
   font-weight: 700;
 }
 
+.text-link svg,
+.back-link svg {
+  transition: transform 0.16s ease;
+}
+
 .text-link:hover,
 .back-link:hover {
   color: var(--accent);
+}
+
+
+.text-link:hover svg,
+.back-link:hover svg {
+  transform: translateX(0.2rem);
 }
 
 .mini-app-wrap {
@@ -1492,6 +1568,7 @@ p {
   font-size: clamp(3rem, 7vw, 5.5rem);
   letter-spacing: -0.03em;
   line-height: 1.0;
+  max-width: 13ch;
 }
 
 .section-tag {
@@ -1552,6 +1629,7 @@ p {
   min-height: 100%;
   padding-top: 1.25rem;
   border-top: 1px solid var(--line);
+  transition: border-color 0.18s ease, transform 0.18s ease;
 }
 
 .feature__meta,
@@ -1614,7 +1692,9 @@ p {
   gap: 0.85rem;
   min-width: 0;
   padding: 1.6rem;
-  background: var(--surface);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 45%),
+    var(--surface);
 }
 
 .how-step span {
@@ -1683,6 +1763,7 @@ p {
   border-radius: var(--radius);
   background: var(--surface);
   padding: 1.15rem;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
 }
 
 .mcp-card__top {
@@ -1728,6 +1809,7 @@ p {
   border-radius: var(--radius);
   background: var(--surface);
   padding: 1.15rem;
+  transition: border-color 0.18s ease;
 }
 
 .channel-cloud span {
@@ -1738,6 +1820,7 @@ p {
   padding: 0.55rem 0.8rem;
   font-weight: 700;
   line-height: 1.2;
+  transition: border-color 0.16s ease, background 0.16s ease;
 }
 
 .channel-copy {
@@ -1745,6 +1828,7 @@ p {
   border-radius: var(--radius);
   background: var(--surface);
   padding: 1.25rem;
+  transition: border-color 0.18s ease, background 0.18s ease;
 }
 
 .channel-copy h3 {
@@ -1766,6 +1850,7 @@ p {
   border-radius: var(--radius);
   background: var(--surface);
   padding: 1.15rem;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
 }
 
 .op-card__top {
@@ -1823,6 +1908,7 @@ p {
   padding: 0.9rem 1.15rem;
   border-bottom: 1px solid var(--line);
   align-items: center;
+  transition: background 0.16s ease;
 }
 
 .provider-group:last-child {
@@ -1873,6 +1959,7 @@ p {
   font-size: 1.05rem;
   font-weight: 600;
   list-style: none;
+  transition: color 0.16s ease;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -1892,6 +1979,44 @@ p {
 .faq-item p {
   max-width: 64ch;
   margin-bottom: 1.5rem;
+}
+
+@media (hover: hover) {
+  .hero-metrics div:hover {
+    border-color: var(--line-strong);
+    background: var(--surface);
+    transform: translateY(-2px);
+  }
+
+  .feature:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .mcp-card:hover,
+  .op-card:hover {
+    border-color: var(--line-strong);
+    background: var(--surface-strong);
+    transform: translateY(-2px);
+  }
+
+  .channel-cloud:hover,
+  .channel-copy:hover {
+    border-color: var(--line-strong);
+  }
+
+  .channel-cloud span:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .provider-group:hover {
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .faq-item summary:hover {
+    color: var(--accent);
+  }
 }
 
 .plain-list,
@@ -2923,7 +3048,7 @@ p {
   }
 
   .lp-hero {
-    padding-top: 4rem;
+    padding: 4rem 0 5.5rem;
   }
 
   .wordmark {
@@ -3019,6 +3144,10 @@ p {
 
   .reference-head {
     margin-bottom: 2.5rem;
+  }
+
+  .reference-head h2 {
+    max-width: 15ch;
   }
 
   .mini-app {
