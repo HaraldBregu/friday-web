@@ -504,7 +504,7 @@ const en = {
       {
         title: "Explore",
         links: [
-          { label: "Channels", href: "/#channels" },
+          { label: "Channels", href: "/channels" },
           { label: "Integrations", href: "/integrations" },
           { label: "Providers", href: "/providers" },
           { label: "Operators", href: "/operators" },
@@ -748,7 +748,7 @@ const it = {
       {
         title: "Esplora",
         links: [
-          { label: "Canali", href: "/#channels" },
+          { label: "Canali", href: "/channels" },
           { label: "Integrazioni", href: "/integrations" },
           { label: "Provider", href: "/providers" },
           { label: "Operatori", href: "/operators" },
