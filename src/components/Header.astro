@@ -31,7 +31,7 @@ const roadmapLinks = [
       <details class="nav-dropdown">
         <summary>Solutions <Icon name="ChevronDown" size={14} /></summary>
         <div class="nav-dropdown__panel">
-          {roadmapLinks.map((item) => <a href={navHref(item.href)}>{item.label}</a>)}
+          {roadmapLinks.map((item) => <a href={item.href}>{item.label}</a>)}
         </div>
       </details>
     </div>
