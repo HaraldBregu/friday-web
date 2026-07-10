@@ -58,9 +58,10 @@ const fridayIt = {
     phase: "Beta privata",
   },
   hero: {
-    eyebrow: "AI desktop local-first",
+    eyebrow: "Assistente AI desktop local-first",
     headline: "Friday.",
-    description: "Chatta, crea e porta a termine il lavoro quotidiano — direttamente dal desktop.",
+    description:
+      "Il tuo copilota AI desktop per le attivita quotidiane. Scrivi o parla in linguaggio naturale e Friday puo leggere e scrivere file, cercare sul web, generare immagini, trascrivere la voce, parlare, lavorare su pianificazione e collegarsi agli strumenti che gia usi.",
   },
   demoSuggestions: [
     {
