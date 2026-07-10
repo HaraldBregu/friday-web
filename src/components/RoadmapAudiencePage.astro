@@ -8,32 +8,53 @@ interface Props {
   eyebrow: string;
   title: string;
   description: string;
+  variant: "enterprise" | "education" | "personal";
   groups: { title: string; items: string[] }[];
 }
 
-const { icon, eyebrow, title, description, groups } = Astro.props;
+const { icon, eyebrow, title, description, variant, groups } = Astro.props;
 ---
 
 <Layout title={`${eyebrow} roadmap`} description={description}>
-  <section class="section page-hero">
-    <div class="shell section-heading audience-intro">
-      <span class="audience-icon"><Icon name={icon} size={24} /></span>
-      <p class="eyebrow">{eyebrow}</p>
-      <h1>{title}</h1>
-      <p>{description}</p>
+  <section class="audience-hero" data-variant={variant}>
+    <div class="shell audience-hero__inner">
+      <div class="audience-hero__identity">
+        <span class="audience-icon"><Icon name={icon} size={24} /></span>
+        <p class="eyebrow">Built for {eyebrow}</p>
+      </div>
+      <div>
+        <p class="audience-hero__kicker">Friday / Product direction</p>
+        <h1>{title}</h1>
+        <p class="audience-hero__description">{description}</p>
+      </div>
+      <div class="audience-hero__signal" aria-label="Roadmap focus">
+        <span>Focus</span>
+        <strong>{groups.length} capability areas</strong>
+      </div>
     </div>
   </section>
 
-  <section class="section section--compact">
-    <div class="shell audience-groups">
-      {groups.map((group) => (
+  <section class="section audience-blueprint" data-variant={variant}>
+    <div class="shell audience-blueprint__layout">
+      <aside class="audience-blueprint__rail">
+        <p class="eyebrow">Capability map</p>
+        <p>Each area is designed to work together, with people retaining clear control over what agents can access and do.</p>
+      </aside>
+      <div class="audience-groups">
+      {groups.map((group, index) => (
         <article class="audience-group">
+          <div class="audience-group__top">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p>Capability area</p>
+          </div>
           <h2>{group.title}</h2>
           <ul>
             {group.items.map((item) => <li><Icon name="Check" size={16} />{item}</li>)}
           </ul>
         </article>
       ))}
+      </div>
+      </div>
     </div>
   </section>
 
@@ -45,13 +66,34 @@ const { icon, eyebrow, title, description, groups } = Astro.props;
 </Layout>
 
 <style>
-  .audience-intro { max-width: 780px; }
-  .audience-icon { display: grid; width: 52px; height: 52px; place-items: center; margin-bottom: 1.2rem; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); }
-  .audience-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .audience-group { border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 1.7rem); background: var(--surface); }
-  .audience-group h2 { margin: 0 0 1rem; font-size: 1.1rem; }
-  .audience-group ul { display: grid; gap: 0.8rem; margin: 0; padding: 0; list-style: none; }
-  .audience-group li { display: flex; align-items: flex-start; gap: 0.6rem; color: var(--text-soft); line-height: 1.55; }
-  .audience-group li svg { flex: 0 0 auto; margin-top: 0.24rem; color: var(--accent); }
-  @media (max-width: 700px) { .audience-groups { grid-template-columns: 1fr; } }
+  .audience-hero { padding: clamp(5rem, 12vw, 9rem) 0 clamp(3rem, 7vw, 5.5rem); border-bottom: 1px solid var(--line); }
+  .audience-hero__inner { display: grid; grid-template-columns: 150px minmax(0, 1fr) 190px; align-items: end; gap: clamp(1.5rem, 4vw, 4rem); }
+  .audience-hero__identity { align-self: start; }
+  .audience-icon { display: grid; width: 54px; height: 54px; place-items: center; margin-bottom: 1.1rem; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--accent-soft); color: var(--accent); }
+  .audience-hero h1 { max-width: 800px; margin: 0; font-size: clamp(2.75rem, 6.4vw, 6rem); line-height: 0.96; letter-spacing: -0.055em; }
+  .audience-hero__kicker, .audience-hero__signal span, .audience-group__top { color: var(--faint); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .audience-hero__kicker { margin: 0 0 1rem; }
+  .audience-hero__description { max-width: 660px; margin: 1.5rem 0 0; color: var(--text-soft); font-size: 1.12rem; line-height: 1.65; }
+  .audience-hero__signal { display: grid; gap: 0.45rem; border-left: 1px solid var(--line); padding-left: 1rem; }
+  .audience-hero__signal strong { font-size: 0.95rem; line-height: 1.35; }
+  .audience-blueprint { padding-block: clamp(3.5rem, 8vw, 7rem); }
+  .audience-blueprint__layout { display: grid; grid-template-columns: minmax(170px, 0.34fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 6rem); }
+  .audience-blueprint__rail { position: sticky; top: 6rem; align-self: start; }
+  .audience-blueprint__rail p:last-child { margin: 0.9rem 0 0; color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+  .audience-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--line); }
+  .audience-group { min-height: 280px; padding: clamp(1.25rem, 3vw, 2rem); background: var(--surface); }
+  .audience-group__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.8rem; }
+  .audience-group__top span { color: var(--accent); font-size: 0.9rem; }
+  .audience-group__top p { margin: 0; }
+  .audience-group h2 { margin: 0 0 1.1rem; font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.025em; }
+  .audience-group ul { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
+  .audience-group li { display: flex; align-items: flex-start; gap: 0.6rem; color: var(--text-soft); font-size: 0.92rem; line-height: 1.5; }
+  .audience-group li svg { flex: 0 0 auto; margin-top: 0.22rem; color: var(--accent); }
+  [data-variant="education"] .audience-icon { border-radius: 50%; }
+  [data-variant="education"] .audience-group:nth-child(odd) { background: color-mix(in srgb, var(--surface) 88%, var(--accent-soft)); }
+  [data-variant="personal"] .audience-hero { border-bottom: 0; background: radial-gradient(circle at 75% 0, var(--accent-soft), transparent 32%); }
+  [data-variant="personal"] .audience-groups { gap: 1rem; overflow: visible; border: 0; background: transparent; }
+  [data-variant="personal"] .audience-group { min-height: 0; border: 1px solid var(--line); border-radius: 16px; }
+  @media (max-width: 850px) { .audience-hero__inner { grid-template-columns: 1fr; } .audience-hero__signal { border-top: 1px solid var(--line); border-left: 0; padding: 1rem 0 0; } .audience-blueprint__layout { grid-template-columns: 1fr; } .audience-blueprint__rail { position: static; max-width: 580px; } }
+  @media (max-width: 620px) { .audience-groups { grid-template-columns: 1fr; } .audience-group { min-height: 0; } .audience-group__top { margin-bottom: 1.75rem; } }
 </style>
