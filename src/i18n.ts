@@ -81,10 +81,10 @@ const fridayIt = {
     },
   ],
   landingMetrics: [
-    { value: "Desktop", label: "app nativa per macOS, Windows e Linux" },
-    { value: "Chiavi tue", label: "scegli provider e modelli AI" },
-    { value: "Locale", label: "impostazioni, credenziali, cronologia e memoria" },
-    { value: "Approva", label: "controlli espliciti prima delle azioni sensibili" },
+    { value: "App desktop", label: "Funziona nativamente su macOS, Windows e Linux." },
+    { value: "I tuoi provider AI", label: "Collega le tue chiavi provider e scegli i modelli." },
+    { value: "Locale per impostazione", label: "Impostazioni, credenziali, cronologia e memoria restano sul dispositivo." },
+    { value: "Mantieni il controllo", label: "Friday chiede approvazione prima delle azioni sensibili." },
   ],
   landingFeatures: [
     {

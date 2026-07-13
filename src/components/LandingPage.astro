@@ -75,7 +75,7 @@ const channelSectionText = locale === "it"
           <Icon name="ArrowRight" size={16} />
         </a>
       </div>
-      <div class="hero-metrics" aria-label="Feature runtime status">
+      <div class="hero-metrics" aria-label={locale === "it" ? "Punti chiave del prodotto" : "Product highlights"}>
         {
           landingMetrics.map((metric) => (
             <div>

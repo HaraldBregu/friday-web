@@ -1077,16 +1077,18 @@ p {
 }
 
 .hero-metrics strong {
-  margin-bottom: 0.22rem;
+  margin-bottom: 0.3rem;
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
+  line-height: 1.25;
+  text-wrap: balance;
 }
 
 .hero-metrics span {
   color: var(--faint);
-  font-size: 0.78rem;
-  line-height: 1.35;
+  font-size: 0.8rem;
+  line-height: 1.45;
 }
 
 .text-link,

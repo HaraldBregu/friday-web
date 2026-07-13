@@ -30,10 +30,10 @@
     }
   ],
   "landingMetrics": [
-    { "value": "Desktop", "label": "native app for macOS, Windows, and Linux" },
-    { "value": "BYO keys", "label": "choose your own AI providers and models" },
-    { "value": "Local", "label": "settings, credentials, history, and memory" },
-    { "value": "Approval", "label": "explicit checks before sensitive actions" }
+    { "value": "Desktop app", "label": "Runs natively on macOS, Windows, and Linux." },
+    { "value": "Your AI providers", "label": "Connect your own provider keys and choose the models." },
+    { "value": "Local by default", "label": "Settings, credentials, history, and memory stay on your device." },
+    { "value": "You stay in control", "label": "Friday asks for approval before sensitive actions." }
   ],
   "landingFeatures": [
     {
