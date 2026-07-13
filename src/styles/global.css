@@ -673,19 +673,21 @@ p {
   font-weight: 600;
 }
 
-.brand-mark {
-  width: 14px;
-  height: 14px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, var(--accent), var(--green));
-  box-shadow: 0 0 0 4px var(--accent-soft);
+.brand-logo {
+  display: block;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 auto;
 }
 
-.brand-mark--small {
-  width: 8px;
-  height: 8px;
-  border-radius: 3px;
-  box-shadow: none;
+.footer-brand .brand-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.brand-logo--small {
+  width: 16px;
+  height: 16px;
 }
 
 .brand__text {
