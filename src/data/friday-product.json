@@ -122,31 +122,7 @@
       "name": "Telegram",
       "status": "Live",
       "description": "Bundled bot channel for phone or desktop chat, with allowlists, DM policy, targets, and replies through the same chat.",
-      "icon": "MessageSquare"
-    },
-    {
-      "name": "Discord",
-      "status": "Coming soon",
-      "description": "Planned adapter for server and direct-message workflows once the runtime channel is registered.",
-      "icon": "MessagesSquare"
-    },
-    {
-      "name": "Slack",
-      "status": "Coming soon",
-      "description": "Planned workspace channel for team conversations, approvals, and delivery back to the originating thread.",
-      "icon": "MessageSquare"
-    },
-    {
-      "name": "WhatsApp",
-      "status": "Coming soon",
-      "description": "Planned personal messaging channel for mobile-first check-ins and assistant replies.",
-      "icon": "MessageSquare"
-    },
-    {
-      "name": "Email",
-      "status": "Coming soon",
-      "description": "Planned asynchronous channel for brief requests, summaries, and follow-up workflows.",
-      "icon": "Mail"
+      "icon": "Send"
     }
   ],
   "faqs": [
@@ -168,7 +144,7 @@
     },
     {
       "question": "Can Friday work from outside the app?",
-      "answer": "Yes. Channels let you talk to Friday from messaging platforms. Telegram is supported today, with per-channel access control and channel secrets. Discord, Slack, WhatsApp, and Email are coming soon."
+      "answer": "Yes. Connect a Telegram bot to talk to Friday from your phone or desktop, with per-channel access control, separate channel secrets, and replies delivered to the same conversation."
     },
     {
       "question": "What can be automated?",

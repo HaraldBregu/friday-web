@@ -21,9 +21,31 @@ const githubUrl = socialLinks.find((link) => link.label === "GitHub")?.url;
 const landingMetrics = friday.landingMetrics;
 const mcpHighlights = friday.landingMcp;
 const channelHighlights = friday.landingChannels;
+const isLiveStatus = (status: string) => status === "Live" || status === "Attivo";
+const activeChannel = channelHighlights.find((channel) => isLiveStatus(channel.status)) ?? channelHighlights[0];
 const operatorGroups = friday.landingOperatorGroups;
 const providerGroups = friday.landingProviderGroups;
-const isLiveStatus = (status: string) => status === "Live" || status === "Attivo";
+const channelSectionText = locale === "it"
+  ? {
+      live: "Disponibile ora",
+      routeLabel: "Il percorso di ogni messaggio",
+      origin: "La tua chat",
+      assistant: "Friday",
+      reply: "Stesso thread",
+      controls: ["Accesso con allowlist", "Regole per i messaggi diretti", "Risposte nello stesso thread"],
+      securityTitle: "Decidi tu chi puo contattare Friday.",
+      securityDescription: "Ogni canale mantiene credenziali, stato e regole di accesso separati sul tuo desktop.",
+    }
+  : {
+      live: "Available now",
+      routeLabel: "Every message makes a round trip",
+      origin: "Your chat",
+      assistant: "Friday",
+      reply: "Same thread",
+      controls: ["Allowlist access", "Direct-message policy", "Same-thread replies"],
+      securityTitle: "You decide who can reach Friday.",
+      securityDescription: "Each channel keeps its own credentials, enabled state, and access rules on your desktop.",
+    };
 ---
 
 <section class="lp-hero" id="product">
@@ -150,32 +172,61 @@ const isLiveStatus = (status: string) => status === "Live" || status === "Attivo
 
 <section class="section reference-section" id="channels">
   <div class="shell">
-    <header class="reference-head">
-      <span class="section-tag">§ 04 — {home.channelsEyebrow}</span>
-      <h2>{sp(home.channelsTitle)[0]}{sp(home.channelsTitle)[1] && <><br/><span class="heading-muted">{sp(home.channelsTitle)[1]}</span></>}</h2>
-    </header>
-    <div class="channel-panel">
-      <div class="channel-grid-brief" aria-label={ui.supportedChannels}>
-        {
-          channelHighlights.map((channel) => (
-            <article class={isLiveStatus(channel.status) ? "channel-brief channel-brief--live" : "channel-brief channel-brief--soon"}>
-              <div class="channel-brief__top">
-                <span class="card-icon">
-                  <Icon name={channel.icon} size={18} />
-                </span>
-                <span class={isLiveStatus(channel.status) ? "channel-status channel-status--live" : "channel-status channel-status--soon"}>
-                  {channel.status}
-                </span>
-              </div>
-              <h3>{channel.name}</h3>
-              <p>{channel.description}</p>
-            </article>
-          ))
-        }
+    <header class="reference-head channel-head">
+      <div>
+        <span class="section-tag">§ 04 — {home.channelsEyebrow}</span>
+        <h2>{sp(home.channelsTitle)[0]}{sp(home.channelsTitle)[1] && <><br/><span class="heading-muted">{sp(home.channelsTitle)[1]}</span></>}</h2>
       </div>
-      <div class="channel-copy">
-        <h3>{home.channelsPanelTitle}</h3>
-        <p>{home.channelsPanelDescription}</p>
+      <p>{home.channelsPanelDescription}</p>
+    </header>
+    <div class="channel-showcase">
+      <article class="channel-feature">
+        <div class="channel-feature__header">
+          <div class="channel-feature__identity">
+            <span class="channel-feature__icon">
+              <Icon name={activeChannel.icon} size={24} />
+            </span>
+            <div>
+              <span>{channelSectionText.live}</span>
+              <h3>{activeChannel.name}</h3>
+            </div>
+          </div>
+          <span class="channel-status channel-status--live">
+            <span aria-hidden="true"></span>
+            {activeChannel.status}
+          </span>
+        </div>
+
+        <p class="channel-feature__description">{activeChannel.description}</p>
+
+        <div class="channel-route" aria-label={channelSectionText.routeLabel}>
+          <div class="channel-route__step">
+            <Icon name="MessageSquare" size={18} />
+            <span>{channelSectionText.origin}</span>
+          </div>
+          <Icon class="channel-route__arrow" name="ArrowRight" size={17} />
+          <div class="channel-route__step channel-route__step--friday">
+            <Icon name="Bot" size={18} />
+            <span>{channelSectionText.assistant}</span>
+          </div>
+          <Icon class="channel-route__arrow" name="ArrowRight" size={17} />
+          <div class="channel-route__step">
+            <Icon name="Reply" size={18} />
+            <span>{channelSectionText.reply}</span>
+          </div>
+        </div>
+
+        <ul class="channel-controls" aria-label={locale === "it" ? "Controlli del canale" : "Channel controls"}>
+          {channelSectionText.controls.map((control) => <li><Icon name="Check" size={14} />{control}</li>)}
+        </ul>
+      </article>
+    </div>
+
+    <div class="channel-assurance">
+      <span class="channel-assurance__icon"><Icon name="ShieldCheck" size={21} /></span>
+      <div>
+        <h3>{channelSectionText.securityTitle}</h3>
+        <p>{channelSectionText.securityDescription}</p>
       </div>
     </div>
   </div>

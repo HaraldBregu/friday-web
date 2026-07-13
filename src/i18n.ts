@@ -180,35 +180,7 @@ const fridayIt = {
       status: "Attivo",
       description:
         "Canale bot incluso per chat da telefono o desktop, con allowlist, policy DM, target e risposte nella stessa chat.",
-      icon: "MessageSquare",
-    },
-    {
-      name: "Discord",
-      status: "In arrivo",
-      description:
-        "Adapter pianificato per workflow server e messaggi diretti quando il runtime channel sara registrato.",
-      icon: "MessagesSquare",
-    },
-    {
-      name: "Slack",
-      status: "In arrivo",
-      description:
-        "Canale workspace pianificato per conversazioni di team, approvazioni e risposta nel thread originale.",
-      icon: "MessageSquare",
-    },
-    {
-      name: "WhatsApp",
-      status: "In arrivo",
-      description:
-        "Canale di messaggistica personale pianificato per check-in mobile-first e risposte assistente.",
-      icon: "MessageSquare",
-    },
-    {
-      name: "Email",
-      status: "In arrivo",
-      description:
-        "Canale asincrono pianificato per richieste brevi, riepiloghi e workflow di follow-up.",
-      icon: "Mail",
+      icon: "Send",
     },
   ],
   landingOperators: [
@@ -349,7 +321,7 @@ const fridayIt = {
     {
       question: "Friday puo lavorare fuori dall'app?",
       answer:
-        "Si. I canali permettono di parlare con Friday da piattaforme di messaggistica. Telegram e supportato oggi, con controllo accessi e segreti del canale. Discord, Slack, WhatsApp ed Email sono in arrivo.",
+        "Si. Collega un bot Telegram per parlare con Friday dal telefono o dal desktop, con controllo accessi, segreti del canale separati e risposte nella stessa conversazione.",
     },
     {
       question: "Quali piattaforme desktop sono supportate?",
@@ -534,9 +506,8 @@ const en = {
     mcpTitle: "Extend Friday|with MCP servers.",
     channelsEyebrow: "Channels",
     channelsTitle: "Chat with Friday|from anywhere.",
-    channelsPanelTitle: "Telegram is supported today.",
     channelsPanelDescription:
-      "Connect a Telegram bot and chat with Friday from your phone or desktop. Discord, Slack, WhatsApp, and Email are visible as coming-soon channel adapters.",
+      "Connect a Telegram bot and chat with Friday from your phone or desktop, with access controls and replies delivered to the same conversation.",
     operatorsEyebrow: "Workflows",
     operatorsTitle: "Generation and automation,|split by workflow.",
     providersEyebrow: "AI Providers",
@@ -778,9 +749,8 @@ const it = {
     mcpTitle: "Estendi Friday|con i server MCP.",
     channelsEyebrow: "Canali",
     channelsTitle: "Parla con Friday|da ovunque.",
-    channelsPanelTitle: "Telegram e supportato oggi.",
     channelsPanelDescription:
-      "Collega un bot Telegram e parla con Friday dal telefono o dal desktop. Discord, Slack, WhatsApp ed Email sono visibili come adapter in arrivo.",
+      "Collega un bot Telegram e parla con Friday dal telefono o dal desktop, con controlli di accesso e risposte nella stessa conversazione.",
     operatorsEyebrow: "Workflow",
     operatorsTitle: "Generazione e automazione,|separate per workflow.",
     providersEyebrow: "Provider AI",
