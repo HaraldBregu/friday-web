@@ -8,7 +8,7 @@
   {
     "name": "Discord",
     "category": "Channels",
-    "description": "Coming-soon adapter for Discord server and direct-message workflows, with replies routed back through the same channel or thread.",
+    "description": "Chat with Friday from a Discord server or DM, with threads, reply references, allowlists, and DM policy. Replies route back to the originating channel or thread.",
     "icon": "MessageSquare"
   },
   {

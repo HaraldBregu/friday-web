@@ -61,7 +61,7 @@ const fridayIt = {
     eyebrow: "Assistente AI desktop local-first",
     headline: "Friday.",
     description:
-      "Il tuo copilota AI desktop per le attivita quotidiane. Scrivi o parla in linguaggio naturale e Friday puo leggere e scrivere file, cercare sul web, generare immagini, trascrivere la voce, parlare, lavorare su pianificazione e collegarsi agli strumenti che gia usi.",
+      "Il tuo copilota AI desktop per le attivita quotidiane. Scrivi o parla in linguaggio naturale e Friday puo leggere e scrivere file, cercare sul web, generare immagini e video, trascrivere la voce, parlare, lavorare su pianificazione e collegarsi agli strumenti che gia usi.",
   },
   demoSuggestions: [
     {
@@ -182,6 +182,13 @@ const fridayIt = {
         "Canale bot incluso per chat da telefono o desktop, con allowlist, policy DM, target e risposte nella stessa chat.",
       icon: "Send",
     },
+    {
+      name: "Discord",
+      status: "Attivo",
+      description:
+        "Canale bot incluso per server e DM, con thread, riferimenti di risposta, allowlist e policy DM, con risposta nel canale di origine.",
+      icon: "MessageSquare",
+    },
   ],
   landingOperators: [
     {
@@ -216,9 +223,9 @@ const fridayIt = {
     },
     {
       name: "Video e audio",
-      description: "Text-to-video e music/audio sono previsti come slot aggiuntivi di model service.",
-      icon: "ScanText",
-      status: "Coming soon",
+      description: "Genera video, musica ed effetti sonori dal testo con il provider e il modello che scegli, salvati nella libreria media e riproducibili in chat.",
+      icon: "Video",
+      status: "Live",
     },
   ],
   landingOperatorGroups: [
@@ -256,15 +263,15 @@ const fridayIt = {
         },
         {
           name: "Generazione video",
-          description: "Text-to-video e pianificato come slot di generazione separato basato su provider.",
+          description: "Genera video dal testo con il provider e il modello che scegli. I risultati sono riproducibili e salvati nella libreria media.",
           icon: "Video",
-          status: "In arrivo",
+          status: "Live",
         },
         {
           name: "Generazione audio",
-          description: "Musica e suono sono pianificati come slot model-service separati.",
+          description: "Genera musica ed effetti sonori dal testo tramite il provider audio e il modello che selezioni.",
           icon: "AudioLines",
-          status: "In arrivo",
+          status: "Live",
         },
       ],
     },
@@ -294,8 +301,9 @@ const fridayIt = {
     { label: "Assistente", examples: ["OpenAI", "Anthropic", "Google", "Mistral", "DeepSeek", "Qwen", "OpenAI-compatible"] },
     { label: "Speech-to-Text", examples: ["OpenAI", "Deepgram", "ElevenLabs", "Mistral", "xAI", "Qwen"] },
     { label: "Text-to-Speech", examples: ["OpenAI", "ElevenLabs", "Cartesia", "voci provider-specific"] },
-    { label: "Text-to-Image", examples: ["OpenAI", "Black Forest Labs", "Midjourney", "Stability AI", "Ideogram"] },
-    { label: "In arrivo", examples: ["Text-to-Video", "Music / Audio", "servizi media aggiuntivi"] },
+    { label: "Text-to-Image", examples: ["Black Forest Labs", "Google", "Ideogram", "Qwen", "Stability AI", "xAI"] },
+    { label: "Text-to-Video", examples: ["Google Veo", "Kling", "Runway", "Luma", "MiniMax", "Pika"] },
+    { label: "Music / Audio", examples: ["ElevenLabs", "Stability AI"] },
   ],
   faqs: [
     {
@@ -311,7 +319,7 @@ const fridayIt = {
     {
       question: "Devo usare un provider AI specifico?",
       answer:
-        "No. Friday e bring-your-own-AI. Aggiungi le tue chiavi provider e scegli provider e modello per assistente, speech-to-text, text-to-speech, immagini e servizi media futuri.",
+        "No. Friday e bring-your-own-AI. Aggiungi le tue chiavi provider e scegli provider e modello per assistente, speech-to-text, text-to-speech, immagini, video e audio.",
     },
     {
       question: "Come funzionano i permessi?",
@@ -321,7 +329,7 @@ const fridayIt = {
     {
       question: "Friday puo lavorare fuori dall'app?",
       answer:
-        "Si. Collega un bot Telegram per parlare con Friday dal telefono o dal desktop, con controllo accessi, segreti del canale separati e risposte nella stessa conversazione.",
+        "Si. Collega un bot Telegram o Discord per parlare con Friday dal telefono o dal desktop, con controllo accessi, segreti del canale separati e risposte nella stessa conversazione.",
     },
     {
       question: "Quali piattaforme desktop sono supportate?",
@@ -343,7 +351,7 @@ const integrationsIt = [
     name: "Discord",
     category: localizedCategory.Channels,
     description:
-      "Adapter pianificato per raggiungere Friday da Discord e ricevere risposte nello stesso canale o thread.",
+      "Chatta con Friday da un server Discord o in DM, con thread, riferimenti di risposta, allowlist e policy DM. Le risposte tornano nel canale o thread di origine.",
     icon: "MessageSquare",
   },
   {
@@ -630,15 +638,109 @@ const en = {
         text: "Drafted an email to Sara confirming the launch on July 15. I'll ask before sending it.",
       },
     ],
-    chatUserFollowup: "Now make a sunny summer scene of Rome from today's forecast.",
-    chatAssistantFollowup: "Ready. I will use the configured image provider and show the result here.",
     imageHeader: "Created image",
-    imageAlt: "Generated sunny summer scene in a Roman piazza with the Colosseum",
-    imageCaption:
-      "Here's a sunny Roman summer scene inspired by today's forecast: clear skies, 33°C at noon, and zero chance of rain. A perfect day for the Eternal City.",
-    copyLabel: "Copy",
-    readAloudLabel: "Read aloud",
-    regenerateLabel: "Regenerate",
+    libraryFeed: [
+      {
+        file: "image-1783179258677.jpeg",
+        user: "Generate a blue supercar parked on a coastal road at sunset.",
+        reply: "Done — sapphire blue body, ocean sunset behind it.",
+      },
+      {
+        file: "image-1783179862362.jpeg",
+        user: "Now the same scene with a red one, in motion.",
+        reply: "Here it is at speed along the coast, sun low on the water.",
+      },
+      {
+        file: "image-1783180448601.jpeg",
+        user: "A national team lined up in a packed stadium at night.",
+        reply: "Lineup under the floodlights, flags across the stands.",
+      },
+      {
+        file: "image-1783253703352.jpeg",
+        user: "A striped hot-air balloon against a clear blue sky.",
+        reply: "Red, yellow, and blue stripes drifting between the clouds.",
+      },
+      {
+        file: "image-1783269109315.jpeg",
+        user: "The Sun and Earth from space, with the solar wind visible.",
+        reply: "Solar flares streaming toward Earth's magnetic field.",
+      },
+      {
+        file: "image-1783337979792.jpeg",
+        user: "A gray wolf on a rock in a misty forest at dawn.",
+        reply: "Standing watch in the first light, mist through the pines.",
+      },
+      {
+        file: "image-1783442946799.jpeg",
+        user: "A mountain lake at sunset with perfect reflections.",
+        reply: "Still water mirroring the peaks and the burning sky.",
+      },
+      {
+        file: "image-1783449590506.jpeg",
+        user: "A summer day at the Colosseum, cafe umbrellas and gelato.",
+        reply: "Sunny piazza, colorful umbrellas, gelato at every table.",
+      },
+      {
+        file: "image-1783449852408.jpeg",
+        user: "The Trevi Fountain at golden hour.",
+        reply: "Warm evening light on the marble, crowds at the edge.",
+      },
+      {
+        file: "image-1783495226058.jpeg",
+        user: "A lake at sunrise, framed by tall pines.",
+        reply: "Fiery clouds mirrored between the silhouetted trees.",
+      },
+      {
+        file: "image-1783546430702.jpeg",
+        user: "A minimalist living room in warm beige tones.",
+        reply: "Clean lines, soft daylight, and a few green accents.",
+      },
+      {
+        file: "image-1783546631450.jpeg",
+        user: "Make it cozier: fireplace, bookshelves, warm light.",
+        reply: "Fire lit, shelves full, blankets ready for the evening.",
+      },
+      {
+        file: "image-1783694585292.jpeg",
+        user: "Rome in a heatwave — make it dramatic.",
+        reply: "Blazing sun over the Forum, and the gelato is losing the fight.",
+      },
+      {
+        file: "image-1783695407850.jpeg",
+        user: "A winged horse rising through golden clouds.",
+        reply: "Pegasus climbing into the light between the clouds.",
+      },
+      {
+        file: "image-1783756461580.jpeg",
+        user: "An astronaut fishing for stars from a crescent moon.",
+        reply: "Line cast into a spiral galaxy, lantern lit beside him.",
+      },
+      {
+        file: "image-1784044528440.jpeg",
+        user: "Dinner at a Roman trattoria, pizza on the table.",
+        reply: "Checkered tablecloths, full glasses, a margherita to share.",
+      },
+      {
+        file: "image-1784044624641.jpeg",
+        user: "Lunch in a Roman piazza by the fountain.",
+        reply: "Tables in the sun around the fountain and the obelisk.",
+      },
+      {
+        file: "image-1784044745187.jpeg",
+        user: "A terrace restaurant facing the Colosseum.",
+        reply: "Front-row tables, pizza arriving, arches in the background.",
+      },
+      {
+        file: "image-1784044781332.jpeg",
+        user: "Aperitivo hour on a cobbled street near the Colosseum.",
+        reply: "Spritz and pizza under yellow umbrellas on the cobblestones.",
+      },
+      {
+        file: "image-1784044799230.jpeg",
+        user: "One more from the terrace, bright midday sun.",
+        reply: "Midday at the Colosseum — umbrellas up, plates full.",
+      },
+    ],
     historyLabel: "History",
     attachedFile: "project-notes.md",
     removeAttachment: "Remove attachment",
@@ -873,15 +975,109 @@ const it = {
         text: "Ho preparato una bozza per Sara che conferma il lancio il 15 luglio. Chiedo prima di inviarla.",
       },
     ],
-    chatUserFollowup: "Ora crea una scena estiva e soleggiata di Roma dalle previsioni di oggi.",
-    chatAssistantFollowup: "Pronto. Uso il provider immagini configurato e mostro il risultato qui.",
     imageHeader: "Immagine creata",
-    imageAlt: "Scena estiva e soleggiata generata in una piazza romana con il Colosseo",
-    imageCaption:
-      "Ecco una scena estiva e soleggiata di Roma ispirata alle previsioni di oggi: cielo sereno, 33°C a mezzogiorno e zero probabilita di pioggia. Una giornata perfetta per la Citta Eterna.",
-    copyLabel: "Copia",
-    readAloudLabel: "Leggi ad alta voce",
-    regenerateLabel: "Rigenera",
+    libraryFeed: [
+      {
+        file: "image-1783179258677.jpeg",
+        user: "Genera una supercar blu parcheggiata su una strada costiera al tramonto.",
+        reply: "Fatto: carrozzeria blu zaffiro e tramonto sull'oceano.",
+      },
+      {
+        file: "image-1783179862362.jpeg",
+        user: "Ora la stessa scena con una rossa, in movimento.",
+        reply: "Eccola in corsa lungo la costa, con il sole basso sull'acqua.",
+      },
+      {
+        file: "image-1783180448601.jpeg",
+        user: "Una nazionale schierata in uno stadio pieno, di notte.",
+        reply: "Schierati sotto i riflettori, bandiere su tutti gli spalti.",
+      },
+      {
+        file: "image-1783253703352.jpeg",
+        user: "Una mongolfiera a strisce contro un cielo azzurro.",
+        reply: "Strisce rosse, gialle e blu che fluttuano tra le nuvole.",
+      },
+      {
+        file: "image-1783269109315.jpeg",
+        user: "Il Sole e la Terra dallo spazio, con il vento solare visibile.",
+        reply: "Brillamenti solari che raggiungono il campo magnetico terrestre.",
+      },
+      {
+        file: "image-1783337979792.jpeg",
+        user: "Un lupo grigio su una roccia in una foresta nebbiosa all'alba.",
+        reply: "Di guardia alle prime luci, con la nebbia tra i pini.",
+      },
+      {
+        file: "image-1783442946799.jpeg",
+        user: "Un lago di montagna al tramonto con riflessi perfetti.",
+        reply: "Acqua immobile che riflette le cime e il cielo infuocato.",
+      },
+      {
+        file: "image-1783449590506.jpeg",
+        user: "Una giornata estiva al Colosseo, ombrelloni e gelato.",
+        reply: "Piazza soleggiata, ombrelloni colorati e gelato a ogni tavolo.",
+      },
+      {
+        file: "image-1783449852408.jpeg",
+        user: "La Fontana di Trevi all'ora d'oro.",
+        reply: "Luce calda della sera sul marmo, folla raccolta sul bordo.",
+      },
+      {
+        file: "image-1783495226058.jpeg",
+        user: "Un lago all'alba, incorniciato da pini alti.",
+        reply: "Nuvole infuocate riflesse tra le sagome degli alberi.",
+      },
+      {
+        file: "image-1783546430702.jpeg",
+        user: "Un soggiorno minimalista nei toni del beige.",
+        reply: "Linee pulite, luce naturale morbida e qualche tocco di verde.",
+      },
+      {
+        file: "image-1783546631450.jpeg",
+        user: "Rendilo piu accogliente: camino, librerie, luce calda.",
+        reply: "Fuoco acceso, scaffali pieni e coperte pronte per la sera.",
+      },
+      {
+        file: "image-1783694585292.jpeg",
+        user: "Roma durante un'ondata di caldo: rendila drammatica.",
+        reply: "Sole rovente sul Foro, e il gelato sta perdendo la sfida.",
+      },
+      {
+        file: "image-1783695407850.jpeg",
+        user: "Un cavallo alato che sale tra nuvole dorate.",
+        reply: "Un pegaso che sale verso la luce tra le nuvole.",
+      },
+      {
+        file: "image-1783756461580.jpeg",
+        user: "Un astronauta che pesca stelle da una falce di luna.",
+        reply: "Lenza calata in una galassia a spirale, lanterna accesa accanto.",
+      },
+      {
+        file: "image-1784044528440.jpeg",
+        user: "Cena in una trattoria romana, pizza in tavola.",
+        reply: "Tovaglie a quadretti, calici pieni e una margherita da dividere.",
+      },
+      {
+        file: "image-1784044624641.jpeg",
+        user: "Pranzo in una piazza romana vicino alla fontana.",
+        reply: "Tavoli al sole intorno alla fontana e all'obelisco.",
+      },
+      {
+        file: "image-1784044745187.jpeg",
+        user: "Un ristorante con terrazza di fronte al Colosseo.",
+        reply: "Tavoli in prima fila, pizza in arrivo e le arcate sullo sfondo.",
+      },
+      {
+        file: "image-1784044781332.jpeg",
+        user: "Ora dell'aperitivo in una via acciottolata vicino al Colosseo.",
+        reply: "Spritz e pizza sotto ombrelloni gialli sui sanpietrini.",
+      },
+      {
+        file: "image-1784044799230.jpeg",
+        user: "Un'altra dalla terrazza, con il sole di mezzogiorno.",
+        reply: "Mezzogiorno al Colosseo: ombrelloni aperti e piatti pieni.",
+      },
+    ],
     historyLabel: "Cronologia",
     attachedFile: "note-progetto.md",
     removeAttachment: "Rimuovi allegato",

@@ -17,17 +17,17 @@ const dmPolicyLabels: Record<string, string> = {
 
 <Layout
   title="Channels"
-  description="Friday channels let you chat with your desktop assistant from Telegram today, with more adapters coming soon."
+  description="Friday channels let you chat with your desktop assistant from Telegram and Discord today, with more adapters coming soon."
 >
   <section class="section page-hero">
     <div class="shell section-heading">
       <p class="eyebrow">Channels</p>
-      <h1>Chat with Friday from Telegram.</h1>
+      <h1>Chat with Friday from Telegram and Discord.</h1>
       <p>
         A message arrives from a channel, Friday runs an agent turn, and the
         reply is delivered back through the same channel. Each channel has its
         own enabled state, secrets, allow-lists, targets, and DM policy. Telegram
-        is supported today; additional adapters are planned.
+        and Discord are supported today; additional adapters are planned.
       </p>
     </div>
   </section>
@@ -58,7 +58,7 @@ const dmPolicyLabels: Record<string, string> = {
     <div class="shell">
       <header class="channel-group-head">
         <h2>Supported channels</h2>
-        <span>{supported.length} channel</span>
+        <span>{supported.length} {supported.length === 1 ? "channel" : "channels"}</span>
       </header>
       <div class="channel-grid">
         {supported.map((ch) => (

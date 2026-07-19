@@ -9,9 +9,9 @@ order: 70
 1. Install and open Friday on your computer.
 2. In Settings, add the API key for at least one AI provider.
 3. Choose the provider and model for the assistant.
-4. Optionally configure speech-to-text, text-to-speech, and image generation.
+4. Optionally configure speech-to-text, text-to-speech, and image, video, and audio generation.
 5. Start chatting and approve any permission prompts for actions that touch files, accounts, or outside services.
-6. Extend Friday by enabling skills, adding MCP servers, linking Telegram, or creating a recurring scheduled task.
+6. Extend Friday by enabling skills, adding MCP servers, linking Telegram or Discord, or creating a recurring scheduled task.
 
 ## Platforms And Languages
 

@@ -1,6 +1,6 @@
 ---
 title: "Feature Overview"
-description: "The main Friday capabilities: chat, tools, voice, images, scheduling, health checks, memory, and personalization."
+description: "The main Friday capabilities: chat, tools, voice, image, video, and audio generation, scheduling, health checks, memory, and personalization."
 category: "Product"
 sourcePath: "features.md"
 order: 10
@@ -14,7 +14,7 @@ The chat supports Markdown, syntax-highlighted code blocks, inline images, attac
 
 ## Agent Tools
 
-Friday can read, write, and edit files; apply patches; run commands and longer-running processes; search and fetch the web; drive a browser; generate images; schedule jobs; load skills; run subagents; and use tools exposed by MCP servers.
+Friday can read, write, and edit files; apply patches; run commands and longer-running processes; search and fetch the web; drive a browser; generate images, video, and audio; save durable facts to memory; schedule jobs; load skills; run subagents; and use tools exposed by MCP servers.
 
 Tool output is treated as evidence. Friday should not send messages, change records, delete data, or touch production systems without clear authorization.
 
@@ -22,9 +22,9 @@ Tool output is treated as evidence. Friday should not send messages, change reco
 
 Friday supports speech-to-text dictation and text-to-speech read-aloud. You choose the provider and voice model for each direction and grant microphone access on your own terms.
 
-## Image Generation
+## Image, Video, And Audio Generation
 
-Describe an image in words and Friday creates it using the configured image provider and model. Generated images appear in the conversation and can be saved.
+Describe an image, video clip, music track, or sound effect in words and Friday creates it using the provider and model you configure for that media type. Generated media appears inline in the conversation, is playable without leaving the chat, and is saved to your local media library.
 
 ## Automation
 

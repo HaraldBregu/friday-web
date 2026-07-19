@@ -16,8 +16,8 @@ Each model service can use its own provider and model:
 | Speech-to-Text | Transcription and dictation. |
 | Text-to-Speech | Spoken assistant replies. |
 | Text-to-Image | Image generation. |
-| Text-to-Video | Coming soon. |
-| Music / Audio | Coming soon. |
+| Text-to-Video | Video generation. |
+| Music / Audio | Music and sound-effect generation. |
 
 Provider adapters normalize different vendors behind one interface. Friday can also connect to OpenAI-compatible endpoints by configuring an endpoint and key.
 

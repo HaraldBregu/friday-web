@@ -87,9 +87,9 @@
     "id": "channels",
     "name": "Channels",
     "status": "implemented",
-    "description": "Talk to Friday from Telegram today and receive replies back through the same channel. Discord, Slack, WhatsApp, and Email are planned adapters.",
+    "description": "Talk to Friday from Telegram and Discord today and receive replies back through the same channel. Slack, WhatsApp, and Email are planned adapters.",
     "icon": "RadioTower",
-    "providers": ["Telegram", "Discord coming soon", "Slack coming soon", "WhatsApp coming soon", "Email coming soon"],
+    "providers": ["Telegram", "Discord", "Slack coming soon", "WhatsApp coming soon", "Email coming soon"],
     "highlights": [
       "Bot-based messaging",
       "Reliable delivery and reconnection",
@@ -140,17 +140,17 @@
     ]
   },
   {
-    "id": "future-media",
-    "name": "Future media services",
-    "status": "pending-runtime",
-    "description": "Text-to-video and music/audio are planned model service slots.",
+    "id": "media-video-audio",
+    "name": "Video and audio generation",
+    "status": "implemented",
+    "description": "Generate video, music, and sound effects from text with the provider and model you choose. Results are playable inline and saved to your local media library.",
     "icon": "Video",
     "providers": ["Text-to-Video", "Music / Audio"],
     "highlights": [
-      "Coming soon",
-      "Separate provider and model choices",
-      "Aligned with the same local credential model",
-      "Not claimed as available today"
+      "Text-to-video with your chosen provider and model",
+      "Music and sound-effect generation",
+      "Separate provider and model choices per media type",
+      "Saved to the local media library and playable in chat"
     ]
   }
 ]

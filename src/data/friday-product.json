@@ -13,7 +13,7 @@
   "hero": {
     "eyebrow": "Local-first desktop AI assistant",
     "headline": "Friday.",
-    "description": "Your desktop AI copilot for everyday tasks. Chat in plain language and Friday can read and write files, search the web, generate images, transcribe your voice, speak back, run on a schedule, and connect to the tools you already use."
+    "description": "Your desktop AI copilot for everyday tasks. Chat in plain language and Friday can read and write files, search the web, generate images and video, transcribe your voice, speak back, run on a schedule, and connect to the tools you already use."
   },
   "demoSuggestions": [
     {
@@ -123,6 +123,12 @@
       "status": "Live",
       "description": "Bundled bot channel for phone or desktop chat, with allowlists, DM policy, targets, and replies through the same chat.",
       "icon": "Send"
+    },
+    {
+      "name": "Discord",
+      "status": "Live",
+      "description": "Bundled bot channel for servers and DMs, with threads, reply references, allowlists, and DM policy, replying in the originating channel.",
+      "icon": "MessageSquare"
     }
   ],
   "faqs": [
@@ -136,7 +142,7 @@
     },
     {
       "question": "Do I have to use one specific AI provider?",
-      "answer": "No. Friday is bring-your-own-AI. Add your own provider keys and choose the provider and model for the assistant, speech-to-text, text-to-speech, image generation, and future media services. OpenAI-compatible endpoints can be configured too."
+      "answer": "No. Friday is bring-your-own-AI. Add your own provider keys and choose the provider and model for the assistant, speech-to-text, text-to-speech, image generation, video generation, and audio generation. OpenAI-compatible endpoints can be configured too."
     },
     {
       "question": "How does permissioning work?",
@@ -144,7 +150,7 @@
     },
     {
       "question": "Can Friday work from outside the app?",
-      "answer": "Yes. Connect a Telegram bot to talk to Friday from your phone or desktop, with per-channel access control, separate channel secrets, and replies delivered to the same conversation."
+      "answer": "Yes. Connect a Telegram or Discord bot to talk to Friday from your phone or desktop, with per-channel access control, separate channel secrets, and replies delivered to the same conversation."
     },
     {
       "question": "What can be automated?",
@@ -186,10 +192,11 @@
     "Run shell commands and manage longer-running processes",
     "Search the web and fetch current pages or URLs",
     "Drive a managed browser when a page needs real interaction",
-    "Create images from text descriptions",
+    "Generate images, video, music, and sound effects from text",
     "Create, update, pause, resume, list, and run scheduled jobs",
+    "Save durable facts to memory and recall them later",
     "Load reusable skills and run selected skill workflows",
-    "Use plugin, MCP, LSP, and client-hosted tools when configured"
+    "Use tools exposed by connected MCP servers"
   ],
   "providerCategories": [
     "Assistant",
@@ -204,35 +211,27 @@
     "OpenAI",
     "Anthropic",
     "Google",
-    "Meta",
     "xAI",
     "Mistral",
-    "Cohere",
     "DeepSeek",
     "Qwen",
     "Kimi",
     "Z.ai",
-    "Baidu",
-    "Tencent Hunyuan",
-    "ByteDance Seed",
     "MiniMax",
     "ElevenLabs",
     "Deepgram",
     "Cartesia",
     "Black Forest Labs",
     "Midjourney",
-    "Adobe Firefly",
     "Kling",
     "Runway",
-    "Luma AI",
+    "Luma",
     "Stability AI",
     "Ideogram",
     "Pika",
     "Suno",
     "Reka",
-    "AI21",
-    "Perplexity",
-    "NVIDIA"
+    "Perplexity"
   ],
   "voiceFeatures": [
     "Microphone permission controls",
@@ -367,9 +366,9 @@
     },
     {
       "name": "Video and audio",
-      "description": "Text-to-video and music/audio services are planned as additional model-service slots.",
-      "icon": "ScanText",
-      "status": "Coming soon"
+      "description": "Generate video, music, and sound effects from text with the provider and model you choose, saved to your media library and playable in chat.",
+      "icon": "Video",
+      "status": "Live"
     }
   ],
   "landingOperatorGroups": [
@@ -403,15 +402,15 @@
         },
         {
           "name": "Video generation",
-          "description": "Text-to-video is planned as its own provider-backed generation slot.",
+          "description": "Generate video from text with the provider and model you choose. Results are playable and saved to your media library.",
           "icon": "Video",
-          "status": "Coming soon"
+          "status": "Live"
         },
         {
           "name": "Audio generation",
-          "description": "Music and sound generation are planned as separate model-service slots.",
+          "description": "Generate music and sound effects from text through the audio provider and model you select.",
           "icon": "AudioLines",
-          "status": "Coming soon"
+          "status": "Live"
         }
       ]
     },
@@ -438,7 +437,8 @@
     { "label": "Assistant", "examples": ["OpenAI", "Anthropic", "Google", "Mistral", "DeepSeek", "Qwen", "OpenAI-compatible"] },
     { "label": "Speech-to-Text", "examples": ["OpenAI", "Deepgram", "ElevenLabs", "Mistral", "xAI", "Qwen"] },
     { "label": "Text-to-Speech", "examples": ["OpenAI", "ElevenLabs", "Cartesia", "provider-specific voices"] },
-    { "label": "Text-to-Image", "examples": ["OpenAI", "Black Forest Labs", "Midjourney", "Stability AI", "Ideogram"] },
-    { "label": "Coming soon", "examples": ["Text-to-Video", "Music / Audio", "additional media services"] }
+    { "label": "Text-to-Image", "examples": ["Black Forest Labs", "Google", "Ideogram", "Qwen", "Stability AI", "xAI"] },
+    { "label": "Text-to-Video", "examples": ["Google Veo", "Kling", "Runway", "Luma", "MiniMax", "Pika"] },
+    { "label": "Music / Audio", "examples": ["ElevenLabs", "Stability AI"] }
   ]
 }

@@ -2,10 +2,10 @@
   {
     "id": "openai",
     "name": "OpenAI",
-    "capabilities": ["Assistant", "Speech-to-Text", "Text-to-Speech", "Text-to-Image"],
+    "capabilities": ["Assistant", "Speech-to-Text", "Text-to-Speech"],
     "envVar": "OPENAI_API_KEY",
     "models": [],
-    "note": "Can power chat, transcription, speech, and image generation depending on the models you choose in Friday settings.",
+    "note": "Can power chat, transcription, and speech depending on the models you choose in Friday settings.",
     "docsUrl": "https://platform.openai.com/docs"
   },
   {
@@ -20,10 +20,10 @@
   {
     "id": "google",
     "name": "Google",
-    "capabilities": ["Assistant", "Speech-to-Text", "Text-to-Speech", "Text-to-Image", "Text-to-Video", "Music / Audio"],
+    "capabilities": ["Assistant", "Text-to-Speech", "Text-to-Image", "Text-to-Video"],
     "envVar": "GEMINI_API_KEY",
     "models": [],
-    "note": "Multi-capability provider. Text-to-video and music/audio are service slots marked coming soon in Friday.",
+    "note": "Multi-capability provider for chat, speech, Gemini image generation, and Veo video generation.",
     "docsUrl": "https://ai.google.dev/"
   },
   {
@@ -47,10 +47,10 @@
   {
     "id": "qwen",
     "name": "Qwen",
-    "capabilities": ["Assistant", "Speech-to-Text", "Text-to-Image"],
+    "capabilities": ["Assistant", "Speech-to-Text", "Text-to-Image", "Text-to-Video"],
     "envVar": "DASHSCOPE_API_KEY",
     "models": [],
-    "note": "Assistant, transcription, and image provider option where available.",
+    "note": "Assistant, transcription, image (Qwen Image), and video (Wan) provider option.",
     "docsUrl": "https://www.alibabacloud.com/help/en/model-studio/"
   },
   {
@@ -68,7 +68,7 @@
     "capabilities": ["Speech-to-Text", "Text-to-Speech", "Music / Audio"],
     "envVar": "ELEVENLABS_API_KEY",
     "models": [],
-    "note": "Speech provider option. Music/audio is a coming-soon model service slot in Friday.",
+    "note": "Speech-to-text, text-to-speech, and Eleven Music and sound-effect generation.",
     "docsUrl": "https://elevenlabs.io/docs"
   },
   {
@@ -101,10 +101,10 @@
   {
     "id": "stability-ai",
     "name": "Stability AI",
-    "capabilities": ["Text-to-Image", "Text-to-Video", "Music / Audio"],
+    "capabilities": ["Text-to-Image", "Music / Audio"],
     "envVar": "STABILITY_API_KEY",
     "models": [],
-    "note": "Image provider option. Video and audio are coming-soon Friday service slots.",
+    "note": "Image generation and Stable Audio 2.5 music and sound generation.",
     "docsUrl": "https://platform.stability.ai/docs"
   },
   {

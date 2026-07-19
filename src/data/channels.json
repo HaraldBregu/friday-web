@@ -12,12 +12,12 @@
   {
     "id": "discord",
     "name": "Discord",
-    "runtime": "coming-soon",
+    "runtime": "supported",
     "dmPolicy": "allowlist",
     "threadSupport": true,
-    "description": "Planned adapter for Discord server and direct-message workflows, with replies routed back to the originating channel or thread.",
-    "configFields": ["Bot token", "Client ID", "Allow-from list", "Default target", "DM policy"],
-    "docsUrl": "https://docs.discord.com/developers/bots"
+    "description": "Chat with Friday from a Discord server or direct message. Messages run an agent turn and replies are routed back to the originating channel or thread.",
+    "configFields": ["Bot token", "Allow-from list", "Group allow-from list", "Default target", "DM policy"],
+    "docsUrl": "https://discord.com/developers/docs/intro"
   },
   {
     "id": "slack",
