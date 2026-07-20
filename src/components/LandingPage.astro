@@ -64,7 +64,7 @@ const channelSectionText = locale === "it"
         <DownloadMenu label={site.cta.label} locale={locale} />
         {
           githubUrl ? (
-            <a class="button button--secondary" href={githubUrl}>
+            <a class="button button--secondary" href={githubUrl} target="_blank" rel="noopener noreferrer">
               <Icon name="Github" size={17} />
               {ui.github}
             </a>
