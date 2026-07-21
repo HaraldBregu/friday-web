@@ -1,10 +1,19 @@
 ---
 import LandingPage from "../components/LandingPage.astro";
 import { getLocaleContent } from "../i18n";
+import { buildHomepageStructuredData } from "../lib/homepage-structured-data";
 import Layout from "../layouts/Layout.astro";
 
 const locale = "en";
-const { home, site } = getLocaleContent(locale);
+const { friday, home, site } = getLocaleContent(locale);
+const siteBaseUrl = Astro.site ?? new URL(site.url);
+const structuredData = buildHomepageStructuredData({
+  description: site.description,
+  featureNames: friday.landingFeatures.map((feature) => feature.title),
+  locale,
+  siteBaseUrl,
+  tagline: site.tagline,
+});
 ---
 
 <Layout
@@ -14,6 +23,7 @@ const { home, site } = getLocaleContent(locale);
   description={site.description}
   ogTitle={home.ogTitle}
   ogDescription={home.ogDescription}
+  structuredData={structuredData}
 >
   <LandingPage locale={locale} />
 </Layout>

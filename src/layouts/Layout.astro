@@ -18,6 +18,7 @@ interface Props {
   wide?: boolean;
   locale?: Locale;
   alternatePath?: string;
+  structuredData?: Record<string, unknown>;
 }
 
 const locale = normalizeLocale(Astro.props.locale);
@@ -33,6 +34,7 @@ const {
   hideFooter = false,
   wide = false,
   alternatePath,
+  structuredData,
 } = Astro.props;
 
 const pageTitle = title === site.name ? `${site.name} - ${site.tagline}` : `${title} | ${site.name}`;
@@ -42,6 +44,9 @@ const imageUrl = new URL(image, siteBaseUrl).toString();
 const openGraphTitle = ogTitle ?? pageTitle;
 const openGraphDescription = ogDescription ?? description;
 const alternateLinks = alternatePath ? getAlternateLinks(alternatePath, siteBaseUrl) : [];
+const serializedStructuredData = structuredData
+  ? JSON.stringify(structuredData).replace(/</g, "\\u003c")
+  : undefined;
 ---
 
 <!doctype html>
@@ -86,6 +91,11 @@ const alternateLinks = alternatePath ? getAlternateLinks(alternatePath, siteBase
     <meta content={openGraphTitle} name="twitter:title" />
     <meta content={openGraphDescription} name="twitter:description" />
     <meta content={imageUrl} name="twitter:image" />
+    {
+      serializedStructuredData ? (
+        <script is:inline type="application/ld+json" set:html={serializedStructuredData}></script>
+      ) : null
+    }
   </head>
   <body class:list={[wide && "layout--wide"]}>
     <a class="skip-link" href="#content">{ui.skipToContent}</a>
