@@ -867,7 +867,7 @@ p {
   color: var(--accent-text);
 }
 
-.nav__cta--primary:hover {
+.nav__cta.nav__cta--primary:hover {
   background: var(--accent);
   box-shadow: 0 10px 28px rgba(243, 198, 111, 0.2);
   color: var(--accent-text);
@@ -3385,8 +3385,14 @@ p {
     display: none;
   }
 
+  .nav__actions {
+    gap: 0.45rem;
+  }
+
   .nav__cta {
-    display: none;
+    min-height: 34px;
+    padding: 0 0.7rem;
+    font-size: 0.76rem;
   }
 
   .lp-hero {

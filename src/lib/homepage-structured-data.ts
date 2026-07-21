@@ -19,7 +19,7 @@ export function buildHomepageStructuredData({
   tagline,
 }: HomepageStructuredDataInput) {
   const language = locale === "it" ? "it-IT" : "en";
-  const pagePath = locale === "it" ? "/it" : "/";
+  const pagePath = locale === "it" ? "/it/" : "/";
   const homepageUrl = new URL(pagePath, siteBaseUrl).toString();
   const organizationId = new URL("/#organization", siteBaseUrl).toString();
   const websiteId = new URL("/#website", siteBaseUrl).toString();
@@ -41,8 +41,7 @@ export function buildHomepageStructuredData({
         "@id": websiteId,
         name: "Friday",
         url: new URL("/", siteBaseUrl).toString(),
-        description: tagline,
-        inLanguage: language,
+        inLanguage: ["en", "it"],
         publisher: { "@id": organizationId },
       },
       {
