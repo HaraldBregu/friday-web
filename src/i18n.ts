@@ -523,7 +523,8 @@ const en = {
     faqEyebrow: "FAQ",
     faqTitle: "Common questions.",
     downloadTitle: "Get Friday for desktop.",
-    downloadLabel: "Donwload",
+    downloadLabel: "Download Friday",
+    downloadNote: "Desktop beta for macOS, Windows, and Linux.",
     releaseFootnote: "desktop builds",
   },
   integrationsPage: {
@@ -861,6 +862,7 @@ const it = {
     faqTitle: "Domande comuni.",
     downloadTitle: "Scarica Friday per desktop.",
     downloadLabel: "Scarica app desktop",
+    downloadNote: "Beta desktop per macOS, Windows e Linux.",
     releaseFootnote: "build desktop",
   },
   integrationsPage: {

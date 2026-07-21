@@ -19,7 +19,7 @@ const roadmapLinks = [
   { label: "Education", href: "/education" },
   { label: "Personal", href: "/personal" },
 ];
-const githubUrl = "https://github.com/HaraldBregu/friday";
+const releaseUrl = "https://github.com/HaraldBregu/friday/releases";
 ---
 
 <header class="site-header">
@@ -39,14 +39,10 @@ const githubUrl = "https://github.com/HaraldBregu/friday";
     </div>
     <div class="nav__actions">
       <ThemeToggle label={ui.themeToggle} />
-      {
-        githubUrl ? (
-          <a class="nav__cta" href={githubUrl} target="_blank" rel="noreferrer">
-            <Icon name="Github" size={16} />
-            GitHub
-          </a>
-        ) : null
-      }
+      <a class="nav__cta nav__cta--primary" href={releaseUrl} target="_blank" rel="noopener noreferrer">
+        <Icon name="Download" size={16} />
+        {ui.downloadFallbackLabel}
+      </a>
     </div>
   </nav>
 </header>

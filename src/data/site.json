@@ -3,9 +3,9 @@
   "tagline": "Your desktop AI copilot for everyday tasks.",
   "description": "Friday is a native desktop AI copilot that reads and writes files, searches the web, generates images, handles voice, runs scheduled work, and connects to the tools and messaging apps you already use.",
   "audience": "Professionals, power users, privacy-minded people, tinkerers, and teams who want a personal AI assistant that lives on their desktop and acts with explicit permission.",
-  "url": "https://friday.example.com",
+  "url": "https://friday.haraldbregu.com",
   "cta": {
-    "label": "Download",
+    "label": "Download Friday",
     "url": "#download"
   },
   "secondaryCta": {

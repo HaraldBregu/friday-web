@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
-const fallbackSiteUrl = "https://friday.example.com";
+const fallbackSiteUrl = "https://friday.haraldbregu.com";
 
 function toSiteUrl(value) {
   if (!value) {
