@@ -18,7 +18,7 @@ const sp = (t: string) => {
   return i === -1 ? [t, ""] : [t.slice(0, i), t.slice(i + 1)];
 };
 const githubUrl = "https://github.com/HaraldBregu/friday";
-const landingMetrics = friday.landingMetrics;
+const heroPillars = friday.heroPillars;
 const mcpHighlights = friday.landingMcp;
 const channelHighlights = friday.landingChannels;
 const isLiveStatus = (status: string) => status === "Live" || status === "Attivo";
@@ -54,8 +54,6 @@ const channelSectionText = locale === "it"
       <p class="eyebrow">
         {friday.release.version}
         <span>/</span>
-        {friday.release.platform}
-        <span>/</span>
         {friday.release.phase}
       </p>
       <h1 class="wordmark">Friday<span>.</span></h1>
@@ -76,12 +74,13 @@ const channelSectionText = locale === "it"
         </a>
       </div>
       <p class="cta-note">{home.downloadNote}</p>
-      <div class="hero-metrics" aria-label={locale === "it" ? "Punti chiave del prodotto" : "Product highlights"}>
+      <div class="hero-pillars" aria-label={locale === "it" ? "Punti chiave del prodotto" : "Product highlights"}>
         {
-          landingMetrics.map((metric) => (
-            <div>
-              <strong>{metric.value}</strong>
-              <span>{metric.label}</span>
+          heroPillars.map((pillar) => (
+            <div class="hero-pillar">
+              <span class="hero-pillar__icon"><Icon name={pillar.icon} size={17} /></span>
+              <strong>{pillar.title}</strong>
+              <p>{pillar.text}</p>
             </div>
           ))
         }
@@ -343,6 +342,6 @@ const channelSectionText = locale === "it"
         ) : null
       }
     </div>
-    <p>{friday.release.platform} / {home.releaseFootnote} / {friday.release.version} beta</p>
+    <p>{home.releaseFootnote} / {friday.release.version} beta</p>
   </div>
 </section>

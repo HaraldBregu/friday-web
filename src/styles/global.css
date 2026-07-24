@@ -1074,42 +1074,43 @@ p {
   text-transform: uppercase;
 }
 
-.hero-metrics {
+.hero-pillars {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 2rem;
-  max-width: 560px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.25rem;
+  max-width: 620px;
 }
 
-.hero-metrics div {
+.hero-pillar {
   min-width: 0;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(17, 17, 17, 0.86);
-  padding: 0.8rem 0.9rem;
-  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--accent);
 }
 
-[data-theme="light"] .hero-metrics div {
-  background: rgba(249, 248, 244, 0.86);
+.hero-pillar__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.55rem;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
-.hero-metrics strong,
-.hero-metrics span {
+.hero-pillar strong {
   display: block;
-}
-
-.hero-metrics strong {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
   color: var(--text);
-  font-size: 1rem;
+  font-size: 0.96rem;
   font-weight: 700;
   line-height: 1.25;
   text-wrap: balance;
 }
 
-.hero-metrics span {
+.hero-pillar p {
+  margin: 0;
   color: var(--faint);
   font-size: 0.8rem;
   line-height: 1.45;
@@ -2314,12 +2315,6 @@ p {
 }
 
 @media (hover: hover) {
-.hero-metrics div:hover {
-  border-color: var(--line-strong);
-  background: var(--surface);
-  transform: translateY(-2px);
-}
-
   .feature:hover {
     border-color: var(--accent);
     transform: translateY(-2px);
@@ -3407,8 +3402,9 @@ p {
     font-size: 1.04rem;
   }
 
-  .hero-metrics {
+  .hero-pillars {
     grid-template-columns: 1fr;
+    gap: 1.1rem;
   }
 
   .product-window__bar {

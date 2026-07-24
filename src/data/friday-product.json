@@ -13,7 +13,7 @@
   "hero": {
     "eyebrow": "Local-first desktop AI assistant",
     "headline": "Friday.",
-    "description": "Your desktop AI copilot for everyday tasks. Chat in plain language and Friday can read and write files, search the web, generate images and video, transcribe your voice, speak back, run on a schedule, and connect to the tools you already use."
+    "description": "Your desktop AI copilot for everyday tasks. Chat or speak, and Friday works with your files, tools, and schedule — right on your machine."
   },
   "demoSuggestions": [
     {
@@ -29,11 +29,10 @@
       "answer": "You spent the morning on the Friday landing page, shipped a small product update after lunch, and closed the laptop at 18:12."
     }
   ],
-  "landingMetrics": [
-    { "value": "Desktop app", "label": "Runs natively on macOS, Windows, and Linux." },
-    { "value": "Your AI providers", "label": "Connect your own provider keys and choose the models." },
-    { "value": "Local by default", "label": "Settings, credentials, history, and memory stay on your device." },
-    { "value": "You stay in control", "label": "Friday asks for approval before sensitive actions." }
+  "heroPillars": [
+    { "icon": "Sparkles", "title": "Personal assistant", "text": "One copilot for your everyday tasks." },
+    { "icon": "Cpu", "title": "Any AI provider", "text": "Your keys, your choice of models." },
+    { "icon": "ShieldCheck", "title": "Local-first", "text": "Your data stays on your device." }
   ],
   "landingFeatures": [
     {

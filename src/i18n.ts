@@ -61,7 +61,7 @@ const fridayIt = {
     eyebrow: "Assistente AI desktop local-first",
     headline: "Friday.",
     description:
-      "Il tuo copilota AI desktop per le attivita quotidiane. Scrivi o parla in linguaggio naturale e Friday puo leggere e scrivere file, cercare sul web, generare immagini e video, trascrivere la voce, parlare, lavorare su pianificazione e collegarsi agli strumenti che gia usi.",
+      "Il tuo copilota AI desktop per le attivita quotidiane. Scrivi o parla e Friday lavora con file, strumenti e pianificazioni, direttamente sulla tua macchina.",
   },
   demoSuggestions: [
     {
@@ -80,11 +80,10 @@ const fridayIt = {
         "Hai passato la mattina sulla landing page di Friday, hai rilasciato un piccolo aggiornamento prodotto dopo pranzo e hai chiuso il portatile alle 18:12.",
     },
   ],
-  landingMetrics: [
-    { value: "App desktop", label: "Funziona nativamente su macOS, Windows e Linux." },
-    { value: "I tuoi provider AI", label: "Collega le tue chiavi provider e scegli i modelli." },
-    { value: "Locale per impostazione", label: "Impostazioni, credenziali, cronologia e memoria restano sul dispositivo." },
-    { value: "Mantieni il controllo", label: "Friday chiede approvazione prima delle azioni sensibili." },
+  heroPillars: [
+    { icon: "Sparkles", title: "Assistente personale", text: "Un copilota per le attivita quotidiane." },
+    { icon: "Cpu", title: "Provider a tua scelta", text: "Le tue chiavi, i modelli che scegli." },
+    { icon: "ShieldCheck", title: "Local-first", text: "I tuoi dati restano sul dispositivo." },
   ],
   landingFeatures: [
     {
@@ -532,8 +531,7 @@ const en = {
     description: "Supported providers, channels, productivity tools, data sources, and infrastructure integrations.",
     eyebrow: "Integrations",
     heading: "Connect the systems that make work real.",
-    intro:
-      "Start with source control and channels, then expand into data, productivity, and infrastructure workflows.",
+    intro: "Channels, AI providers, automation, and local data that plug into Friday.",
     singular: "integration",
     plural: "integrations",
     ctaEyebrow: "Need a different system?",
@@ -546,8 +544,7 @@ const en = {
     description: "The mission, contribution paths, and community links for Friday.",
     eyebrow: "Community",
     heading: "Make useful AI feel accountable, inspectable, and owned by the team.",
-    intro:
-      "Friday is designed around a simple belief: assistants should work in the open, explain their actions, and adapt to the workflows people already trust.",
+    intro: "Assistants should work in the open, explain their actions, and fit the workflows you already trust.",
     cards: [
       {
         icon: "Users",
@@ -581,8 +578,7 @@ const en = {
       "Friday workflows for chat, tools, voice, images, skills, MCP, channels, scheduling, health checks, and memory.",
     eyebrow: "Operators",
     heading: "The assistant capabilities, grouped by workflow.",
-    intro:
-      "Friday combines a permissioned assistant with local data, provider choice, channels, skills, MCP tools, scheduled work, and health checks.",
+    intro: "Each operator handles one job — chat, voice, media, or automation — with its own provider and model.",
     supportedProviders: "Supported providers",
     statusLabel: {
       implemented: "Live",
@@ -870,8 +866,7 @@ const it = {
     description: "Provider, canali, strumenti di produttivita, fonti dati e integrazioni infrastrutturali supportati.",
     eyebrow: "Integrazioni",
     heading: "Collega i sistemi che rendono reale il lavoro.",
-    intro:
-      "Parti da source control e canali, poi espandi verso dati, produttivita e workflow infrastrutturali.",
+    intro: "Canali, provider AI, automazione e dati locali che si collegano a Friday.",
     singular: "integrazione",
     plural: "integrazioni",
     ctaEyebrow: "Serve un sistema diverso?",
@@ -884,8 +879,7 @@ const it = {
     description: "La missione, i percorsi di contribuzione e i link community per Friday.",
     eyebrow: "Community",
     heading: "Rendi l'AI utile responsabile, ispezionabile e di proprieta del team.",
-    intro:
-      "Friday nasce da un'idea semplice: gli assistenti dovrebbero lavorare in modo visibile, spiegare le proprie azioni e adattarsi ai workflow che le persone gia usano.",
+    intro: "Gli assistenti dovrebbero lavorare in modo visibile, spiegare le proprie azioni e adattarsi ai workflow che gia usi.",
     cards: [
       {
         icon: "Users",
@@ -919,8 +913,7 @@ const it = {
       "Workflow Friday per chat, strumenti, voce, immagini, skill, MCP, canali, pianificazione, health check e memoria.",
     eyebrow: "Operatori",
     heading: "Le capacita dell'assistente, raggruppate per workflow.",
-    intro:
-      "Friday combina un assistente autorizzato con dati locali, scelta dei provider, canali, skill, strumenti MCP, lavoro pianificato e health check.",
+    intro: "Ogni operatore gestisce un compito — chat, voce, media o automazione — con provider e modello propri.",
     supportedProviders: "Provider supportati",
     statusLabel: {
       implemented: "Attivo",
