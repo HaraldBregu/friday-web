@@ -55,13 +55,13 @@ const fridayIt = {
   ],
   release: {
     ...fridayEn.release,
-    phase: "Beta privata",
+    phase: "Beta pubblica",
   },
   hero: {
     eyebrow: "Assistente AI desktop local-first",
     headline: "Friday.",
     description:
-      "Il tuo copilota AI desktop per le attivita quotidiane. Scrivi o parla e Friday lavora con file, strumenti e pianificazioni, direttamente sulla tua macchina.",
+      "Friday pianifica le tue attivita, esegue controlli di stato, si collega ai tuoi provider AI e puo essere controllato da un chatbot come Telegram. Chiedi via testo o voce — tutto gira direttamente sulla tua macchina.",
   },
   demoSuggestions: [
     {
@@ -82,8 +82,9 @@ const fridayIt = {
   ],
   heroPillars: [
     { icon: "Sparkles", title: "Assistente personale", text: "Un copilota per le attivita quotidiane." },
-    { icon: "Cpu", title: "Provider a tua scelta", text: "Le tue chiavi, i modelli che scegli." },
-    { icon: "ShieldCheck", title: "Local-first", text: "I tuoi dati restano sul dispositivo." },
+    { icon: "Cpu", title: "Cross provider", text: "Le tue chiavi, i modelli che scegli." },
+    { icon: "ShieldCheck", title: "Local first", text: "I tuoi dati restano sul dispositivo." },
+    { icon: "Cloud", title: "Sincronizzazione cloud", text: "Mantieni i tuoi dati sincronizzati tra i dispositivi." },
   ],
   landingFeatures: [
     {

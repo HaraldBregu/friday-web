@@ -8,12 +8,12 @@
   "release": {
     "version": "v1.0",
     "platform": "macOS / Windows / Linux",
-    "phase": "Private beta"
+    "phase": "Public beta"
   },
   "hero": {
     "eyebrow": "Local-first desktop AI assistant",
     "headline": "Friday.",
-    "description": "Your desktop AI copilot for everyday tasks. Chat or speak, and Friday works with your files, tools, and schedule — right on your machine."
+    "description": "Friday schedules your tasks, runs health checks, connects to your AI providers, and can be controlled from a chatbot like Telegram. Ask by text or voice — everything runs right on your machine."
   },
   "demoSuggestions": [
     {
@@ -31,8 +31,9 @@
   ],
   "heroPillars": [
     { "icon": "Sparkles", "title": "Personal assistant", "text": "One copilot for your everyday tasks." },
-    { "icon": "Cpu", "title": "Any AI provider", "text": "Your keys, your choice of models." },
-    { "icon": "ShieldCheck", "title": "Local-first", "text": "Your data stays on your device." }
+    { "icon": "Cpu", "title": "Cross provider", "text": "Your keys, your choice of models." },
+    { "icon": "ShieldCheck", "title": "Local first", "text": "Your data stays on your device." },
+    { "icon": "Cloud", "title": "Cloud synchronization", "text": "Keep your data in sync across devices." }
   ],
   "landingFeatures": [
     {

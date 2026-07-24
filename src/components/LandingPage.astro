@@ -25,6 +25,19 @@ const isLiveStatus = (status: string) => status === "Live" || status === "Attivo
 const activeChannel = channelHighlights.find((channel) => isLiveStatus(channel.status)) ?? channelHighlights[0];
 const operatorGroups = friday.landingOperatorGroups;
 const providerGroups = friday.landingProviderGroups;
+const showcaseText = locale === "it"
+  ? {
+      tag: "App desktop",
+      title: "Tutto in una sola finestra",
+      description:
+        "Chatta, parla e allega file mentre Friday lavora con strumenti, app connesse e pianificazioni, direttamente sulla tua macchina.",
+    }
+  : {
+      tag: "Desktop app",
+      title: "Everything in one window",
+      description:
+        "Chat, speak, and attach files while Friday works with tools, connected apps, and schedules, right on your machine.",
+    };
 const channelSectionText = locale === "it"
   ? {
       live: "Disponibile ora",
@@ -56,9 +69,15 @@ const channelSectionText = locale === "it"
         <span>/</span>
         {friday.release.phase}
       </p>
-      <h1 class="wordmark">Friday<span>.</span></h1>
+      {
+        locale === "it" ? (
+          <h1 class="lp-hero__title">Il tuo assistente personale AI <em>desktop</em></h1>
+        ) : (
+          <h1 class="lp-hero__title">Your <em>Desktop</em> AI Personal Assistant</h1>
+        )
+      }
       <p class="lede">{friday.hero.description}</p>
-      <div class="cta-row">
+      <div class="cta-row cta-row--center">
         <DownloadMenu label={site.cta.label} locale={locale} />
         {
           githubUrl ? (
@@ -74,11 +93,20 @@ const channelSectionText = locale === "it"
         </a>
       </div>
       <p class="cta-note">{home.downloadNote}</p>
-      <div class="hero-pillars" aria-label={locale === "it" ? "Punti chiave del prodotto" : "Product highlights"}>
+    </div>
+  </div>
+</section>
+
+<section class="lp-showcase" aria-label={locale === "it" ? "Anteprima dell'app desktop Friday" : "Friday desktop app preview"}>
+  <div class="shell lp-showcase__inner">
+    <div class="lp-showcase__copy">
+      <span class="section-tag">{showcaseText.tag}</span>
+      <h2>{showcaseText.title}</h2>
+      <p>{showcaseText.description}</p>
+      <div class="lp-showcase__points" aria-label={locale === "it" ? "Punti chiave del prodotto" : "Product highlights"}>
         {
           heroPillars.map((pillar) => (
-            <div class="hero-pillar">
-              <span class="hero-pillar__icon"><Icon name={pillar.icon} size={17} /></span>
+            <div class="lp-showcase__point">
               <strong>{pillar.title}</strong>
               <p>{pillar.text}</p>
             </div>
@@ -86,8 +114,7 @@ const channelSectionText = locale === "it"
         }
       </div>
     </div>
-
-    <div class="lp-hero__preview">
+    <div class="lp-showcase__preview">
       <ProductMockup locale={locale} />
     </div>
   </div>
