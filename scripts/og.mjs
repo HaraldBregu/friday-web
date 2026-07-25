@@ -147,21 +147,31 @@ function wrap(text, fontSize, maxWidth, widthRatio, maxLines) {
   return lines;
 }
 
+// Vertical rhythm is top-anchored: the title block always starts at the same
+// baseline and the description follows it, so no card can collide with the
+// eyebrow above or the footer rule below.
+const TITLE_BASELINE = 300;
+const DESC_GAP = 72;
+
 function buildSvg({ eyebrow, title, description }) {
-  const titleSize = title.length > 44 ? 68 : 80;
-  const titleLines = wrap(title, titleSize, 1000, 0.52, 3);
+  const titleSize = title.length <= 30 ? 80 : title.length <= 54 ? 68 : 56;
+  const titleLeading = titleSize * 1.08;
+  const titleLines = wrap(title, titleSize, 1000, 0.52, 2);
   const descLines = wrap(description, 28, 1000, 0.5, 2);
-  const titleTop = 268 - (titleLines.length - 1) * (titleSize * 0.54);
+  const descBaseline = TITLE_BASELINE + (titleLines.length - 1) * titleLeading + DESC_GAP;
 
   const titleTspans = titleLines
     .map(
       (line, index) =>
-        `<tspan x="80" y="${Math.round(titleTop + index * titleSize * 1.08)}">${escape(line)}</tspan>`,
+        `<tspan x="80" y="${Math.round(TITLE_BASELINE + index * titleLeading)}">${escape(line)}</tspan>`,
     )
     .join("");
 
   const descTspans = descLines
-    .map((line, index) => `<tspan x="80" y="${470 + index * 40}">${escape(line)}</tspan>`)
+    .map(
+      (line, index) =>
+        `<tspan x="80" y="${Math.round(descBaseline + index * 40)}">${escape(line)}</tspan>`,
+    )
     .join("");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">
