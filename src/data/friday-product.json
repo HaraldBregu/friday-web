@@ -13,7 +13,7 @@
   "hero": {
     "eyebrow": "Local-first desktop AI assistant",
     "headline": "Friday.",
-    "description": "Friday is a desktop agent that turns a request into finished work: files read and edited, commands run, the web searched, a browser driven, images and video generated. Ask by text or voice, using your own provider keys, on your own machine."
+    "description": "Friday is a desktop agent that turns a request into finished work. Ask by text or voice, and it reads and edits files, runs commands, searches the web, drives a browser, and generates media — using your own provider keys, on your own machine."
   },
   "demoSuggestions": [
     {
