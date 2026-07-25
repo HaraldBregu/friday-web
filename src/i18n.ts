@@ -32,7 +32,7 @@ const siteIt = {
   ...siteEn,
   tagline: "Il tuo copilota AI desktop per le attivita quotidiane",
   description:
-    "Friday e un copilota AI desktop nativo che legge e scrive file, cerca sul web, genera immagini, gestisce la voce, esegue lavoro pianificato e si collega agli strumenti e alle app di messaggistica che gia usi.",
+    "Friday e un assistente AI desktop che modifica file, esegue comandi, cerca sul web e genera media, con le tue chiavi provider e sulla tua macchina.",
   audience:
     "Professionisti, power user, persone attente alla privacy, tinkerers e team che vogliono un assistente AI personale sul desktop con azioni autorizzate esplicitamente.",
   cta: {
