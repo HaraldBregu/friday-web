@@ -30,7 +30,7 @@ const localizedCategory: Record<string, string> = {
 
 const siteIt = {
   ...siteEn,
-  tagline: "Il tuo copilota AI desktop per le attivita quotidiane",
+  tagline: "Il tuo assistente AI desktop",
   description:
     "Friday e un assistente AI desktop che modifica file, esegue comandi, cerca sul web e genera media, con le tue chiavi provider e sulla tua macchina.",
   audience:
