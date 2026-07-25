@@ -1,30 +1,57 @@
 ---
 title: "Channels"
-description: "Talk to Friday from Telegram and Discord today, with additional channel adapters coming soon."
+description: "Reach Friday from Telegram and Discord, with per-channel tokens, sender policies, and replies delivered to the originating thread."
 category: "Channels"
 sourcePath: "channels.md"
 order: 40
 ---
 
-Channels let you talk to Friday outside the desktop app. A message arrives from a channel, Friday runs an agent turn, and the reply is delivered back through the same channel.
+Channels let you talk to Friday outside the desktop app. A message arrives, Friday runs an agent turn, and the reply goes back through the same channel. Enabled channels with a token start when the app becomes ready.
 
-Supported today:
+| Channel | Status | Notes |
+| --- | --- | --- |
+| Telegram | Available | Long-polling bot for phone or desktop chat. |
+| Discord | Available | Bot for servers and direct messages, with threads and reply references. |
 
-| Channel | Notes |
-| --- | --- |
-| Telegram | Connect a bot and chat from your phone or desktop. |
-| Discord | Connect a bot for server and direct-message workflows, with threads and reply references. |
+## Shared Behavior
 
-Coming soon:
+- Direct, group or channel, and thread messages are normalized and routed to the agent.
+- Replies target the originating chat, message, and thread where the platform supports it.
+- Each channel uses its own configured chat provider and model for replies.
+- Long replies are split into platform-sized parts, and delivery receipts distinguish sent, partial, and failed delivery.
+- `/start` returns a fixed connected greeting. Other slash-prefixed channel messages are ignored.
+- All accepted Telegram and Discord messages currently share one fixed bot-session identifier, so channel traffic is not separated per sender.
 
-| Channel | Notes |
-| --- | --- |
-| Slack | Planned workspace channel for team threads and approvals. |
-| WhatsApp | Planned mobile messaging channel for quick requests. |
-| Email | Planned asynchronous channel for summaries and follow-ups. |
+## Telegram
+
+- Long polling, with pending updates dropped at start.
+- Connection, error, and disconnected status events.
+- A 60-second health check and exponential reconnect delay from 2 to 60 seconds.
+- In-memory duplicate-message protection.
+- Replies split at 4,096 characters.
+- Start, stop, and restart from the renderer.
+
+## Discord
+
+- Guild, guild-message, direct-message, and message-content intents.
+- Bot-authored messages are ignored.
+- Threads and reply references are supported.
+- Reconnection is handled by discord.js.
+- Replies split at 2,000 characters.
 
 ## Access Control
 
-Each channel has its own configuration, enabled state, direct-message policy, allowed senders, and secrets. Direct-message policy can use allowlist, pairing, open, or deny behavior.
+Each channel keeps its own enabled state, token, direct-message policy, direct-sender allowlist, group or channel allowlist, and reply model.
 
-Channel secrets stay in channel records and are not shown back in plain text after saving.
+- Disabled or tokenless channels reject input, and empty messages are ignored.
+- Direct-message policy can be **Allowlist** (the default), **Open**, **Pairing**, or **Deny**.
+- Allowlist mode accepts only configured sender IDs.
+- An optional group or channel list restricts which route IDs are accepted.
+
+**Partial.** Pairing is not usable yet: the policy always rejects with `pairing_required`, and there is no code-generation or approval flow behind it.
+
+Channel tokens are masked in the interface after saving, but they are stored in ordinary local configuration files. See [Privacy And Security](/docs/privacy).
+
+## Known Gap
+
+The Channels screen shows live runtime status for Telegram only and labels Discord "config only," even though the main process does start Discord when it is enabled and has a token.
