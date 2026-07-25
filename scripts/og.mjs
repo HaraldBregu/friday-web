@@ -213,4 +213,11 @@ for (const card of cards) {
   console.log(`og/${card.slug}.png  ${(png.length / 1024).toFixed(0)} KB`);
 }
 
+// Templates read this to fall back to a section card when a page has no card of
+// its own, so a new blog post never ships a 404 preview image.
+await writeFile(
+  join(root, "src", "data", "og-cards.json"),
+  `${JSON.stringify(cards.map((card) => card.slug).sort(), null, 2)}\n`,
+);
+
 console.log(`\n${cards.length} cards written to public/og/`);
