@@ -1,6 +1,6 @@
 ---
 title: "What Friday Is"
-description: "Friday is a cross-platform Electron desktop assistant that turns chat requests into tool calls, local file and process work, web research, generated media, and messaging-channel replies."
+description: "Friday is a cross-platform Electron desktop assistant that turns chat requests into tool calls, file and process work, web research, and generated media."
 category: "Product"
 sourcePath: "overview.md"
 order: 0
