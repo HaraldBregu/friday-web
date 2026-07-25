@@ -26,21 +26,36 @@
 
 [data-theme="light"] {
   color-scheme: light;
-  --bg: #f3f2ee;
-  --bg-muted: #eae8e2;
-  --surface: #f9f8f4;
-  --surface-strong: #ece9e0;
-  --text: #121212;
-  --muted: #55524b;
-  --faint: #817b70;
-  --line: rgba(20, 20, 20, 0.1);
-  --line-strong: rgba(20, 20, 20, 0.18);
-  --accent: #0369a1;
+
+  --surface-canvas: #fbfbfa;
+  --surface-sidebar: #fafaf8;
+  --surface-raised: #ffffff;
+  --surface-bubble: #eeede9;
+  --surface-active: #eae9e5;
+
+  --text-primary: #0e0e0e;
+  --text-muted: #a3a7a7;
+
+  --accent-teal: #19635f;
+  --accent-blue: #2b5fb1;
+
+  /* ponytail: site tokens alias the palette, so the other 3600 lines need no edit.
+     --text-muted is 2.4:1 on the canvas (below WCAG AA) — kept as specified. */
+  --bg: var(--surface-canvas);
+  --bg-muted: var(--surface-bubble);
+  --surface: var(--surface-raised);
+  --surface-strong: var(--surface-active);
+  --text: var(--text-primary);
+  --muted: var(--text-muted);
+  --faint: var(--text-muted);
+  --line: rgba(163, 167, 167, 0.42);
+  --line-strong: rgba(163, 167, 167, 0.75);
+  --accent: var(--accent-blue);
   --accent-text: #ffffff;
-  --accent-soft: rgba(3, 105, 161, 0.12);
-  --green: #1c6f5b;
+  --accent-soft: rgba(43, 95, 177, 0.12);
+  --green: var(--accent-teal);
   --purple: #6d28d9;
-  --shadow: 0 22px 70px rgba(20, 20, 20, 0.12);
+  --shadow: 0 22px 70px rgba(14, 14, 14, 0.1);
 }
 
 * {
@@ -651,7 +666,7 @@ p {
 }
 
 [data-theme="light"] .site-header {
-  background: rgba(243, 242, 238, 0.9);
+  background: color-mix(in srgb, var(--surface-sidebar) 90%, transparent);
 }
 
 .nav {
