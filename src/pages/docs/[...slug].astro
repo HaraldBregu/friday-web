@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Icon from "../../components/Icon.astro";
 import Layout from "../../layouts/Layout.astro";
 import { categoryIcons, compareDocs, docsPath, docsSlug, readingTime } from "../../lib/docs";
+import { buildDocStructuredData } from "../../lib/structured-data";
 
 export async function getStaticPaths() {
   const docs = await getCollection("docs");
