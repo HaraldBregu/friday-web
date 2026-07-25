@@ -30,13 +30,13 @@ const showcaseText = locale === "it"
       tag: "App desktop",
       title: "Tutto in una sola finestra",
       description:
-        "Chatta, parla e allega file mentre Friday lavora con strumenti, app connesse e pianificazioni, direttamente sulla tua macchina.",
+        "Risposte in streaming, immagini e PDF allegati, dettatura e media generati in linea, con ogni chiamata a strumento raggruppata in un riepilogo che puoi aprire e leggere.",
     }
   : {
       tag: "Desktop app",
       title: "Everything in one window",
       description:
-        "Chat, speak, and attach files while Friday works with tools, connected apps, and schedules, right on your machine.",
+        "Streaming answers, attached images and PDFs, dictation, and generated media inline — with every tool call grouped into an activity summary you can open and read.",
     };
 const channelSectionText = locale === "it"
   ? {
@@ -45,9 +45,9 @@ const channelSectionText = locale === "it"
       origin: "La tua chat",
       assistant: "Friday",
       reply: "Stesso thread",
-      controls: ["Accesso con allowlist", "Regole per i messaggi diretti", "Risposte nello stesso thread"],
+      controls: ["DM in allowlist, aperti o negati", "Provider e modello di risposta propri", "Risposte nello stesso thread"],
       securityTitle: "Decidi tu chi puo contattare Friday.",
-      securityDescription: "Ogni canale mantiene credenziali, stato e regole di accesso separati sul tuo desktop.",
+      securityDescription: "Ogni canale mantiene token, allowlist dei mittenti e modello di risposta separati sul tuo desktop. I canali disabilitati o senza token rifiutano tutto.",
     }
   : {
       live: "Available now",
@@ -55,9 +55,9 @@ const channelSectionText = locale === "it"
       origin: "Your chat",
       assistant: "Friday",
       reply: "Same thread",
-      controls: ["Allowlist access", "Direct-message policy", "Same-thread replies"],
+      controls: ["Allowlist, open, or deny DMs", "Its own reply provider and model", "Same-thread replies"],
       securityTitle: "You decide who can reach Friday.",
-      securityDescription: "Each channel keeps its own credentials, enabled state, and access rules on your desktop.",
+      securityDescription: "Each channel keeps its own token, sender allowlist, and reply model on your desktop. Disabled or tokenless channels reject everything.",
     };
 ---
 

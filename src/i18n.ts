@@ -61,7 +61,7 @@ const fridayIt = {
     eyebrow: "Assistente AI desktop local-first",
     headline: "Friday.",
     description:
-      "Friday pianifica le tue attivita, esegue controlli di stato, si collega ai tuoi provider AI e puo essere controllato da un chatbot come Telegram. Chiedi via testo o voce — tutto gira direttamente sulla tua macchina.",
+      "Friday e un agent desktop che trasforma una richiesta in lavoro finito: file letti e modificati, comandi eseguiti, ricerche sul web, un browser pilotato, immagini e video generati. Chiedi via testo o voce, con le tue chiavi provider, sulla tua macchina.",
   },
   demoSuggestions: [
     {
@@ -81,10 +81,10 @@ const fridayIt = {
     },
   ],
   heroPillars: [
-    { icon: "Sparkles", title: "Assistente personale", text: "Un copilota per le attivita quotidiane." },
-    { icon: "Cpu", title: "Cross provider", text: "Le tue chiavi, i modelli che scegli." },
-    { icon: "ShieldCheck", title: "Local first", text: "I tuoi dati restano sul dispositivo." },
-    { icon: "Cloud", title: "Sincronizzazione cloud", text: "Mantieni i tuoi dati sincronizzati tra i dispositivi." },
+    { icon: "Sparkles", title: "Ciclo agent", text: "Pianifica, chiama strumenti e continua finche il compito non si chiude." },
+    { icon: "Cpu", title: "Cross provider", text: "Provider e modello separati per chat, voce, immagini, video e audio." },
+    { icon: "ShieldCheck", title: "Local first", text: "Chiavi, cronologia, memoria e media generati restano nei dati locali." },
+    { icon: "Cloud", title: "Backup cloud", text: "Salva le cartelle scelte su un tuo bucket S3-compatibile a intervalli." },
   ],
   landingFeatures: [
     {
@@ -92,42 +92,42 @@ const fridayIt = {
       status: "Chat",
       title: "Chat che agisce",
       description:
-        "Chiedi in linguaggio naturale e Friday usa gli strumenti per completare il lavoro: leggere file, scrivere documenti, cercare sul web, eseguire comandi, generare immagini e restituire un risultato concreto.",
+        "Chiedi in linguaggio naturale e Friday esegue un ciclo di strumenti fino a lavoro finito: legge file, applica patch multi-file, esegue comandi shell, tiene aperti processi lunghi, cerca sul web e pilota un browser reale.",
     },
     {
       key: "02",
       status: "Local-first",
       title: "I tuoi dati restano tuoi",
       description:
-        "Friday gira come app desktop. Chiavi provider, impostazioni, credenziali, cronologia e file di lavoro vivono sulla tua macchina invece che in un chatbot web.",
+        "Friday e un'app desktop Electron. Chiavi provider, cronologia delle conversazioni, memoria, progetti e media generati vivono nei dati applicativi locali, non in un account hosted.",
     },
     {
       key: "03",
       status: "Permessi",
       title: "Il lavoro sensibile richiede approvazione",
       description:
-        "Scrivere file, inviare messaggi e toccare servizi esterni passa da prompt di permesso espliciti.",
+        "Ogni strumento ha la sua policy. Modifiche ai file, comandi shell e patch chiedono conferma per default, e ogni prompt offre nega, consenti una volta o consenti sempre, con regole per le cartelle di cui ti fidi.",
     },
     {
       key: "04",
       status: "Voce",
       title: "Dettatura e lettura ad alta voce",
       description:
-        "Parla invece di digitare, trascrivi registrazioni e fai leggere le risposte da Friday usando i provider e le voci che configuri.",
+        "Detta nel prompt con trascrizione parziale in tempo reale sui modelli streaming, oppure registra e trascrivi in un passaggio. Le risposte vengono lette dal provider text-to-speech che scegli.",
     },
     {
       key: "05",
       status: "Estendibile",
       title: "Skill e MCP",
       description:
-        "Insegna a Friday workflow riutilizzabili ed esponi nuove capacita tramite il Model Context Protocol.",
+        "Installa skill come cartelle locali con un SKILL.md e richiamale dal menu slash. Collega server MCP remoti HTTP o locali stdio e i loro strumenti entrano nel set per quella esecuzione.",
     },
     {
       key: "06",
       status: "Automazione",
       title: "Pianificazioni e health check",
       description:
-        "Esegui lavori ricorrenti, riepiloghi giornalieri, pulizie periodiche e health check basati su checklist anche quando non stai chattando.",
+        "Una checklist HEALTH.md gira in background all'intervallo che scegli, salta quando sei occupato e resta in silenzio se non serve attenzione. I record cron restano salvati e si ricaricano all'avvio.",
     },
   ],
   howSteps: [
@@ -135,19 +135,19 @@ const fridayIt = {
       label: "PASSO 01",
       glyph: "Chiedi",
       title: "Fai una richiesta",
-      description: "Scrivi o detta cosa vuoi. Friday capisce obiettivo, vincoli e output atteso e fa domande solo quando qualcosa di critico e ambiguo.",
+      description: "Scrivi, detta o allega immagini e PDF. Il menu slash raggiunge skill installate, obiettivi del thread e la lista delle pianificazioni senza uscire dall'editor.",
     },
     {
       label: "PASSO 02",
       glyph: "Piano",
       title: "Sceglie gli strumenti",
-      description: "Seleziona file, comandi, ricerca web, browser, generazione immagini, skill, tool MCP, subagent o workflow pianificati adatti al compito.",
+      description: "Friday costruisce ogni turno dai file del workspace, dalla memoria salvata e dalle istruzioni del progetto attivo, poi manda in streaming le chiamate: file, comandi, web, browser, media, MCP o un subagent.",
     },
     {
       label: "PASSO 03",
       glyph: "Agisci",
       title: "Approvi e verifichi",
-      description: "Le azioni sensibili si fermano per conferma. Friday controlla il risultato e restituisce una risposta, file, immagine, job pianificato o altro artefatto pronto.",
+      description: "Le azioni protette si fermano su una card di permesso. Ogni chiamata resta nella trascrizione con input, output e durata, e il pulsante stop annulla l'esecuzione e le approvazioni in sospeso.",
     },
   ],
   quote: {
@@ -158,19 +158,19 @@ const fridayIt = {
     {
       name: "Server MCP remoti",
       label: "Estensione",
-      description: "Collega tool server hosted via HTTP con autenticazione opzionale a token o chiave, poi rendi disponibili i loro strumenti all'assistente.",
+      description: "Collega tool server hosted via HTTP con bearer token o OAuth. I server abilitati si connettono in parallelo all'inizio di ogni esecuzione, espongono i loro strumenti e si chiudono alla fine.",
       icon: "PlugZap",
     },
     {
       name: "Server MCP locali",
       label: "Estensione",
-      description: "Esegui tool server stdio locali sulla tua macchina per aggiungere capacita specifiche senza cambiare l'app.",
+      description: "Esegui server stdio dalla tua macchina con comando, argomenti, variabili d'ambiente e directory di lavoro. Un server irraggiungibile viene saltato per quella esecuzione, non e un errore fatale.",
       icon: "Workflow",
     },
     {
       name: "Qualsiasi tool MCP",
       label: "Estensione",
-      description: "Esponi nuove capacita all'assistente tramite il Model Context Protocol, l'unico modo supportato per estendere gli strumenti di Friday.",
+      description: "Gli strumenti arrivano come mcp__server__tool e seguono lo stesso modello di permessi, quindi un server puo richiedere approvazione prima che i suoi tool vengano eseguiti.",
       icon: "Plus",
     },
   ],
@@ -179,14 +179,14 @@ const fridayIt = {
       name: "Telegram",
       status: "Attivo",
       description:
-        "Canale bot incluso per chat da telefono o desktop, con allowlist, policy DM, target e risposte nella stessa chat.",
+        "Bot in long polling con health check ogni 60 secondi e riconnessione esponenziale. Le risposte si dividono a 4.096 caratteri e tornano nella chat, nel messaggio e nel thread di origine.",
       icon: "Send",
     },
     {
       name: "Discord",
       status: "Attivo",
       description:
-        "Canale bot incluso per server e DM, con thread, riferimenti di risposta, allowlist e policy DM, con risposta nel canale di origine.",
+        "Bot per server e DM con supporto a thread e riferimenti di risposta. Le risposte si dividono a 2.000 caratteri e tornano nel canale di origine.",
       icon: "MessageSquare",
     },
   ],
@@ -231,12 +231,12 @@ const fridayIt = {
   landingOperatorGroups: [
     {
       label: "Assistente",
-      description: "Il runtime centrale che pianifica, chiede approvazione, usa strumenti e restituisce risultati concreti.",
+      description: "Il ciclo di strumenti che pianifica, chiede approvazione e restituisce risultati concreti.",
       items: [
         {
           name: "Chat assistente",
           description:
-            "Esegui turni agent da una chat Markdown pulita, con attivita strumenti visibile, cronologia sessione e prompt di permesso per azioni sensibili.",
+            "Markdown in streaming con codice evidenziato, chiamate a strumenti raggruppate in riepiloghi apribili, cronologia per sessione e card di permesso sulle azioni protette.",
           icon: "Layers",
           status: "Live",
         },
@@ -245,31 +245,31 @@ const fridayIt = {
     {
       label: "Generazione",
       description:
-        "Operatori media separati per voce, immagini, video e audio, cosi ogni capacita puo usare provider e modello propri.",
+        "Operatori media per voce, immagini, video e audio, ognuno con provider e modello salvati separatamente.",
       items: [
         {
           name: "Generazione voce",
           description:
-            "Detta con speech-to-text e genera risposte lette ad alta voce tramite il provider voce e il modello che scegli.",
+            "Sei provider per la trascrizione, streaming o batch, e sette per la lettura ad alta voce: Cartesia, Deepgram, ElevenLabs, Google, MiniMax, Mistral e OpenAI.",
           icon: "Volume2",
           status: "Live",
         },
         {
           name: "Generazione immagini",
           description:
-            "Crea immagini da descrizioni testuali in chat o nel workspace immagini usando provider e modello selezionati.",
+            "Sette provider con adapter funzionanti, da FLUX.2 e Gemini 3.1 Flash Image a Stable Image Ultra. L'output dell'agent finisce nella libreria media e appare in chat.",
           icon: "Image",
           status: "Live",
         },
         {
           name: "Generazione video",
-          description: "Genera video dal testo con il provider e il modello che scegli. I risultati sono riproducibili e salvati nella libreria media.",
+          description: "Otto provider con adapter funzionanti: Veo 3.1, Kling 2.5 Turbo, Runway Gen-4, Ray 3, Hailuo 2.3, Pika, Wan 2.5 e Grok Imagine. I risultati si riproducono senza uscire dalla conversazione.",
           icon: "Video",
           status: "Live",
         },
         {
           name: "Generazione audio",
-          description: "Genera musica ed effetti sonori dal testo tramite il provider audio e il modello che selezioni.",
+          description: "Musica ed effetti sonori tramite Eleven Music, ElevenLabs Sound Effects e Stable Audio 2.5, salvati in una libreria locale datata che puoi riascoltare dalle impostazioni.",
           icon: "AudioLines",
           status: "Live",
         },
@@ -278,19 +278,19 @@ const fridayIt = {
     {
       label: "Automazione",
       description:
-        "Strumenti background per lavoro pianificato e controlli periodici, separati dalla generazione media.",
+        "Lavoro in background guidato dalla tua checklist e dalle pianificazioni, separato dalla generazione media.",
       items: [
         {
           name: "Scheduler cron",
           description:
-            "Crea, aggiorna, pausa, riprendi, elenca ed esegui lavori assistente ricorrenti con istruzioni, provider e modello dedicati.",
+            "Record di pianificazione persistenti con espressione cron, stato in pausa e provider e modello dedicati. Li crei, metti in pausa ed elenchi in conversazione; all'avvio vengono ricaricati. L'esecuzione dei prompt e in arrivo.",
           icon: "Clock",
-          status: "Live",
+          status: "Beta",
         },
         {
           name: "Health check",
           description:
-            "Esegui controlli periodici basati su checklist e ricevi un report quando qualcosa nella configurazione richiede attenzione.",
+            "Una checklist HEALTH.md ogni minuto, ogni trenta minuti o ogni ora, in una sessione dedicata, saltata quando sei occupato. Un HEALTH_OK secco resta in silenzio, tutto il resto viene registrato.",
           icon: "HeartHandshake",
           status: "Live",
         },
@@ -298,43 +298,53 @@ const fridayIt = {
     },
   ],
   landingProviderGroups: [
-    { label: "Assistente", examples: ["OpenAI", "Anthropic", "Google", "Mistral", "DeepSeek", "Qwen", "OpenAI-compatible"] },
+    { label: "Assistente", examples: ["OpenAI", "Anthropic", "Google", "xAI", "Mistral", "DeepSeek", "Qwen", "Kimi", "Z.ai", "MiniMax", "Reka", "Perplexity", "OpenAI-compatible"] },
     { label: "Speech-to-Text", examples: ["OpenAI", "Deepgram", "ElevenLabs", "Mistral", "xAI", "Qwen"] },
-    { label: "Text-to-Speech", examples: ["OpenAI", "ElevenLabs", "Cartesia", "voci provider-specific"] },
-    { label: "Text-to-Image", examples: ["Black Forest Labs", "Google", "Ideogram", "Qwen", "Stability AI", "xAI"] },
-    { label: "Text-to-Video", examples: ["Google Veo", "Kling", "Runway", "Luma", "MiniMax", "Pika"] },
+    { label: "Text-to-Speech", examples: ["OpenAI", "ElevenLabs", "Cartesia", "Deepgram", "Google", "MiniMax", "Mistral"] },
+    { label: "Text-to-Image", examples: ["Black Forest Labs", "Google", "Ideogram", "Luma", "Qwen", "Stability AI", "xAI"] },
+    { label: "Text-to-Video", examples: ["Google Veo", "Kling", "Runway", "Luma", "MiniMax", "Pika", "Qwen", "xAI"] },
     { label: "Music / Audio", examples: ["ElevenLabs", "Stability AI"] },
   ],
   faqs: [
     {
       question: "Che cos'e Friday?",
       answer:
-        "Friday e un copilota AI desktop nativo per attivita quotidiane. Chatti in linguaggio naturale e puo usare strumenti per leggere e scrivere file, cercare sul web, generare immagini, trascrivere voce, parlare, eseguire lavoro pianificato e collegarsi a servizi esterni.",
+        "Friday e un assistente desktop Electron multipiattaforma. Chatti in linguaggio naturale e lui esegue un ciclo agent su file, shell, processi lunghi, web, un browser gestito, memoria, workspace di progetto, skill, tool MCP e generazione media, fino a venti turni con strumenti per richiesta.",
     },
     {
       question: "Friday invia i miei dati da qualche parte?",
       answer:
-        "Friday e local-first. I dati lasciano la tua macchina solo quando un'attivita richiede un provider AI, canale, server MCP, richiesta web o servizio hosted che hai configurato.",
+        "Friday e local-first. Impostazioni, chiavi provider, cronologia, memoria, progetti e media generati vivono nei dati applicativi locali. Prompt, allegati e input degli strumenti escono solo verso i provider, i server MCP, i siti, i canali o l'endpoint di storage che un'attivita richiede davvero. Le chiavi sono mascherate nell'interfaccia ma salvate in normali file di configurazione locali: tratta quella cartella come sensibile.",
     },
     {
       question: "Devo usare un provider AI specifico?",
       answer:
-        "No. Friday e bring-your-own-AI. Aggiungi le tue chiavi provider e scegli provider e modello per assistente, speech-to-text, text-to-speech, immagini, video e audio.",
+        "No. Aggiungi le tue chiavi e scegli provider e modello in modo indipendente per assistente, trascrizione, voce, immagini, video, audio, lavoro pianificato e health check. Anthropic passa dalla Messages API, OpenAI dalla Responses API e ogni altro provider di chat dal percorso Chat Completions OpenAI-compatible.",
     },
     {
       question: "Come funzionano i permessi?",
       answer:
-        "Le azioni che scrivono, eliminano, pubblicano, inviano messaggi, accedono a dati privati o toccano account richiedono approvazione esplicita prima di procedere.",
+        "Ogni strumento ha la sua policy con regole allow, ask e deny. Letture, scritture e controllo processi sono consentiti per default; modifiche, comandi shell e patch chiedono conferma. La card di permesso offre nega, consenti una volta o consenti sempre, e puoi pre-autorizzare intere cartelle per singolo strumento. La policy sui comandi valuta la stringa del comando, quindi e una protezione, non una sandbox di sistema.",
     },
     {
       question: "Friday puo lavorare fuori dall'app?",
       answer:
-        "Si. Collega un bot Telegram o Discord per parlare con Friday dal telefono o dal desktop, con controllo accessi, segreti del canale separati e risposte nella stessa conversazione.",
+        "Si. I bot Telegram e Discord instradano messaggi diretti, di gruppo e nei thread verso l'agent e rispondono nello stesso punto. Ogni canale ha token, policy per i messaggi diretti (allowlist per default, oppure aperto e negato), allowlist dei mittenti e modello di risposta propri.",
+    },
+    {
+      question: "Cosa si puo automatizzare?",
+      answer:
+        "Gli health check funzionano gia: una checklist HEALTH.md ogni minuto, ogni trenta minuti o ogni ora, con fasce orarie e intervalli di date opzionali, saltata quando sei occupato e con report solo se serve attenzione. I job cron ricorrenti si creano, mettono in pausa, riprendono ed elencano in conversazione; l'esecuzione dei loro prompt e in arrivo.",
     },
     {
       question: "Quali piattaforme desktop sono supportate?",
       answer:
-        "Friday e costruito con Electron per Windows, macOS Intel e Apple Silicon, e Linux. L'interfaccia supporta inglese e italiano, con tema chiaro, scuro e di sistema.",
+        "Build Electron per Windows (NSIS, x64), macOS (PKG e DMG, Intel e Apple Silicon, hardened runtime) e Linux (AppImage e DEB). L'interfaccia e in inglese e italiano con tema chiaro, scuro e di sistema, anche se parte delle schermate iniziali e ancora solo in inglese.",
+    },
+    {
+      question: "Friday e certificato per dati regolamentati?",
+      answer:
+        "No. Friday non dichiara alcuna certificazione formale per dati regolamentati. Chiavi provider, token dei bot e segreti MCP stanno in file di configurazione locali e non in un vault cifrato: verifica i termini dei tuoi provider e la sicurezza del tuo disco prima di trattare materiale sensibile.",
     },
   ],
 } satisfies typeof fridayEn;
@@ -515,7 +525,7 @@ const en = {
     channelsEyebrow: "Channels",
     channelsTitle: "Chat with Friday|from anywhere.",
     channelsPanelDescription:
-      "Connect a Telegram bot and chat with Friday from your phone or desktop, with access controls and replies delivered to the same conversation.",
+      "Connect a Telegram or Discord bot and reach Friday from your phone. Direct, group, and thread messages route to the agent, and each channel keeps its own token, access policy, and reply model.",
     operatorsEyebrow: "Workflows",
     operatorsTitle: "Generation and automation,|split by workflow.",
     providersEyebrow: "AI Providers",
@@ -850,7 +860,7 @@ const it = {
     channelsEyebrow: "Canali",
     channelsTitle: "Parla con Friday|da ovunque.",
     channelsPanelDescription:
-      "Collega un bot Telegram e parla con Friday dal telefono o dal desktop, con controlli di accesso e risposte nella stessa conversazione.",
+      "Collega un bot Telegram o Discord e raggiungi Friday dal telefono. Messaggi diretti, di gruppo e nei thread arrivano all'agent, e ogni canale mantiene token, policy di accesso e modello di risposta propri.",
     operatorsEyebrow: "Workflow",
     operatorsTitle: "Generazione e automazione,|separate per workflow.",
     providersEyebrow: "Provider AI",
