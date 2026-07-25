@@ -514,9 +514,9 @@ const en = {
     footerPermissionNote: "Review provider, tool, and channel permissions before enabling automation.",
   },
   home: {
-    ogTitle: "Friday",
+    ogTitle: "Friday — Your Desktop AI Personal Assistant",
     ogDescription:
-      "A native desktop AI copilot for everyday tasks, with local credentials, bring-your-own providers, permissioned tools, voice, image generation, MCP tools, channels, and scheduled work.",
+      "A desktop agent that reads and edits files, runs commands, searches the web, drives a browser, and generates images, video, and audio — with your own provider keys and approval on anything sensitive.",
     featuresEyebrow: "Features",
     featuresTitle: "A capable assistant,|running on your desktop.",
     howEyebrow: "How it works",
