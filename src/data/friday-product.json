@@ -13,7 +13,7 @@
   "hero": {
     "eyebrow": "Local-first desktop AI assistant",
     "headline": "Friday.",
-    "description": "Friday is a desktop agent that turns a request into finished work. Ask by text or voice, and it reads and edits files, runs commands, searches the web, drives a browser, and generates media — using your own provider keys, on your own machine."
+    "description": "Friday is a desktop agent that turns a request into finished work. Ask by text or voice, and it reads and edits files, runs commands, searches the web, drives a browser, and generates media, all with your own provider keys, on your own machine."
   },
   "demoSuggestions": [
     {
@@ -40,7 +40,7 @@
       "key": "01",
       "status": "Chat",
       "title": "Chat that acts",
-      "description": "Ask in plain language and Friday runs a tool loop until the work is done — reading files, applying multi-file patches, running shell commands, holding long-running processes open, searching the web, and driving a real browser."
+      "description": "Ask in plain language and Friday runs a tool loop until the work is done. It reads files, applies multi-file patches, runs shell commands, holds long-running processes open, searches the web, and drives a real browser."
     },
     {
       "key": "02",
@@ -52,7 +52,7 @@
       "key": "03",
       "status": "Permissioned",
       "title": "Approval before action",
-      "description": "Every tool carries its own policy. File edits, shell commands, and patches ask by default, and each prompt offers deny, allow once, or always allow — plus directory rules for folders you already trust."
+      "description": "Every tool carries its own policy. File edits, shell commands, and patches ask by default, and each prompt offers deny, allow once, or always allow. Directory rules cover the folders you already trust."
     },
     {
       "key": "04",
@@ -84,7 +84,7 @@
       "label": "STEP 02",
       "glyph": "Plan",
       "title": "Pick tools",
-      "description": "Friday assembles each turn from your workspace files, saved memory, and the active project's instructions, then streams tool calls — files, commands, web, browser, media, MCP, or a subagent."
+      "description": "Friday assembles each turn from your workspace files, saved memory, and the active project's instructions, then streams tool calls for files, commands, web, browser, media, MCP, or a subagent."
     },
     {
       "label": "STEP 03",
@@ -134,7 +134,7 @@
   "faqs": [
     {
       "question": "What is Friday?",
-      "answer": "Friday is a cross-platform Electron desktop assistant. You chat in plain language and it runs an agent loop over your files, shell, long-running processes, the web, a managed browser, memory, named project workspaces, skills, MCP tools, and media generation — up to twenty tool-using turns per request."
+      "answer": "Friday is a cross-platform Electron desktop assistant. You chat in plain language and it runs an agent loop over your files, shell, long-running processes, the web, a managed browser, memory, named project workspaces, skills, MCP tools, and media generation, up to twenty tool-using turns per request."
     },
     {
       "question": "Does Friday send my data anywhere?",
@@ -390,7 +390,7 @@
       "items": [
         {
           "name": "Voice generation",
-          "description": "Six providers for transcription, streaming or batch, and seven for read-aloud playback — Cartesia, Deepgram, ElevenLabs, Google, MiniMax, Mistral, and OpenAI.",
+          "description": "Six providers for transcription, streaming or batch, and seven for read-aloud playback: Cartesia, Deepgram, ElevenLabs, Google, MiniMax, Mistral, and OpenAI.",
           "icon": "Volume2",
           "status": "Live"
         },
@@ -402,7 +402,7 @@
         },
         {
           "name": "Video generation",
-          "description": "Eight providers with working adapters — Veo 3.1, Kling 2.5 Turbo, Runway Gen-4, Ray 3, Hailuo 2.3, Pika, Wan 2.5, and Grok Imagine. Results play without leaving the conversation.",
+          "description": "Eight providers with working adapters: Veo 3.1, Kling 2.5 Turbo, Runway Gen-4, Ray 3, Hailuo 2.3, Pika, Wan 2.5, and Grok Imagine. Results play without leaving the conversation.",
           "icon": "Video",
           "status": "Live"
         },

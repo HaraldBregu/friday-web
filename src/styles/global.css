@@ -40,7 +40,7 @@
   --accent-blue: #2b5fb1;
 
   /* ponytail: site tokens alias the palette, so the other 3600 lines need no edit.
-     --text-muted is 2.4:1 on the canvas (below WCAG AA) — kept as specified. */
+     --text-muted is 2.4:1 on the canvas (below WCAG AA), kept as specified. */
   --bg: var(--surface-canvas);
   --bg-muted: var(--surface-bubble);
   --surface: var(--surface-raised);

@@ -21,7 +21,7 @@ Friday has two background surfaces: periodic health checks, which work today, an
 
 The Health screen reads, edits, and saves the checklist and configuration. The agent tool can additionally update light-context, isolated-session, skip-when-busy, active-hours, and include-reasoning fields.
 
-**Partial.** The runtime currently applies interval, busy checks, active hours and dates, and isolated-session behavior. The stored target, direct policy, light context, include-reasoning, provider, and model fields are not yet read by the health runner — health runs use the agent's normal active model regardless of what the Health screen shows.
+**Partial.** The runtime currently applies interval, busy checks, active hours and dates, and isolated-session behavior. The stored target, direct policy, light context, include-reasoning, provider, and model fields are not yet read by the health runner. Health runs use the agent's normal active model regardless of what the Health screen shows.
 
 ## Task Scheduler
 

@@ -10,9 +10,9 @@ order: 70
 
 The first launch walks through three steps:
 
-1. **Welcome** — introduces Friday as a personal agent for everyday tasks, coding, and background work.
-2. **Providers** — requires at least one provider API key. Each card links to that vendor's key or configuration page and supports connect, edit, cancel, and save.
-3. **Models** — selects models for Assistant, Voice, Transcription, Image, Video, and Audio. Only the Assistant selection is required to finish.
+1. **Welcome** introduces Friday as a personal agent for everyday tasks, coding, and background work.
+2. **Providers** requires at least one provider API key. Each card links to that vendor's key or configuration page and supports connect, edit, cancel, and save.
+3. **Models** selects models for Assistant, Voice, Transcription, Image, Video, and Audio. Only the Assistant selection is required to finish.
 
 Once an Assistant provider and model are stored, Friday skips setup on later launches and opens straight into chat. Everything chosen here can be changed later in Settings, and the provider and model for scheduled work and health checks are configured separately on their own Settings pages.
 
@@ -41,7 +41,7 @@ View the app name and version, toggle the tray or menu-bar icon, keep the comput
 
 System pages cover Microphone, Camera, and Screen capture. On macOS, Friday shows permission status, can request access, and opens the relevant System Settings pane; microphone recording, camera preview, and screen capture can each be tested and played back.
 
-On other platforms the explicit system permission status reports as unknown, and the application-level microphone and camera toggles do not currently disable capture. Display capture automatically picks the first source Electron returns — there is no source picker.
+On other platforms the explicit system permission status reports as unknown, and the application-level microphone and camera toggles do not currently disable capture. Display capture automatically picks the first source Electron returns, so there is no source picker.
 
 ## Platforms And Languages
 

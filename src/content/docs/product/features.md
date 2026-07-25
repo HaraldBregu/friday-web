@@ -64,7 +64,7 @@ Projects are named, persistent workspaces stored as folders under the agent's `p
 
 Selecting a project appends its `AGENTS.md` to the system prompt for that turn. It does **not** change the working directory, the execution policy, or which tools are available.
 
-There is no Settings screen for projects; the feature is agent-tool only and driven entirely through conversation. Project tools also sit outside the centralized permission system — only `delete_project` asks for confirmation.
+There is no Settings screen for projects; the feature is agent-tool only and driven entirely through conversation. Project tools also sit outside the centralized permission system, so only `delete_project` asks for confirmation.
 
 ## Memory And Personalization
 
@@ -84,10 +84,10 @@ Saving a fact adds one bullet without duplicating an identical line; forgetting 
 
 ## Widgets
 
-**Partial.** Widgets are standalone mini-app windows, each a folder with a `manifest.json` declaring title, description, and entry point. The main process watches widget folders and supports hot reload, and the application menu can open each widget in its own window. The Widgets settings page is view-only — no install, remove, or enable control yet.
+**Partial.** Widgets are standalone mini-app windows, each a folder with a `manifest.json` declaring title, description, and entry point. The main process watches widget folders and supports hot reload, and the application menu can open each widget in its own window. The Widgets settings page is view-only, with no install, remove, or enable control yet.
 
 ## Cloud Backup
 
-The Storage settings page configures S3-compatible remote storage — endpoint, region, access key, secret key, bucket, path style, selected local paths, and a sync interval — so the folders you choose back up to a bucket on a schedule. This is folder backup, not device-to-device sync.
+The Storage settings page configures S3-compatible remote storage (endpoint, region, access key, secret key, bucket, path style, selected local paths, and a sync interval) so the folders you choose back up to a bucket on a schedule. This is folder backup, not device-to-device sync.
 
 A Database entry appears in Settings navigation as "coming soon" with no page or backend behind it.

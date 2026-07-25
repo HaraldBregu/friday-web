@@ -32,7 +32,7 @@ const siteIt = {
   ...siteEn,
   tagline: "Il tuo assistente AI desktop",
   description:
-    "Friday e un assistente AI desktop che modifica file, esegue comandi, cerca sul web e genera media, con le tue chiavi provider e sulla tua macchina.",
+    "Friday è un assistente AI desktop che modifica file, esegue comandi, cerca sul web e genera media, con le tue chiavi provider e sulla tua macchina.",
   audience:
     "Professionisti, power user, persone attente alla privacy, tinkerers e team che vogliono un assistente AI personale sul desktop con azioni autorizzate esplicitamente.",
   cta: {
@@ -61,18 +61,18 @@ const fridayIt = {
     eyebrow: "Assistente AI desktop local-first",
     headline: "Friday.",
     description:
-      "Friday e un agent desktop che trasforma una richiesta in lavoro finito: file letti e modificati, comandi eseguiti, ricerche sul web, un browser pilotato, immagini e video generati. Chiedi via testo o voce, con le tue chiavi provider, sulla tua macchina.",
+      "Friday è un agente desktop che trasforma una richiesta in lavoro finito. Chiedi via testo o voce: legge e modifica file, esegue comandi, cerca sul web, pilota un browser e genera media, con le tue chiavi provider e sulla tua macchina.",
   },
   demoSuggestions: [
     {
       question: "Riassumi i miei messaggi Telegram",
       answer:
-        "Hai 4 messaggi diretti e 2 thread di gruppo. Il thread da guardare e #launch: Priya e bloccata sulla domanda del timeout API e ti ha taggato 11 minuti fa.",
+        "Hai 4 messaggi diretti e 2 thread di gruppo. Il thread da guardare è #launch: Priya è bloccata sulla domanda del timeout API e ti ha taggato 11 minuti fa.",
     },
     {
       question: "Scrivi un rifiuto gentile a Maya",
       answer:
-        "Ciao Maya, grazie mille per l'invito. Giovedi non riesco a partecipare, ma mi farebbe piacere trovare un altro momento. Vuoi che invii alcune opzioni per la prossima settimana?",
+        "Ciao Maya, grazie mille per l'invito. Giovedì non riesco a partecipare, ma mi farebbe piacere trovare un altro momento. Vuoi che invii alcune opzioni per la prossima settimana?",
     },
     {
       question: "Cosa ho fatto ieri?",
@@ -81,10 +81,10 @@ const fridayIt = {
     },
   ],
   heroPillars: [
-    { icon: "Sparkles", title: "Ciclo agent", text: "Pianifica, chiama strumenti e continua finche il compito non si chiude." },
-    { icon: "Cpu", title: "Cross provider", text: "Provider e modello separati per chat, voce, immagini, video e audio." },
+    { icon: "Sparkles", title: "Ciclo agent", text: "Pianifica, chiama strumenti e continua finché il compito non è finito." },
+    { icon: "Cpu", title: "Cross provider", text: "Scegli provider e modello diversi per chat, voce, immagini, video e audio." },
     { icon: "ShieldCheck", title: "Local first", text: "Chiavi, cronologia, memoria e media generati restano nei dati locali." },
-    { icon: "Cloud", title: "Backup cloud", text: "Salva le cartelle scelte su un tuo bucket S3-compatibile a intervalli." },
+    { icon: "Cloud", title: "Backup cloud", text: "Salva le cartelle che scegli su un tuo bucket S3-compatibile." },
   ],
   landingFeatures: [
     {
@@ -99,7 +99,7 @@ const fridayIt = {
       status: "Local-first",
       title: "I tuoi dati restano tuoi",
       description:
-        "Friday e un'app desktop Electron. Chiavi provider, cronologia delle conversazioni, memoria, progetti e media generati vivono nei dati applicativi locali, non in un account hosted.",
+        "Friday è un'app desktop Electron. Chiavi provider, cronologia delle conversazioni, memoria, progetti e media generati vivono nei dati applicativi locali, non in un account hosted.",
     },
     {
       key: "03",
@@ -164,13 +164,13 @@ const fridayIt = {
     {
       name: "Server MCP locali",
       label: "Estensione",
-      description: "Esegui server stdio dalla tua macchina con comando, argomenti, variabili d'ambiente e directory di lavoro. Un server irraggiungibile viene saltato per quella esecuzione, non e un errore fatale.",
+      description: "Esegui server stdio dalla tua macchina con comando, argomenti, variabili d'ambiente e directory di lavoro. Un server irraggiungibile viene saltato per quella esecuzione, non è un errore fatale.",
       icon: "Workflow",
     },
     {
       name: "Qualsiasi tool MCP",
       label: "Estensione",
-      description: "Gli strumenti arrivano come mcp__server__tool e seguono lo stesso modello di permessi, quindi un server puo richiedere approvazione prima che i suoi tool vengano eseguiti.",
+      description: "Gli strumenti arrivano come mcp__server__tool e seguono lo stesso modello di permessi, quindi un server può richiedere approvazione prima che i suoi tool vengano eseguiti.",
       icon: "Plus",
     },
   ],
@@ -193,7 +193,7 @@ const fridayIt = {
   landingOperators: [
     {
       name: "Chat assistente",
-      description: "Esegui turni agent da una chat Markdown pulita, con attivita strumenti visibile, cronologia sessione e prompt di permesso per azioni sensibili.",
+      description: "Esegui turni agent da una chat Markdown pulita, con attività strumenti visibile, cronologia sessione e prompt di permesso per azioni sensibili.",
       icon: "Layers",
       status: "Live",
     },
@@ -283,7 +283,7 @@ const fridayIt = {
         {
           name: "Scheduler cron",
           description:
-            "Record di pianificazione persistenti con espressione cron, stato in pausa e provider e modello dedicati. Li crei, metti in pausa ed elenchi in conversazione; all'avvio vengono ricaricati. L'esecuzione dei prompt e in arrivo.",
+            "Record di pianificazione persistenti con espressione cron, stato in pausa e provider e modello dedicati. Li crei, metti in pausa ed elenchi in conversazione; all'avvio vengono ricaricati. L'esecuzione dei prompt è in arrivo.",
           icon: "Clock",
           status: "Beta",
         },
@@ -307,14 +307,14 @@ const fridayIt = {
   ],
   faqs: [
     {
-      question: "Che cos'e Friday?",
+      question: "Che cos'è Friday?",
       answer:
-        "Friday e un assistente desktop Electron multipiattaforma. Chatti in linguaggio naturale e lui esegue un ciclo agent su file, shell, processi lunghi, web, un browser gestito, memoria, workspace di progetto, skill, tool MCP e generazione media, fino a venti turni con strumenti per richiesta.",
+        "Friday è un assistente desktop Electron multipiattaforma. Chatti in linguaggio naturale e lui esegue un ciclo agent su file, shell, processi lunghi, web, un browser gestito, memoria, workspace di progetto, skill, tool MCP e generazione media, fino a venti turni con strumenti per richiesta.",
     },
     {
       question: "Friday invia i miei dati da qualche parte?",
       answer:
-        "Friday e local-first. Impostazioni, chiavi provider, cronologia, memoria, progetti e media generati vivono nei dati applicativi locali. Prompt, allegati e input degli strumenti escono solo verso i provider, i server MCP, i siti, i canali o l'endpoint di storage che un'attivita richiede davvero. Le chiavi sono mascherate nell'interfaccia ma salvate in normali file di configurazione locali: tratta quella cartella come sensibile.",
+        "Friday è local-first. Impostazioni, chiavi provider, cronologia, memoria, progetti e media generati vivono nei dati applicativi locali. Prompt, allegati e input degli strumenti escono solo verso i provider, i server MCP, i siti, i canali o l'endpoint di storage che un'attività richiede davvero. Le chiavi sono mascherate nell'interfaccia ma salvate in normali file di configurazione locali: tratta quella cartella come sensibile.",
     },
     {
       question: "Devo usare un provider AI specifico?",
@@ -324,25 +324,25 @@ const fridayIt = {
     {
       question: "Come funzionano i permessi?",
       answer:
-        "Ogni strumento ha la sua policy con regole allow, ask e deny. Letture, scritture e controllo processi sono consentiti per default; modifiche, comandi shell e patch chiedono conferma. La card di permesso offre nega, consenti una volta o consenti sempre, e puoi pre-autorizzare intere cartelle per singolo strumento. La policy sui comandi valuta la stringa del comando, quindi e una protezione, non una sandbox di sistema.",
+        "Ogni strumento ha la sua policy con regole allow, ask e deny. Letture, scritture e controllo processi sono consentiti per default; modifiche, comandi shell e patch chiedono conferma. La card di permesso offre nega, consenti una volta o consenti sempre, e puoi pre-autorizzare intere cartelle per singolo strumento. La policy sui comandi valuta la stringa del comando, quindi è una protezione, non una sandbox di sistema.",
     },
     {
-      question: "Friday puo lavorare fuori dall'app?",
+      question: "Friday può lavorare fuori dall'app?",
       answer:
-        "Si. I bot Telegram e Discord instradano messaggi diretti, di gruppo e nei thread verso l'agent e rispondono nello stesso punto. Ogni canale ha token, policy per i messaggi diretti (allowlist per default, oppure aperto e negato), allowlist dei mittenti e modello di risposta propri.",
+        "Sì. I bot Telegram e Discord instradano messaggi diretti, di gruppo e nei thread verso l'agent e rispondono nello stesso punto. Ogni canale ha token, policy per i messaggi diretti (allowlist per default, oppure aperto e negato), allowlist dei mittenti e modello di risposta propri.",
     },
     {
-      question: "Cosa si puo automatizzare?",
+      question: "Cosa si può automatizzare?",
       answer:
-        "Gli health check funzionano gia: una checklist HEALTH.md ogni minuto, ogni trenta minuti o ogni ora, con fasce orarie e intervalli di date opzionali, saltata quando sei occupato e con report solo se serve attenzione. I job cron ricorrenti si creano, mettono in pausa, riprendono ed elencano in conversazione; l'esecuzione dei loro prompt e in arrivo.",
+        "Gli health check funzionano già: una checklist HEALTH.md ogni minuto, ogni trenta minuti o ogni ora, con fasce orarie e intervalli di date opzionali, saltata quando sei occupato e con report solo se serve attenzione. I job cron ricorrenti si creano, mettono in pausa, riprendono ed elencano in conversazione; l'esecuzione dei loro prompt è in arrivo.",
     },
     {
       question: "Quali piattaforme desktop sono supportate?",
       answer:
-        "Build Electron per Windows (NSIS, x64), macOS (PKG e DMG, Intel e Apple Silicon, hardened runtime) e Linux (AppImage e DEB). L'interfaccia e in inglese e italiano con tema chiaro, scuro e di sistema, anche se parte delle schermate iniziali e ancora solo in inglese.",
+        "Build Electron per Windows (NSIS, x64), macOS (PKG e DMG, Intel e Apple Silicon, hardened runtime) e Linux (AppImage e DEB). L'interfaccia è in inglese e italiano con tema chiaro, scuro e di sistema, anche se parte delle schermate iniziali è ancora solo in inglese.",
     },
     {
-      question: "Friday e certificato per dati regolamentati?",
+      question: "Friday è certificato per dati regolamentati?",
       answer:
         "No. Friday non dichiara alcuna certificazione formale per dati regolamentati. Chiavi provider, token dei bot e segreti MCP stanno in file di configurazione locali e non in un vault cifrato: verifica i termini dei tuoi provider e la sicurezza del tuo disco prima di trattare materiale sensibile.",
     },
@@ -514,9 +514,9 @@ const en = {
     footerPermissionNote: "Review provider, tool, and channel permissions before enabling automation.",
   },
   home: {
-    ogTitle: "Friday — Your Desktop AI Personal Assistant",
+    ogTitle: "Friday: Your Desktop AI Personal Assistant",
     ogDescription:
-      "A desktop agent that reads and edits files, runs commands, searches the web, drives a browser, and generates images, video, and audio — with your own provider keys and approval on anything sensitive.",
+      "A desktop agent that reads and edits files, runs commands, searches the web, drives a browser, and generates images, video, and audio, all with your own provider keys and your approval on anything sensitive.",
     featuresEyebrow: "Features",
     featuresTitle: "A capable assistant,|running on your desktop.",
     howEyebrow: "How it works",
@@ -590,7 +590,7 @@ const en = {
       "Friday workflows for chat, tools, voice, images, skills, MCP, channels, scheduling, health checks, and memory.",
     eyebrow: "Operators",
     heading: "The assistant capabilities, grouped by workflow.",
-    intro: "Each operator handles one job — chat, voice, media, or automation — with its own provider and model.",
+    intro: "Each operator handles one job (chat, voice, media, or automation) with its own provider and model.",
     supportedProviders: "Supported providers",
     statusLabel: {
       implemented: "Live",
@@ -652,7 +652,7 @@ const en = {
       {
         file: "image-1783179258677.jpeg",
         user: "Generate a blue supercar parked on a coastal road at sunset.",
-        reply: "Done — sapphire blue body, ocean sunset behind it.",
+        reply: "Done. Sapphire blue body, ocean sunset behind it.",
       },
       {
         file: "image-1783179862362.jpeg",
@@ -711,7 +711,7 @@ const en = {
       },
       {
         file: "image-1783694585292.jpeg",
-        user: "Rome in a heatwave — make it dramatic.",
+        user: "Rome in a heatwave, make it dramatic.",
         reply: "Blazing sun over the Forum, and the gelato is losing the fight.",
       },
       {
@@ -747,7 +747,7 @@ const en = {
       {
         file: "image-1784044799230.jpeg",
         user: "One more from the terrace, bright midday sun.",
-        reply: "Midday at the Colosseum — umbrellas up, plates full.",
+        reply: "Midday at the Colosseum. Umbrellas up, plates full.",
       },
     ],
     historyLabel: "History",
@@ -850,9 +850,9 @@ const it = {
     footerPermissionNote: "Rivedi i permessi di provider, strumenti e canali prima di abilitare l'automazione.",
   },
   home: {
-    ogTitle: "Friday — Il tuo assistente personale AI desktop",
+    ogTitle: "Friday: Il tuo assistente personale AI desktop",
     ogDescription:
-      "Un agent desktop che legge e modifica file, esegue comandi, cerca sul web, pilota un browser e genera immagini, video e audio, con le tue chiavi provider e la tua approvazione su cio che conta.",
+      "Un agente desktop che legge e modifica file, esegue comandi, cerca sul web, pilota un browser e genera immagini, video e audio, con le tue chiavi provider e la tua approvazione su ciò che conta.",
     featuresEyebrow: "Funzioni",
     featuresTitle: "Un assistente capace,|sul tuo desktop.",
     howEyebrow: "Come funziona",
@@ -866,7 +866,7 @@ const it = {
     operatorsEyebrow: "Workflow",
     operatorsTitle: "Generazione e automazione,|separate per workflow.",
     providersEyebrow: "Provider AI",
-    providersTitle: "Porta la tua AI.|Combina modelli per capacita.",
+    providersTitle: "Porta la tua AI.|Combina modelli per capacità.",
     faqEyebrow: "FAQ",
     faqTitle: "Domande comuni.",
     downloadTitle: "Scarica Friday per desktop.",
@@ -892,7 +892,7 @@ const it = {
     description: "La missione, i percorsi di contribuzione e i link community per Friday.",
     eyebrow: "Community",
     heading: "Rendi l'AI utile responsabile, ispezionabile e di proprieta del team.",
-    intro: "Gli assistenti dovrebbero lavorare in modo visibile, spiegare le proprie azioni e adattarsi ai workflow che gia usi.",
+    intro: "Gli assistenti dovrebbero lavorare in modo visibile, spiegare le proprie azioni e adattarsi ai workflow che già usi.",
     cards: [
       {
         icon: "Users",
@@ -916,7 +916,7 @@ const it = {
     joinEyebrow: "Partecipa",
     joinTitle: "Segui lo sviluppo e contribuisci dove puoi aiutare.",
     ctaEyebrow: "Contribuisci con un workflow",
-    ctaTitle: "Trasforma la tua attivita ripetuta in un comando riutilizzabile.",
+    ctaTitle: "Trasforma la tua attività ripetuta in un comando riutilizzabile.",
     ctaDescription:
       "Parti dai dati di esempio e sostituiscili con percorsi di contribuzione, documentazione e link repository reali.",
   },
@@ -925,8 +925,8 @@ const it = {
     description:
       "Workflow Friday per chat, strumenti, voce, immagini, skill, MCP, canali, pianificazione, health check e memoria.",
     eyebrow: "Operatori",
-    heading: "Le capacita dell'assistente, raggruppate per workflow.",
-    intro: "Ogni operatore gestisce un compito — chat, voce, media o automazione — con provider e modello propri.",
+    heading: "Le capacità dell'assistente, raggruppate per workflow.",
+    intro: "Ogni operatore gestisce un compito (chat, voce, media o automazione) con provider e modello propri.",
     supportedProviders: "Provider supportati",
     statusLabel: {
       implemented: "Attivo",
@@ -975,7 +975,7 @@ const it = {
       { role: "user", text: "Crea un task per ricontattare il team di design." },
       {
         role: "assistant",
-        text: "Aggiunto “Ricontattare il team di design” ai tuoi task, scadenza venerdi, con promemoria alle 9:00.",
+        text: "Aggiunto “Ricontattare il team di design” ai tuoi task, scadenza venerdì, con promemoria alle 9:00.",
       },
       { role: "user", text: "Invia un'email a Sara con la data di lancio." },
       {
@@ -1042,7 +1042,7 @@ const it = {
       },
       {
         file: "image-1783546631450.jpeg",
-        user: "Rendilo piu accogliente: camino, librerie, luce calda.",
+        user: "Rendilo più accogliente: camino, librerie, luce calda.",
         reply: "Fuoco acceso, scaffali pieni e coperte pronte per la sera.",
       },
       {
@@ -1092,7 +1092,7 @@ const it = {
     listeningLabel: "Sto ascoltando...",
     dictationText: "Riassumi la mia mattina e suggerisci il prossimo compito.",
     interactiveReply:
-      "Posso farlo. Usero gli strumenti configurati, terro visibile l'attivita e chiedero prima di scrivere file, inviare messaggi o toccare dati privati.",
+      "Posso farlo. Usero gli strumenti configurati, terro visibile l'attività e chiedero prima di scrivere file, inviare messaggi o toccare dati privati.",
     assistantStatus: "usa strumenti con controlli di approvazione",
     planItems: ["Ispeziona file modificati", "Prepara note di release", "Chiedi prima di eseguire i test"],
     toolActivityLabel: "Attivita strumenti",

@@ -1,6 +1,6 @@
 // Generates 1200x630 Open Graph cards into public/og/.
 // Run with `bun run og` after changing any card copy below.
-// ponytail: output is committed, not built on deploy — SVG text needs system
+// ponytail: output is committed, not built on deploy. SVG text needs system
 // fonts, and Vercel's build image is not guaranteed to have them.
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -22,7 +22,7 @@ const cards = [
     eyebrow: "Desktop AI assistant",
     title: "Your Desktop AI Personal Assistant",
     description:
-      "Friday reads and edits files, runs commands, searches the web, drives a browser, and generates media — with your own provider keys.",
+      "Friday reads and edits files, runs commands, searches the web, drives a browser, and generates media, all with your own provider keys.",
   },
   {
     slug: "home-it",

@@ -30,7 +30,7 @@ const showcaseText = locale === "it"
       tag: "App desktop",
       title: "Tutto in una sola finestra",
       description:
-        "Risposte in streaming, immagini e PDF allegati, dettatura e media generati in linea, con ogni chiamata a strumento raggruppata in un riepilogo che puoi aprire e leggere.",
+        "Le risposte arrivano in streaming, immagini e PDF si allegano a qualsiasi richiesta e i media generati si riproducono in linea. Ogni chiamata a strumento è raggruppata in un riepilogo che puoi aprire e leggere.",
     }
   : {
       tag: "Desktop app",
@@ -46,7 +46,7 @@ const channelSectionText = locale === "it"
       assistant: "Friday",
       reply: "Stesso thread",
       controls: ["DM in allowlist, aperti o negati", "Provider e modello di risposta propri", "Risposte nello stesso thread"],
-      securityTitle: "Decidi tu chi puo contattare Friday.",
+      securityTitle: "Decidi tu chi può contattare Friday.",
       securityDescription: "Ogni canale mantiene token, allowlist dei mittenti e modello di risposta separati sul tuo desktop. I canali disabilitati o senza token rifiutano tutto.",
     }
   : {
@@ -123,7 +123,7 @@ const channelSectionText = locale === "it"
 <section class="section reference-section" id="features">
   <div class="shell">
     <header class="reference-head">
-      <span class="section-tag">§ 01 — {home.featuresEyebrow}</span>
+      <span class="section-tag">§ 01 · {home.featuresEyebrow}</span>
       <h2>{sp(home.featuresTitle)[0]}{sp(home.featuresTitle)[1] && <><br/><span class="heading-muted">{sp(home.featuresTitle)[1]}</span></>}</h2>
     </header>
     <div class="features-grid">
@@ -146,7 +146,7 @@ const channelSectionText = locale === "it"
 <section class="section reference-section" id="how">
   <div class="shell">
     <header class="reference-head">
-      <span class="section-tag">§ 02 — {home.howEyebrow}</span>
+      <span class="section-tag">§ 02 · {home.howEyebrow}</span>
       <h2>{sp(home.howTitle)[0]}{sp(home.howTitle)[1] && <><br/><span class="heading-muted">{sp(home.howTitle)[1]}</span></>}</h2>
     </header>
     <div class="how-steps">
@@ -175,7 +175,7 @@ const channelSectionText = locale === "it"
 <section class="section reference-section" id="mcp">
   <div class="shell">
     <header class="reference-head">
-      <span class="section-tag">§ 03 — {home.mcpEyebrow}</span>
+      <span class="section-tag">§ 03 · {home.mcpEyebrow}</span>
       <h2>{sp(home.mcpTitle)[0]}{sp(home.mcpTitle)[1] && <><br/><span class="heading-muted">{sp(home.mcpTitle)[1]}</span></>}</h2>
     </header>
     <div class="mcp-grid">
@@ -201,7 +201,7 @@ const channelSectionText = locale === "it"
   <div class="shell">
     <header class="reference-head channel-head">
       <div>
-        <span class="section-tag">§ 04 — {home.channelsEyebrow}</span>
+        <span class="section-tag">§ 04 · {home.channelsEyebrow}</span>
         <h2>{sp(home.channelsTitle)[0]}{sp(home.channelsTitle)[1] && <><br/><span class="heading-muted">{sp(home.channelsTitle)[1]}</span></>}</h2>
       </div>
       <p>{home.channelsPanelDescription}</p>
@@ -262,7 +262,7 @@ const channelSectionText = locale === "it"
 <section class="section reference-section" id="operators">
   <div class="shell">
     <header class="reference-head">
-      <span class="section-tag">§ 05 — {home.operatorsEyebrow}</span>
+      <span class="section-tag">§ 05 · {home.operatorsEyebrow}</span>
       <h2>{sp(home.operatorsTitle)[0]}{sp(home.operatorsTitle)[1] && <><br/><span class="heading-muted">{sp(home.operatorsTitle)[1]}</span></>}</h2>
     </header>
     <div class="operator-groups">
@@ -307,7 +307,7 @@ const channelSectionText = locale === "it"
 <section class="section reference-section" id="providers">
   <div class="shell">
     <header class="reference-head">
-      <span class="section-tag">§ 06 — {home.providersEyebrow}</span>
+      <span class="section-tag">§ 06 · {home.providersEyebrow}</span>
       <h2>{sp(home.providersTitle)[0]}{sp(home.providersTitle)[1] && <><br/><span class="heading-muted">{sp(home.providersTitle)[1]}</span></>}</h2>
     </header>
     <div class="provider-groups">

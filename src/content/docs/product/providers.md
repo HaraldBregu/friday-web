@@ -23,7 +23,7 @@ The provider key manager carries 24 catalog entries, each with capability labels
 
 ## Chat Routing
 
-Friday uses the native Anthropic Messages API for Anthropic, the OpenAI Responses API for OpenAI, and the OpenAI-compatible Chat Completions path for every other chat provider — which is also how you connect an OpenAI-compatible endpoint of your own.
+Friday uses the native Anthropic Messages API for Anthropic, the OpenAI Responses API for OpenAI, and the OpenAI-compatible Chat Completions path for every other chat provider, which is also how you connect an OpenAI-compatible endpoint of your own.
 
 | Provider | Models |
 | --- | --- |
@@ -76,7 +76,7 @@ Text-to-speech input is required and capped at 4,096 characters. All seven provi
 | Available | Qwen: Qwen Image, Qwen Image Edit |
 | Available | Stability AI: Stable Image Ultra, Stable Image Core |
 | Available | xAI: Grok Imagine Image, Grok Imagine Image Quality |
-| Catalog only | Midjourney v8.1 and v7 — selectable, but the runtime reports that Midjourney has no public API |
+| Catalog only | Midjourney v8.1 and v7. Selectable, but the runtime reports that Midjourney has no public API |
 
 | Status | Video |
 | --- | --- |
@@ -88,7 +88,7 @@ Text-to-speech input is required and capped at 4,096 characters. All seven provi
 | Available | Qwen: Wan 2.5 T2V, Wan 2.2 T2V Plus |
 | Available | Runway: Gen-4 Turbo, Gen-3 Alpha Turbo |
 | Available | xAI: Grok Imagine Video 1.5 |
-| Catalog only | Midjourney Video v1 — selectable, no public API |
+| Catalog only | Midjourney Video v1. Selectable, but there is no public API |
 
 | Status | Audio |
 | --- | --- |
@@ -109,4 +109,4 @@ API keys live in Friday's local application data and are masked in the interface
 
 ## Choosing Providers
 
-Mix providers for quality, cost, and speed — one for assistant chat, another for transcription, another for images. Because every capability keeps its own selection, changing one does not disturb the others.
+Mix providers for quality, cost, and speed: one for assistant chat, another for transcription, another for images. Because every capability keeps its own selection, changing one does not disturb the others.

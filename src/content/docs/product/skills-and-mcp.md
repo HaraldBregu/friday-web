@@ -21,7 +21,7 @@ The Skills settings area can:
 - Inspect ID, format, version, category, safety level, visibility, author, required and allowed tools, required connectors, tags, model visibility, folder path, skill-file path, and validation diagnostics.
 - Enable or disable a skill, export a skill directory, refresh the catalog, and delete a skill after confirmation.
 
-Only enabled skills can be loaded. Enable and disable is the gate — the safety level and visibility fields are shown for your own review, not enforced as a blocking policy.
+Only enabled skills can be loaded. Enable and disable is the gate. The safety level and visibility fields are shown for your own review, not enforced as a blocking policy.
 
 The slash menu searches installed skills, and the agent loads a selected skill's `SKILL.md` during a run. The loader returns the skill's directory path; bundled scripts, references, and assets have to be read separately when the run needs them.
 
@@ -41,6 +41,6 @@ At the start of each normal agent run, enabled servers connect in parallel, expo
 ### Current Limits
 
 - The renderer has no delete control for a configured server.
-- A stored `require_approval` field is enforced — it sets a loaded MCP tool's default permission to allow or ask.
+- A stored `require_approval` field is enforced. It sets a loaded MCP tool's default permission to allow or ask.
 - A stored `defer_loading` field is not yet enforced by the tool loader.
 - MCP tools are not part of the built-in gated-tool list, so only their own `require_approval` default applies. Review a server before enabling it.

@@ -26,7 +26,7 @@ Friday stores configuration and working data below Electron's application-data d
 
 ## When Data Leaves Your Machine
 
-Prompts, attachments, tool inputs, and generated content may be sent to configured model providers, MCP servers, websites, browser targets, Telegram, Discord, or your configured cloud-storage endpoint — as required by the operation you asked for, and to nowhere else.
+Prompts, attachments, tool inputs, and generated content may be sent to configured model providers, MCP servers, websites, browser targets, Telegram, Discord, or your configured cloud-storage endpoint, as required by the operation you asked for, and to nowhere else.
 
 ## Bring Your Own Keys
 
