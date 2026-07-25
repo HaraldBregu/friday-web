@@ -21,6 +21,11 @@ const siteUrl =
 export default defineConfig({
   site: siteUrl,
   output: "static",
+  redirects: {
+    "/enterprise": "/solutions#enterprise",
+    "/education": "/solutions#education",
+    "/personal": "/solutions#personal",
+  },
   devToolbar: {
     enabled: false,
   },
