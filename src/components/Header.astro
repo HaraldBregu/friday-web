@@ -43,6 +43,28 @@ const releaseUrl = "https://github.com/HaraldBregu/friday/releases";
         <Icon name="Download" size={16} />
         {ui.downloadFallbackLabel}
       </a>
+      <details class="nav-mobile" data-nav-mobile>
+        <summary aria-label={ui.primaryNavigation}>
+          <Icon class="nav-mobile__open" name="Menu" size={20} />
+          <Icon class="nav-mobile__close" name="X" size={20} />
+        </summary>
+        <div class="nav-mobile__panel">
+          {visibleNav.map((item) => <a href={navHref(item.href)}>{item.label}</a>)}
+          <p class="nav-mobile__label">Solutions</p>
+          {roadmapLinks.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+      </details>
     </div>
   </nav>
 </header>
+
+<script is:inline>
+  // Same-page anchor links do not reload, so close the disclosure by hand.
+  (() => {
+    const menu = document.querySelector("[data-nav-mobile]");
+    if (!menu) return;
+    menu.addEventListener("click", (event) => {
+      if (event.target.closest("a")) menu.open = false;
+    });
+  })();
+</script>
