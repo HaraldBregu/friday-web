@@ -3513,14 +3513,18 @@ p {
     display: none;
   }
 
+  .nav-mobile {
+    display: block;
+  }
+
   .nav__actions {
     gap: 0.45rem;
   }
 
   .nav__cta {
-    min-height: 34px;
-    padding: 0 0.7rem;
-    font-size: 0.76rem;
+    min-height: 40px;
+    padding: 0 0.75rem;
+    font-size: 0.78rem;
   }
 
   .lp-hero {
