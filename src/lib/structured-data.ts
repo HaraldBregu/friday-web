@@ -72,6 +72,131 @@ export function buildHomepageStructuredData({
         about: { "@id": applicationId },
         mainEntity: { "@id": applicationId },
       },
+      ...(faqs.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${homepageUrl}#faq`,
+              inLanguage: language,
+              isPartOf: { "@id": websiteId },
+              mainEntity: faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: { "@type": "Answer", text: faq.answer },
+              })),
+            },
+          ]
+        : []),
     ],
+  };
+}
+
+interface DocStructuredDataInput {
+  category: string;
+  description: string;
+  path: string;
+  siteBaseUrl: URL;
+  title: string;
+}
+
+export function buildDocStructuredData({
+  category,
+  description,
+  path,
+  siteBaseUrl,
+  title,
+}: DocStructuredDataInput) {
+  const pageUrl = new URL(path, siteBaseUrl).toString();
+  const organizationId = new URL("/#organization", siteBaseUrl).toString();
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": `${pageUrl}#article`,
+        headline: title,
+        description,
+        url: pageUrl,
+        inLanguage: "en",
+        articleSection: category,
+        isPartOf: { "@id": new URL("/#website", siteBaseUrl).toString() },
+        author: { "@id": organizationId },
+        publisher: { "@id": organizationId },
+      },
+      breadcrumb(
+        [
+          { name: "Home", path: "/" },
+          { name: "Documentation", path: "/docs" },
+          { name: title, path },
+        ],
+        siteBaseUrl,
+      ),
+    ],
+  };
+}
+
+interface BlogPostStructuredDataInput {
+  author: string;
+  description: string;
+  modifiedDate?: Date;
+  path: string;
+  publishedDate: Date;
+  siteBaseUrl: URL;
+  tags: string[];
+  title: string;
+}
+
+export function buildBlogPostStructuredData({
+  author,
+  description,
+  modifiedDate,
+  path,
+  publishedDate,
+  siteBaseUrl,
+  tags,
+  title,
+}: BlogPostStructuredDataInput) {
+  const pageUrl = new URL(path, siteBaseUrl).toString();
+  const organizationId = new URL("/#organization", siteBaseUrl).toString();
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${pageUrl}#post`,
+        headline: title,
+        description,
+        url: pageUrl,
+        inLanguage: "en",
+        datePublished: publishedDate.toISOString(),
+        dateModified: (modifiedDate ?? publishedDate).toISOString(),
+        keywords: tags,
+        author: { "@type": "Organization", name: author },
+        publisher: { "@id": organizationId },
+        mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+      },
+      breadcrumb(
+        [
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: title, path },
+        ],
+        siteBaseUrl,
+      ),
+    ],
+  };
+}
+
+function breadcrumb(items: { name: string; path: string }[], siteBaseUrl: URL) {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: new URL(item.path, siteBaseUrl).toString(),
+    })),
   };
 }
