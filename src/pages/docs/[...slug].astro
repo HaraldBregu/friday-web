@@ -23,12 +23,21 @@ const siblingDocs = allDocs.filter((item) => item.data.category === doc.data.cat
 const { Content, headings } = await render(doc);
 const tocHeadings = headings.filter((heading) => heading.depth === 2 || heading.depth === 3).slice(0, 12);
 const minutes = readingTime(doc.body);
+const structuredData = buildDocStructuredData({
+  category: doc.data.category,
+  description: doc.data.description,
+  path: currentPath,
+  siteBaseUrl: Astro.site ?? new URL("https://friday.haraldbregu.com"),
+  title: doc.data.title,
+});
 ---
 
 <Layout
   canonical={currentPath}
   title={doc.data.title}
   description={doc.data.description}
+  image="/og/docs.png"
+  structuredData={structuredData}
   wide={true}
 >
   <section class="docs-reader">
