@@ -15,9 +15,9 @@ const { friday, ui } = getLocaleContent(locale);
 const visibleNav = friday.nav.filter((item) => item.href !== "#download");
 const navHref = (href: string) => (href.startsWith("#") ? `${localizedPath("/", locale)}${href}` : localizedPath(href, locale));
 const roadmapLinks = [
-  { label: "Enterprise", href: "/enterprise" },
-  { label: "Education", href: "/education" },
-  { label: "Personal", href: "/personal" },
+  { label: "Enterprise", href: "/solutions#enterprise" },
+  { label: "Education", href: "/solutions#education" },
+  { label: "Personal", href: "/solutions#personal" },
 ];
 const releaseUrl = "https://github.com/HaraldBregu/friday/releases";
 ---
