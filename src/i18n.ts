@@ -822,9 +822,10 @@ const it = {
       {
         title: "Soluzioni",
         links: [
-          { label: "Enterprise", href: "/enterprise" },
-          { label: "Education", href: "/education" },
-          { label: "Personal", href: "/personal" },
+          { label: "Panoramica", href: "/solutions" },
+          { label: "Enterprise", href: "/solutions#enterprise" },
+          { label: "Education", href: "/solutions#education" },
+          { label: "Personal", href: "/solutions#personal" },
         ],
       },
       {
