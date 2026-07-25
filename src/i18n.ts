@@ -553,7 +553,7 @@ const en = {
   },
   communityPage: {
     title: "Community",
-    description: "The mission, contribution paths, and community links for Friday.",
+    description: "The mission behind Friday, how to contribute to the desktop assistant, and where the community gathers around issues, discussions, and releases.",
     eyebrow: "Community",
     heading: "Make useful AI feel accountable, inspectable, and owned by the team.",
     intro: "Assistants should work in the open, explain their actions, and fit the workflows you already trust.",
