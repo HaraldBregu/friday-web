@@ -30,10 +30,10 @@
     }
   ],
   "heroPillars": [
-    { "icon": "Sparkles", "title": "Agent loop", "text": "Plans, calls tools, and keeps going until the task closes." },
-    { "icon": "Cpu", "title": "Cross provider", "text": "A separate provider and model for chat, voice, image, video, and audio." },
+    { "icon": "Sparkles", "title": "Agent loop", "text": "It plans, calls tools, and keeps working until the task is done." },
+    { "icon": "Cpu", "title": "Cross provider", "text": "Pick a different provider and model for chat, voice, image, video, and audio." },
     { "icon": "ShieldCheck", "title": "Local first", "text": "Keys, history, memory, and generated media stay in local app data." },
-    { "icon": "Cloud", "title": "Cloud backup", "text": "Back chosen folders up to your own S3-compatible bucket on a schedule." }
+    { "icon": "Cloud", "title": "Cloud backup", "text": "Back up the folders you choose to your own S3-compatible bucket." }
   ],
   "landingFeatures": [
     {
