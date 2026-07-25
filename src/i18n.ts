@@ -850,9 +850,9 @@ const it = {
     footerPermissionNote: "Rivedi i permessi di provider, strumenti e canali prima di abilitare l'automazione.",
   },
   home: {
-    ogTitle: "Friday",
+    ogTitle: "Friday — Il tuo assistente personale AI desktop",
     ogDescription:
-      "Un copilota AI desktop nativo per le attivita quotidiane, con credenziali locali, provider scelti da te, strumenti autorizzati, voce, immagini, strumenti MCP, canali e lavoro pianificato.",
+      "Un agent desktop che legge e modifica file, esegue comandi, cerca sul web, pilota un browser e genera immagini, video e audio, con le tue chiavi provider e la tua approvazione su cio che conta.",
     featuresEyebrow: "Funzioni",
     featuresTitle: "Un assistente capace,|sul tuo desktop.",
     howEyebrow: "Come funziona",
