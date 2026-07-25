@@ -1,11 +1,38 @@
 ---
 import Layout from "./Layout.astro";
 import Icon from "../components/Icon.astro";
+import ogCards from "../data/og-cards.json";
+import { buildBlogPostStructuredData } from "../lib/structured-data";
 
 const { post, readingTime, slug = post.id.replace(/\.mdx?$/, "") } = Astro.props;
+
+const path = `/blog/${slug}`;
+const siteBaseUrl = Astro.site ?? new URL("https://friday.haraldbregu.com");
+const ogImage = ogCards.includes(`blog-${slug}`) ? `/og/blog-${slug}.png` : "/og/blog.png";
+const structuredData = buildBlogPostStructuredData({
+  author: post.data.author,
+  description: post.data.description,
+  modifiedDate: post.data.updatedDate,
+  path,
+  publishedDate: post.data.pubDate,
+  siteBaseUrl,
+  tags: post.data.tags,
+  title: post.data.title,
+});
 ---
 
-<Layout title={post.data.title} description={post.data.description} canonical={`/blog/${slug}`}>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  canonical={path}
+  image={ogImage}
+  ogType="article"
+  publishedTime={post.data.pubDate}
+  modifiedTime={post.data.updatedDate}
+  author={post.data.author}
+  tags={post.data.tags}
+  structuredData={structuredData}
+>
   <article class="article shell article-shell">
     <a class="back-link" href="/blog">
       <Icon name="ArrowRight" size={16} />
