@@ -55,7 +55,7 @@ const canonicalUrl = new URL(canonical ?? Astro.url.pathname, siteBaseUrl).toStr
 const imageUrl = new URL(image, siteBaseUrl).toString();
 const openGraphTitle = ogTitle ?? pageTitle;
 const openGraphDescription = ogDescription ?? description;
-const openGraphImageAlt = imageAlt ?? `${openGraphTitle} — ${site.name}`;
+const openGraphImageAlt = imageAlt ?? pageTitle;
 const openGraphLocale = locale === "it" ? "it_IT" : "en_US";
 const alternateOpenGraphLocale = locale === "it" ? "en_US" : "it_IT";
 const alternateLinks = alternatePath ? getAlternateLinks(alternatePath, siteBaseUrl) : [];
