@@ -10,10 +10,16 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  imageAlt?: string;
   canonical?: string;
   noindex?: boolean;
   ogTitle?: string;
   ogDescription?: string;
+  ogType?: "website" | "article";
+  publishedTime?: Date;
+  modifiedTime?: Date;
+  author?: string;
+  tags?: string[];
   hideFooter?: boolean;
   wide?: boolean;
   locale?: Locale;
@@ -26,11 +32,17 @@ const { site, ui } = getLocaleContent(locale);
 const {
   title = site.name,
   description = site.description,
-  image = "/og-image.svg",
+  image = "/og/default.png",
+  imageAlt,
   canonical,
   noindex = false,
   ogTitle,
   ogDescription,
+  ogType = "website",
+  publishedTime,
+  modifiedTime,
+  author,
+  tags = [],
   hideFooter = false,
   wide = false,
   alternatePath,
@@ -43,6 +55,9 @@ const canonicalUrl = new URL(canonical ?? Astro.url.pathname, siteBaseUrl).toStr
 const imageUrl = new URL(image, siteBaseUrl).toString();
 const openGraphTitle = ogTitle ?? pageTitle;
 const openGraphDescription = ogDescription ?? description;
+const openGraphImageAlt = imageAlt ?? `${openGraphTitle} — ${site.name}`;
+const openGraphLocale = locale === "it" ? "it_IT" : "en_US";
+const alternateOpenGraphLocale = locale === "it" ? "en_US" : "it_IT";
 const alternateLinks = alternatePath ? getAlternateLinks(alternatePath, siteBaseUrl) : [];
 const serializedStructuredData = structuredData
   ? JSON.stringify(structuredData).replace(/</g, "\\u003c")
