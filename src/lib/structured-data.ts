@@ -2,6 +2,7 @@ import type { Locale } from "../i18n";
 
 interface HomepageStructuredDataInput {
   description: string;
+  faqs?: { question: string; answer: string }[];
   featureNames: string[];
   locale: Locale;
   siteBaseUrl: URL;
@@ -13,6 +14,7 @@ const PRODUCT_DOWNLOAD_URL = `${PRODUCT_REPOSITORY_URL}/releases`;
 
 export function buildHomepageStructuredData({
   description,
+  faqs = [],
   featureNames,
   locale,
   siteBaseUrl,
