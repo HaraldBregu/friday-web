@@ -2545,6 +2545,33 @@ p {
   margin: 1rem 0 1.25rem;
 }
 
+.footer-badge {
+  display: inline-block;
+  margin-top: 1.25rem;
+  border-radius: 10px;
+  line-height: 0;
+}
+
+.footer-badge:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.footer-badge__img {
+  width: 250px;
+  height: auto;
+}
+
+/* Product Hunt ships one asset per theme, so swap them with the site theme. */
+.footer-badge__img--light,
+[data-theme="light"] .footer-badge__img--dark {
+  display: none;
+}
+
+[data-theme="light"] .footer-badge__img--light {
+  display: block;
+}
+
 .footer-language {
   width: fit-content;
   margin-top: 1rem;
