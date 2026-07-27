@@ -2546,7 +2546,8 @@ p {
 }
 
 .footer-badge {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   margin-top: 1.25rem;
   border-radius: 10px;
   line-height: 0;
