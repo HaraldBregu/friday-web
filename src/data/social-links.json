@@ -10,6 +10,11 @@
     "icon": "Twitter"
   },
   {
+    "label": "Telegram",
+    "url": "https://t.me/fridayaiassistant",
+    "icon": "Send"
+  },
+  {
     "label": "Email",
     "url": "mailto:harald.bregu@gmail.com",
     "icon": "Mail"
