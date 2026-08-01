@@ -512,6 +512,7 @@ const en = {
     ],
     footerRights: "All rights reserved.",
     footerPermissionNote: "Review provider, tool, and channel permissions before enabling automation.",
+    footerCredit: "Built with love by ",
   },
   home: {
     ogTitle: "Friday: Your Desktop AI Personal Assistant",
@@ -848,6 +849,7 @@ const it = {
     ],
     footerRights: "Tutti i diritti riservati.",
     footerPermissionNote: "Rivedi i permessi di provider, strumenti e canali prima di abilitare l'automazione.",
+    footerCredit: "Creato con amore da ",
   },
   home: {
     ogTitle: "Friday: Il tuo assistente personale AI desktop",

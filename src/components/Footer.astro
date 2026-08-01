@@ -93,6 +93,14 @@ const localizedAlternatePath = (targetLocale: Locale) => localizedPath(alternate
   </div>
   <div class="shell footer-bottom">
     <span>Copyright {new Date().getFullYear()} {site.name}. {ui.footerRights}</span>
-    <span>{ui.footerPermissionNote}</span>
+    <div class="footer-bottom__meta">
+      <span>{ui.footerPermissionNote}</span>
+      <span class="footer-credit">
+        {ui.footerCredit}
+        <a href="https://haraldbregu.com" target="_blank" rel="noopener noreferrer">Harald Bregu</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://haraldbregu.com" target="_blank" rel="noopener noreferrer">haraldbregu.com</a>
+      </span>
+    </div>
   </div>
 </footer>

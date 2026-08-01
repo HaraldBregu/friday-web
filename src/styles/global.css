@@ -2638,6 +2638,22 @@ p {
   border-top: 1px solid var(--line);
 }
 
+.footer-bottom__meta,
+.footer-credit {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-bottom__meta {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.footer-credit a {
+  color: inherit;
+}
+
 .page-hero {
   padding-top: 5.5rem;
 }
