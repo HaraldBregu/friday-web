@@ -12,7 +12,15 @@ const locale = normalizeLocale(Astro.props.locale);
 const { alternatePath = "/" } = Astro.props;
 const { site, ui } = getLocaleContent(locale);
 const groups = ui.footerGroups;
-const localizedRoutes = new Set(["/", "/docs", "/integrations", "/community", "/operators"]);
+const localizedRoutes = new Set([
+  "/",
+  "/docs",
+  "/integrations",
+  "/community",
+  "/operators",
+  "/terms-of-service",
+  "/privacy-policy",
+]);
 const footerHref = (href: string) => {
   const [path, hash] = href.split("#");
   const targetPath = path || "/";
