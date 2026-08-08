@@ -2,8 +2,17 @@
 import { getCollection } from "astro:content";
 import DocCard from "./DocCard.astro";
 import Icon from "./Icon.astro";
+import { normalizeLocale, type Locale } from "../i18n";
 import { categoryIcons, docsPath, groupDocs } from "../lib/docs";
 
+interface Props {
+  locale?: Locale;
+}
+
+const locale = normalizeLocale(Astro.props.locale);
+const labels = locale === "it"
+  ? { eyebrow: "Documentazione", title: "Documentazione allineata al prodotto.", coverage: "Copertura della documentazione", pages: "pagine docs", sections: "sezioni", staticValue: "Statico", staticLabel: "Contenuti Astro", browse: "Sfoglia tutta la documentazione" }
+  : { eyebrow: "Documentation", title: "Docs that match the product.", coverage: "Documentation coverage", pages: "docs pages", sections: "sections", staticValue: "Static", staticLabel: "Astro content", browse: "Browse all documentation" };
 const docs = (await getCollection("docs")).sort((a, b) => a.data.sourcePath.localeCompare(b.data.sourcePath));
 const groups = groupDocs(docs);
 const featuredSources = [
@@ -23,22 +32,22 @@ const featuredDocs = featuredSources
 <section class="section reference-section docs-preview-section" id="docs">
   <div class="shell">
     <header class="reference-head">
-      <p class="eyebrow">Documentation</p>
-      <h2>Docs that match the product.</h2>
+      <p class="eyebrow">{labels.eyebrow}</p>
+      <h2>{labels.title}</h2>
     </header>
 
-    <div class="docs-preview-metrics" aria-label="Documentation coverage">
+    <div class="docs-preview-metrics" aria-label={labels.coverage}>
       <div>
         <strong>{docs.length}</strong>
-        <span>docs pages</span>
+        <span>{labels.pages}</span>
       </div>
       <div>
         <strong>{groups.length}</strong>
-        <span>sections</span>
+        <span>{labels.sections}</span>
       </div>
       <div>
-        <strong>Static</strong>
-        <span>Astro content</span>
+        <strong>{labels.staticValue}</strong>
+        <span>{labels.staticLabel}</span>
       </div>
     </div>
 
@@ -57,7 +66,7 @@ const featuredDocs = featuredSources
     </div>
 
     <a class="text-link section-link" href="/docs">
-      Browse all documentation
+      {labels.browse}
       <Icon name="ArrowRight" size={16} />
     </a>
   </div>
