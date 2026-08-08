@@ -138,7 +138,18 @@ const localizedAlternatePath = (targetLocale: Locale) => localizedPath(alternate
       groups.map((group) => (
         <div class="footer-links">
           <h2>{group.title}</h2>
-          {group.links.map((link) => <a href={footerHref(link.href)}>{link.label}</a>)}
+          {group.links.map((link) => {
+            const external = /^https?:\/\//.test(link.href);
+            return (
+              <a
+                href={footerHref(link.href)}
+                rel={external ? "noopener noreferrer" : undefined}
+                target={external ? "_blank" : undefined}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </div>
       ))
     }

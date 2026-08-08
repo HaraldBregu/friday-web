@@ -1834,13 +1834,6 @@
 .fr-platform-line { display: flex; align-items: center; gap: 0.5rem; margin-top: 1.25rem; color: #74717c; font-size: 0.68rem; }
 .fr-platform-line svg { color: #9575df; }
 
-.fr-footer { padding-block: 27px; background: #07070a; }
-.fr-footer__inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2rem; }
-.fr-footer nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.35rem; }
-.fr-footer nav a { padding: 0.4rem 0.5rem; border-radius: 6px; color: #77747e; font-size: 0.67rem; font-weight: 550; transition: color 150ms ease, background 150ms ease; }
-.fr-footer nav a:hover { background: rgba(255, 255, 255, 0.045); color: var(--fr-text); }
-.fr-footer p { margin: 0; color: #5c5963; font-size: 0.62rem; }
-
 .friday-landing-page .site-footer {
   --bg-muted: #0b0b10;
   --surface: #111117;
@@ -1913,7 +1906,6 @@
   .fr-map-answer { grid-column: 1 / -1; grid-row: 3; }
   .fr-map-connector { display: none; }
   .fr-knowledge-panels { grid-template-columns: 1fr; }
-  .fr-footer__inner { grid-template-columns: 1fr; justify-items: center; gap: 1rem; text-align: center; }
 }
 
 @media (max-width: 680px) {
