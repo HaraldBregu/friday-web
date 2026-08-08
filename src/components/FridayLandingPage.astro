@@ -1,11 +1,7 @@
 ---
-import FridayAppWorkflow from "./FridayAppWorkflow.astro";
-import FridayControlVisual from "./FridayControlVisual.astro";
-import FridayExtensionsVisual from "./FridayExtensionsVisual.astro";
-import FridayKnowledgeVisual from "./FridayKnowledgeVisual.astro";
 import FridayLandingNav from "./FridayLandingNav.astro";
-import FridaySkillsVisual from "./FridaySkillsVisual.astro";
 import Icon from "./Icon.astro";
+import ProductMockup from "./ProductMockup.astro";
 import landing from "../data/friday-landing.json";
 import "../styles/friday-landing.css";
 
@@ -52,7 +48,9 @@ const {
 
     <div class="fr-hero__visual">
       <div class="fr-hero__glow" aria-hidden="true"></div>
-      <FridayAppWorkflow />
+      <div class="fr-chat-preview">
+        <ProductMockup landingWorkflow locale="en" />
+      </div>
     </div>
 
     <ul class="fr-capabilities" aria-label="Friday knowledge and extension capabilities">
@@ -94,7 +92,7 @@ const {
 </section>
 
 <section class="fr-section fr-feature-section" id="skills" aria-labelledby="skills-title">
-  <div class="fr-shell fr-feature-layout">
+  <div class="fr-shell fr-feature-layout fr-feature-layout--text">
     <div class="fr-feature-copy" data-reveal>
       <p class="fr-eyebrow"><span></span>Reusable expertise</p>
       <h2 id="skills-title">Teach Friday the way you work.</h2>
@@ -111,9 +109,6 @@ const {
         <p>Full instructions arrive only when the task needs them—reusable expertise without placing every playbook into every prompt.</p>
       </aside>
     </div>
-    <div class="fr-feature-visual" data-reveal>
-      <FridaySkillsVisual />
-    </div>
   </div>
 </section>
 
@@ -128,10 +123,6 @@ const {
         and reused.
       </p>
     </header>
-
-    <div class="fr-knowledge-visual-wrap" data-reveal>
-      <FridayKnowledgeVisual />
-    </div>
 
     <div class="fr-knowledge-panels">
       <article class="fr-knowledge-card fr-knowledge-card--rag" data-reveal>
@@ -192,7 +183,7 @@ const {
 </section>
 
 <section class="fr-section fr-feature-section fr-feature-section--reverse" id="extensions" aria-labelledby="extensions-title">
-  <div class="fr-shell fr-feature-layout fr-feature-layout--reverse">
+  <div class="fr-shell fr-feature-layout fr-feature-layout--text">
     <div class="fr-feature-copy" data-reveal>
       <p class="fr-eyebrow"><span></span>Focused interfaces</p>
       <h2 id="extensions-title">Make Friday fit the workflow.</h2>
@@ -209,9 +200,6 @@ const {
         <p><strong>Install from sources you trust.</strong> Extensions run in Electron’s sandboxed web runtime, but installed code can access broad Friday APIs.</p>
       </aside>
     </div>
-    <div class="fr-feature-visual" data-reveal>
-      <FridayExtensionsVisual />
-    </div>
   </div>
 </section>
 
@@ -227,8 +215,7 @@ const {
       </p>
     </header>
 
-    <div class="fr-control-layout">
-      <div class="fr-control-visual" data-reveal><FridayControlVisual /></div>
+    <div class="fr-control-layout fr-control-layout--text">
       <ul class="fr-control-points" data-reveal>
         {controlPoints.map((point, index) => (
           <li><span><code>0{index + 1}</code><Icon name={index === 0 ? "ShieldCheck" : index === 1 ? "Fingerprint" : index === 2 ? "Eye" : index === 3 ? "Monitor" : "Globe"} size={17} /></span><p>{point}</p></li>
