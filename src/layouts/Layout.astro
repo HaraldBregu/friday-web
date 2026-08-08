@@ -155,7 +155,7 @@ const serializedStructuredData = structuredData
     <a class="skip-link" href="#content">{ui.skipToContent}</a>
     {hideBackgroundEffects ? null : <Starfield />}
     {hideBackgroundEffects ? null : <Daylight />}
-    {hideHeader ? null : headerVariant === "landing" ? <FridayLandingNav home={false} /> : <Header alternatePath={alternatePath} locale={locale} />}
+    {hideHeader ? null : headerVariant === "landing" ? <FridayLandingNav home={false} locale={locale} /> : <Header alternatePath={alternatePath} locale={locale} />}
     <main id="content">
       <slot />
     </main>

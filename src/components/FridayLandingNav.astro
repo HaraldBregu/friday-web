@@ -1,20 +1,33 @@
 ---
 import Icon from "./Icon.astro";
-import landing from "../data/friday-landing.json";
+import landingEn from "../data/friday-landing.json";
+import landingIt from "../data/friday-landing-it.json";
+import { normalizeLocale, type Locale } from "../i18n";
 
+interface Props {
+  home?: boolean;
+  locale?: Locale;
+}
+
+const locale = normalizeLocale(Astro.props.locale);
+const landing = locale === "it" ? landingIt : landingEn;
 const { links, navigation } = landing;
 const home = Astro.props.home ?? true;
-const sectionHref = (href: string) => href.startsWith("#") && !home ? `/${href}` : href;
+const homePath = locale === "it" ? "/it/" : "/";
+const labels = locale === "it"
+  ? { download: "Scarica", menu: "Apri il menu di navigazione", navigate: "Naviga", primary: "Navigazione principale", sections: "Sezioni della pagina", home: "Home di Friday" }
+  : { download: "Download", menu: "Open navigation menu", navigate: "Navigate", primary: "Primary navigation", sections: "Page sections", home: "Friday home" };
+const sectionHref = (href: string) => href.startsWith("#") && !home ? `${homePath}${href}` : href;
 ---
 
 <header class="fr-nav-wrap">
-  <nav aria-label="Primary navigation" class="fr-nav">
-    <a class="fr-brand" href={home ? "#product" : "/#product"} aria-label="Friday home">
+  <nav aria-label={labels.primary} class="fr-nav">
+    <a class="fr-brand" href={home ? "#product" : `${homePath}#product`} aria-label={labels.home}>
       <img src="/icon-rounded.png" alt="" width="34" height="34" />
       <span>Friday</span>
     </a>
 
-    <div class="fr-nav__links" aria-label="Page sections">
+    <div class="fr-nav__links" aria-label={labels.sections}>
       {navigation.map((item) => <a aria-current={!home && item.href === "/docs" ? "page" : undefined} href={sectionHref(item.href)}>{item.label}</a>)}
     </div>
 
@@ -25,16 +38,16 @@ const sectionHref = (href: string) => href.startsWith("#") && !home ? `/${href}`
       </a>
       <a class="fr-button fr-button--compact" href={links.download} target="_blank" rel="noopener noreferrer">
         <Icon name="Download" size={15} />
-        Download
+        {labels.download}
       </a>
 
       <details class="fr-mobile-menu" data-fr-menu>
-        <summary aria-label="Open navigation menu">
+        <summary aria-label={labels.menu}>
           <Icon class="fr-mobile-menu__open" name="Menu" size={20} />
           <Icon class="fr-mobile-menu__close" name="X" size={20} />
         </summary>
         <div class="fr-mobile-menu__panel">
-          <span>Navigate</span>
+          <span>{labels.navigate}</span>
           {navigation.map((item) => <a aria-current={!home && item.href === "/docs" ? "page" : undefined} href={sectionHref(item.href)}>{item.label}</a>)}
           <a href={links.github} target="_blank" rel="noopener noreferrer">
             GitHub
