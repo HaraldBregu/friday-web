@@ -13,7 +13,7 @@ const locale = normalizeLocale(Astro.props.locale);
 const { alternatePath = "/" } = Astro.props;
 const variant = Astro.props.variant ?? "default";
 const { site, ui } = getLocaleContent(locale);
-const landingGroups = [
+const landingGroupsEn = [
   {
     title: "Product",
     links: [
@@ -55,6 +55,49 @@ const landingGroups = [
     ],
   },
 ];
+const landingGroupsIt = [
+  {
+    title: "Prodotto",
+    links: [
+      { label: "Prodotto", href: "/#product" },
+      { label: "Skill", href: "/#skills" },
+      { label: "Conoscenza", href: "/#knowledge" },
+      { label: "Estensioni", href: "/#extensions" },
+      { label: "Controllo", href: "/#control" },
+    ],
+  },
+  {
+    title: "Documentazione",
+    links: [
+      { label: "Panoramica docs", href: "/docs" },
+      { label: "Primi passi", href: "/docs/getting-started" },
+      { label: "Riferimento funzioni", href: "/docs/features" },
+      { label: "Skill e MCP", href: "/docs/skills-and-mcp" },
+      { label: "Privacy", href: "/docs/privacy" },
+    ],
+  },
+  {
+    title: "Esplora",
+    links: [
+      { label: "Strumenti", href: "/tools" },
+      { label: "Provider", href: "/providers" },
+      { label: "Integrazioni", href: "/integrations" },
+      { label: "Community", href: "/community" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Progetto",
+    links: [
+      { label: "GitHub", href: "https://github.com/HaraldBregu/friday" },
+      { label: "Release", href: "https://github.com/HaraldBregu/friday/releases" },
+      { label: "Sicurezza", href: "https://github.com/HaraldBregu/friday/blob/main/SECURITY.md" },
+      { label: "Contribuisci", href: "https://github.com/HaraldBregu/friday/blob/main/CONTRIBUTING.md" },
+      { label: "Licenza MIT", href: "https://github.com/HaraldBregu/friday/blob/main/LICENSE" },
+    ],
+  },
+];
+const landingGroups = locale === "it" ? landingGroupsIt : landingGroupsEn;
 const groups = variant === "landing" ? landingGroups : ui.footerGroups;
 const localizedRoutes = new Set([
   "/",
