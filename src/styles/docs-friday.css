@@ -4,6 +4,8 @@
   --fr-panel: #101016;
   --fr-panel-2: #15151d;
   --fr-panel-3: #1a1a23;
+  --fr-paper: #f3f1ed;
+  --fr-paper-muted: #d3d0ca;
   --fr-text: #f5f3f0;
   --fr-muted: #aaa8b2;
   --fr-faint: #73717d;
@@ -68,6 +70,17 @@
 .docs-product-page .fr-mobile-menu__panel a[aria-current="page"] {
   background: rgba(167, 107, 255, 0.1);
   color: #d3c2ff;
+}
+
+.docs-product-page .fr-nav .fr-button {
+  border-color: rgba(255, 255, 255, 0.84);
+  background: var(--fr-paper, #f3f1ed);
+  color: #0a0a0d;
+}
+
+.docs-product-page .fr-nav .fr-button:hover {
+  background: #fff;
+  color: #0a0a0d;
 }
 
 .docs-product-page .fr-nav {
