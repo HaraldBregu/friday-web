@@ -425,7 +425,8 @@
   padding: 1.15rem 1.25rem 5.6rem;
 }
 
-.fr-chat-preview .chat-bubble {
+.fr-chat-preview .chat-bubble,
+.fr-chat-preview .chat-message--assistant {
   font-size: 0.75rem;
 }
 

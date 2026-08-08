@@ -1388,11 +1388,11 @@ p {
   max-width: min(52%, 270px);
 }
 
-.chat-bubble--assistant {
-  border-radius: 18px;
-  background: #262626;
+.chat-message--assistant {
   color: #f8f8f8;
-  padding: 0.9rem 1.05rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.58;
 }
 
 .assistant-turn {
