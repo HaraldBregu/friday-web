@@ -19,10 +19,10 @@ const MONO = "Space Mono, SFMono-Regular, Menlo, Consolas, monospace";
 const cards = [
   {
     slug: "default",
-    eyebrow: "Desktop AI assistant",
-    title: "Your Desktop AI Personal Assistant",
+    eyebrow: "Cross-platform desktop AI copilot",
+    title: "Turn knowledge into action",
     description:
-      "Friday reads and edits files, runs commands, searches the web, drives a browser, and generates media, all with your own provider keys.",
+      "Reusable Skills, semantic document search, a source-aware LLM Wiki, and custom Extensions.",
   },
   {
     slug: "home-it",
