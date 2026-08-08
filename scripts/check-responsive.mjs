@@ -22,7 +22,10 @@ const docsCss = read("src/styles/docs-friday.css");
 const globalCss = read("src/styles/global.css");
 const htmlFiles = collectHtml(join(root, "dist"));
 
-assert(htmlFiles.every((path) => readFileSync(path, "utf8").includes('name="viewport"')), "every static page defines a mobile viewport");
+assert(htmlFiles.every((path) => {
+  const html = readFileSync(path, "utf8");
+  return html.includes('name="viewport"') || html.includes('http-equiv="refresh"');
+}), "every rendered static page defines a mobile viewport");
 assert(english.includes("friday-landing-page") && italian.includes("friday-landing-page"), "English and Italian share the landing shell");
 assert(docsIndex.includes("docs-product-page") && docsArticle.includes("docs-product-page"), "docs index and articles share the docs shell");
 
