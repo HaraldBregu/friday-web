@@ -1,0 +1,296 @@
+---
+import FridayAppWorkflow from "./FridayAppWorkflow.astro";
+import FridayControlVisual from "./FridayControlVisual.astro";
+import FridayExtensionsVisual from "./FridayExtensionsVisual.astro";
+import FridayKnowledgeVisual from "./FridayKnowledgeVisual.astro";
+import FridayLandingNav from "./FridayLandingNav.astro";
+import FridaySkillsVisual from "./FridaySkillsVisual.astro";
+import Icon from "./Icon.astro";
+import landing from "../data/friday-landing.json";
+import "../styles/friday-landing.css";
+
+const {
+  capabilities,
+  controlPoints,
+  extensionPoints,
+  footerLinks,
+  foundationSteps,
+  knowledgeBasePoints,
+  knowledgeComparison,
+  links,
+  skillPoints,
+  wikiPoints,
+} = landing;
+---
+
+<FridayLandingNav />
+
+<section class="fr-hero" id="product">
+  <div class="fr-shell fr-hero__layout">
+    <div class="fr-hero__copy">
+      <p class="fr-eyebrow"><span></span>Desktop AI copilot for macOS, Windows, and Linux</p>
+      <h1>Turn conversations into action. <em>Turn your work into lasting knowledge.</em></h1>
+      <p class="fr-hero__lede">
+        Friday works with your files, tools, and chosen AI providers—then makes the useful parts reusable through Skills,
+        semantic document search, a source-aware LLM Wiki, and custom Extensions.
+      </p>
+      <div class="fr-actions">
+        <a class="fr-button" href={links.download} target="_blank" rel="noopener noreferrer">
+          <Icon name="Download" size={17} />
+          Download Friday
+        </a>
+        <a class="fr-button fr-button--secondary" href={links.github} target="_blank" rel="noopener noreferrer">
+          <Icon name="Github" size={17} />
+          View on GitHub
+        </a>
+      </div>
+      <p class="fr-hero__note">
+        <Icon name="ShieldCheck" size={16} />
+        Bring your own providers. Keep control of the setup. Follow every tool action in the conversation.
+      </p>
+    </div>
+
+    <div class="fr-hero__visual">
+      <div class="fr-hero__glow" aria-hidden="true"></div>
+      <FridayAppWorkflow />
+    </div>
+
+    <ul class="fr-capabilities" aria-label="Friday knowledge and extension capabilities">
+      {capabilities.map((capability) => (
+        <li><span><Icon name={capability.icon} size={15} /></span>{capability.label}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="fr-section fr-foundation" aria-labelledby="foundation-title">
+  <div class="fr-shell">
+    <header class="fr-section-head fr-section-head--split" data-reveal>
+      <div>
+        <p class="fr-eyebrow"><span></span>Product foundation</p>
+        <h2 id="foundation-title">One assistant, from request to result.</h2>
+      </div>
+      <p>
+        Type or speak a request, attach images or PDFs, and let Friday work across files, commands, the web, browser
+        interactions, and generated media. Tool activity streams into the conversation, while permission controls govern
+        sensitive file and command actions.
+      </p>
+    </header>
+
+    <ol class="fr-flow" data-reveal>
+      {foundationSteps.map((step, index) => (
+        <li>
+          <div class="fr-flow__top">
+            <span><Icon name={step.icon} size={18} /></span>
+            <code>{step.number}</code>
+          </div>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+          {index < foundationSteps.length - 1 ? <Icon class="fr-flow__arrow" name="ArrowRight" size={17} /> : null}
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<section class="fr-section fr-feature-section" id="skills" aria-labelledby="skills-title">
+  <div class="fr-shell fr-feature-layout">
+    <div class="fr-feature-copy" data-reveal>
+      <p class="fr-eyebrow"><span></span>Reusable expertise</p>
+      <h2 id="skills-title">Teach Friday the way you work.</h2>
+      <p class="fr-section-lede">
+        Turn repeatable workflows into portable Agent Skills. Friday routes requests with lightweight skill metadata,
+        loads the full instructions only when they are relevant, and can use the scripts, references, and assets bundled
+        with each skill.
+      </p>
+      <ul class="fr-check-list">
+        {skillPoints.map((point) => <li><Icon name="Check" size={14} /><span>{point}</span></li>)}
+      </ul>
+      <aside class="fr-callout">
+        <span><Icon name="Sparkles" size={17} /></span>
+        <p>Full instructions arrive only when the task needs them—reusable expertise without placing every playbook into every prompt.</p>
+      </aside>
+    </div>
+    <div class="fr-feature-visual" data-reveal>
+      <FridaySkillsVisual />
+    </div>
+  </div>
+</section>
+
+<section class="fr-section fr-knowledge" id="knowledge" aria-labelledby="knowledge-title">
+  <div class="fr-shell">
+    <header class="fr-section-head fr-section-head--center" data-reveal>
+      <p class="fr-eyebrow"><span></span>Retrieval plus durable knowledge</p>
+      <h2 id="knowledge-title">Find the source. Keep the insight.</h2>
+      <p>
+        Friday uses two complementary knowledge layers. The Knowledge Base retrieves relevant excerpts from indexed text.
+        The LLM Wiki turns changing source material into structured, interlinked Markdown that can be checked, reviewed,
+        and reused.
+      </p>
+    </header>
+
+    <div class="fr-knowledge-visual-wrap" data-reveal>
+      <FridayKnowledgeVisual />
+    </div>
+
+    <div class="fr-knowledge-panels">
+      <article class="fr-knowledge-card fr-knowledge-card--rag" data-reveal>
+        <div class="fr-card-label"><span><Icon name="Search" size={17} /></span>Knowledge Base</div>
+        <h3>Search your documents by meaning.</h3>
+        <p>
+          Choose one or more folders of text, create a semantic index with your selected embedding provider and Pinecone,
+          and let Friday retrieve matching excerpts with their source paths. Generate the index on demand, keep it refreshed
+          on a schedule, and test searches directly in Settings.
+        </p>
+        <span class="fr-tech-label">RAG-powered semantic retrieval</span>
+        <ul class="fr-check-list">
+          {knowledgeBasePoints.map((point) => <li><Icon name="Check" size={14} /><span>{point}</span></li>)}
+        </ul>
+      </article>
+
+      <article class="fr-knowledge-card fr-knowledge-card--wiki" data-reveal>
+        <div class="fr-card-label"><span><Icon name="BookOpen" size={17} /></span>LLM Wiki</div>
+        <h3>Build knowledge that improves as sources change.</h3>
+        <p>
+          Compile Markdown, text, JSON, CSV, and log files into a persistent, interlinked Markdown wiki. Friday preserves
+          source evidence, maintains traceable claims and contradictions, validates every staged update, and incrementally
+          skips sources that have not changed.
+        </p>
+        <span class="fr-tech-label">Validated Markdown compilation</span>
+        <ul class="fr-check-list">
+          {wikiPoints.map((point) => <li><Icon name="Check" size={14} /><span>{point}</span></li>)}
+        </ul>
+      </article>
+    </div>
+
+    <aside class="fr-callout fr-callout--wide" data-reveal>
+      <span><Icon name="GitBranch" size={18} /></span>
+      <p>The wiki gives Friday durable synthesis. Raw evidence and the Knowledge Base remain available when an answer needs exact wording or broader retrieval.</p>
+    </aside>
+
+    <div class="fr-comparison" data-reveal>
+      <div class="fr-comparison__head">
+        <div><p class="fr-kicker">How they work together</p><h3>Two knowledge layers, distinct by design.</h3></div>
+        <span><Icon name="GitBranch" size={17} /> Connected at answer time</span>
+      </div>
+      <table>
+        <thead>
+          <tr><th scope="col">&nbsp;</th><th scope="col">Knowledge Base</th><th scope="col">LLM Wiki</th></tr>
+        </thead>
+        <tbody>
+          {knowledgeComparison.map((row) => (
+            <tr>
+              <th scope="row">{row.label}</th>
+              <td data-label="Knowledge Base">{row.knowledgeBase}</td>
+              <td data-label="LLM Wiki">{row.wiki}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="fr-section fr-feature-section fr-feature-section--reverse" id="extensions" aria-labelledby="extensions-title">
+  <div class="fr-shell fr-feature-layout fr-feature-layout--reverse">
+    <div class="fr-feature-copy" data-reveal>
+      <p class="fr-eyebrow"><span></span>Focused interfaces</p>
+      <h2 id="extensions-title">Make Friday fit the workflow.</h2>
+      <p class="fr-section-lede">
+        Extensions are local web mini-apps that open in their own Friday windows and can use the exposed app API. Build a
+        focused interface for a dashboard, workspace utility, or repeatable workflow without turning the main conversation
+        into a control panel.
+      </p>
+      <ul class="fr-check-list">
+        {extensionPoints.map((point) => <li><Icon name="Check" size={14} /><span>{point}</span></li>)}
+      </ul>
+      <aside class="fr-trust-note">
+        <Icon name="ShieldCheck" size={17} />
+        <p><strong>Install from sources you trust.</strong> Extensions run in Electron’s sandboxed web runtime, but installed code can access broad Friday APIs.</p>
+      </aside>
+    </div>
+    <div class="fr-feature-visual" data-reveal>
+      <FridayExtensionsVisual />
+    </div>
+  </div>
+</section>
+
+<section class="fr-section fr-control" id="control" aria-labelledby="control-title">
+  <div class="fr-shell">
+    <header class="fr-section-head fr-section-head--center" data-reveal>
+      <p class="fr-eyebrow"><span></span>Control and privacy</p>
+      <h2 id="control-title">Your setup. Your providers. Your control.</h2>
+      <p>
+        Friday stores provider keys, settings, conversations, workspace data, Skills, Extensions, and generated wiki files
+        on the user’s machine. The user selects the providers and connected services behind chat, speech, media, search,
+        embeddings, and knowledge generation.
+      </p>
+    </header>
+
+    <div class="fr-control-layout">
+      <div class="fr-control-visual" data-reveal><FridayControlVisual /></div>
+      <ul class="fr-control-points" data-reveal>
+        {controlPoints.map((point, index) => (
+          <li><span><code>0{index + 1}</code><Icon name={index === 0 ? "ShieldCheck" : index === 1 ? "Fingerprint" : index === 2 ? "Eye" : index === 3 ? "Monitor" : "Globe"} size={17} /></span><p>{point}</p></li>
+        ))}
+      </ul>
+    </div>
+
+    <aside class="fr-disclosure" data-reveal>
+      <span><Icon name="Globe" size={19} /></span>
+      <div>
+        <strong>Local storage is not the same as on-device processing.</strong>
+        <p>
+          Local storage does not mean every operation stays on-device. Prompts, attachments, source text, document chunks,
+          and tool data may be sent to the AI providers, Pinecone index, MCP servers, websites, or other connected services
+          required for a requested feature.
+        </p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="fr-final-cta" aria-labelledby="final-cta-title">
+  <div class="fr-final-cta__glow" aria-hidden="true"></div>
+  <div class="fr-shell fr-final-cta__inner" data-reveal>
+    <img src="/icon-rounded.png" width="74" height="74" alt="" />
+    <p class="fr-eyebrow"><span></span>Make it yours</p>
+    <h2 id="final-cta-title">Build an assistant around the way you work.</h2>
+    <p>Start with a conversation. Add the skills, knowledge, providers, and extensions that make Friday yours.</p>
+    <div class="fr-actions">
+      <a class="fr-button" href={links.download} target="_blank" rel="noopener noreferrer"><Icon name="Download" size={17} />Download Friday</a>
+      <a class="fr-button fr-button--secondary" href={links.github} target="_blank" rel="noopener noreferrer"><Icon name="Github" size={17} />Explore the source</a>
+    </div>
+    <span class="fr-platform-line"><Icon name="Monitor" size={15} />Available for macOS, Windows, and Linux. Open source under the MIT License.</span>
+  </div>
+</section>
+
+<footer class="fr-footer">
+  <div class="fr-shell fr-footer__inner">
+    <a class="fr-brand" href="#product" aria-label="Friday home"><img src="/icon-rounded.png" alt="" width="32" height="32" /><span>Friday</span></a>
+    <nav aria-label="Footer navigation">
+      {footerLinks.map((link) => (
+        <a href={links[link.key]} target="_blank" rel="noopener noreferrer">{link.label}</a>
+      ))}
+    </nav>
+    <p>Friday · Your desktop AI copilot for everyday tasks.</p>
+  </div>
+</footer>
+
+<script is:inline>
+  (() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+    const items = document.querySelectorAll("[data-reveal]");
+    document.documentElement.classList.add("fr-motion-ready");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -8%", threshold: 0.08 });
+    items.forEach((item) => observer.observe(item));
+  })();
+</script>
