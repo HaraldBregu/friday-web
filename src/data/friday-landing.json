@@ -1,0 +1,121 @@
+{
+  "links": {
+    "download": "https://github.com/HaraldBregu/friday/releases",
+    "github": "https://github.com/HaraldBregu/friday",
+    "docs": "https://github.com/HaraldBregu/friday/tree/main/docs",
+    "security": "https://github.com/HaraldBregu/friday/blob/main/SECURITY.md",
+    "contributing": "https://github.com/HaraldBregu/friday/blob/main/CONTRIBUTING.md",
+    "license": "https://github.com/HaraldBregu/friday/blob/main/LICENSE"
+  },
+  "navigation": [
+    { "label": "Product", "href": "#product" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Knowledge", "href": "#knowledge" },
+    { "label": "Extensions", "href": "#extensions" },
+    { "label": "Control", "href": "#control" }
+  ],
+  "capabilities": [
+    { "label": "Reusable Skills", "icon": "Sparkles" },
+    { "label": "Semantic Knowledge Base", "icon": "Search" },
+    { "label": "Source-aware LLM Wiki", "icon": "BookOpen" },
+    { "label": "Custom Extensions", "icon": "PlugZap" }
+  ],
+  "foundationSteps": [
+    {
+      "number": "01",
+      "title": "Ask",
+      "description": "Start with a natural-language request and the context that matters.",
+      "icon": "MessageSquare"
+    },
+    {
+      "number": "02",
+      "title": "Act",
+      "description": "Friday selects tools, works through the task, and shows its activity.",
+      "icon": "TerminalSquare"
+    },
+    {
+      "number": "03",
+      "title": "Ground",
+      "description": "The assistant retrieves relevant source excerpts or compiled wiki knowledge.",
+      "icon": "Search"
+    },
+    {
+      "number": "04",
+      "title": "Reuse",
+      "description": "Save the workflow as a Skill or give it a focused interface through an Extension.",
+      "icon": "Layers"
+    }
+  ],
+  "skillPoints": [
+    "Import agentskills.io-compatible folders built around SKILL.md.",
+    "Let Friday select an enabled skill by intent, or request one explicitly.",
+    "Inspect a skill's identity, authoring metadata, tool requirements, connectors, and tags.",
+    "Enable, disable, download, refresh, or delete local skills from Settings.",
+    "See a clear activity state in chat whenever Friday loads a skill."
+  ],
+  "knowledgeBasePoints": [
+    "Recursively indexes readable UTF-8 text while skipping binary files.",
+    "Uses the same embedding model for indexing and later queries.",
+    "Gives the main assistant relevant excerpts, paths, and relevance scores.",
+    "Supports manual generation and scheduled full index rebuilds.",
+    "Rejects common credential files and high-confidence secret content before indexing."
+  ],
+  "wikiPoints": [
+    "Generates concise source, concept, topic, project, comparison, synthesis, and question pages.",
+    "Records source-aware claims, confidence, relationships, contradictions, and open questions.",
+    "Keeps immutable evidence snapshots and an append-only operation log.",
+    "Stages and validates updates before atomically replacing the generated wiki.",
+    "Supports manual generation, cancellation, scheduled maintenance, linting, and review for major synthesis rewrites.",
+    "Stores the generated wiki as ordinary Markdown in a user-selected local folder."
+  ],
+  "knowledgeComparison": [
+    {
+      "label": "Best for",
+      "knowledgeBase": "Finding relevant source excerpts",
+      "wiki": "Maintaining reusable synthesis and relationships"
+    },
+    {
+      "label": "Input",
+      "knowledgeBase": "Readable text across selected folders",
+      "wiki": "Markdown, text, JSON, CSV, and logs"
+    },
+    {
+      "label": "Processing",
+      "knowledgeBase": "Remote embeddings and Pinecone vector search",
+      "wiki": "Selected text model and validated Markdown generation"
+    },
+    {
+      "label": "Result",
+      "knowledgeBase": "Ranked excerpts with paths and scores",
+      "wiki": "Interlinked pages with source-aware claims"
+    },
+    {
+      "label": "Refresh model",
+      "knowledgeBase": "Manual or scheduled full rebuild",
+      "wiki": "Incremental source-aware compilation"
+    }
+  ],
+  "extensionPoints": [
+    "Import one or more extension folders from Settings.",
+    "Use a validated manifest.json or standard package.json with a local HTML entry.",
+    "Browse installed apps by title, description, and category.",
+    "Inspect metadata, open an extension in a dedicated resizable window, or delete it with confirmation.",
+    "Launch installed extensions from Settings, the native app menu, or the tray menu.",
+    "Build typed in-app integrations with @friday/sdk."
+  ],
+  "controlPoints": [
+    "File writes, edits, patches, and command execution follow the agent permission policy.",
+    "Sensitive actions can surface Deny, Allow once, and Always allow choices.",
+    "Tool activity remains visible in the conversation.",
+    "The app uses Electron sandboxing, context isolation, disabled Node integration, and web security.",
+    "Friday runs on macOS, Windows, and Linux, with light, dark, and system themes."
+  ],
+  "footerLinks": [
+    { "label": "GitHub", "key": "github" },
+    { "label": "Documentation", "key": "docs" },
+    { "label": "Releases", "key": "download" },
+    { "label": "Security", "key": "security" },
+    { "label": "Contributing", "key": "contributing" },
+    { "label": "License", "key": "license" }
+  ]
+}
