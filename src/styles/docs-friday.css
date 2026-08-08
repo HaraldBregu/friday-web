@@ -34,6 +34,7 @@
   --radius: 11px;
   --shell: 1440px;
   min-width: 320px;
+  overflow-x: clip;
   background: var(--fr-bg);
   color: var(--fr-text);
 }
@@ -165,6 +166,7 @@
   font-weight: 600;
   letter-spacing: -0.065em;
   line-height: 0.94;
+  overflow-wrap: anywhere;
 }
 
 .docs-product-page .docs-hero .section-heading > p:not(.eyebrow) {
@@ -411,6 +413,7 @@
   font-weight: 600;
   letter-spacing: -0.055em;
   line-height: 0.98;
+  overflow-wrap: anywhere;
 }
 
 .docs-product-page .docs-article__header > p:not(.eyebrow) {
@@ -433,6 +436,7 @@
   color: #b0adb7;
   font-size: 0.96rem;
   line-height: 1.82;
+  overflow-wrap: anywhere;
 }
 
 .docs-product-page .docs-content h2,

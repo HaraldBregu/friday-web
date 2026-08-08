@@ -3718,6 +3718,15 @@ p {
     flex-direction: column;
   }
 
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-badge,
+  .footer-badge__img {
+    max-width: 100%;
+  }
+
   .docs-sidebar__group nav,
   .docs-pagination,
   .docs-section-grid {
