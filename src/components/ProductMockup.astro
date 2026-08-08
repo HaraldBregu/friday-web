@@ -147,6 +147,158 @@ const imagesByFile = Object.fromEntries(
                 Done. I updated the launch brief with sourced decisions, open questions, and next steps.
               </div>
             </article>
+
+            <div class="chat-bubble chat-bubble--user">
+              Create a few visual directions for the announcement.
+            </div>
+            <article class="assistant-turn">
+              <div class="assistant-row">
+                <span class="assistant-avatar" aria-hidden="true" />
+                <strong>Friday</strong>
+              </div>
+              <div class="chat-bubble chat-bubble--assistant">
+                I’ll generate three distinct directions you can compare.
+              </div>
+              <div class="product-activity" aria-label="Friday image generation activity">
+                <details class="product-activity__group" open>
+                  <summary>
+                    <Icon name="Image" size={16} />
+                    <strong>Created 3 images</strong>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </summary>
+                  <div class="product-activity__tool">
+                    <Icon name="Image" size={16} />
+                    <span><strong>Generate images</strong><Icon name="Check" size={13} /></span>
+                    <code>3 files</code>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </div>
+                </details>
+              </div>
+              <figure class="demo-media">
+                <figcaption><Icon name="Image" size={14} />Generated images</figcaption>
+                <div class="demo-media__image-grid">
+                  <img
+                    alt="Generated illustration of the Sun and Earth in space"
+                    height="720"
+                    loading="lazy"
+                    src="/demo/image-1783269109315.jpeg"
+                    width="1280"
+                  />
+                  <img
+                    alt="Generated illustration of a clockwork whale floating above a village"
+                    height="720"
+                    loading="lazy"
+                    src="/demo/image-1783437002924.jpeg"
+                    width="1280"
+                  />
+                  <img
+                    alt="Generated illustration of a crystal tree beneath two planets"
+                    height="1152"
+                    loading="lazy"
+                    src="/demo/image-1783437075249.jpeg"
+                    width="864"
+                  />
+                </div>
+              </figure>
+            </article>
+
+            <div class="chat-bubble chat-bubble--user">
+              Animate the strongest concepts for the launch teaser.
+            </div>
+            <article class="assistant-turn">
+              <div class="assistant-row">
+                <span class="assistant-avatar" aria-hidden="true" />
+                <strong>Friday</strong>
+              </div>
+              <div class="chat-bubble chat-bubble--assistant">
+                I’ll turn two directions into short motion studies.
+              </div>
+              <div class="product-activity" aria-label="Friday video generation activity">
+                <details class="product-activity__group" open>
+                  <summary>
+                    <Icon name="Video" size={16} />
+                    <strong>Created 2 videos</strong>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </summary>
+                  <div class="product-activity__tool">
+                    <Icon name="Video" size={16} />
+                    <span><strong>Generate videos</strong><Icon name="Check" size={13} /></span>
+                    <code>2 files</code>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </div>
+                </details>
+              </div>
+              <figure class="demo-media">
+                <figcaption><Icon name="Video" size={14} />Generated videos</figcaption>
+                <div class="demo-media__video-grid">
+                  <video
+                    aria-label="Generated Sun and Earth animation preview"
+                    controls
+                    muted
+                    playsinline
+                    poster="/demo/image-1783269109315.jpeg"
+                    preload="metadata"
+                  >
+                    <source src="/demo/video-1784367922287.mp4" type="video/mp4" />
+                  </video>
+                  <video
+                    aria-label="Generated clockwork whale animation preview"
+                    controls
+                    muted
+                    playsinline
+                    poster="/demo/image-1783437002924.jpeg"
+                    preload="metadata"
+                  >
+                    <source src="/demo/video-1785229250304.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </figure>
+            </article>
+
+            <div class="chat-bubble chat-bubble--user">
+              Compose a soundtrack to tie the teaser together.
+            </div>
+            <article class="assistant-turn">
+              <div class="assistant-row">
+                <span class="assistant-avatar" aria-hidden="true" />
+                <strong>Friday</strong>
+              </div>
+              <div class="chat-bubble chat-bubble--assistant">
+                I’ll create an instrumental track with a cinematic electronic feel.
+              </div>
+              <div class="product-activity" aria-label="Friday music generation activity">
+                <details class="product-activity__group" open>
+                  <summary>
+                    <Icon name="Music" size={16} />
+                    <strong>Created 1 track</strong>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </summary>
+                  <div class="product-activity__tool">
+                    <Icon name="Music" size={16} />
+                    <span><strong>Generate music</strong><Icon name="Check" size={13} /></span>
+                    <code>1 file</code>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </div>
+                </details>
+              </div>
+              <div class="demo-song" aria-label="Generated music track: Launch soundtrack">
+                <img
+                  alt="Crystal tree artwork used as the launch soundtrack cover"
+                  height="1152"
+                  loading="lazy"
+                  src="/demo/image-1783437075249.jpeg"
+                  width="864"
+                />
+                <div class="demo-song__copy">
+                  <span>Generated music</span>
+                  <strong>Launch soundtrack</strong>
+                  <div class="demo-song__wave" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                  </div>
+                </div>
+                <span class="demo-song__icon" aria-hidden="true"><Icon name="Music" size={15} /></span>
+              </div>
+            </article>
           </>
         ) : (
           <>

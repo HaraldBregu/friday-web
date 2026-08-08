@@ -517,6 +517,119 @@
   transform: rotate(-90deg);
 }
 
+.demo-media {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.demo-media figcaption {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #85818b;
+  font-size: 0.58rem;
+  font-weight: 650;
+}
+
+.demo-media__image-grid,
+.demo-media__video-grid {
+  display: grid;
+  gap: 0.38rem;
+}
+
+.demo-media__image-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.demo-media__video-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.demo-media img,
+.demo-media video {
+  display: block;
+  width: 100%;
+  height: 86px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  background: #07070a;
+  object-fit: cover;
+}
+
+.demo-media video {
+  height: 104px;
+}
+
+.demo-song {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.demo-song > img {
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.demo-song__copy {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.demo-song__copy > span {
+  color: #77737d;
+  font-size: 0.48rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.demo-song__copy > strong {
+  overflow: hidden;
+  color: #bcb8c1;
+  font-size: 0.62rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.demo-song__wave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 13px;
+  margin-top: 0.1rem;
+}
+
+.demo-song__wave i {
+  width: 2px;
+  height: 35%;
+  border-radius: 999px;
+  background: #77717f;
+}
+
+.demo-song__wave i:nth-child(3n + 1) { height: 75%; }
+.demo-song__wave i:nth-child(4n + 2) { height: 100%; }
+.demo-song__wave i:nth-child(5n) { height: 55%; }
+
+.demo-song__icon {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: #eceaed;
+  color: #18171b;
+}
+
 .fr-capabilities {
   grid-column: 1 / -1;
   display: grid;
