@@ -635,12 +635,32 @@
     font-size: clamp(2.45rem, 12vw, 3.4rem);
   }
 
+  .docs-product-page .docs-article__meta span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .docs-product-page .docs-content pre {
+    max-width: calc(100vw - 32px);
+    font-size: 0.78rem;
+  }
+
   .docs-product-page .docs-content table {
     max-width: calc(100vw - 32px);
   }
 
   .docs-product-page .docs-pagination a:last-child {
     text-align: left;
+  }
+}
+
+@media (max-width: 380px) {
+  .docs-product-page .docs-hero h1 {
+    font-size: 2.65rem;
+  }
+
+  .docs-product-page .docs-article__header h1 {
+    font-size: 2.25rem;
   }
 }
 
