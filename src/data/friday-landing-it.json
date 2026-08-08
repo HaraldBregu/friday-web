@@ -1,0 +1,134 @@
+{
+  "links": {
+    "download": "https://github.com/HaraldBregu/friday/releases",
+    "github": "https://github.com/HaraldBregu/friday",
+    "docs": "https://github.com/HaraldBregu/friday/tree/main/docs",
+    "security": "https://github.com/HaraldBregu/friday/blob/main/SECURITY.md",
+    "contributing": "https://github.com/HaraldBregu/friday/blob/main/CONTRIBUTING.md",
+    "license": "https://github.com/HaraldBregu/friday/blob/main/LICENSE"
+  },
+  "copy": {
+    "hero": {
+      "eyebrow": "Copilota AI desktop per macOS, Windows e Linux",
+      "title": "Trasforma la conoscenza in azione.",
+      "description": "Friday lavora con i tuoi file, strumenti e provider AI scelti da te, trasformando il lavoro utile in Skill riutilizzabili, ricerca basata sulle fonti, una LLM Wiki consapevole delle fonti ed Estensioni mirate.",
+      "download": "Scarica Friday",
+      "github": "Vedi su GitHub",
+      "note": "Usa i provider che preferisci. Mantieni il controllo della configurazione. Segui ogni azione degli strumenti nella conversazione.",
+      "capabilitiesLabel": "Funzionalità di conoscenza ed estensione di Friday"
+    },
+    "foundation": {
+      "eyebrow": "Fondamenta del prodotto",
+      "title": "Un solo assistente, dalla richiesta al risultato.",
+      "description": "Scrivi o detta una richiesta, allega immagini o PDF e lascia che Friday lavori con file, comandi, web, interazioni nel browser e media generati. L’attività degli strumenti appare nella conversazione, mentre i controlli dei permessi regolano le azioni sensibili su file e comandi.",
+      "surfacesLabel": "superfici del prodotto"
+    },
+    "skills": {
+      "eyebrow": "Competenze riutilizzabili",
+      "title": "Insegna a Friday il tuo modo di lavorare.",
+      "description": "Trasforma i flussi di lavoro ripetibili in Agent Skill portabili. Friday instrada le richieste tramite metadati leggeri, carica le istruzioni complete solo quando sono pertinenti e può usare script, riferimenti e risorse inclusi in ogni Skill.",
+      "callout": "Le istruzioni complete arrivano solo quando servono: competenze riutilizzabili senza inserire ogni procedura in ogni prompt."
+    },
+    "knowledge": {
+      "eyebrow": "Recupero e conoscenza duratura",
+      "title": "Trova la fonte. Conserva ciò che conta.",
+      "description": "Friday usa due livelli di conoscenza complementari. La Knowledge Base recupera estratti pertinenti dal testo indicizzato. La LLM Wiki trasforma fonti in evoluzione in Markdown strutturato e interconnesso, verificabile, revisionabile e riutilizzabile.",
+      "baseTitle": "Cerca nei documenti in base al significato.",
+      "baseDescription": "Scegli una o più cartelle di testo, crea un indice semantico con il provider di embedding selezionato e Pinecone e lascia che Friday recuperi gli estratti corrispondenti con i relativi percorsi. Genera l’indice su richiesta, aggiornalo secondo una pianificazione e prova le ricerche direttamente nelle Impostazioni.",
+      "baseTech": "Recupero semantico basato su RAG",
+      "wikiTitle": "Crea conoscenza che migliora quando cambiano le fonti.",
+      "wikiDescription": "Compila file Markdown, testo, JSON, CSV e log in una wiki Markdown persistente e interconnessa. Friday conserva le prove delle fonti, mantiene affermazioni e contraddizioni tracciabili, convalida ogni aggiornamento preparato e ignora in modo incrementale le fonti rimaste invariate.",
+      "wikiTech": "Compilazione Markdown convalidata",
+      "callout": "La wiki offre a Friday una sintesi duratura. Le prove grezze e la Knowledge Base restano disponibili quando una risposta richiede formulazioni esatte o un recupero più ampio.",
+      "comparisonEyebrow": "Come lavorano insieme",
+      "comparisonTitle": "Due livelli di conoscenza, distinti per scelta.",
+      "comparisonStatus": "Collegati al momento della risposta"
+    },
+    "extensions": {
+      "eyebrow": "Interfacce mirate",
+      "title": "Adatta Friday al tuo flusso di lavoro.",
+      "description": "Le Estensioni sono mini-app web locali che si aprono in finestre Friday dedicate e possono usare l’API esposta dall’app. Crea un’interfaccia mirata per una dashboard, un’utilità di lavoro o un flusso ripetibile senza trasformare la conversazione principale in un pannello di controllo.",
+      "trustTitle": "Installa solo da fonti affidabili.",
+      "trustDescription": "Le Estensioni vengono eseguite nel runtime web sandbox di Electron, ma il codice installato può accedere ad ampie API di Friday."
+    },
+    "control": {
+      "eyebrow": "Controllo e privacy",
+      "title": "La tua configurazione. I tuoi provider. Il tuo controllo.",
+      "description": "Friday archivia sul dispositivo dell’utente chiavi dei provider, impostazioni, conversazioni, dati dello spazio di lavoro, Skill, Estensioni e file wiki generati. L’utente sceglie i provider e i servizi connessi per chat, voce, media, ricerca, embedding e generazione della conoscenza.",
+      "disclosureTitle": "Archiviazione locale non significa elaborazione sul dispositivo.",
+      "disclosure": "L’archiviazione locale non significa che ogni operazione resti sul dispositivo. Prompt, allegati, testo sorgente, frammenti di documenti e dati degli strumenti possono essere inviati ai provider AI, all’indice Pinecone, ai server MCP, ai siti web o ad altri servizi connessi necessari per la funzionalità richiesta."
+    },
+    "cta": {
+      "eyebrow": "Fallo tuo",
+      "title": "Crea un assistente intorno al tuo modo di lavorare.",
+      "description": "Inizia da una conversazione. Aggiungi Skill, conoscenza, provider ed Estensioni che rendono Friday davvero tuo.",
+      "download": "Scarica Friday",
+      "source": "Esplora il codice",
+      "platforms": "Disponibile per macOS, Windows e Linux. Open source con licenza MIT."
+    }
+  },
+  "navigation": [
+    { "label": "Prodotto", "href": "#product" },
+    { "label": "Docs", "href": "/docs" },
+    { "label": "Skill", "href": "#skills" },
+    { "label": "Conoscenza", "href": "#knowledge" },
+    { "label": "Estensioni", "href": "#extensions" },
+    { "label": "Controllo", "href": "#control" }
+  ],
+  "capabilities": [
+    { "label": "Skill riutilizzabili", "icon": "Sparkles" },
+    { "label": "Knowledge Base semantica", "icon": "Search" },
+    { "label": "LLM Wiki basata sulle fonti", "icon": "BookOpen" },
+    { "label": "Estensioni personalizzate", "icon": "PlugZap" }
+  ],
+  "foundationSteps": [
+    { "number": "01", "title": "Chiedi", "description": "Inizia con una richiesta in linguaggio naturale e il contesto che conta.", "icon": "MessageSquare", "surfaces": ["Testo", "Voce", "Immagini", "PDF"] },
+    { "number": "02", "title": "Agisci", "description": "Friday seleziona gli strumenti, porta avanti il compito e mostra la propria attività.", "icon": "TerminalSquare", "surfaces": ["File", "Comandi", "Web", "Browser", "Media"] },
+    { "number": "03", "title": "Verifica", "description": "L’assistente recupera estratti pertinenti dalle fonti o conoscenza compilata nella wiki.", "icon": "Search", "surfaces": ["Knowledge Base", "LLM Wiki"] },
+    { "number": "04", "title": "Riutilizza", "description": "Salva il flusso come Skill o dagli un’interfaccia mirata tramite un’Estensione.", "icon": "Layers", "surfaces": ["Agent Skill", "Estensioni"] }
+  ],
+  "skillPoints": [
+    "Importa cartelle compatibili con agentskills.io costruite intorno a SKILL.md.",
+    "Lascia che Friday selezioni una Skill abilitata in base all’intento oppure richiedila esplicitamente.",
+    "Esamina identità, metadati di creazione, requisiti degli strumenti, connettori e tag di una Skill.",
+    "Abilita, disabilita, scarica, aggiorna o elimina le Skill locali dalle Impostazioni.",
+    "Visualizza uno stato di attività chiaro nella chat ogni volta che Friday carica una Skill."
+  ],
+  "knowledgeBasePoints": [
+    "Indicizza ricorsivamente il testo UTF-8 leggibile, ignorando i file binari.",
+    "Usa lo stesso modello di embedding per l’indicizzazione e le query successive.",
+    "Fornisce all’assistente principale estratti pertinenti, percorsi e punteggi di rilevanza.",
+    "Supporta la generazione manuale e ricostruzioni complete pianificate dell’indice.",
+    "Rifiuta i comuni file di credenziali e contenuti con alta probabilità di contenere segreti prima dell’indicizzazione."
+  ],
+  "wikiPoints": [
+    "Genera pagine concise per fonti, concetti, argomenti, progetti, confronti, sintesi e domande.",
+    "Registra affermazioni basate sulle fonti, livello di fiducia, relazioni, contraddizioni e domande aperte.",
+    "Mantiene snapshot immutabili delle prove e un registro operativo append-only.",
+    "Prepara e convalida gli aggiornamenti prima di sostituire atomicamente la wiki generata.",
+    "Supporta generazione manuale, annullamento, manutenzione pianificata, linting e revisione delle principali riscritture di sintesi.",
+    "Archivia la wiki generata come normale Markdown in una cartella locale scelta dall’utente."
+  ],
+  "knowledgeComparison": [
+    { "label": "Ideale per", "knowledgeBase": "Trovare estratti pertinenti dalle fonti", "wiki": "Mantenere sintesi e relazioni riutilizzabili" },
+    { "label": "Input", "knowledgeBase": "Testo leggibile nelle cartelle selezionate", "wiki": "Markdown, testo, JSON, CSV e log" },
+    { "label": "Elaborazione", "knowledgeBase": "Embedding remoti e ricerca vettoriale Pinecone", "wiki": "Modello di testo selezionato e generazione Markdown convalidata" },
+    { "label": "Risultato", "knowledgeBase": "Estratti ordinati con percorsi e punteggi", "wiki": "Pagine interconnesse con affermazioni basate sulle fonti" },
+    { "label": "Aggiornamento", "knowledgeBase": "Ricostruzione completa manuale o pianificata", "wiki": "Compilazione incrementale consapevole delle fonti" }
+  ],
+  "extensionPoints": [
+    "Importa una o più cartelle di Estensioni dalle Impostazioni.",
+    "Usa un manifest.json convalidato oppure un package.json standard con un entry point HTML locale.",
+    "Sfoglia le app installate per titolo, descrizione e categoria.",
+    "Esamina i metadati, apri un’Estensione in una finestra ridimensionabile dedicata oppure eliminala con conferma.",
+    "Avvia le Estensioni installate dalle Impostazioni, dal menu nativo dell’app o dal menu della tray.",
+    "Crea integrazioni tipizzate nell’app con @friday/sdk."
+  ],
+  "controlPoints": [
+    "Scrittura, modifica e patch dei file ed esecuzione dei comandi seguono la policy dei permessi dell’agente.",
+    "Le azioni sensibili possono mostrare le scelte Nega, Consenti una volta e Consenti sempre.",
+    "L’attività degli strumenti resta visibile nella conversazione.",
+    "L’app usa sandboxing Electron, isolamento del contesto, integrazione Node disabilitata e sicurezza web.",
+    "Friday funziona su macOS, Windows e Linux, con temi chiaro, scuro e di sistema."
+  ]
+}
