@@ -1,5 +1,6 @@
 ---
 import FridayLandingNav from "./FridayLandingNav.astro";
+import DocumentationPreview from "./DocumentationPreview.astro";
 import Icon from "./Icon.astro";
 import ProductMockup from "./ProductMockup.astro";
 import landing from "../data/friday-landing.json";
@@ -9,7 +10,6 @@ const {
   capabilities,
   controlPoints,
   extensionPoints,
-  footerLinks,
   foundationSteps,
   knowledgeBasePoints,
   knowledgeComparison,
@@ -25,10 +25,10 @@ const {
   <div class="fr-shell fr-hero__layout">
     <div class="fr-hero__copy">
       <p class="fr-eyebrow"><span></span>Desktop AI copilot for macOS, Windows, and Linux</p>
-      <h1>Turn conversations into action. <em>Turn your work into lasting knowledge.</em></h1>
+      <h1>Turn knowledge into action. <em>Right from your desktop.</em></h1>
       <p class="fr-hero__lede">
-        Friday works with your files, tools, and chosen AI providers—then makes the useful parts reusable through Skills,
-        semantic document search, a source-aware LLM Wiki, and custom Extensions.
+        Friday works with your files, tools, and chosen AI providers—then turns useful work into reusable Skills,
+        grounded search, a source-aware LLM Wiki, and focused Extensions.
       </p>
       <div class="fr-actions">
         <a class="fr-button" href={links.download} target="_blank" rel="noopener noreferrer">
@@ -237,6 +237,10 @@ const {
   </div>
 </section>
 
+<div class="fr-docs-preview">
+  <DocumentationPreview />
+</div>
+
 <section class="fr-final-cta" aria-labelledby="final-cta-title">
   <div class="fr-final-cta__glow" aria-hidden="true"></div>
   <div class="fr-shell fr-final-cta__inner" data-reveal>
@@ -251,18 +255,6 @@ const {
     <span class="fr-platform-line"><Icon name="Monitor" size={15} />Available for macOS, Windows, and Linux. Open source under the MIT License.</span>
   </div>
 </section>
-
-<footer class="fr-footer">
-  <div class="fr-shell fr-footer__inner">
-    <a class="fr-brand" href="#product" aria-label="Friday home"><img src="/icon-rounded.png" alt="" width="32" height="32" /><span>Friday</span></a>
-    <nav aria-label="Footer navigation">
-      {footerLinks.map((link) => (
-        <a href={links[link.key]} target="_blank" rel="noopener noreferrer">{link.label}</a>
-      ))}
-    </nav>
-    <p>Friday · Your desktop AI copilot for everyday tasks.</p>
-  </div>
-</footer>
 
 <script is:inline>
   (() => {

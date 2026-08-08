@@ -9,6 +9,7 @@
   },
   "navigation": [
     { "label": "Product", "href": "#product" },
+    { "label": "Docs", "href": "/docs" },
     { "label": "Skills", "href": "#skills" },
     { "label": "Knowledge", "href": "#knowledge" },
     { "label": "Extensions", "href": "#extensions" },
@@ -109,13 +110,5 @@
     "Tool activity remains visible in the conversation.",
     "The app uses Electron sandboxing, context isolation, disabled Node integration, and web security.",
     "Friday runs on macOS, Windows, and Linux, with light, dark, and system themes."
-  ],
-  "footerLinks": [
-    { "label": "GitHub", "key": "github" },
-    { "label": "Documentation", "key": "docs" },
-    { "label": "Releases", "key": "download" },
-    { "label": "Security", "key": "security" },
-    { "label": "Contributing", "key": "contributing" },
-    { "label": "License", "key": "license" }
   ]
 }
