@@ -5,9 +5,11 @@ import { getLocaleContent, normalizeLocale, type Locale } from "../i18n";
 
 interface Props {
   locale?: Locale;
+  landingWorkflow?: boolean;
 }
 
 const locale = normalizeLocale(Astro.props.locale);
+const landingWorkflow = Astro.props.landingWorkflow ?? false;
 const { productMockup } = getLocaleContent(locale);
 const imagesByFile = Object.fromEntries(
   Object.entries(import.meta.glob<{ default: ImageMetadata }>("../assets/library/*.jpeg", { eager: true })).map(
@@ -44,59 +46,85 @@ const imagesByFile = Object.fromEntries(
 
   <div class="product-window__body">
     <div class="product-window__thread" aria-label={productMockup.conversationLabel} data-demo-thread>
-      <div class="chat-bubble chat-bubble--user chat-bubble--short">
-        {productMockup.chatUserGreeting}
-      </div>
-
-      <article class="assistant-turn">
-        <div class="assistant-row">
-          <span class="assistant-avatar" aria-hidden="true"></span>
-          <strong>Friday</strong>
-        </div>
-        <div class="chat-bubble chat-bubble--assistant">
-          {productMockup.chatAssistantGreeting}
-        </div>
-      </article>
-
       {
-        productMockup.chatMessages.map((message) =>
-          message.role === "user" ? (
-            <div class="chat-bubble chat-bubble--user">{message.text}</div>
-          ) : (
+        landingWorkflow ? (
+          <>
+            <div class="chat-bubble chat-bubble--user">
+              Use our release workflow and source material to update the launch brief.
+            </div>
             <article class="assistant-turn">
               <div class="assistant-row">
                 <span class="assistant-avatar" aria-hidden="true" />
                 <strong>Friday</strong>
               </div>
-              <div class="chat-bubble chat-bubble--assistant">{message.text}</div>
+              <div class="chat-bubble chat-bubble--assistant">
+                I’ll ground the update in your indexed notes and compiled project knowledge.
+              </div>
+              <div class="product-activity" aria-label="Friday tool activity">
+                <div><span><Icon name="Sparkles" size={15} /></span><strong>Using skill</strong><code>release-brief</code><Icon name="Check" size={14} /></div>
+                <div><span><Icon name="Search" size={15} /></span><strong>Searching knowledge</strong><code>8 excerpts</code><Icon name="Check" size={14} /></div>
+                <div><span><Icon name="BookOpen" size={15} /></span><strong>Reading wiki page</strong><code>Release readiness</code><Icon name="Check" size={14} /></div>
+                <div><span><Icon name="TerminalSquare" size={15} /></span><strong>Updating local file</strong><code>docs/release.md</code><Icon name="Check" size={14} /></div>
+              </div>
+              <div class="chat-bubble chat-bubble--assistant">
+                Done. I updated the launch brief with sourced decisions, open questions, and next steps.
+              </div>
             </article>
-          )
-        )
-      }
+          </>
+        ) : (
+          <>
+            <div class="chat-bubble chat-bubble--user chat-bubble--short">
+              {productMockup.chatUserGreeting}
+            </div>
 
-      {
-        productMockup.libraryFeed.map((item) => {
-          const image = imagesByFile[item.file];
-          return image ? (
-            <>
-              <div class="chat-bubble chat-bubble--user">{item.user}</div>
-              <article class="assistant-turn">
-                <div class="assistant-row">
-                  <span class="assistant-avatar" aria-hidden="true" />
-                  <strong>Friday</strong>
-                </div>
-                <figure class="chat-image">
-                  <figcaption class="chat-image__head">
-                    <Icon name="Image" size={15} />
-                    <span>{productMockup.imageHeader}</span>
-                  </figcaption>
-                  <Image alt={item.user} class="chat-image__media" height={400} loading="lazy" src={image} width={640} />
-                  <p class="chat-image__caption">{item.reply}</p>
-                </figure>
-              </article>
-            </>
-          ) : null;
-        })
+            <article class="assistant-turn">
+              <div class="assistant-row">
+                <span class="assistant-avatar" aria-hidden="true"></span>
+                <strong>Friday</strong>
+              </div>
+              <div class="chat-bubble chat-bubble--assistant">
+                {productMockup.chatAssistantGreeting}
+              </div>
+            </article>
+
+            {productMockup.chatMessages.map((message) =>
+              message.role === "user" ? (
+                <div class="chat-bubble chat-bubble--user">{message.text}</div>
+              ) : (
+                <article class="assistant-turn">
+                  <div class="assistant-row">
+                    <span class="assistant-avatar" aria-hidden="true" />
+                    <strong>Friday</strong>
+                  </div>
+                  <div class="chat-bubble chat-bubble--assistant">{message.text}</div>
+                </article>
+              )
+            )}
+
+            {productMockup.libraryFeed.map((item) => {
+              const image = imagesByFile[item.file];
+              return image ? (
+                <>
+                  <div class="chat-bubble chat-bubble--user">{item.user}</div>
+                  <article class="assistant-turn">
+                    <div class="assistant-row">
+                      <span class="assistant-avatar" aria-hidden="true" />
+                      <strong>Friday</strong>
+                    </div>
+                    <figure class="chat-image">
+                      <figcaption class="chat-image__head">
+                        <Icon name="Image" size={15} />
+                        <span>{productMockup.imageHeader}</span>
+                      </figcaption>
+                      <Image alt={item.user} class="chat-image__media" height={400} loading="lazy" src={image} width={640} />
+                      <p class="chat-image__caption">{item.reply}</p>
+                    </figure>
+                  </article>
+                </>
+              ) : null;
+            })}
+          </>
+        )
       }
 
     </div>
