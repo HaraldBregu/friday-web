@@ -70,6 +70,10 @@
   color: #d3c2ff;
 }
 
+.docs-product-page .fr-nav {
+  width: min(calc(100% - 40px), 1340px);
+}
+
 .docs-product-page .docs-hero {
   padding-top: 9rem;
   padding-bottom: 6rem;
@@ -460,7 +464,7 @@
   --line-strong: rgba(255, 255, 255, 0.16);
   --accent: #a76bff;
   --radius: 8px;
-  --shell: 1180px;
+  --shell: 1340px;
   background: var(--bg-muted);
 }
 
@@ -520,6 +524,10 @@
 }
 
 @media (max-width: 680px) {
+  .docs-product-page .fr-nav {
+    width: calc(100% - 20px);
+  }
+
   .docs-product-page .docs-hero {
     padding-top: 7.5rem;
     padding-bottom: 4.5rem;
