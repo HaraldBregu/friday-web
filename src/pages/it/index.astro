@@ -1,16 +1,18 @@
 ---
-import LandingPage from "../../components/LandingPage.astro";
+import FridayLandingPage from "../../components/FridayLandingPage.astro";
+import landing from "../../data/friday-landing-it.json";
 import { getLocaleContent } from "../../i18n";
 import { buildHomepageStructuredData } from "../../lib/structured-data";
 import Layout from "../../layouts/Layout.astro";
 
 const locale = "it";
-const { friday, home, site } = getLocaleContent(locale);
+const { site } = getLocaleContent(locale);
+const title = "Friday — AI desktop che trasforma la conoscenza in azione";
+const description = "Friday è un copilota AI desktop multipiattaforma con Skill riutilizzabili, una LLM Wiki basata sulle fonti, ricerca semantica dei documenti ed Estensioni personalizzate.";
 const siteBaseUrl = Astro.site ?? new URL(site.url);
 const structuredData = buildHomepageStructuredData({
-  description: site.description,
-  faqs: friday.faqs,
-  featureNames: friday.landingFeatures.map((feature) => feature.title),
+  description,
+  featureNames: landing.capabilities.map((capability) => capability.label),
   locale,
   siteBaseUrl,
   tagline: site.tagline,
@@ -19,13 +21,19 @@ const structuredData = buildHomepageStructuredData({
 
 <Layout
   alternatePath="/"
+  bodyClass="friday-landing-page"
+  description={description}
+  exactTitle
+  footerVariant="landing"
+  hideBackgroundEffects
+  hideHeader
+  image="/og/default.png"
+  imageAlt="Copilota AI desktop Friday"
   locale={locale}
-  title={site.name}
-  description={site.description}
-  ogTitle={home.ogTitle}
-  ogDescription={home.ogDescription}
-  image="/og/home-it.png"
+  ogDescription={description}
+  ogTitle={title}
   structuredData={structuredData}
+  title={title}
 >
-  <LandingPage locale={locale} />
+  <FridayLandingPage locale={locale} />
 </Layout>
