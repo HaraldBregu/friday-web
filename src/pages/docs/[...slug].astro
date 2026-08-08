@@ -1,9 +1,12 @@
 ---
 import { getCollection, render } from "astro:content";
 import Icon from "../../components/Icon.astro";
+import DocsEffects from "../../components/DocsEffects.astro";
 import Layout from "../../layouts/Layout.astro";
 import { categoryIcons, compareDocs, docsPath, docsSlug, readingTime } from "../../lib/docs";
 import { buildDocStructuredData } from "../../lib/structured-data";
+import "../../styles/friday-landing.css";
+import "../../styles/docs-friday.css";
 
 export async function getStaticPaths() {
   const docs = await getCollection("docs");
@@ -34,6 +37,7 @@ const structuredData = buildDocStructuredData({
 ---
 
 <Layout
+  bodyClass="docs-product-page"
   canonical={currentPath}
   title={doc.data.title}
   description={doc.data.description}
@@ -42,7 +46,7 @@ const structuredData = buildDocStructuredData({
   wide={true}
 >
   <section class="docs-reader">
-    <aside class="docs-sidebar" aria-label={`${doc.data.category} documentation`}>
+    <aside class="docs-sidebar" aria-label={`${doc.data.category} documentation`} data-doc-reveal>
       <a class="back-link" href="/docs">
         <Icon name="ArrowRight" size={15} class="back-link__icon" />
         All docs
@@ -61,7 +65,7 @@ const structuredData = buildDocStructuredData({
       </div>
     </aside>
 
-    <article class="docs-article">
+    <article class="docs-article" data-doc-reveal>
       <header class="docs-article__header">
         <p class="eyebrow">
           <Icon name={categoryIcons[doc.data.category] ?? "BookOpen"} size={14} />
@@ -105,7 +109,7 @@ const structuredData = buildDocStructuredData({
 
     {
       tocHeadings.length > 0 ? (
-        <aside class="docs-toc" aria-label="On this page">
+        <aside class="docs-toc" aria-label="On this page" data-doc-reveal>
           <p>On this page</p>
           <nav>
             {tocHeadings.map((heading) => (
@@ -118,4 +122,8 @@ const structuredData = buildDocStructuredData({
       ) : null
     }
   </section>
+  <DocsEffects />
 </Layout>
+  footerVariant="landing"
+  headerVariant="landing"
+  hideBackgroundEffects

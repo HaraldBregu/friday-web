@@ -1,9 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import DocCard from "../../components/DocCard.astro";
+import DocsEffects from "../../components/DocsEffects.astro";
 import Icon from "../../components/Icon.astro";
 import Layout from "../../layouts/Layout.astro";
 import { categoryIcons, categoryId, docsPath, groupDocs } from "../../lib/docs";
+import "../../styles/friday-landing.css";
+import "../../styles/docs-friday.css";
 
 const docs = await getCollection("docs");
 const groups = groupDocs(docs);
@@ -16,13 +19,17 @@ const secondaryDocs = indexDocs.slice(1, 4);
 ---
 
 <Layout
+  bodyClass="docs-product-page"
   title="Documentation"
   description="Browse Friday documentation for the desktop AI assistant, providers, tools, channels, automation, memory, privacy, and getting started."
+  footerVariant="landing"
+  headerVariant="landing"
+  hideBackgroundEffects
   image="/og/docs.png"
   wide={true}
 >
   <section class="section page-hero docs-hero">
-    <div class="shell docs-hero__inner">
+    <div class="shell docs-hero__inner" data-doc-reveal>
       <div class="section-heading">
         <p class="eyebrow">Documentation</p>
         <h1>Friday product documentation</h1>
@@ -56,7 +63,7 @@ const secondaryDocs = indexDocs.slice(1, 4);
   </section>
 
   <section class="section section--compact" id="browse-sections">
-    <div class="shell docs-section-grid" aria-label="Documentation sections">
+    <div class="shell docs-section-grid" aria-label="Documentation sections" data-doc-reveal>
       {
         groups.map((group) => (
           <a class="docs-section-tile" href={`#${categoryId(group.category)}`}>
@@ -75,7 +82,7 @@ const secondaryDocs = indexDocs.slice(1, 4);
   </section>
 
   <section class="section section--compact" id="start-here">
-    <div class="shell">
+    <div class="shell" data-doc-reveal>
       <header class="docs-group-head">
         <Icon name="BookOpen" size={18} />
         <h2>Start Here</h2>
@@ -118,7 +125,7 @@ const secondaryDocs = indexDocs.slice(1, 4);
   {
     groups.map((group) => (
       <section class="section section--compact docs-group-section" id={group.id}>
-        <div class="shell">
+        <div class="shell" data-doc-reveal>
           <header class="docs-group-head">
             <Icon name={group.icon} size={18} />
             <h2>{group.category}</h2>
@@ -139,4 +146,5 @@ const secondaryDocs = indexDocs.slice(1, 4);
       </section>
     ))
   }
+  <DocsEffects />
 </Layout>
