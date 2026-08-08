@@ -61,10 +61,51 @@ const imagesByFile = Object.fromEntries(
                 I’ll ground the update in your indexed notes and compiled project knowledge.
               </div>
               <div class="product-activity" aria-label="Friday tool activity">
-                <div><span><Icon name="Sparkles" size={15} /></span><strong>Using skill</strong><code>release-brief</code><Icon name="Check" size={14} /></div>
-                <div><span><Icon name="Search" size={15} /></span><strong>Searching knowledge</strong><code>8 excerpts</code><Icon name="Check" size={14} /></div>
-                <div><span><Icon name="BookOpen" size={15} /></span><strong>Reading wiki page</strong><code>Release readiness</code><Icon name="Check" size={14} /></div>
-                <div><span><Icon name="TerminalSquare" size={15} /></span><strong>Updating local file</strong><code>docs/release.md</code><Icon name="Check" size={14} /></div>
+                <details class="product-activity__group" open>
+                  <summary>
+                    <Icon name="Sparkles" size={16} />
+                    <strong>Used 1 skill</strong>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </summary>
+                  <div class="product-activity__tool">
+                    <Icon name="Sparkles" size={16} />
+                    <span><strong>Using release-brief</strong><Icon name="Check" size={13} /></span>
+                    <code>36 tok</code>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </div>
+                </details>
+                <details class="product-activity__group" open>
+                  <summary>
+                    <Icon name="Search" size={16} />
+                    <strong>Searched knowledge</strong>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </summary>
+                  <div class="product-activity__tool">
+                    <Icon name="Search" size={16} />
+                    <span><strong>Knowledge search</strong><Icon name="Check" size={13} /></span>
+                    <code>491 tok</code>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </div>
+                  <div class="product-activity__tool">
+                    <Icon name="Wrench" size={16} />
+                    <span><strong>Read Release readiness</strong><Icon name="Check" size={13} /></span>
+                    <code>90 tok</code>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </div>
+                </details>
+                <details class="product-activity__group" open>
+                  <summary>
+                    <Icon name="TerminalSquare" size={16} />
+                    <strong>Updated 1 file</strong>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </summary>
+                  <div class="product-activity__tool">
+                    <Icon name="TerminalSquare" size={16} />
+                    <span><strong>Edit docs/release.md</strong><Icon name="Check" size={13} /></span>
+                    <code>124 tok</code>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </div>
+                </details>
               </div>
               <div class="chat-bubble chat-bubble--assistant">
                 Done. I updated the launch brief with sourced decisions, open questions, and next steps.

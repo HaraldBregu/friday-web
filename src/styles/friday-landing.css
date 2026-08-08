@@ -434,48 +434,87 @@
 }
 
 .product-activity {
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 12px;
-  background: #111117;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.15rem 0;
+  color: #89868e;
 }
 
-.product-activity > div {
+.product-activity__group {
+  min-width: 0;
+}
+
+.product-activity__group summary,
+.product-activity__tool {
   display: grid;
-  grid-template-columns: 28px 1fr auto 16px;
+  grid-template-columns: 22px minmax(0, 1fr) auto 16px;
   align-items: center;
-  gap: 0.45rem;
-  min-height: 42px;
-  padding: 0 0.7rem;
+  column-gap: 0.42rem;
+  min-height: 29px;
+  padding: 0 0.15rem;
 }
 
-.product-activity > div + div {
-  border-top: 1px solid rgba(255, 255, 255, 0.065);
+.product-activity__group summary {
+  grid-template-columns: 22px minmax(0, 1fr) 16px;
+  cursor: pointer;
+  list-style: none;
 }
 
-.product-activity > div > span {
-  display: grid;
-  width: 24px;
-  height: 24px;
-  place-items: center;
-  border-radius: 7px;
-  background: rgba(167, 107, 255, 0.09);
-  color: #ae8bff;
+.product-activity__group summary::-webkit-details-marker {
+  display: none;
+}
+
+.product-activity__group summary::marker {
+  content: "";
+}
+
+.product-activity__group summary:focus-visible {
+  border-radius: 5px;
+  outline: 2px solid var(--fr-violet);
+  outline-offset: 2px;
+}
+
+.product-activity__group > .product-activity__tool {
+  padding-left: 0.22rem;
 }
 
 .product-activity strong {
-  color: #bcb8c2;
-  font-size: 0.58rem;
+  overflow: hidden;
+  color: #9b989f;
+  font-size: 0.61rem;
   font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-activity__tool > span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.product-activity__tool > span > svg {
+  flex: none;
+  color: #77747c;
 }
 
 .product-activity code {
-  color: #6c6873;
-  font-size: 0.45rem;
+  color: #77747c;
+  font-size: 0.49rem;
+  white-space: nowrap;
 }
 
-.product-activity > div > svg {
-  color: var(--fr-green);
+.product-activity svg {
+  color: #77747c;
+}
+
+.product-activity__chevron {
+  transition: transform 160ms ease;
+}
+
+.product-activity__group:not([open]) > summary .product-activity__chevron {
+  transform: rotate(-90deg);
 }
 
 .fr-capabilities {
@@ -1957,8 +1996,8 @@
   .fr-model-pill { display: none; }
   .fr-activity { grid-template-columns: 18px 22px 1fr; }
   .fr-activity code { display: none; }
-  .product-activity > div { grid-template-columns: 28px 1fr 16px; }
-  .product-activity code { display: none; }
+  .product-activity__tool { grid-template-columns: 22px minmax(0, 1fr) 16px; }
+  .product-activity__tool code { display: none; }
   .fr-section { padding-block: 78px; }
   .fr-docs-preview { --section-space: 5rem; }
   .fr-docs-preview .shell { width: min(calc(100% - 32px), var(--fr-shell)); }
