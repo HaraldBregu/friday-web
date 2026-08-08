@@ -1150,7 +1150,7 @@ export function localizedPath(path: string, locale: Locale): string {
     return normalizedPath;
   }
 
-  return normalizedPath === "/" ? "/it" : `/it${normalizedPath}`;
+  return normalizedPath === "/" ? "/it/" : `/it${normalizedPath}`;
 }
 
 export function getAlternateLinks(path: string, siteUrl: URL) {
