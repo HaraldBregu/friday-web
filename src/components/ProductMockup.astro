@@ -149,126 +149,126 @@ const imagesByFile = Object.fromEntries(
         landingWorkflow ? (
           <>
             <div class="chat-bubble chat-bubble--user">
-              Update the launch brief from our sources.
+              {demo.initialUser}
             </div>
             <article class="assistant-turn">
               <div class="chat-message--assistant">
-                I’ll load your reusable release workflow first.
+                {demo.skillIntro}
               </div>
-              <div class="product-activity" aria-label="Friday tool activity">
+              <div class="product-activity" aria-label={demo.toolActivity}>
                 <details class="product-activity__group" open>
                   <summary>
                     <Icon name="Sparkles" size={16} />
-                    <strong>Used 1 skill</strong>
+                    <strong>{demo.skillSummary}</strong>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </summary>
                   <div class="product-activity__tool">
                     <Icon name="Sparkles" size={16} />
-                    <span><strong>Using release-brief</strong><Icon name="Check" size={13} /></span>
+                    <span><strong>{demo.skillTool}</strong><Icon name="Check" size={13} /></span>
                     <code>36 tok</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                 </details>
               </div>
               <div class="chat-message--assistant">
-                The workflow is ready. Next I’ll verify the brief against your knowledge.
+                {demo.skillResult}
               </div>
             </article>
 
             <div class="chat-bubble chat-bubble--user">
-              Check it against the indexed notes and project wiki.
+              {demo.knowledgeUser}
             </div>
             <article class="assistant-turn">
               <div class="chat-message--assistant">
-                I’m comparing source excerpts with the compiled release page.
+                {demo.knowledgeIntro}
               </div>
-              <div class="product-activity" aria-label="Friday tool activity">
+              <div class="product-activity" aria-label={demo.toolActivity}>
                 <details class="product-activity__group" open>
                   <summary>
                     <Icon name="Search" size={16} />
-                    <strong>Searched knowledge</strong>
+                    <strong>{demo.knowledgeSummary}</strong>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </summary>
                   <div class="product-activity__tool">
                     <Icon name="Search" size={16} />
-                    <span><strong>Knowledge search</strong><Icon name="Check" size={13} /></span>
+                    <span><strong>{demo.knowledgeTool}</strong><Icon name="Check" size={13} /></span>
                     <code>491 tok</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                   <div class="product-activity__tool">
                     <Icon name="Wrench" size={16} />
-                    <span><strong>Read Release readiness</strong><Icon name="Check" size={13} /></span>
+                    <span><strong>{demo.wikiTool}</strong><Icon name="Check" size={13} /></span>
                     <code>90 tok</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                 </details>
               </div>
               <div class="chat-message--assistant">
-                I found the sourced decisions and open questions that need to be reflected.
+                {demo.knowledgeResult}
               </div>
             </article>
 
             <div class="chat-bubble chat-bubble--user">
-              Apply those changes to the brief.
+              {demo.editUser}
             </div>
             <article class="assistant-turn">
               <div class="chat-message--assistant">
-                I’ll update the local Markdown file and keep the source references intact.
+                {demo.editIntro}
               </div>
-              <div class="product-activity" aria-label="Friday tool activity">
+              <div class="product-activity" aria-label={demo.toolActivity}>
                 <details class="product-activity__group" open>
                   <summary>
                     <Icon name="TerminalSquare" size={16} />
-                    <strong>Updated 1 file</strong>
+                    <strong>{demo.editSummary}</strong>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </summary>
                   <div class="product-activity__tool">
                     <Icon name="TerminalSquare" size={16} />
-                    <span><strong>Edit docs/release.md</strong><Icon name="Check" size={13} /></span>
+                    <span><strong>{demo.editTool}</strong><Icon name="Check" size={13} /></span>
                     <code>124 tok</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                 </details>
               </div>
               <div class="chat-message--assistant">
-                Done. I updated the launch brief with sourced decisions, open questions, and next steps.
+                {demo.editResult}
               </div>
             </article>
 
             <div class="chat-bubble chat-bubble--user">
-              Create a few visual directions for the announcement.
+              {demo.imagesUser}
             </div>
             <article class="assistant-turn">
               <div class="chat-message--assistant">
-                I’ll start with two wide concepts you can compare.
+                {demo.imagesIntro}
               </div>
-              <div class="product-activity" aria-label="Friday image generation activity">
+              <div class="product-activity" aria-label={demo.imageActivity}>
                 <details class="product-activity__group" open>
                   <summary>
                     <Icon name="Image" size={16} />
-                    <strong>Created 2 images</strong>
+                    <strong>{demo.imagesSummary}</strong>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </summary>
                   <div class="product-activity__tool">
                     <Icon name="Image" size={16} />
-                    <span><strong>Generate images</strong><Icon name="Check" size={13} /></span>
+                    <span><strong>{demo.imagesTool}</strong><Icon name="Check" size={13} /></span>
                     <code>2 files</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                 </details>
               </div>
               <figure class="demo-media">
-                <figcaption><Icon name="Image" size={14} />Generated images</figcaption>
+                <figcaption><Icon name="Image" size={14} />{demo.imagesCaption}</figcaption>
                 <div class="demo-media__image-grid">
                   <img
-                    alt="Generated illustration of the Sun and Earth in space"
+                    alt={demo.sunAlt}
                     height="720"
                     loading="lazy"
                     src="/demo/image-1783269109315.jpeg"
                     width="1280"
                   />
                   <img
-                    alt="Generated illustration of a clockwork whale floating above a village"
+                    alt={demo.whaleAlt}
                     height="720"
                     loading="lazy"
                     src="/demo/image-1783437002924.jpeg"
@@ -279,32 +279,32 @@ const imagesByFile = Object.fromEntries(
             </article>
 
             <div class="chat-bubble chat-bubble--user">
-              Try one more direction with a vertical composition.
+              {demo.portraitUser}
             </div>
             <article class="assistant-turn">
               <div class="chat-message--assistant">
-                I’ll create a portrait concept with more room for the campaign title.
+                {demo.portraitIntro}
               </div>
-              <div class="product-activity" aria-label="Friday image generation activity">
+              <div class="product-activity" aria-label={demo.imageActivity}>
                 <details class="product-activity__group" open>
                   <summary>
                     <Icon name="Image" size={16} />
-                    <strong>Created 1 image</strong>
+                    <strong>{demo.portraitSummary}</strong>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </summary>
                   <div class="product-activity__tool">
                     <Icon name="Image" size={16} />
-                    <span><strong>Generate image</strong><Icon name="Check" size={13} /></span>
+                    <span><strong>{demo.portraitTool}</strong><Icon name="Check" size={13} /></span>
                     <code>1 file</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                 </details>
               </div>
               <figure class="demo-media">
-                <figcaption><Icon name="Image" size={14} />Generated image</figcaption>
+                <figcaption><Icon name="Image" size={14} />{demo.portraitCaption}</figcaption>
                 <div class="demo-media__image-grid demo-media__image-grid--single">
                   <img
-                    alt="Generated illustration of a crystal tree beneath two planets"
+                    alt={demo.crystalAlt}
                     height="1152"
                     loading="lazy"
                     src="/demo/image-1783437075249.jpeg"
@@ -315,32 +315,32 @@ const imagesByFile = Object.fromEntries(
             </article>
 
             <div class="chat-bubble chat-bubble--user">
-              Animate the strongest concepts for the launch teaser.
+              {demo.videoUser}
             </div>
             <article class="assistant-turn">
               <div class="chat-message--assistant">
-                I’ll turn two directions into short motion studies.
+                {demo.videoIntro}
               </div>
-              <div class="product-activity" aria-label="Friday video generation activity">
+              <div class="product-activity" aria-label={demo.videoActivity}>
                 <details class="product-activity__group" open>
                   <summary>
                     <Icon name="Video" size={16} />
-                    <strong>Created 2 videos</strong>
+                    <strong>{demo.videoSummary}</strong>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </summary>
                   <div class="product-activity__tool">
                     <Icon name="Video" size={16} />
-                    <span><strong>Generate videos</strong><Icon name="Check" size={13} /></span>
+                    <span><strong>{demo.videoTool}</strong><Icon name="Check" size={13} /></span>
                     <code>2 files</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                 </details>
               </div>
               <figure class="demo-media">
-                <figcaption><Icon name="Video" size={14} />Generated videos</figcaption>
+                <figcaption><Icon name="Video" size={14} />{demo.videoCaption}</figcaption>
                 <div class="demo-media__video-grid">
                   <video
-                    aria-label="Generated Sun and Earth animation preview"
+                    aria-label={demo.sunVideoLabel}
                     controls
                     muted
                     playsinline
@@ -350,7 +350,7 @@ const imagesByFile = Object.fromEntries(
                     <source src="/demo/video-1784367922287.mp4" type="video/mp4" />
                   </video>
                   <video
-                    aria-label="Generated clockwork whale animation preview"
+                    aria-label={demo.whaleVideoLabel}
                     controls
                     muted
                     playsinline
@@ -364,38 +364,38 @@ const imagesByFile = Object.fromEntries(
             </article>
 
             <div class="chat-bubble chat-bubble--user">
-              Compose a soundtrack to tie the teaser together.
+              {demo.musicUser}
             </div>
             <article class="assistant-turn">
               <div class="chat-message--assistant">
-                I’ll create an instrumental track with a cinematic electronic feel.
+                {demo.musicIntro}
               </div>
-              <div class="product-activity" aria-label="Friday music generation activity">
+              <div class="product-activity" aria-label={demo.musicActivity}>
                 <details class="product-activity__group" open>
                   <summary>
                     <Icon name="Music" size={16} />
-                    <strong>Created 1 track</strong>
+                    <strong>{demo.musicSummary}</strong>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </summary>
                   <div class="product-activity__tool">
                     <Icon name="Music" size={16} />
-                    <span><strong>Generate music</strong><Icon name="Check" size={13} /></span>
+                    <span><strong>{demo.musicTool}</strong><Icon name="Check" size={13} /></span>
                     <code>1 file</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                 </details>
               </div>
-              <div class="demo-song" aria-label="Generated music track: Launch soundtrack">
+              <div class="demo-song" aria-label={demo.songLabel}>
                 <img
-                  alt="Crystal tree artwork used as the launch soundtrack cover"
+                  alt={demo.songCoverAlt}
                   height="1152"
                   loading="lazy"
                   src="/demo/image-1783437075249.jpeg"
                   width="864"
                 />
                 <div class="demo-song__copy">
-                  <span>Generated music</span>
-                  <strong>Launch soundtrack</strong>
+                  <span>{demo.songEyebrow}</span>
+                  <strong>{demo.songTitle}</strong>
                   <div class="demo-song__wave" aria-hidden="true">
                     <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
                   </div>
