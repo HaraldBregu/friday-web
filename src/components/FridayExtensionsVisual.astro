@@ -1,0 +1,62 @@
+---
+import Icon from "./Icon.astro";
+
+const extensions = [
+  { name: "Project console", category: "Developer tools", icon: "TerminalSquare" },
+  { name: "Research board", category: "Productivity", icon: "BookOpen" },
+  { name: "Media desk", category: "Creative", icon: "Image" },
+];
+---
+
+<div class="fr-extensions-visual" role="img" aria-label="Friday Extensions settings opening a separate local project utility window">
+  <div class="fr-extension-list-window">
+    <div class="fr-mini-window__bar">
+      <div class="fr-window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <strong>Extensions</strong>
+      <span></span>
+    </div>
+    <div class="fr-extension-list-window__body">
+      <div class="fr-extension-list-window__head">
+        <div><small>Local mini-apps</small><strong>Installed Extensions</strong></div>
+        <span><Icon name="Plus" size={13} /> Import</span>
+      </div>
+      {extensions.map((extension, index) => (
+        <div class:list={["fr-extension-row", index === 0 && "is-active"]}>
+          <span><Icon name={extension.icon} size={15} /></span>
+          <div><strong>{extension.name}</strong><small>{extension.category}</small></div>
+          <Icon name="ChevronRight" size={15} />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="fr-extension-app-window">
+    <div class="fr-extension-app-window__bar">
+      <div class="fr-window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <strong>Project console</strong>
+      <span>Friday Extension</span>
+    </div>
+    <div class="fr-extension-app-window__body">
+      <aside aria-hidden="true">
+        <span class="is-active"><Icon name="Layers" size={14} /></span>
+        <span><Icon name="Search" size={14} /></span>
+        <span><Icon name="TerminalSquare" size={14} /></span>
+      </aside>
+      <div class="fr-console">
+        <div class="fr-console__head"><div><small>Workspace</small><strong>Friday release</strong></div><b>Ready</b></div>
+        <div class="fr-console__stats">
+          <span><small>Open tasks</small><strong>04</strong></span>
+          <span><small>Source checks</small><strong>12</strong></span>
+          <span><small>Last run</small><strong>2m</strong></span>
+        </div>
+        <div class="fr-console__activity">
+          <small>RECENT ACTIVITY</small>
+          <span><i></i><code>docs/release.md</code><b>updated</b></span>
+          <span><i></i><code>npm run build</code><b>passed</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fr-sdk-chip"><Icon name="TerminalSquare" size={14} /><code>@friday/sdk</code><span>typed app API</span></div>
+</div>

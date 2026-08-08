@@ -1,0 +1,22 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<div class="fr-control-console" role="img" aria-label="Friday permission dialog showing Deny, Allow once, and Always allow choices beside provider controls and visible activity">
+  <div class="fr-control-console__top">
+    <span><i></i> Sensitive action paused</span>
+    <code>command execution</code>
+  </div>
+  <div class="fr-control-console__command">
+    <span><Icon name="TerminalSquare" size={16} /></span>
+    <div><small>Friday wants to run</small><code>npm run build</code></div>
+  </div>
+  <p>This command will run in <code>/projects/friday</code>.</p>
+  <div class="fr-permission-actions">
+    <span>Deny</span><span class="is-primary">Allow once</span><span>Always allow</span>
+  </div>
+  <div class="fr-control-console__lower">
+    <div><small>Assistant provider</small><strong><Icon name="Cpu" size={14} /> Your configured model</strong></div>
+    <div><small>Activity</small><strong><Icon name="Eye" size={14} /> Visible in conversation</strong></div>
+  </div>
+</div>
