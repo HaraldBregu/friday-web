@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import FridayLandingNav from "../components/FridayLandingNav.astro";
 import Footer from "../components/Footer.astro";
 import Starfield from "../components/Starfield.astro";
 import Daylight from "../components/Daylight.astro";
@@ -26,6 +27,7 @@ interface Props {
   bodyClass?: string;
   exactTitle?: boolean;
   footerVariant?: "default" | "landing";
+  headerVariant?: "default" | "landing";
   wide?: boolean;
   locale?: Locale;
   alternatePath?: string;
@@ -54,6 +56,7 @@ const {
   bodyClass,
   exactTitle = false,
   footerVariant = "default",
+  headerVariant = "default",
   wide = false,
   alternatePath,
   structuredData,
@@ -152,7 +155,7 @@ const serializedStructuredData = structuredData
     <a class="skip-link" href="#content">{ui.skipToContent}</a>
     {hideBackgroundEffects ? null : <Starfield />}
     {hideBackgroundEffects ? null : <Daylight />}
-    {hideHeader ? null : <Header alternatePath={alternatePath} locale={locale} />}
+    {hideHeader ? null : headerVariant === "landing" ? <FridayLandingNav home={false} /> : <Header alternatePath={alternatePath} locale={locale} />}
     <main id="content">
       <slot />
     </main>

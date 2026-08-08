@@ -3,17 +3,19 @@ import Icon from "./Icon.astro";
 import landing from "../data/friday-landing.json";
 
 const { links, navigation } = landing;
+const home = Astro.props.home ?? true;
+const sectionHref = (href: string) => href.startsWith("#") && !home ? `/${href}` : href;
 ---
 
 <header class="fr-nav-wrap">
   <nav aria-label="Primary navigation" class="fr-nav">
-    <a class="fr-brand" href="#product" aria-label="Friday home">
+    <a class="fr-brand" href={home ? "#product" : "/#product"} aria-label="Friday home">
       <img src="/icon-rounded.png" alt="" width="34" height="34" />
       <span>Friday</span>
     </a>
 
     <div class="fr-nav__links" aria-label="Page sections">
-      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+      {navigation.map((item) => <a aria-current={!home && item.href === "/docs" ? "page" : undefined} href={sectionHref(item.href)}>{item.label}</a>)}
     </div>
 
     <div class="fr-nav__actions">
@@ -33,7 +35,7 @@ const { links, navigation } = landing;
         </summary>
         <div class="fr-mobile-menu__panel">
           <span>Navigate</span>
-          {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+          {navigation.map((item) => <a aria-current={!home && item.href === "/docs" ? "page" : undefined} href={sectionHref(item.href)}>{item.label}</a>)}
           <a href={links.github} target="_blank" rel="noopener noreferrer">
             GitHub
             <Icon name="ArrowRight" size={15} />
