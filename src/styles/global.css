@@ -3584,11 +3584,11 @@ p {
   }
 
   .product-window__bar {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr auto 1fr;
   }
 
   .product-window__bar strong {
-    justify-self: start;
+    justify-self: center;
   }
 
   .window-status {
