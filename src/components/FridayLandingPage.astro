@@ -84,6 +84,9 @@ const {
           </div>
           <h3>{step.title}</h3>
           <p>{step.description}</p>
+          <ul class="fr-flow__surfaces" aria-label={`${step.title} product surfaces`}>
+            {step.surfaces.map((surface) => <li>{surface}</li>)}
+          </ul>
           {index < foundationSteps.length - 1 ? <Icon class="fr-flow__arrow" name="ArrowRight" size={17} /> : null}
         </li>
       ))}

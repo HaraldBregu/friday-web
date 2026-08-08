@@ -26,25 +26,29 @@
       "number": "01",
       "title": "Ask",
       "description": "Start with a natural-language request and the context that matters.",
-      "icon": "MessageSquare"
+      "icon": "MessageSquare",
+      "surfaces": ["Text", "Voice", "Images", "PDFs"]
     },
     {
       "number": "02",
       "title": "Act",
       "description": "Friday selects tools, works through the task, and shows its activity.",
-      "icon": "TerminalSquare"
+      "icon": "TerminalSquare",
+      "surfaces": ["Files", "Commands", "Web", "Browser", "Media"]
     },
     {
       "number": "03",
       "title": "Ground",
       "description": "The assistant retrieves relevant source excerpts or compiled wiki knowledge.",
-      "icon": "Search"
+      "icon": "Search",
+      "surfaces": ["Knowledge Base", "LLM Wiki"]
     },
     {
       "number": "04",
       "title": "Reuse",
       "description": "Save the workflow as a Skill or give it a focused interface through an Extension.",
-      "icon": "Layers"
+      "icon": "Layers",
+      "surfaces": ["Agent Skills", "Extensions"]
     }
   ],
   "skillPoints": [

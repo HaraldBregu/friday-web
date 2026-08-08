@@ -810,7 +810,7 @@
 
 .fr-flow li {
   position: relative;
-  min-height: 230px;
+  min-height: 280px;
   padding: 1.35rem;
 }
 
@@ -845,6 +845,31 @@
 }
 
 .fr-flow p { margin: 0; font-size: 0.79rem; line-height: 1.65; }
+
+.fr-flow__surfaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fr-flow .fr-flow__surfaces li {
+  min-height: 0;
+  padding: 0.3rem 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.025);
+  color: #898590;
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  line-height: 1.2;
+}
+
+.fr-flow .fr-flow__surfaces li + li {
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+}
 
 .fr-flow__arrow {
   position: absolute;
@@ -1941,6 +1966,7 @@
   .fr-final-cta h2 { font-size: clamp(2.4rem, 12vw, 3.5rem); }
   .fr-flow { grid-template-columns: 1fr; }
   .fr-flow li { min-height: 190px; }
+  .fr-flow > li { min-height: 230px; }
   .fr-flow li + li { border-left: 0; border-top: 1px solid var(--fr-line); }
   .fr-flow__arrow { display: none; }
   .fr-feature-layout { gap: 28px; }
