@@ -6,12 +6,56 @@ import Icon from "./Icon.astro";
 interface Props {
   locale?: Locale;
   alternatePath?: string;
+  variant?: "default" | "landing";
 }
 
 const locale = normalizeLocale(Astro.props.locale);
 const { alternatePath = "/" } = Astro.props;
+const variant = Astro.props.variant ?? "default";
 const { site, ui } = getLocaleContent(locale);
-const groups = ui.footerGroups;
+const landingGroups = [
+  {
+    title: "Product",
+    links: [
+      { label: "Product", href: "/#product" },
+      { label: "Skills", href: "/#skills" },
+      { label: "Knowledge", href: "/#knowledge" },
+      { label: "Extensions", href: "/#extensions" },
+      { label: "Control", href: "/#control" },
+    ],
+  },
+  {
+    title: "Documentation",
+    links: [
+      { label: "Docs overview", href: "/docs" },
+      { label: "Getting started", href: "/docs/getting-started" },
+      { label: "Feature reference", href: "/docs/features" },
+      { label: "Skills and MCP", href: "/docs/skills-and-mcp" },
+      { label: "Privacy", href: "/docs/privacy" },
+    ],
+  },
+  {
+    title: "Explore",
+    links: [
+      { label: "Tools", href: "/tools" },
+      { label: "Providers", href: "/providers" },
+      { label: "Integrations", href: "/integrations" },
+      { label: "Community", href: "/community" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Project",
+    links: [
+      { label: "GitHub", href: "https://github.com/HaraldBregu/friday" },
+      { label: "Releases", href: "https://github.com/HaraldBregu/friday/releases" },
+      { label: "Security", href: "https://github.com/HaraldBregu/friday/blob/main/SECURITY.md" },
+      { label: "Contributing", href: "https://github.com/HaraldBregu/friday/blob/main/CONTRIBUTING.md" },
+      { label: "MIT License", href: "https://github.com/HaraldBregu/friday/blob/main/LICENSE" },
+    ],
+  },
+];
+const groups = variant === "landing" ? landingGroups : ui.footerGroups;
 const localizedRoutes = new Set([
   "/",
   "/docs",

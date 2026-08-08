@@ -25,6 +25,7 @@ interface Props {
   hideBackgroundEffects?: boolean;
   bodyClass?: string;
   exactTitle?: boolean;
+  footerVariant?: "default" | "landing";
   wide?: boolean;
   locale?: Locale;
   alternatePath?: string;
@@ -52,6 +53,7 @@ const {
   hideBackgroundEffects = false,
   bodyClass,
   exactTitle = false,
+  footerVariant = "default",
   wide = false,
   alternatePath,
   structuredData,
@@ -154,7 +156,7 @@ const serializedStructuredData = structuredData
     <main id="content">
       <slot />
     </main>
-    {hideFooter ? null : <Footer alternatePath={alternatePath} locale={locale} />}
+    {hideFooter ? null : <Footer alternatePath={alternatePath} locale={locale} variant={footerVariant} />}
     <script is:inline>
       (() => {
         const root = document.documentElement;
