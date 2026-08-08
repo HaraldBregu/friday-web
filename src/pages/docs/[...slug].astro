@@ -41,6 +41,9 @@ const structuredData = buildDocStructuredData({
   canonical={currentPath}
   title={doc.data.title}
   description={doc.data.description}
+  footerVariant="landing"
+  headerVariant="landing"
+  hideBackgroundEffects
   image="/og/docs.png"
   structuredData={structuredData}
   wide={true}
@@ -124,6 +127,3 @@ const structuredData = buildDocStructuredData({
   </section>
   <DocsEffects />
 </Layout>
-  footerVariant="landing"
-  headerVariant="landing"
-  hideBackgroundEffects
