@@ -1,0 +1,56 @@
+---
+import Icon from "./Icon.astro";
+import landing from "../data/friday-landing.json";
+
+const { links, navigation } = landing;
+---
+
+<header class="fr-nav-wrap">
+  <nav aria-label="Primary navigation" class="fr-nav">
+    <a class="fr-brand" href="#product" aria-label="Friday home">
+      <img src="/icon-rounded.png" alt="" width="34" height="34" />
+      <span>Friday</span>
+    </a>
+
+    <div class="fr-nav__links" aria-label="Page sections">
+      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </div>
+
+    <div class="fr-nav__actions">
+      <a class="fr-nav__github" href={links.github} target="_blank" rel="noopener noreferrer">
+        <Icon name="Github" size={16} />
+        <span>GitHub</span>
+      </a>
+      <a class="fr-button fr-button--compact" href={links.download} target="_blank" rel="noopener noreferrer">
+        <Icon name="Download" size={15} />
+        Download
+      </a>
+
+      <details class="fr-mobile-menu" data-fr-menu>
+        <summary aria-label="Open navigation menu">
+          <Icon class="fr-mobile-menu__open" name="Menu" size={20} />
+          <Icon class="fr-mobile-menu__close" name="X" size={20} />
+        </summary>
+        <div class="fr-mobile-menu__panel">
+          <span>Navigate</span>
+          {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a href={links.github} target="_blank" rel="noopener noreferrer">
+            GitHub
+            <Icon name="ArrowRight" size={15} />
+          </a>
+        </div>
+      </details>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  (() => {
+    const menu = document.querySelector("[data-fr-menu]");
+    if (!menu) return;
+
+    menu.addEventListener("click", (event) => {
+      if (event.target.closest("a")) menu.open = false;
+    });
+  })();
+</script>

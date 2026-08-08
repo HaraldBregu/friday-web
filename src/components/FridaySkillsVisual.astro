@@ -1,0 +1,57 @@
+---
+import Icon from "./Icon.astro";
+
+const skills = [
+  { name: "Research brief", meta: "references · scripts", active: true },
+  { name: "Release notes", meta: "assets · scripts", active: true },
+  { name: "Project handoff", meta: "references", active: false },
+];
+---
+
+<div class="fr-skills-visual" role="img" aria-label="Friday Settings with a list of installed Skills beside a chat activity row reading Using skill">
+  <div class="fr-mini-window fr-mini-window--settings">
+    <div class="fr-mini-window__bar">
+      <div class="fr-window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      <strong>Settings</strong>
+      <span></span>
+    </div>
+    <div class="fr-settings-layout">
+      <aside aria-hidden="true">
+        <small>Agent</small>
+        <span>General</span>
+        <span class="is-active"><Icon name="Sparkles" size={14} /> Skills</span>
+        <span>Knowledge Base</span>
+        <span>LLM Wiki</span>
+        <span>Extensions</span>
+      </aside>
+      <div class="fr-settings-content">
+        <div class="fr-settings-content__head">
+          <div><small>Reusable expertise</small><strong>Installed Skills</strong></div>
+          <span><Icon name="Plus" size={13} /> Import</span>
+        </div>
+        <div class="fr-skill-list">
+          {skills.map((skill) => (
+            <div class="fr-skill-row">
+              <span class="fr-file-icon"><Icon name="Sparkles" size={15} /></span>
+              <div><strong>{skill.name}</strong><small>{skill.meta}</small></div>
+              <i class:list={["fr-toggle", skill.active && "is-on"]}></i>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fr-using-skill">
+    <span class="fr-using-skill__pulse"><Icon name="Sparkles" size={15} /></span>
+    <div><small>Activity</small><strong>Using skill</strong></div>
+    <code>release-notes</code>
+    <Icon name="Check" size={14} />
+  </div>
+
+  <div class="fr-skill-files" aria-hidden="true">
+    <span><Icon name="TerminalSquare" size={14} /><small>script</small>draft.mjs</span>
+    <span><Icon name="BookOpen" size={14} /><small>reference</small>voice.md</span>
+    <span><Icon name="Image" size={14} /><small>asset</small>template.svg</span>
+  </div>
+</div>
