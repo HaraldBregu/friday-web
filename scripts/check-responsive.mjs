@@ -28,6 +28,26 @@ assert(htmlFiles.every((path) => {
 }), "every rendered static page defines a mobile viewport");
 assert(english.includes("friday-landing-page") && italian.includes("friday-landing-page"), "English and Italian share the landing shell");
 assert(docsIndex.includes("docs-product-page") && docsArticle.includes("docs-product-page"), "docs index and articles share the docs shell");
+assert(english.includes('id="providers"') && italian.includes('id="providers"'), "both landing locales include the provider section");
+assert(count(english, /class="fr-provider__mark"/g) === 32 && count(italian, /class="fr-provider__mark"/g) === 32, "both landing locales render all 32 built-in provider manifests");
+assert(count(english, /https:\/\/(?:unpkg\.com|api\.iconify\.design|cartesia\.ai|nomic\.ai|framerusercontent\.com)\//g) === 64, "all provider marks include dark and light CDN icon sources");
+assert(!english.includes("fr-provider-status") && !italian.includes("fr-provider-status"), "provider cards do not render support-status labels");
+assert(count(english, /class="theme-toggle" data-theme-toggle/g) === 1 && count(italian, /class="theme-toggle" data-theme-toggle/g) === 1, "English and Italian navigation render one theme switch");
+assert(count(english, /class="fr-nav__group fr-nav-dropdown"/g) === 1 && count(italian, /class="fr-nav__group fr-nav-dropdown"/g) === 1, "Product is the only desktop dropdown");
+assert(count(english, /class="fr-nav__direct"/g) === 2 && count(italian, /class="fr-nav__direct"/g) === 2, "Extensions and Docs remain direct desktop items");
+assert(count(english, /class="fr-mobile-menu__group"/g) === 1 && count(italian, /class="fr-mobile-menu__group"/g) === 1, "mobile navigation mirrors the single Product dropdown");
+for (const [locale, html, labels] of [
+  ["English", english, ["Overview", "Skills", "Knowledge", "Extensions", "Docs"]],
+  ["Italian", italian, ["Panoramica", "Skill", "Conoscenza", "Estensioni", "Docs"]],
+]) {
+  const desktopNav = html.match(/<div class="fr-nav__links"[\s\S]*?<div class="fr-nav__actions">/)?.[0] ?? "";
+  const positions = labels.map((label) => desktopNav.indexOf(`>${label}</a>`));
+  assert(positions.every((position) => position >= 0) && positions.every((position, index) => index === 0 || position > positions[index - 1]), `${locale} navigation follows the product journey`);
+}
+for (const [locale, html] of [["English", english], ["Italian", italian]]) {
+  const providerList = html.match(/<ul class="fr-provider-grid"[\s\S]*?<\/ul>/)?.[0] ?? "";
+  assert(providerList && !providerList.includes("<a "), `${locale} provider entries are not links`);
+}
 
 for (const [label, pattern] of [
   ["assistant turns", /class="assistant-turn"/g],
@@ -38,8 +58,21 @@ for (const [label, pattern] of [
   assert(count(english, pattern) === count(italian, pattern), `English and Italian have matching ${label}`);
 }
 
+for (const [locale, html] of [["English", english], ["Italian", italian]]) {
+  const mediaResponses = [...html.matchAll(/<figure class="demo-media">([\s\S]*?)<\/figure>/g)];
+  assert(mediaResponses.length === 5, `${locale} renders five standalone image or video responses`);
+  assert(mediaResponses.every((match) => count(match[1], /<(?:img|video)\b/g) === 1), `${locale} renders one media artifact per response`);
+}
+
 assert(landingCss.includes("max-height: calc(100dvh - 92px)"), "mobile navigation is constrained to the viewport");
+assert(landingCss.includes("width: min(100%, 423px)") && landingCss.includes("height: 586px"), "the desktop hero app frame uses its updated dimensions");
 assert(/@media \(max-width: 900px\)[\s\S]*?\.fr-capabilities \{ grid-template-columns: 1fr 1fr; \}/.test(landingCss), "tablet capabilities use two columns");
+assert(/\.fr-provider__mark \{[\s\S]*?width: 46px;[\s\S]*?height: 46px;/.test(landingCss), "provider marks use the enlarged icon size");
+assert(/\.fr-provider-grid \{[\s\S]*?grid-template-columns: repeat\(4, minmax\(0, 1fr\)\);/.test(landingCss), "provider list uses four unboxed desktop columns");
+assert(/\.fr-provider-grid \{[\s\S]*?margin: 3\.75rem 0 0;/.test(landingCss), "provider list has deliberate spacing below its title block");
+assert(/@media \(max-width: 900px\)[\s\S]*?\.fr-provider-grid \{ grid-template-columns: repeat\(3, minmax\(0, 1fr\)\); \}/.test(landingCss), "provider list uses three tablet columns");
+assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-provider-grid \{ grid-template-columns: repeat\(2, minmax\(0, 1fr\)\); margin-top: 2\.75rem; \}/.test(landingCss), "provider inventory uses two columns on mobile");
+assert(/@media \(max-width: 380px\)[\s\S]*?\.fr-provider-grid \{ grid-template-columns: 1fr;/.test(landingCss), "provider list uses one column on narrow mobile screens");
 assert(/@media \(max-width: 760px\)[\s\S]*?\.product-window__bar \{\s*grid-template-columns: 1fr auto 1fr;/.test(globalCss), "the mobile demo title bar preserves all three columns");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.demo-media__image-grid,[\s\S]*?\.demo-media__video-grid \{ grid-template-columns: 1fr; \}/.test(landingCss), "mobile media responses use one column");
 assert(landingCss.includes("content: attr(data-label)"), "the mobile knowledge comparison keeps column labels");
@@ -48,6 +81,7 @@ assert(/@media \(max-width: 680px\)[\s\S]*?\.docs-product-page \.docs-card-grid 
 assert(/@media \(max-width: 760px\)[\s\S]*?\.footer-grid \{\s*grid-template-columns: 1fr;/.test(globalCss), "the shared footer collapses on mobile");
 assert(landingCss.includes("overflow-x: clip") && docsCss.includes("overflow-x: clip"), "landing and docs shells prevent page-level horizontal overflow");
 assert(landingCss.includes("prefers-reduced-motion") && docsCss.includes("prefers-reduced-motion"), "landing and docs respect reduced motion");
+assert(landingCss.includes('[data-theme="light"] .friday-landing-page'), "landing defines a complete light-theme token set");
 
 for (const asset of [
   "image-1783269109315.jpeg",

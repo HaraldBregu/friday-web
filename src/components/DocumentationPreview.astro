@@ -11,8 +11,8 @@ interface Props {
 
 const locale = normalizeLocale(Astro.props.locale);
 const labels = locale === "it"
-  ? { eyebrow: "Documentazione", title: "Documentazione allineata al prodotto.", coverage: "Copertura della documentazione", pages: "pagine docs", sections: "sezioni", staticValue: "Statico", staticLabel: "Contenuti Astro", browse: "Sfoglia tutta la documentazione" }
-  : { eyebrow: "Documentation", title: "Docs that match the product.", coverage: "Documentation coverage", pages: "docs pages", sections: "sections", staticValue: "Static", staticLabel: "Astro content", browse: "Browse all documentation" };
+  ? { eyebrow: "Documentazione", title: "Tutto ciò che serve per usare Friday.", coverage: "Copertura della documentazione", pages: "pagine docs", sections: "sezioni", staticValue: "Statico", staticLabel: "Contenuti Astro", browse: "Sfoglia tutta la documentazione" }
+  : { eyebrow: "Documentation", title: "Everything you need to use Friday.", coverage: "Documentation coverage", pages: "docs pages", sections: "sections", staticValue: "Static", staticLabel: "Astro content", browse: "Browse all documentation" };
 const docs = (await getCollection("docs")).sort((a, b) => a.data.sourcePath.localeCompare(b.data.sourcePath));
 const groups = groupDocs(docs);
 const featuredSources = [

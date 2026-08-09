@@ -23,6 +23,29 @@
       "description": "Scrivi o detta una richiesta, allega immagini o PDF e lascia che Friday lavori con file, comandi, web, interazioni nel browser e media generati. L’attività degli strumenti appare nella conversazione, mentre i controlli dei permessi regolano le azioni sensibili su file e comandi.",
       "surfacesLabel": "superfici del prodotto"
     },
+    "providers": {
+      "eyebrow": "Ecosistema di provider",
+      "title": "Scegli i provider dietro Friday.",
+      "description": "Friday include 32 manifest di provider per chat, voce, media, embedding, ricerca web, recupero vettoriale e archiviazione di oggetti. Configura i servizi che preferisci e mantieni indipendente la scelta del provider per ogni funzionalità.",
+      "inventory": "32 manifest di provider integrati",
+      "note": "Catalogo e copertura runtime variano in base alla funzionalità.",
+      "gridLabel": "Provider integrati in Friday",
+      "details": "Leggi il riferimento completo dei provider",
+      "capabilityLabels": {
+        "chat": "Chat",
+        "research": "Chat di ricerca",
+        "stt": "Da voce a testo",
+        "tts": "Da testo a voce",
+        "realtime": "Voce in tempo reale",
+        "image": "Immagini",
+        "video": "Video",
+        "audio": "Audio",
+        "embeddings": "Embedding",
+        "search": "Ricerca web",
+        "vector": "Database vettoriale",
+        "storage": "Archiviazione di oggetti"
+      }
+    },
     "skills": {
       "eyebrow": "Competenze riutilizzabili",
       "title": "Insegna a Friday il tuo modo di lavorare.",
@@ -46,10 +69,66 @@
     },
     "extensions": {
       "eyebrow": "Interfacce mirate",
-      "title": "Adatta Friday al tuo flusso di lavoro.",
-      "description": "Le Estensioni sono mini-app web locali che si aprono in finestre Friday dedicate e possono usare l’API esposta dall’app. Crea un’interfaccia mirata per una dashboard, un’utilità di lavoro o un flusso ripetibile senza trasformare la conversazione principale in un pannello di controllo.",
+      "title": "Piccole app. Tutta la potenza di Friday.",
+      "description": "Le Estensioni sono app mirate con accesso all’agente AI e agli strumenti di Friday. Apri un’interfaccia dedicata per eventi, note, design, architettura o qualsiasi flusso ricorrente, mentre lo stesso agente mantiene il contesto e svolge il lavoro.",
       "trustTitle": "Installa solo da fonti affidabili.",
-      "trustDescription": "Le Estensioni vengono eseguite nel runtime web sandbox di Electron, ma il codice installato può accedere ad ampie API di Friday."
+      "trustDescription": "Le Estensioni vengono eseguite nel runtime web sandbox di Electron, ma il codice installato può accedere ad ampie API di Friday.",
+      "demo": {
+        "agentTitle": "Friday",
+        "agentQuestion": "Su cosa lavoriamo?",
+        "agentDescription": "Ogni Estensione condivide lo stesso agente, contesto e strumenti autorizzati.",
+        "connected": "Agente connesso",
+        "accessLabel": "Funzionalità dell’Estensione",
+        "access": ["Agente AI", "Workspace", "Strumenti"],
+        "workspaceTitle": "Workspace",
+        "installedLabel": "Le tue Estensioni",
+        "openLabel": "Apri un’Estensione",
+        "activityLabel": "Workspace corrente",
+        "agentActivityLabel": "Agente Friday",
+        "agentFolderLabel": "Agente",
+        "savedLabel": "Salvato",
+        "saveLabel": "Salva",
+        "conversationTitle": "Nuova conversazione",
+        "modelLabel": "Agente + strumenti",
+        "chatUser": "Prepara la settimana del lancio usando l’Estensione attiva.",
+        "assistantIntro": "Esaminerò il contesto dell’Estensione, controllerò il workspace e userò gli strumenti disponibili.",
+        "toolActivityLabel": "Uso di 2 strumenti",
+        "toolReadLabel": "Lettura contesto Estensione",
+        "toolActionLabel": "Controllo conflitti agenda",
+        "promptPlaceholder": "Chiedi qualsiasi cosa a Friday...",
+        "attachLabel": "Aggiungi contesto",
+        "sendLabel": "Invia messaggio"
+      },
+      "draw": {
+        "eyebrow": "Estensione dedicata",
+        "title": "Una tela mirata, solo per disegnare.",
+        "description": "Draw è un’Estensione dedicata a schizzi, diagrammi ed esplorazione visiva. Rimane volutamente focalizzata, pur restando collegata alle impostazioni, all’agente e agli strumenti di Friday.",
+        "settingsTitle": "Impostazioni",
+        "settingsDescription": "Configura le preferenze dell’applicazione",
+        "assistantLabel": "Assistente",
+        "drawTitle": "Draw",
+        "canvasHint": "Per spostare la tela, tieni premuta la barra spaziatrice mentre trascini o usa lo strumento mano",
+        "menuLabel": "Menu tela",
+        "libraryLabel": "Libreria",
+        "lockLabel": "Blocca tela",
+        "toolLabel": "Strumenti di disegno",
+        "emptyTitle": "Draw",
+        "emptyDescription": "Disegna, collega ed esplora le idee.",
+        "searchHint": "Ricerca, comandi e opzioni della tela.",
+        "drawHint": "Scegli uno strumento e inizia a disegnare!",
+        "shortcutHint": "Scorciatoie e aiuto",
+        "helpLabel": "Aiuto",
+        "sidebarItems": [
+          { "title": "Generali", "description": "Informazioni e aspetto dell’app", "icon": "Info" },
+          { "title": "Sistema", "description": "Accesso e permessi di sistema", "icon": "Monitor" },
+          { "title": "Cloud", "description": "Archiviazione cloud e sincronizzazione", "icon": "Cloud" },
+          { "title": "Agente", "description": "Chat, strumenti e pianificazione", "icon": "Bot" },
+          { "title": "Skill", "description": "Skill dell’agente installate", "icon": "Sparkles" },
+          { "title": "Knowledge Base", "description": "Ricerca e indice documenti", "icon": "Search" },
+          { "title": "LLM Wiki", "description": "Conoscenza e note dell’assistente", "icon": "BookOpen" },
+          { "title": "Attività in background", "description": "Pianificazioni e automazioni", "icon": "Clock" }
+        ]
+      }
     },
     "control": {
       "eyebrow": "Controllo e privacy",
@@ -69,11 +148,11 @@
   },
   "navigation": [
     { "label": "Prodotto", "href": "#product" },
-    { "label": "Docs", "href": "/docs" },
     { "label": "Skill", "href": "#skills" },
     { "label": "Conoscenza", "href": "#knowledge" },
-    { "label": "Estensioni", "href": "#extensions" },
-    { "label": "Controllo", "href": "#control" }
+    { "label": "Provider", "href": "#providers" },
+    { "label": "Estensioni", "href": "/it/extensions" },
+    { "label": "Docs", "href": "/docs" }
   ],
   "capabilities": [
     { "label": "Skill riutilizzabili", "icon": "Sparkles" },
@@ -123,6 +202,80 @@
     "Esamina i metadati, apri un’Estensione in una finestra ridimensionabile dedicata oppure eliminala con conferma.",
     "Avvia le Estensioni installate dalle Impostazioni, dal menu nativo dell’app o dal menu della tray.",
     "Crea integrazioni tipizzate nell’app con @friday/sdk."
+  ],
+  "extensionApps": [
+    {
+      "id": "events",
+      "name": "Eventi",
+      "category": "Pianificazione",
+      "icon": "CalendarDays",
+      "accent": "#8b7cff",
+      "headline": "La settimana del lancio, organizzata.",
+      "description": "Coordina agenda, persone, sale e promemoria in un’unica app mirata.",
+      "badge": "3 eventi oggi",
+      "action": "Pianifica con Friday",
+      "agentUpdate": "Friday ha risolto due conflitti e preparato il briefing del lancio.",
+      "files": ["settimana-lancio.event", "sync-prodotto.md", "briefing-stampa.md", "elenco-invitati.csv", "mappa-location.json", "promemoria.log"],
+      "items": [
+        { "time": "09:30", "title": "Sync prodotto", "detail": "Design, sviluppo · Studio A", "state": "Pronto" },
+        { "time": "13:00", "title": "Prova del lancio", "detail": "8 partecipanti · Palco principale", "state": "Aggiornato" },
+        { "time": "16:30", "title": "Briefing stampa", "detail": "Agenda e note allegate", "state": "Bozza" }
+      ]
+    },
+    {
+      "id": "notes",
+      "name": "Note",
+      "category": "Conoscenza",
+      "icon": "BookOpen",
+      "accent": "#ff708d",
+      "headline": "Idee che restano collegate.",
+      "description": "Acquisisci note, collega decisioni e trasforma pensieri sparsi in documenti utili.",
+      "badge": "12 note collegate",
+      "action": "Organizza con Friday",
+      "agentUpdate": "Friday ha collegato le note di ricerca ed estratto quattro decisioni aperte.",
+      "files": ["narrativa-lancio.md", "interviste-clienti.md", "decisioni-aperte.md", "sintesi-ricerca.md", "note-riunione.md", "fonti.json"],
+      "items": [
+        { "time": "Oggi", "title": "Narrativa del lancio", "detail": "Collegata alla direzione del brand", "state": "Modificata" },
+        { "time": "Ven", "title": "Interviste clienti", "detail": "7 fonti · 24 evidenze", "state": "Indicizzate" },
+        { "time": "Mer", "title": "Decisioni aperte", "detail": "Responsabili e scadenze aggiunti", "state": "4 aperte" }
+      ]
+    },
+    {
+      "id": "design",
+      "name": "Design",
+      "category": "Creatività",
+      "icon": "Image",
+      "accent": "#36c6f4",
+      "headline": "Uno spazio creativo chiaro.",
+      "description": "Raccogli riferimenti, confronta direzioni e chiedi a Friday asset pronti per la produzione.",
+      "badge": "Revisione in corso",
+      "action": "Crea con Friday",
+      "agentUpdate": "Friday ha raggruppato i riferimenti e preparato tre varianti di esportazione.",
+      "files": ["direzione-interfaccia.fig", "immagini-campagna.board", "export-social.json", "token-brand.json", "note-componenti.md", "manifest-asset.csv"],
+      "items": [
+        { "time": "01", "title": "Direzione interfaccia", "detail": "Sistema desktop dark · 18 riferimenti", "state": "Selezionata" },
+        { "time": "02", "title": "Immagini campagna", "detail": "Tre concetti pronti da confrontare", "state": "Revisione" },
+        { "time": "03", "title": "Export social", "detail": "Quadrato, verticale e orizzontale", "state": "In coda" }
+      ]
+    },
+    {
+      "id": "architecture",
+      "name": "Architettura",
+      "category": "Sistemi",
+      "icon": "Workflow",
+      "accent": "#6ed6a8",
+      "headline": "Osserva il sistema, dall’inizio alla fine.",
+      "description": "Mappa servizi, ispeziona dipendenze e conserva le decisioni architetturali vicino all’implementazione.",
+      "badge": "Sistemi operativi",
+      "action": "Ispeziona con Friday",
+      "agentUpdate": "Friday ha tracciato il percorso della richiesta e trovato una dipendenza da separare.",
+      "files": ["gateway-agente.arch", "pipeline-conoscenza.arch", "runtime-estensioni.arch", "mappa-servizi.json", "decisioni.md", "audit-dipendenze.log"],
+      "items": [
+        { "time": "API", "title": "Gateway agente", "detail": "7 route · disponibilità 99,98%", "state": "Operativo" },
+        { "time": "DATI", "title": "Pipeline conoscenza", "detail": "Indice, wiki e archivio locale", "state": "Mappata" },
+        { "time": "APP", "title": "Runtime Estensioni", "detail": "Sandbox e confine dei permessi", "state": "Revisione" }
+      ]
+    }
   ],
   "controlPoints": [
     "Scrittura, modifica e patch dei file ed esecuzione dei comandi seguono la policy dei permessi dell’agente.",

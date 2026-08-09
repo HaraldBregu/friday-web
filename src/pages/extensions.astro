@@ -1,0 +1,26 @@
+---
+import ExtensionsPage from "../components/ExtensionsPage.astro";
+import Layout from "../layouts/Layout.astro";
+
+const locale = "en";
+const title = "Friday Extensions — Focused apps powered by your AI agent";
+const description = "Explore focused Friday Extensions for workspace workflows and drawing, connected to the same AI agent, context, and permissioned tools.";
+---
+
+<Layout
+  alternatePath="/extensions"
+  bodyClass="friday-landing-page"
+  description={description}
+  exactTitle
+  footerVariant="landing"
+  hideBackgroundEffects
+  hideHeader
+  image="/og/default.png"
+  imageAlt="Friday Extensions workspace and drawing interfaces"
+  locale={locale}
+  ogDescription={description}
+  ogTitle={title}
+  title={title}
+>
+  <ExtensionsPage locale={locale} />
+</Layout>

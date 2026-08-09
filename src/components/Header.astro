@@ -1,7 +1,6 @@
 ---
 import Icon from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import socialLinks from "../data/social-links.json";
 import { getLocaleContent, localizedPath, normalizeLocale, type Locale } from "../i18n";
 
 interface Props {
@@ -13,13 +12,21 @@ const locale = normalizeLocale(Astro.props.locale);
 const { friday, ui } = getLocaleContent(locale);
 
 const visibleNav = friday.nav.filter((item) => item.href !== "#download");
+const primaryNav = visibleNav.filter((item) => item.href !== "/docs");
+const resourceNav = visibleNav.filter((item) => item.href === "/docs");
 const navHref = (href: string) => (href.startsWith("#") ? `${localizedPath("/", locale)}${href}` : localizedPath(href, locale));
-const roadmapLinks = [
-  { label: "Enterprise", href: "/solutions#enterprise" },
-  { label: "Education", href: "/solutions#education" },
-  { label: "Personal", href: "/solutions#personal" },
-];
+const navigationLabels = locale === "it"
+  ? { product: "Prodotto", extensions: "Estensioni" }
+  : { product: "Product", extensions: "Extensions" };
 const releaseUrl = "https://github.com/HaraldBregu/friday/releases";
+const navigationGroups = [
+  {
+    label: navigationLabels.product,
+    items: primaryNav.map((item) => ({ ...item, label: item.href === "#product" ? (locale === "it" ? "Panoramica" : "Overview") : item.label, href: navHref(item.href) })),
+  },
+];
+const extensionsItem = { label: navigationLabels.extensions, href: localizedPath("/extensions", locale) };
+const docsItem = resourceNav[0];
 ---
 
 <header class="site-header">
@@ -29,13 +36,16 @@ const releaseUrl = "https://github.com/HaraldBregu/friday/releases";
       <span class="brand__text">Friday</span>
     </a>
     <div class="nav__links">
-      {visibleNav.map((item) => <a href={navHref(item.href)}>{item.label}</a>)}
-      <details class="nav-dropdown">
-        <summary>Solutions <Icon name="ChevronDown" size={14} /></summary>
-        <div class="nav-dropdown__panel">
-          {roadmapLinks.map((item) => <a href={item.href}>{item.label}</a>)}
-        </div>
-      </details>
+      {navigationGroups.map((group) => (
+        <details class="nav-dropdown" data-nav-dropdown>
+          <summary>{group.label} <Icon name="ChevronDown" size={14} /></summary>
+          <div class="nav-dropdown__panel">
+            {group.items.map((item) => <a href={item.href}>{item.label}</a>)}
+          </div>
+        </details>
+      ))}
+      <a href={extensionsItem.href}>{extensionsItem.label}</a>
+      {docsItem && <a href={navHref(docsItem.href)}>{docsItem.label}</a>}
     </div>
     <div class="nav__actions">
       <ThemeToggle label={ui.themeToggle} />
@@ -49,9 +59,16 @@ const releaseUrl = "https://github.com/HaraldBregu/friday/releases";
           <Icon class="nav-mobile__close" name="X" size={20} />
         </summary>
         <div class="nav-mobile__panel">
-          {visibleNav.map((item) => <a href={navHref(item.href)}>{item.label}</a>)}
-          <p class="nav-mobile__label">Solutions</p>
-          {roadmapLinks.map((item) => <a href={item.href}>{item.label}</a>)}
+          {navigationGroups.map((group) => (
+            <details class="nav-mobile__group">
+              <summary>{group.label} <Icon name="ChevronDown" size={16} /></summary>
+              <div>
+                {group.items.map((item) => <a href={item.href}>{item.label}</a>)}
+              </div>
+            </details>
+          ))}
+          <a href={extensionsItem.href}>{extensionsItem.label}</a>
+          {docsItem && <a href={navHref(docsItem.href)}>{docsItem.label}</a>}
         </div>
       </details>
     </div>
@@ -62,9 +79,25 @@ const releaseUrl = "https://github.com/HaraldBregu/friday/releases";
   // Same-page anchor links do not reload, so close the disclosure by hand.
   (() => {
     const menu = document.querySelector("[data-nav-mobile]");
-    if (!menu) return;
-    menu.addEventListener("click", (event) => {
+    const dropdowns = [...document.querySelectorAll("[data-nav-dropdown]")];
+    menu?.addEventListener("click", (event) => {
       if (event.target.closest("a")) menu.open = false;
+    });
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("toggle", () => {
+        if (!dropdown.open) return;
+        dropdowns.forEach((other) => {
+          if (other !== dropdown) other.open = false;
+        });
+      });
+    });
+    document.addEventListener("click", (event) => {
+      if (event.target.closest("[data-nav-dropdown]")) return;
+      dropdowns.forEach((dropdown) => { dropdown.open = false; });
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      dropdowns.forEach((dropdown) => { dropdown.open = false; });
     });
   })();
 </script>

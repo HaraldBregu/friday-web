@@ -133,6 +133,16 @@ const futureProviders = providers.filter((p) => p.capabilities.includes("Text-to
   .cap--pink   { background: rgba(255, 160, 190, 0.14); color: #ffb3cc; }
   .cap--muted  { background: var(--surface-strong); color: var(--faint); }
 
+  :global([data-theme="light"]) .cap--blue {
+    background: rgba(43, 95, 177, 0.11);
+    color: #24549f;
+  }
+
+  :global([data-theme="light"]) .cap--pink {
+    background: rgba(159, 45, 93, 0.1);
+    color: #96335c;
+  }
+
   .provider-group-head {
     display: flex;
     align-items: center;

@@ -23,6 +23,29 @@
       "description": "Type or speak a request, attach images or PDFs, and let Friday work across files, commands, the web, browser interactions, and generated media. Tool activity streams into the conversation, while permission controls govern sensitive file and command actions.",
       "surfacesLabel": "product surfaces"
     },
+    "providers": {
+      "eyebrow": "Provider ecosystem",
+      "title": "Choose the providers behind Friday.",
+      "description": "Friday ships 32 built-in provider manifests across chat, speech, media, embeddings, web search, vector retrieval, and object storage. Configure the services you want and keep each capability’s provider selection independent.",
+      "inventory": "32 built-in provider manifests",
+      "note": "Catalog and runtime coverage vary by capability.",
+      "gridLabel": "Built-in Friday providers",
+      "details": "Read the full provider reference",
+      "capabilityLabels": {
+        "chat": "Chat",
+        "research": "Research chat",
+        "stt": "Speech to text",
+        "tts": "Text to speech",
+        "realtime": "Realtime voice",
+        "image": "Image",
+        "video": "Video",
+        "audio": "Audio",
+        "embeddings": "Embeddings",
+        "search": "Web search",
+        "vector": "Vector database",
+        "storage": "Object storage"
+      }
+    },
     "skills": {
       "eyebrow": "Reusable expertise",
       "title": "Teach Friday the way you work.",
@@ -46,10 +69,66 @@
     },
     "extensions": {
       "eyebrow": "Focused interfaces",
-      "title": "Make Friday fit the workflow.",
-      "description": "Extensions are local web mini-apps that open in their own Friday windows and can use the exposed app API. Build a focused interface for a dashboard, workspace utility, or repeatable workflow without turning the main conversation into a control panel.",
+      "title": "Small apps. The full power of Friday.",
+      "description": "Extensions are focused apps with access to Friday's AI agent and tools. Open a dedicated interface for events, notes, design, architecture, or any repeatable workflow while the same agent keeps the context and does the work.",
       "trustTitle": "Install from sources you trust.",
-      "trustDescription": "Extensions run in Electron’s sandboxed web runtime, but installed code can access broad Friday APIs."
+      "trustDescription": "Extensions run in Electron’s sandboxed web runtime, but installed code can access broad Friday APIs.",
+      "demo": {
+        "agentTitle": "Friday",
+        "agentQuestion": "What should we work on?",
+        "agentDescription": "Every extension shares the same agent, context, and permissioned tools.",
+        "connected": "Agent connected",
+        "accessLabel": "Extension capabilities",
+        "access": ["AI agent", "Workspace", "Tools"],
+        "workspaceTitle": "Workspace",
+        "installedLabel": "Your extensions",
+        "openLabel": "Open an extension",
+        "activityLabel": "Current workspace",
+        "agentActivityLabel": "Friday agent",
+        "agentFolderLabel": "Agent",
+        "savedLabel": "Saved",
+        "saveLabel": "Save",
+        "conversationTitle": "New conversation",
+        "modelLabel": "Agent + tools",
+        "chatUser": "Prepare launch week using the active extension.",
+        "assistantIntro": "I’ll inspect the extension context, check the workspace, and use the tools it exposes.",
+        "toolActivityLabel": "Using 2 tools",
+        "toolReadLabel": "Read extension context",
+        "toolActionLabel": "Check schedule conflicts",
+        "promptPlaceholder": "Ask Friday anything...",
+        "attachLabel": "Add context",
+        "sendLabel": "Send message"
+      },
+      "draw": {
+        "eyebrow": "Purpose-built extension",
+        "title": "A focused canvas, only for drawing.",
+        "description": "Draw is a dedicated extension for sketching, diagramming, and exploring visual ideas. It stays intentionally focused while remaining connected to Friday’s settings, agent, and tools.",
+        "settingsTitle": "Settings",
+        "settingsDescription": "Configure your application preferences",
+        "assistantLabel": "Assistant",
+        "drawTitle": "Draw",
+        "canvasHint": "To move the canvas, hold the spacebar while dragging or use the hand tool",
+        "menuLabel": "Canvas menu",
+        "libraryLabel": "Library",
+        "lockLabel": "Lock canvas",
+        "toolLabel": "Drawing tools",
+        "emptyTitle": "Draw",
+        "emptyDescription": "Sketch, connect, and explore ideas.",
+        "searchHint": "Search, commands, and canvas options.",
+        "drawHint": "Pick a tool and start drawing!",
+        "shortcutHint": "Shortcuts and help",
+        "helpLabel": "Help",
+        "sidebarItems": [
+          { "title": "General", "description": "App info and appearance", "icon": "Info" },
+          { "title": "System", "description": "System access and permissions", "icon": "Monitor" },
+          { "title": "Cloud", "description": "Cloud storage and sync", "icon": "Cloud" },
+          { "title": "Agent", "description": "Chat, tools, and planning", "icon": "Bot" },
+          { "title": "Skills", "description": "Installed agent skills", "icon": "Sparkles" },
+          { "title": "Knowledge Base", "description": "Document search and index", "icon": "Search" },
+          { "title": "LLM Wiki", "description": "Assistant knowledge and notes", "icon": "BookOpen" },
+          { "title": "Background tasks", "description": "Schedules and automation", "icon": "Clock" }
+        ]
+      }
     },
     "control": {
       "eyebrow": "Control and privacy",
@@ -69,11 +148,11 @@
   },
   "navigation": [
     { "label": "Product", "href": "#product" },
-    { "label": "Docs", "href": "/docs" },
     { "label": "Skills", "href": "#skills" },
     { "label": "Knowledge", "href": "#knowledge" },
-    { "label": "Extensions", "href": "#extensions" },
-    { "label": "Control", "href": "#control" }
+    { "label": "Providers", "href": "#providers" },
+    { "label": "Extensions", "href": "/extensions" },
+    { "label": "Docs", "href": "/docs" }
   ],
   "capabilities": [
     { "label": "Reusable Skills", "icon": "Sparkles" },
@@ -167,6 +246,80 @@
     "Inspect metadata, open an extension in a dedicated resizable window, or delete it with confirmation.",
     "Launch installed extensions from Settings, the native app menu, or the tray menu.",
     "Build typed in-app integrations with @friday/sdk."
+  ],
+  "extensionApps": [
+    {
+      "id": "events",
+      "name": "Events",
+      "category": "Planning",
+      "icon": "CalendarDays",
+      "accent": "#8b7cff",
+      "headline": "Launch week, organized.",
+      "description": "Coordinate the agenda, people, rooms, and reminders in one focused app.",
+      "badge": "3 events today",
+      "action": "Plan with Friday",
+      "agentUpdate": "Friday resolved two conflicts and prepared the launch briefing.",
+      "files": ["launch-week.event", "product-sync.md", "press-briefing.md", "attendee-list.csv", "venue-layout.json", "reminders.log"],
+      "items": [
+        { "time": "09:30", "title": "Product sync", "detail": "Design, engineering · Studio A", "state": "Ready" },
+        { "time": "13:00", "title": "Launch rehearsal", "detail": "8 attendees · Main stage", "state": "Updated" },
+        { "time": "16:30", "title": "Press briefing", "detail": "Agenda and notes attached", "state": "Draft" }
+      ]
+    },
+    {
+      "id": "notes",
+      "name": "Notes",
+      "category": "Knowledge",
+      "icon": "BookOpen",
+      "accent": "#ff708d",
+      "headline": "Ideas that stay connected.",
+      "description": "Capture meeting notes, link decisions, and turn loose thoughts into useful documents.",
+      "badge": "12 notes linked",
+      "action": "Organize with Friday",
+      "agentUpdate": "Friday linked the research notes and extracted four open decisions.",
+      "files": ["launch-narrative.md", "customer-interviews.md", "open-decisions.md", "research-digest.md", "meeting-notes.md", "source-links.json"],
+      "items": [
+        { "time": "Today", "title": "Launch narrative", "detail": "Connected to Brand direction", "state": "Edited" },
+        { "time": "Fri", "title": "Customer interviews", "detail": "7 sources · 24 highlights", "state": "Indexed" },
+        { "time": "Wed", "title": "Open decisions", "detail": "Owners and due dates added", "state": "4 open" }
+      ]
+    },
+    {
+      "id": "design",
+      "name": "Design",
+      "category": "Creative",
+      "icon": "Image",
+      "accent": "#36c6f4",
+      "headline": "A clear creative workspace.",
+      "description": "Collect references, compare directions, and ask Friday to prepare production-ready assets.",
+      "badge": "Review in progress",
+      "action": "Create with Friday",
+      "agentUpdate": "Friday grouped the references and prepared three export variants.",
+      "files": ["interface-direction.fig", "campaign-imagery.board", "social-exports.json", "brand-tokens.json", "component-notes.md", "asset-manifest.csv"],
+      "items": [
+        { "time": "01", "title": "Interface direction", "detail": "Dark desktop system · 18 references", "state": "Selected" },
+        { "time": "02", "title": "Campaign imagery", "detail": "Three concepts ready to compare", "state": "Review" },
+        { "time": "03", "title": "Social exports", "detail": "Square, portrait, and landscape", "state": "Queued" }
+      ]
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "category": "Systems",
+      "icon": "Workflow",
+      "accent": "#6ed6a8",
+      "headline": "See the system, end to end.",
+      "description": "Map services, inspect dependencies, and keep architecture decisions beside the implementation.",
+      "badge": "All systems healthy",
+      "action": "Inspect with Friday",
+      "agentUpdate": "Friday traced the request path and found one dependency to decouple.",
+      "files": ["agent-gateway.arch", "knowledge-pipeline.arch", "extension-runtime.arch", "service-map.json", "decisions.md", "dependency-audit.log"],
+      "items": [
+        { "time": "API", "title": "Agent gateway", "detail": "7 routes · 99.98% availability", "state": "Healthy" },
+        { "time": "DATA", "title": "Knowledge pipeline", "detail": "Index, wiki, and local storage", "state": "Mapped" },
+        { "time": "APP", "title": "Extension runtime", "detail": "Sandbox and permission boundary", "state": "Review" }
+      ]
+    }
   ],
   "controlPoints": [
     "File writes, edits, patches, and command execution follow the agent permission policy.",

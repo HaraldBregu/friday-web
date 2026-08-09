@@ -1,10 +1,10 @@
 ---
 import FridayLandingNav from "./FridayLandingNav.astro";
-import DocumentationPreview from "./DocumentationPreview.astro";
 import Icon from "./Icon.astro";
 import ProductMockup from "./ProductMockup.astro";
 import landingEn from "../data/friday-landing.json";
 import landingIt from "../data/friday-landing-it.json";
+import providerData from "../data/landing-providers.json";
 import { normalizeLocale, type Locale } from "../i18n";
 import "../styles/friday-landing.css";
 
@@ -14,14 +14,19 @@ interface Props {
 
 const locale = normalizeLocale(Astro.props.locale);
 const landing = locale === "it" ? landingIt : landingEn;
+type ProviderCapability = keyof typeof landing.copy.providers.capabilityLabels;
+interface LandingProvider {
+  id: string;
+  name: string;
+  capabilities: ProviderCapability[];
+  iconUrl: string;
+}
+const providers = providerData as LandingProvider[];
 const {
   capabilities,
   copy,
-  controlPoints,
-  extensionPoints,
   foundationSteps,
   knowledgeBasePoints,
-  knowledgeComparison,
   links,
   skillPoints,
   wikiPoints,
@@ -96,6 +101,63 @@ const {
   </div>
 </section>
 
+<section class="fr-section fr-providers" id="providers" aria-labelledby="providers-title">
+  <div class="fr-shell">
+    <header class="fr-section-head fr-section-head--split" data-reveal>
+      <div>
+        <p class="fr-eyebrow"><span></span>{copy.providers.eyebrow}</p>
+        <h2 id="providers-title">{copy.providers.title}</h2>
+      </div>
+      <div class="fr-providers__intro">
+        <p>{copy.providers.description}</p>
+        <span><Icon name="Layers" size={15} />{copy.providers.inventory}</span>
+      </div>
+    </header>
+
+    <ul class="fr-provider-grid" aria-label={copy.providers.gridLabel} data-reveal>
+      {providers.map((provider) => {
+        const capabilityText = provider.capabilities
+          .map((capability) => copy.providers.capabilityLabels[capability])
+          .join(" · ");
+        const lightIconUrl = provider.iconUrl.includes("/dark/")
+          ? provider.iconUrl.replace("/dark/", "/light/")
+          : provider.id === "deepgram"
+            ? provider.iconUrl.replace("%23ffffff", "%23111111")
+            : provider.iconUrl;
+        const initials = provider.name
+          .split(/\s+/)
+          .map((word) => word[0])
+          .join("")
+          .slice(0, 3);
+
+        return (
+          <li>
+            <div class="fr-provider-item">
+              <span class="fr-provider__mark" aria-hidden="true">
+                <span>{initials}</span>
+                <img class="fr-provider-icon fr-provider-icon--dark" src={provider.iconUrl} alt="" width="46" height="46" loading="lazy" decoding="async" onload="this.parentElement.firstElementChild.hidden=true" onerror="this.hidden=true" />
+                <img class="fr-provider-icon fr-provider-icon--light" src={lightIconUrl} alt="" width="46" height="46" loading="lazy" decoding="async" onload="this.parentElement.firstElementChild.hidden=true" onerror="this.hidden=true" />
+              </span>
+              <span class="fr-provider__copy">
+                <strong>{provider.name}</strong>
+                <small>{capabilityText}</small>
+              </span>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+
+    <footer class="fr-providers__footer" data-reveal>
+      <p>{copy.providers.note}</p>
+      <a href="/docs/providers">
+        {copy.providers.details}
+        <Icon name="ArrowRight" size={15} />
+      </a>
+    </footer>
+  </div>
+</section>
+
 <section class="fr-section fr-feature-section" id="skills" aria-labelledby="skills-title">
   <div class="fr-shell fr-feature-layout fr-feature-layout--text">
     <div class="fr-feature-copy" data-reveal>
@@ -148,75 +210,8 @@ const {
       <p>{copy.knowledge.callout}</p>
     </aside>
 
-    <div class="fr-comparison" data-reveal>
-      <div class="fr-comparison__head">
-        <div><p class="fr-kicker">{copy.knowledge.comparisonEyebrow}</p><h3>{copy.knowledge.comparisonTitle}</h3></div>
-        <span><Icon name="GitBranch" size={17} /> {copy.knowledge.comparisonStatus}</span>
-      </div>
-      <table>
-        <thead>
-          <tr><th scope="col">&nbsp;</th><th scope="col">Knowledge Base</th><th scope="col">LLM Wiki</th></tr>
-        </thead>
-        <tbody>
-          {knowledgeComparison.map((row) => (
-            <tr>
-              <th scope="row">{row.label}</th>
-              <td data-label="Knowledge Base">{row.knowledgeBase}</td>
-              <td data-label="LLM Wiki">{row.wiki}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
   </div>
 </section>
-
-<section class="fr-section fr-feature-section fr-feature-section--reverse" id="extensions" aria-labelledby="extensions-title">
-  <div class="fr-shell fr-feature-layout fr-feature-layout--text">
-    <div class="fr-feature-copy" data-reveal>
-      <p class="fr-eyebrow"><span></span>{copy.extensions.eyebrow}</p>
-      <h2 id="extensions-title">{copy.extensions.title}</h2>
-      <p class="fr-section-lede">{copy.extensions.description}</p>
-      <ul class="fr-check-list">
-        {extensionPoints.map((point) => <li><Icon name="Check" size={14} /><span>{point}</span></li>)}
-      </ul>
-      <aside class="fr-trust-note">
-        <Icon name="ShieldCheck" size={17} />
-        <p><strong>{copy.extensions.trustTitle}</strong> {copy.extensions.trustDescription}</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="fr-section fr-control" id="control" aria-labelledby="control-title">
-  <div class="fr-shell">
-    <header class="fr-section-head fr-section-head--center" data-reveal>
-      <p class="fr-eyebrow"><span></span>{copy.control.eyebrow}</p>
-      <h2 id="control-title">{copy.control.title}</h2>
-      <p>{copy.control.description}</p>
-    </header>
-
-    <div class="fr-control-layout fr-control-layout--text">
-      <ul class="fr-control-points" data-reveal>
-        {controlPoints.map((point, index) => (
-          <li><span><code>0{index + 1}</code><Icon name={index === 0 ? "ShieldCheck" : index === 1 ? "Fingerprint" : index === 2 ? "Eye" : index === 3 ? "Monitor" : "Globe"} size={17} /></span><p>{point}</p></li>
-        ))}
-      </ul>
-    </div>
-
-    <aside class="fr-disclosure" data-reveal>
-      <span><Icon name="Globe" size={19} /></span>
-      <div>
-        <strong>{copy.control.disclosureTitle}</strong>
-        <p>{copy.control.disclosure}</p>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<div class="fr-docs-preview">
-  <DocumentationPreview locale={locale} />
-</div>
 
 <section class="fr-final-cta" aria-labelledby="final-cta-title">
   <div class="fr-final-cta__glow" aria-hidden="true"></div>

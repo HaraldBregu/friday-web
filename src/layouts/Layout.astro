@@ -88,10 +88,23 @@ const serializedStructuredData = structuredData
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <meta content="#050505" data-theme-color name="theme-color" />
     <script is:inline>
       (() => {
-        const stored = localStorage.getItem("theme");
-        document.documentElement.dataset.theme = stored || "dark";
+        const root = document.documentElement;
+        let stored;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch {
+          stored = null;
+        }
+        const theme = stored === "light" || stored === "dark"
+          ? stored
+          : window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
       })();
     </script>
     <title>{pageTitle}</title>
@@ -110,8 +123,6 @@ const serializedStructuredData = structuredData
     }
     <link href="/icon-rounded.png" rel="icon" type="image/png" />
     <link href="/icon-rounded.png" rel="apple-touch-icon" />
-    <meta content="#050505" media="(prefers-color-scheme: dark)" name="theme-color" />
-    <meta content="#fbfbfa" media="(prefers-color-scheme: light)" name="theme-color" />
     <meta content={site.name} property="og:site_name" />
     <meta content={openGraphTitle} property="og:title" />
     <meta content={openGraphDescription} property="og:description" />
@@ -163,20 +174,46 @@ const serializedStructuredData = structuredData
     <script is:inline>
       (() => {
         const root = document.documentElement;
-        const button = document.querySelector("[data-theme-toggle]");
-        if (!button) return;
+        const buttons = document.querySelectorAll("[data-theme-toggle]");
+        const themeColor = document.querySelector("[data-theme-color]");
+        const media = window.matchMedia("(prefers-color-scheme: light)");
 
-        const update = (theme) => {
+        const update = (theme, persist = true) => {
           root.dataset.theme = theme;
-          localStorage.setItem("theme", theme);
-          button.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
+          root.style.colorScheme = theme;
+          if (themeColor) themeColor.setAttribute("content", theme === "light" ? "#f7f6f3" : "#050505");
+          buttons.forEach((button) => button.setAttribute("aria-pressed", theme === "light" ? "true" : "false"));
+          if (!persist) return;
+          try {
+            localStorage.setItem("theme", theme);
+          } catch {
+            // The visible theme still changes when storage is unavailable.
+          }
         };
 
-        button.addEventListener("click", () => {
-          update(root.dataset.theme === "light" ? "dark" : "light");
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            update(root.dataset.theme === "light" ? "dark" : "light");
+          });
         });
 
-        button.setAttribute("aria-pressed", root.dataset.theme === "light" ? "true" : "false");
+        update(root.dataset.theme === "light" ? "light" : "dark", false);
+
+        media.addEventListener("change", (event) => {
+          let stored;
+          try {
+            stored = localStorage.getItem("theme");
+          } catch {
+            stored = null;
+          }
+          if (stored !== "light" && stored !== "dark") update(event.matches ? "light" : "dark", false);
+        });
+
+        window.addEventListener("storage", (event) => {
+          if (event.key === "theme" && (event.newValue === "light" || event.newValue === "dark")) {
+            update(event.newValue, false);
+          }
+        });
       })();
     </script>
   </body>

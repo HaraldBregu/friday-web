@@ -29,11 +29,13 @@ const demo = locale === "it" ? {
   editTool: "Modifica di docs/release.md",
   editResult: "Fatto. Ho aggiornato il brief di lancio con decisioni basate sulle fonti, domande aperte e prossimi passi.",
   imagesUser: "Crea alcune direzioni visive per l’annuncio.",
-  imagesIntro: "Inizio con due proposte orizzontali da confrontare.",
-  imagesSummary: "Create 2 immagini",
-  imagesTool: "Generazione immagini",
-  imagesCaption: "Immagini generate",
+  imagesIntro: "Inizio con una proposta orizzontale dal forte contrasto.",
+  imagesSummary: "Creata 1 immagine",
+  imagesTool: "Generazione immagine",
+  imagesCaption: "Immagine generata",
   sunAlt: "Illustrazione generata del Sole e della Terra nello spazio",
+  secondImageUser: "Prova anche una direzione più calda e artigianale.",
+  secondImageIntro: "Creo una seconda proposta con un carattere più narrativo.",
   whaleAlt: "Illustrazione generata di una balena meccanica sospesa sopra un villaggio",
   portraitUser: "Prova un’altra direzione con una composizione verticale.",
   portraitIntro: "Creerò un concept verticale con più spazio per il titolo della campagna.",
@@ -42,11 +44,13 @@ const demo = locale === "it" ? {
   portraitCaption: "Immagine generata",
   crystalAlt: "Illustrazione generata di un albero di cristallo sotto due pianeti",
   videoUser: "Anima i concept più forti per il teaser di lancio.",
-  videoIntro: "Trasformerò due direzioni in brevi studi di movimento.",
-  videoSummary: "Creati 2 video",
+  videoIntro: "Trasformerò la prima direzione in un breve studio di movimento.",
+  videoSummary: "Creato 1 video",
   videoTool: "Generazione video",
-  videoCaption: "Video generati",
+  videoCaption: "Video generato",
   sunVideoLabel: "Anteprima dell’animazione generata del Sole e della Terra",
+  secondVideoUser: "Anima anche la direzione della balena meccanica.",
+  secondVideoIntro: "Creo una seconda animazione mantenendo lo stesso ritmo visivo.",
   whaleVideoLabel: "Anteprima dell’animazione generata della balena meccanica",
   musicUser: "Componi una colonna sonora che unisca il teaser.",
   musicIntro: "Creerò una traccia strumentale con un’atmosfera elettronica cinematografica.",
@@ -56,6 +60,11 @@ const demo = locale === "it" ? {
   songCoverAlt: "Illustrazione dell’albero di cristallo usata come copertina della colonna sonora",
   songEyebrow: "Musica generata",
   songTitle: "Colonna sonora del lancio",
+  songStatus: "Pronta",
+  songFormat: "WAV · 48 kHz",
+  songElapsed: "0:42",
+  songDuration: "2:48",
+  musicResult: "Fatto. La colonna sonora del lancio è pronta per l’anteprima.",
   toolActivity: "Attività degli strumenti di Friday",
   imageActivity: "Attività di generazione immagini di Friday",
   videoActivity: "Attività di generazione video di Friday",
@@ -78,11 +87,13 @@ const demo = locale === "it" ? {
   editTool: "Edit docs/release.md",
   editResult: "Done. I updated the launch brief with sourced decisions, open questions, and next steps.",
   imagesUser: "Create a few visual directions for the announcement.",
-  imagesIntro: "I’ll start with two wide concepts you can compare.",
-  imagesSummary: "Created 2 images",
-  imagesTool: "Generate images",
-  imagesCaption: "Generated images",
+  imagesIntro: "I’ll start with one high-contrast, wide concept.",
+  imagesSummary: "Created 1 image",
+  imagesTool: "Generate image",
+  imagesCaption: "Generated image",
   sunAlt: "Generated illustration of the Sun and Earth in space",
+  secondImageUser: "Try another direction with a warmer, crafted feel.",
+  secondImageIntro: "I’ll create a second concept with a more narrative character.",
   whaleAlt: "Generated illustration of a clockwork whale floating above a village",
   portraitUser: "Try one more direction with a vertical composition.",
   portraitIntro: "I’ll create a portrait concept with more room for the campaign title.",
@@ -91,11 +102,13 @@ const demo = locale === "it" ? {
   portraitCaption: "Generated image",
   crystalAlt: "Generated illustration of a crystal tree beneath two planets",
   videoUser: "Animate the strongest concepts for the launch teaser.",
-  videoIntro: "I’ll turn two directions into short motion studies.",
-  videoSummary: "Created 2 videos",
-  videoTool: "Generate videos",
-  videoCaption: "Generated videos",
+  videoIntro: "I’ll turn the first direction into a short motion study.",
+  videoSummary: "Created 1 video",
+  videoTool: "Generate video",
+  videoCaption: "Generated video",
   sunVideoLabel: "Generated Sun and Earth animation preview",
+  secondVideoUser: "Animate the clockwork whale direction too.",
+  secondVideoIntro: "I’ll create a second animation with the same visual rhythm.",
   whaleVideoLabel: "Generated clockwork whale animation preview",
   musicUser: "Compose a soundtrack to tie the teaser together.",
   musicIntro: "I’ll create an instrumental track with a cinematic electronic feel.",
@@ -105,6 +118,11 @@ const demo = locale === "it" ? {
   songCoverAlt: "Crystal tree artwork used as the launch soundtrack cover",
   songEyebrow: "Generated music",
   songTitle: "Launch soundtrack",
+  songStatus: "Ready",
+  songFormat: "WAV · 48 kHz",
+  songElapsed: "0:42",
+  songDuration: "2:48",
+  musicResult: "Done. The launch soundtrack is ready to preview.",
   toolActivity: "Friday tool activity",
   imageActivity: "Friday image generation activity",
   videoActivity: "Friday video generation activity",
@@ -115,6 +133,7 @@ const imagesByFile = Object.fromEntries(
     ([path, mod]) => [path.split("/").pop() ?? path, mod.default],
   ),
 );
+const songWaveform = [42, 68, 84, 55, 92, 72, 48, 88, 64, 100, 58, 78, 45, 70, 94, 62, 82, 52, 74, 38];
 ---
 
 <div
@@ -136,9 +155,6 @@ const imagesByFile = Object.fromEntries(
     <div class="product-window__bar-actions">
       <button class="product-window__icon-btn" type="button" aria-label={productMockup.profileLabel}>
         <Icon name="UserRound" size={19} />
-      </button>
-      <button class="product-window__icon-btn" type="button" aria-label={productMockup.historyLabel}>
-        <Icon name="History" size={19} />
       </button>
     </div>
   </div>
@@ -252,7 +268,7 @@ const imagesByFile = Object.fromEntries(
                   <div class="product-activity__tool">
                     <Icon name="Image" size={16} />
                     <span><strong>{demo.imagesTool}</strong><Icon name="Check" size={13} /></span>
-                    <code>2 files</code>
+                    <code>1 file</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                 </details>
@@ -267,6 +283,35 @@ const imagesByFile = Object.fromEntries(
                     src="/demo/image-1783269109315.jpeg"
                     width="1280"
                   />
+                </div>
+              </figure>
+            </article>
+
+            <div class="chat-bubble chat-bubble--user">
+              {demo.secondImageUser}
+            </div>
+            <article class="assistant-turn">
+              <div class="chat-message--assistant">
+                {demo.secondImageIntro}
+              </div>
+              <div class="product-activity" aria-label={demo.imageActivity}>
+                <details class="product-activity__group" open>
+                  <summary>
+                    <Icon name="Image" size={16} />
+                    <strong>{demo.imagesSummary}</strong>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </summary>
+                  <div class="product-activity__tool">
+                    <Icon name="Image" size={16} />
+                    <span><strong>{demo.imagesTool}</strong><Icon name="Check" size={13} /></span>
+                    <code>1 file</code>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </div>
+                </details>
+              </div>
+              <figure class="demo-media">
+                <figcaption><Icon name="Image" size={14} />{demo.imagesCaption}</figcaption>
+                <div class="demo-media__image-grid">
                   <img
                     alt={demo.whaleAlt}
                     height="720"
@@ -331,7 +376,7 @@ const imagesByFile = Object.fromEntries(
                   <div class="product-activity__tool">
                     <Icon name="Video" size={16} />
                     <span><strong>{demo.videoTool}</strong><Icon name="Check" size={13} /></span>
-                    <code>2 files</code>
+                    <code>1 file</code>
                     <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
                   </div>
                 </details>
@@ -349,6 +394,35 @@ const imagesByFile = Object.fromEntries(
                   >
                     <source src="/demo/video-1784367922287.mp4" type="video/mp4" />
                   </video>
+                </div>
+              </figure>
+            </article>
+
+            <div class="chat-bubble chat-bubble--user">
+              {demo.secondVideoUser}
+            </div>
+            <article class="assistant-turn">
+              <div class="chat-message--assistant">
+                {demo.secondVideoIntro}
+              </div>
+              <div class="product-activity" aria-label={demo.videoActivity}>
+                <details class="product-activity__group" open>
+                  <summary>
+                    <Icon name="Video" size={16} />
+                    <strong>{demo.videoSummary}</strong>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </summary>
+                  <div class="product-activity__tool">
+                    <Icon name="Video" size={16} />
+                    <span><strong>{demo.videoTool}</strong><Icon name="Check" size={13} /></span>
+                    <code>1 file</code>
+                    <Icon class="product-activity__chevron" name="ChevronDown" size={14} />
+                  </div>
+                </details>
+              </div>
+              <figure class="demo-media">
+                <figcaption><Icon name="Video" size={14} />{demo.videoCaption}</figcaption>
+                <div class="demo-media__video-grid">
                   <video
                     aria-label={demo.whaleVideoLabel}
                     controls
@@ -386,21 +460,33 @@ const imagesByFile = Object.fromEntries(
                 </details>
               </div>
               <div class="demo-song" aria-label={demo.songLabel}>
-                <img
-                  alt={demo.songCoverAlt}
-                  height="1152"
-                  loading="lazy"
-                  src="/demo/image-1783437075249.jpeg"
-                  width="864"
-                />
-                <div class="demo-song__copy">
-                  <span>{demo.songEyebrow}</span>
-                  <strong>{demo.songTitle}</strong>
-                  <div class="demo-song__wave" aria-hidden="true">
-                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-                  </div>
+                <div class="demo-song__art">
+                  <img
+                    alt={demo.songCoverAlt}
+                    height="1152"
+                    loading="lazy"
+                    src="/demo/image-1783437075249.jpeg"
+                    width="864"
+                  />
+                  <span class="demo-song__play" aria-hidden="true"><Icon name="Play" size={14} /></span>
                 </div>
-                <span class="demo-song__icon" aria-hidden="true"><Icon name="Music" size={15} /></span>
+                <div class="demo-song__copy">
+                  <div class="demo-song__meta">
+                    <span>{demo.songEyebrow}</span>
+                    <small><i aria-hidden="true"></i>{demo.songStatus}</small>
+                  </div>
+                  <strong>{demo.songTitle}</strong>
+                  <div class="demo-song__timeline">
+                    <div class="demo-song__wave" aria-hidden="true">
+                      {songWaveform.map((height, index) => <i class:list={[index < 7 && "is-played"]} style={`--wave-height: ${height}%`}></i>)}
+                    </div>
+                    <div class="demo-song__times"><span>{demo.songElapsed}</span><span>{demo.songDuration}</span></div>
+                  </div>
+                  <span class="demo-song__format"><Icon name="Download" size={11} />{demo.songFormat}</span>
+                </div>
+              </div>
+              <div class="chat-message--assistant">
+                {demo.musicResult}
               </div>
             </article>
           </>

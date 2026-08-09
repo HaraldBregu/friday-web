@@ -7,6 +7,7 @@
   --surface: #111111;
   --surface-strong: #1a1a1a;
   --text: #f4f4f4;
+  --text-soft: #d0d0d0;
   --muted: #a7a7a7;
   --faint: #737373;
   --line: rgba(255, 255, 255, 0.1);
@@ -34,27 +35,29 @@
   --surface-active: #eae9e5;
 
   --text-primary: #0e0e0e;
-  --text-muted: #a3a7a7;
+  --text-muted: #5f6464;
 
   --accent-teal: #19635f;
   --accent-blue: #2b5fb1;
 
-  /* ponytail: site tokens alias the palette, so the other 3600 lines need no edit.
-     --text-muted is 2.4:1 on the canvas (below WCAG AA), kept as specified. */
+  /* Shared semantic aliases keep every page on the same accessible palette. */
   --bg: var(--surface-canvas);
   --bg-muted: var(--surface-bubble);
   --surface: var(--surface-raised);
   --surface-strong: var(--surface-active);
   --text: var(--text-primary);
+  --text-soft: #343838;
   --muted: var(--text-muted);
-  --faint: var(--text-muted);
-  --line: rgba(163, 167, 167, 0.42);
-  --line-strong: rgba(163, 167, 167, 0.75);
+  --faint: #6e7373;
+  --line: rgba(74, 79, 79, 0.2);
+  --line-strong: rgba(74, 79, 79, 0.36);
   --accent: var(--accent-blue);
   --accent-text: #ffffff;
   --accent-soft: rgba(43, 95, 177, 0.12);
   --green: var(--accent-teal);
   --purple: #6d28d9;
+  --red: #b42318;
+  --yellow: #805500;
   --shadow: 0 22px 70px rgba(14, 14, 14, 0.1);
 }
 
@@ -804,6 +807,10 @@ p {
 }
 
 .nav__links .nav-dropdown__panel a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   border-radius: 8px;
   padding: 0.55rem 0.65rem;
   color: var(--text-soft);
@@ -888,15 +895,38 @@ p {
   background: var(--surface-strong);
 }
 
-.nav-mobile__label {
-  margin: 0.85rem 0 0.15rem;
+.nav-mobile__group + .nav-mobile__group {
+  border-top: 1px solid var(--line);
+}
+
+.nav-mobile__group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
   padding: 0 0.75rem;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 650;
+  list-style: none;
+}
+
+.nav-mobile__group > summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-mobile__group > summary svg {
   color: var(--faint);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  transition: transform 0.16s ease;
+}
+
+.nav-mobile__group[open] > summary svg {
+  transform: rotate(180deg);
+}
+
+.nav-mobile__group > div {
+  display: grid;
+  padding: 0 0 0.5rem 0.5rem;
 }
 
 .language-switcher {
@@ -1010,6 +1040,7 @@ p {
 
 .theme-toggle__icon {
   position: absolute;
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
 [data-theme="dark"] .theme-toggle__icon--sun,
@@ -1020,6 +1051,7 @@ p {
 [data-theme="dark"] .theme-toggle__icon--moon,
 [data-theme="light"] .theme-toggle__icon--sun {
   opacity: 0;
+  transform: scale(0.72) rotate(-18deg);
 }
 
 .download-menu {
@@ -2468,7 +2500,7 @@ p {
   }
 
   .provider-group:hover {
-    background: rgba(255, 255, 255, 0.025);
+    background: color-mix(in srgb, var(--surface-strong) 65%, transparent);
   }
 
   .faq-item summary:hover {

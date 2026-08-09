@@ -1,5 +1,6 @@
 ---
 import Icon from "./Icon.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 import landingEn from "../data/friday-landing.json";
 import landingIt from "../data/friday-landing-it.json";
 import { normalizeLocale, type Locale } from "../i18n";
@@ -15,9 +16,18 @@ const { links, navigation } = landing;
 const home = Astro.props.home ?? true;
 const homePath = locale === "it" ? "/it/" : "/";
 const labels = locale === "it"
-  ? { download: "Scarica", menu: "Apri il menu di navigazione", navigate: "Naviga", primary: "Navigazione principale", sections: "Sezioni della pagina", home: "Home di Friday" }
-  : { download: "Download", menu: "Open navigation menu", navigate: "Navigate", primary: "Primary navigation", sections: "Page sections", home: "Friday home" };
+  ? { download: "Scarica", menu: "Apri il menu di navigazione", product: "Prodotto", overview: "Panoramica", primary: "Navigazione principale", sections: "Sezioni della pagina", home: "Home di Friday", theme: "Cambia tema colore" }
+  : { download: "Download", menu: "Open navigation menu", product: "Product", overview: "Overview", primary: "Primary navigation", sections: "Page sections", home: "Friday home", theme: "Toggle color theme" };
 const sectionHref = (href: string) => href.startsWith("#") && !home ? `${homePath}${href}` : href;
+const normalizePath = (path: string) => path.length > 1 ? path.replace(/\/$/, "") : path;
+const currentPath = normalizePath(Astro.url.pathname);
+const isCurrent = (href: string) => !href.startsWith("#") && normalizePath(href) === currentPath;
+const itemLabel = (item: (typeof navigation)[number]) => item.href === "#product" ? labels.overview : item.label;
+const extensionsItem = navigation.find((item) => item.href.includes("extensions"));
+const navigationGroups = [
+  { label: labels.product, items: navigation.filter((item) => item.href.startsWith("#") && item.href !== "#providers") },
+].filter((group) => group.items.length > 0);
+const docsItem = navigation.find((item) => item.href === "/docs");
 ---
 
 <header class="fr-nav-wrap">
@@ -28,10 +38,23 @@ const sectionHref = (href: string) => href.startsWith("#") && !home ? `${homePat
     </a>
 
     <div class="fr-nav__links" aria-label={labels.sections}>
-      {navigation.map((item) => <a aria-current={!home && item.href === "/docs" ? "page" : undefined} href={sectionHref(item.href)}>{item.label}</a>)}
+      {navigationGroups.map((group) => (
+        <details class="fr-nav__group fr-nav-dropdown" data-fr-nav-dropdown>
+          <summary class:list={{ "is-current": group.items.some((item) => isCurrent(item.href)) }}>
+            {group.label}
+            <Icon name="ChevronDown" size={14} />
+          </summary>
+          <div class="fr-nav-dropdown__panel">
+            {group.items.map((item) => <a aria-current={isCurrent(item.href) ? "page" : undefined} href={sectionHref(item.href)}>{itemLabel(item)}</a>)}
+          </div>
+        </details>
+      ))}
+      {extensionsItem && <a class="fr-nav__direct" aria-current={isCurrent(extensionsItem.href) ? "page" : undefined} href={sectionHref(extensionsItem.href)}>{extensionsItem.label}</a>}
+      {docsItem && <a class="fr-nav__direct" aria-current={isCurrent(docsItem.href) ? "page" : undefined} href={sectionHref(docsItem.href)}>{docsItem.label}</a>}
     </div>
 
     <div class="fr-nav__actions">
+      <ThemeToggle label={labels.theme} />
       <a class="fr-nav__github" href={links.github} target="_blank" rel="noopener noreferrer">
         <Icon name="Github" size={16} />
         <span>GitHub</span>
@@ -47,11 +70,22 @@ const sectionHref = (href: string) => href.startsWith("#") && !home ? `${homePat
           <Icon class="fr-mobile-menu__close" name="X" size={20} />
         </summary>
         <div class="fr-mobile-menu__panel">
-          <span>{labels.navigate}</span>
-          {navigation.map((item) => <a aria-current={!home && item.href === "/docs" ? "page" : undefined} href={sectionHref(item.href)}>{item.label}</a>)}
-          <a href={links.github} target="_blank" rel="noopener noreferrer">
+          {navigationGroups.map((group) => (
+            <details class="fr-mobile-menu__group">
+              <summary>
+                {group.label}
+                <Icon name="ChevronDown" size={16} />
+              </summary>
+              <div>
+                {group.items.map((item) => <a aria-current={isCurrent(item.href) ? "page" : undefined} href={sectionHref(item.href)}>{itemLabel(item)}</a>)}
+              </div>
+            </details>
+          ))}
+          {extensionsItem && <a class="fr-mobile-menu__direct" aria-current={isCurrent(extensionsItem.href) ? "page" : undefined} href={sectionHref(extensionsItem.href)}>{extensionsItem.label}</a>}
+          {docsItem && <a class="fr-mobile-menu__direct" aria-current={isCurrent(docsItem.href) ? "page" : undefined} href={sectionHref(docsItem.href)}>{docsItem.label}</a>}
+          <a class="fr-mobile-menu__github" href={links.github} target="_blank" rel="noopener noreferrer">
             GitHub
-            <Icon name="ArrowRight" size={15} />
+            <Icon name="ArrowUpRight" size={15} />
           </a>
         </div>
       </details>
@@ -62,10 +96,29 @@ const sectionHref = (href: string) => href.startsWith("#") && !home ? `${homePat
 <script is:inline>
   (() => {
     const menu = document.querySelector("[data-fr-menu]");
-    if (!menu) return;
+    const dropdowns = [...document.querySelectorAll("[data-fr-nav-dropdown]")];
 
-    menu.addEventListener("click", (event) => {
+    menu?.addEventListener("click", (event) => {
       if (event.target.closest("a")) menu.open = false;
+    });
+
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("toggle", () => {
+        if (!dropdown.open) return;
+        dropdowns.forEach((other) => {
+          if (other !== dropdown) other.open = false;
+        });
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (event.target.closest("[data-fr-nav-dropdown]")) return;
+      dropdowns.forEach((dropdown) => { dropdown.open = false; });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      dropdowns.forEach((dropdown) => { dropdown.open = false; });
     });
   })();
 </script>
