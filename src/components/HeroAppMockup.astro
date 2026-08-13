@@ -104,8 +104,7 @@ const { labels } = Astro.props;
                   </div>
                 </div>
               ) : (
-                <div>
-                  <span class="fr-showcase-history__icon"><Icon name={item.type === "image" ? "Image" : "Video"} size={14} /></span>
+                <figure class={`fr-showcase-history-media is-${item.type}`}>
                   {item.type === "image" ? (
                     <img src="/demo/image-1783437002924.jpeg" alt={item.assetAlt ?? ""} width="1280" height="720" loading="eager" decoding="async" />
                   ) : (
@@ -113,9 +112,7 @@ const { labels } = Astro.props;
                       <source src={item.src} type="video/mp4" />
                     </video>
                   )}
-                  <span class="fr-showcase-history__copy"><small>{item.tool}</small><strong>{item.result}</strong></span>
-                  <time>{item.meta}</time>
-                </div>
+                </figure>
               )}
             </article>
           ))}
