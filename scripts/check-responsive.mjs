@@ -34,10 +34,10 @@ assert(docsIndex.includes("docs-product-page") && docsArticle.includes("docs-pro
 assert(extensions.includes('id="extensions"') && extensions.includes("fr-extensions-demo"), "the detailed Extensions route remains available");
 
 for (const [locale, html, title] of [
-  ["English", english, "Make room for what matters."],
-  ["Italian", italian, "Più spazio per ciò che conta."],
+  ["English", english, "A Personal Desktop AI Assistant"],
+  ["Italian", italian, "Un assistente AI personale per desktop"],
 ]) {
-  assert(html.includes(`<h1 id="hero-title">${title}</h1>`), `${locale} hero leads with the product benefit rather than the app name`);
+  assert(html.includes(`<h1 id="hero-title">${title}</h1>`), `${locale} hero describes the product without repeating the app name`);
   assert(["product", "personal", "workflow", "extensions", "control"].every((id) => html.includes(`id="${id}"`)), `${locale} renders the complete homepage narrative`);
   assert(count(html, /class="fr-personal-card__top"/g) === 6, `${locale} renders all six personal assistant capabilities`);
   assert(count(html, /class="fr-workflow-step__meta"/g) === 4, `${locale} renders the four request-to-result steps`);
