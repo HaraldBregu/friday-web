@@ -4820,7 +4820,7 @@
 }
 
 .fr-showcase-history-media.is-image img {
-  height: 145px;
+  height: 200px;
 }
 
 .fr-showcase-history__item > .fr-showcase-audio {
@@ -5265,7 +5265,7 @@
   }
 
   .fr-showcase-history-media.is-image img {
-    height: 125px;
+    height: 170px;
   }
 
   .fr-showcase-media__controls {
