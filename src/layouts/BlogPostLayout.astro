@@ -1,5 +1,5 @@
 ---
-import Layout from "./Layout.astro";
+import ProductPageLayout from "./ProductPageLayout.astro";
 import Icon from "../components/Icon.astro";
 import ogCards from "../data/og-cards.json";
 import { buildBlogPostStructuredData } from "../lib/structured-data";
@@ -21,7 +21,7 @@ const structuredData = buildBlogPostStructuredData({
 });
 ---
 
-<Layout
+<ProductPageLayout
   title={post.data.title}
   description={post.data.description}
   canonical={path}
@@ -33,16 +33,17 @@ const structuredData = buildBlogPostStructuredData({
   tags={post.data.tags}
   structuredData={structuredData}
 >
-  <article class="article shell article-shell">
-    <a class="back-link" href="/blog">
-      <Icon name="ArrowRight" size={16} />
-      Back to blog
-    </a>
-    <header class="article-header">
-      <p class="eyebrow">{post.data.author} / {readingTime} min read</p>
-      <h1>{post.data.title}</h1>
-      <p>{post.data.description}</p>
-      <div class="post-meta">
+  <article class="product-article">
+    <header class="product-article-hero">
+      <div class="shell product-article-hero__inner">
+        <a class="product-back-link" href="/blog">
+          <Icon name="ArrowRight" size={15} />
+          Back to blog
+        </a>
+        <p class="catalog-eyebrow">{post.data.author} / {readingTime} min read</p>
+        <h1>{post.data.title}</h1>
+        <p class="product-article-hero__lede">{post.data.description}</p>
+        <div class="product-article-meta">
         <time datetime={post.data.pubDate.toISOString()}>
           {
             post.data.pubDate.toLocaleDateString("en", {
@@ -53,10 +54,13 @@ const structuredData = buildBlogPostStructuredData({
           }
         </time>
         <span>{post.data.tags.join(", ")}</span>
+        </div>
       </div>
     </header>
-    <div class="article-body">
-      <slot />
+    <div class="catalog-section">
+      <div class="shell product-article-body">
+        <slot />
+      </div>
     </div>
   </article>
-</Layout>
+</ProductPageLayout>
