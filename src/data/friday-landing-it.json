@@ -147,9 +147,9 @@
         "screenLabel": "Interfaccia Estensione Friday"
       },
       "screens": [
-        { "id": "workspace", "icon": "Layers", "title": "Workspace", "status": "3 attività attive", "prompt": "Organizza questo progetto…", "items": ["Piano di lancio", "Ricerca clienti", "Revisione settimanale"] },
-        { "id": "design", "icon": "Shapes", "title": "Design", "status": "Modifiche salvate", "prompt": "Migliora questo design…", "items": ["Visual principale", "Sistema del brand", "Prototipo"] },
-        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "status": "Test superati", "prompt": "Chiedi informazioni sul codice…", "items": ["src", "components", "app.ts"] }
+        { "id": "workspace", "icon": "Layers", "title": "Workspace", "status": "3 attività attive", "items": ["Piano di lancio", "Ricerca clienti", "Revisione settimanale"] },
+        { "id": "design", "icon": "Shapes", "title": "Design", "status": "Modifiche salvate", "items": ["Visual principale", "Sistema del brand", "Prototipo"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "status": "Test superati", "items": ["src", "components", "app.ts"] }
       ],
       "note": "Questi sono punti di partenza, non limiti. Friday è una base per il software di cui ogni persona ha bisogno.",
       "link": "Esplora le Estensioni"

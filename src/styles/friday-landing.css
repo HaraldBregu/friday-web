@@ -4445,22 +4445,6 @@
   color: #6d6971;
 }
 
-.fr-extension-screen__composer {
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  min-height: 44px;
-  margin: 0 0.7rem 0.7rem;
-  padding: 0.28rem 0.34rem 0.28rem 0.65rem;
-}
-
-.fr-extension-screen__composer > p {
-  font-size: 0.61rem;
-}
-
-.fr-extension-screen__composer > strong {
-  width: 33px;
-  height: 33px;
-}
-
 .fr-extension-workspace-ui,
 .fr-extension-design-ui,
 .fr-extension-coding-ui {

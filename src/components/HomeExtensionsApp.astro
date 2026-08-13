@@ -6,7 +6,6 @@ interface ExtensionScreen {
   icon: string;
   title: string;
   status: string;
-  prompt: string;
   items: string[];
 }
 
@@ -18,8 +17,6 @@ interface Labels {
 interface ChromeLabels {
   history: string;
   profile: string;
-  attach: string;
-  voice: string;
 }
 
 interface Props {
@@ -109,14 +106,6 @@ const { screens, labels, chromeLabels } = Astro.props;
               </div>
             )}
           </div>
-
-          {screen.id !== "coding" && (
-            <div class="fr-showcase-composer fr-extension-screen__composer">
-              <span aria-label={chromeLabels.attach}><Icon name="Plus" size={15} /></span>
-              <p>{screen.prompt}</p>
-              <strong aria-label={chromeLabels.voice}><Icon name="AudioLines" size={16} /></strong>
-            </div>
-          )}
         </div>
       </article>
     ))}

@@ -51,7 +51,7 @@ for (const [locale, html, title] of [
   assert(count(html, /class="fr-personal-card__top"/g) === 6, `${locale} renders all six personal assistant capabilities`);
   assert(count(html, /class="fr-workflow-step__meta"/g) === 4, `${locale} renders the four request-to-result steps`);
   assert(count(html, /class="fr-showcase-app fr-extension-screen is-/g) === 3, `${locale} renders Workspace, Design, and Coding as distinct Friday app screens`);
-  assert(count(html, /class="fr-showcase-composer fr-extension-screen__composer"/g) === 2, `${locale} omits the prompt composer from the Coding screen`);
+  assert(count(html, /class="fr-showcase-composer fr-extension-screen__composer"/g) === 0, `${locale} omits prompt composers from every extension screen`);
   assert(count(html, /class="fr-control-principles"/g) === 1 && count(html, /class="fr-control-principles"[\s\S]*?<\/ul>/g) === 1, `${locale} renders the user-control principles`);
   assert(html.includes('class="fr-showcase-app"') && html.includes('class="fr-showcase-media"'), `${locale} renders the reference-inspired Friday application UI`);
   assert(count(html, /class="fr-showcase-history__item is-/g) === 4, `${locale} hero app includes earlier image, sound, and video requests`);
