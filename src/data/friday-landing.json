@@ -108,17 +108,17 @@
     },
     "personal": {
       "eyebrow": "Personal by permission",
-      "title": "An assistant that grows with you.",
-      "description": "Friday can adapt to your routines, preferences, and priorities over time. The more useful context you choose to provide, the less repetitive setup stands between a request and a useful result.",
-      "outcome": "Less time keeping track of work. More attention for decisions, ideas, creativity, and people.",
+      "title": "It learns how you work—on your terms.",
+      "description": "You decide what Friday can remember, access, and connect to. With that permission, it adapts to your routines, preferences, and priorities so you can spend less time repeating context and managing routine work.",
+      "outcome": "Friday handles the details you choose to share, leaving you more time for decisions, ideas, creativity, and people.",
       "capabilitiesLabel": "Personal assistant capabilities",
       "capabilities": [
-        { "icon": "MessagesSquare", "title": "Keeps useful context", "description": "Remember preferences and relevant details across conversations, so you do not have to start from zero." },
-        { "icon": "CalendarDays", "title": "Organizes what is ahead", "description": "Bring schedules, appointments, reminders, and recurring plans into one working conversation." },
-        { "icon": "Clock", "title": "Continues in the background", "description": "Let appropriate tasks run on a schedule without needing to supervise every step." },
-        { "icon": "PlugZap", "title": "Works with your tools", "description": "Connect external services and information sources that are relevant to the task." },
-        { "icon": "Cloud", "title": "Finds connected information", "description": "Store and retrieve information through configured cloud services when the work requires it." },
-        { "icon": "Workflow", "title": "Finishes multi-step work", "description": "Move from a simple request through the necessary steps and come back with something useful." }
+        { "icon": "MessagesSquare", "title": "Remembers what matters", "description": "Keep the preferences and useful context you allow, so every conversation does not start from zero." },
+        { "icon": "CalendarDays", "title": "Keeps life organized", "description": "Manage schedules, appointments, reminders, and recurring plans from one ongoing conversation." },
+        { "icon": "Clock", "title": "Handles recurring work", "description": "Run suitable background and scheduled tasks without requiring your constant attention." },
+        { "icon": "PlugZap", "title": "Connects the services you choose", "description": "Work with the external tools and information sources you explicitly add to your setup." },
+        { "icon": "Cloud", "title": "Retrieves information when needed", "description": "Store and find data through your connected cloud services when a task requires it." },
+        { "icon": "Workflow", "title": "Completes the whole task", "description": "Carry out the necessary steps behind a request and return a finished, useful result." }
       ]
     },
     "workflow": {
