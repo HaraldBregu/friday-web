@@ -3277,6 +3277,25 @@
   text-wrap: balance;
 }
 
+.fr-home-hero__accent {
+  display: inline-block;
+  padding-inline: 0.025em;
+  background: linear-gradient(110deg, #f0a4ff 5%, #b98cff 46%, #72b5ff 94%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  text-shadow: 0 0 34px rgba(167, 107, 255, 0.18);
+}
+
+[data-theme="light"] .fr-home-hero__accent {
+  background-image: linear-gradient(110deg, #a52eb5 4%, #7045bd 48%, #1e65ad 96%);
+  text-shadow: none;
+}
+
 .fr-home-hero__lede {
   max-width: 620px;
   margin: 1.75rem 0 0;

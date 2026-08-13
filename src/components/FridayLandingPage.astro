@@ -15,6 +15,7 @@ const locale = normalizeLocale(Astro.props.locale);
 const landing = locale === "it" ? landingIt : landingEn;
 const { home, links } = landing;
 const extensionsHref = locale === "it" ? "/it/extensions" : "/extensions";
+const heroTitleParts = home.hero.title.split(/(desktop|AI)/gi);
 ---
 
 <FridayLandingNav locale={locale} />
@@ -23,7 +24,11 @@ const extensionsHref = locale === "it" ? "/it/extensions" : "/extensions";
   <div class="fr-shell fr-home-hero__layout">
     <div class="fr-home-hero__copy">
       <p class="fr-eyebrow"><span></span>{home.hero.eyebrow}</p>
-      <h1 id="hero-title">{home.hero.title}</h1>
+      <h1 id="hero-title" aria-label={home.hero.title}>
+        {heroTitleParts.map((part) => /^(desktop|AI)$/i.test(part)
+          ? <span class="fr-home-hero__accent" aria-hidden="true">{part}</span>
+          : <span aria-hidden="true">{part}</span>)}
+      </h1>
       <p class="fr-home-hero__lede">{home.hero.description}</p>
       <div class="fr-actions">
         <a class="fr-button" href={links.download} target="_blank" rel="noopener noreferrer">
