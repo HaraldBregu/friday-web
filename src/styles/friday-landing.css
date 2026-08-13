@@ -3272,7 +3272,7 @@
 
 .fr-home-hero h1 {
   max-width: 660px;
-  font-size: clamp(3.7rem, 6.2vw, 6.2rem);
+  font-size: clamp(3.35rem, 5.65vw, 5.65rem);
   line-height: 0.94;
   text-wrap: balance;
 }
@@ -4437,7 +4437,7 @@
   }
 
   .fr-home-hero h1 {
-    font-size: clamp(3rem, 14vw, 4.45rem);
+    font-size: clamp(2.75rem, 12.8vw, 4.05rem);
   }
 
   .fr-home-hero__lede {
