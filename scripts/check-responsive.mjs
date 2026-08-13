@@ -46,6 +46,7 @@ for (const [locale, html, title] of [
   assert(count(html, /class="fr-control-principles"/g) === 1 && count(html, /class="fr-control-principles"[\s\S]*?<\/ul>/g) === 1, `${locale} renders the user-control principles`);
   assert(html.includes('class="fr-showcase-app"') && html.includes('class="fr-showcase-media"'), `${locale} renders the reference-inspired Friday application UI`);
   assert(count(html, /class="fr-showcase-history__item is-/g) === 2, `${locale} hero app includes earlier image and sound requests`);
+  assert(html.includes("video-1784367922287.mp4") && html.includes("data-showcase-play") && html.includes("data-showcase-progress"), `${locale} hero app renders playable video controls`);
   assert(html.includes('href="#workflow"'), `${locale} secondary hero action points to the workflow explanation`);
   assert(html.includes('href="https://github.com/HaraldBregu/friday/releases"'), `${locale} primary action uses the existing release destination`);
   assert(count(html, /class="theme-toggle" data-theme-toggle/g) === 1, `${locale} navigation renders one theme switch`);
