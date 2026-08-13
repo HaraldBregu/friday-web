@@ -1,15 +1,16 @@
 ---
 import CTASection from "../components/CTASection.astro";
 import Icon from "../components/Icon.astro";
+import ProductPageHero from "../components/ProductPageHero.astro";
 import tools from "../data/tools.json";
-import Layout from "../layouts/Layout.astro";
+import ProductPageLayout from "../layouts/ProductPageLayout.astro";
 
-const groups = tools.reduce<Record<string, typeof tools>>((acc, t) => {
-  acc[t.category] = acc[t.category] ?? [];
-  acc[t.category].push(t);
+const groups = tools.reduce<Record<string, typeof tools>>((acc, tool) => {
+  acc[tool.category] = acc[tool.category] ?? [];
+  acc[tool.category].push(tool);
   return acc;
 }, {});
-
+const groupEntries = Object.entries(groups);
 const categoryIcons: Record<string, string> = {
   Files: "FolderOpen",
   Shell: "Terminal",
@@ -18,62 +19,65 @@ const categoryIcons: Record<string, string> = {
   Automation: "Clock",
   Extension: "PlugZap",
 };
+const categoryDescriptions: Record<string, string> = {
+  Files: "Read, create, and update workspace content while keeping file operations visible and permission-aware.",
+  Shell: "Run commands and manage longer processes when a task needs the local development environment.",
+  Web: "Research current information and work through browser-based tasks with the right access boundaries.",
+  Media: "Create images and other rich assets through the media providers configured in Friday.",
+  Automation: "Schedule recurring work and health checks so suitable tasks can continue in the background.",
+  Extension: "Add reusable skills, MCP servers, and specialist tool surfaces without changing the core assistant.",
+};
+const selectionSteps = [
+  { step: "01", title: "Policy check", desc: "Friday decides whether a tool is useful and keeps direct answers tool-free." },
+  { step: "02", title: "Candidate filtering", desc: "Permission boundaries narrow the available files, commands, accounts, and services." },
+  { step: "03", title: "Ranking", desc: "The assistant chooses the tool that best fits the requested outcome and current context." },
+  { step: "04", title: "Approval", desc: "Sensitive writes, deletions, publishing, messages, and private data access pause for confirmation." },
+  { step: "05", title: "Verification", desc: "Friday checks the result and returns a concrete answer, artifact, or completed action." },
+];
 ---
 
-<Layout
-  title="Agent Tools"
+<ProductPageLayout
   description="Friday's assistant uses permissioned tools for files, commands, web work, images, scheduling, skills, subagents, and MCP."
   image="/og/tools.png"
+  title="Agent Tools"
 >
-  <section class="section page-hero">
-    <div class="shell section-heading">
-      <p class="eyebrow">Agent Tools</p>
-      <h1>What Friday can actually do.</h1>
-      <p>
-        Tools are the assistant's hands. Friday uses them to finish real work
-        and asks for approval before sensitive actions.
-      </p>
-    </div>
-  </section>
+  <ProductPageHero
+    accent="actually do."
+    description="Tools are Friday's hands: they connect a natural-language request to finished work while keeping sensitive actions behind clear approval."
+    eyebrow="Agent Tools"
+    jumpLabel="Tool categories"
+    jumps={[
+      ...groupEntries.map(([category]) => ({ href: `#${category.toLowerCase()}`, icon: categoryIcons[category] ?? "Sparkles", label: category })),
+      { href: "#selection", icon: "ShieldCheck", label: "Selection & safety" },
+    ]}
+    stats={[
+      { value: tools.length, label: "Tool families" },
+      { value: groupEntries.length, label: "Categories" },
+      { value: "Ask", label: "Sensitive actions" },
+    ]}
+    statsLabel="Tool catalog summary"
+    title="What Friday can actually do."
+  />
 
-  <section class="section section--compact">
-    <div class="shell">
-      <div class="tools-stats">
-        <div class="stat">
-          <strong>{tools.length}</strong>
-          <span>tool families</span>
-        </div>
-        <div class="stat">
-          <strong>Approval</strong>
-          <span>before sensitive actions</span>
-        </div>
-        <div class="stat">
-          <strong>MCP</strong>
-          <span>for external tools</span>
-        </div>
-        <div class="stat">
-          <strong>Local</strong>
-          <span>for files and credentials</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {Object.entries(groups).map(([category, items]) => (
-    <section class="section section--compact">
+  {groupEntries.map(([category, items], groupIndex) => (
+    <section class:list={["catalog-section", groupIndex % 2 === 1 && "is-tinted"]} id={category.toLowerCase()}>
       <div class="shell">
-        <header class="tools-group-head">
-          <Icon name={categoryIcons[category] ?? "Sparkles"} size={18} />
-          <h2>{category}</h2>
-          <span>{items.length} tool{items.length !== 1 ? "s" : ""}</span>
+        <header class="catalog-section__head">
+          <div class="catalog-section__title">
+            <span class="catalog-section-tag">{String(groupIndex + 1).padStart(2, "0")} / {category}</span>
+            <h2>{category} tools</h2>
+          </div>
+          <p class="catalog-section__aside">{categoryDescriptions[category]}</p>
         </header>
-        <div class="tools-grid">
-          {items.map((tool) => (
-            <article class="tool-card">
-              <div class="tool-card__header">
-                <Icon name={tool.icon} size={16} />
-                <code class="tool-name">{tool.name}</code>
+
+        <div class="product-tile-grid">
+          {items.map((tool, index) => (
+            <article class="product-tile">
+              <div class="product-tile__top">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <i><Icon name={tool.icon} size={17} /></i>
               </div>
+              <h3><code>{tool.name}</code></h3>
               <p>{tool.description}</p>
             </article>
           ))}
@@ -82,49 +86,23 @@ const categoryIcons: Record<string, string> = {
     </section>
   ))}
 
-  <section class="section section--compact">
+  <section class="catalog-section is-tinted" id="selection">
     <div class="shell">
-      <header class="tools-group-head">
-        <Icon name="ShieldCheck" size={18} />
-        <h2>How tools are selected</h2>
+      <header class="catalog-section__head">
+        <div class="catalog-section__title">
+          <span class="catalog-section-tag">07 / Selection & safety</span>
+          <h2>From request to verified result.</h2>
+        </div>
+        <p class="catalog-section__aside">Tool choice follows the task, available context, and permission policy at every step.</p>
       </header>
-      <div class="selection-steps">
-        {[
-          {
-            step: "01",
-            title: "Policy check",
-            desc: "The assistant decides whether a tool is useful for the request and skips tools for direct answers.",
-          },
-          {
-            step: "02",
-            title: "Candidate filtering",
-            desc: "Sensitive tools require the appropriate permission path before they can touch files, accounts, private data, or outside services.",
-          },
-          {
-            step: "03",
-            title: "Ranking",
-            desc: "Friday selects the files, commands, web search, browser, image generation, scheduler, skill, subagent, or MCP tool that fits the task.",
-          },
-          {
-            step: "04",
-            title: "Approval",
-            desc: "Writing, deleting, publishing, sending messages, or accessing private data pauses for explicit confirmation.",
-          },
-          {
-            step: "05",
-            title: "Verification",
-            desc: "Friday checks the result against the request and returns a concrete answer, file, image, scheduled job, or other artifact.",
-          },
-        ].map(({ step, title, desc }) => (
-          <div class="selection-step">
-            <span class="step-num">{step}</span>
-            <div>
-              <strong>{title}</strong>
-              <p>{desc}</p>
-            </div>
-          </div>
+      <ol class="product-step-list">
+        {selectionSteps.map((item) => (
+          <li>
+            <span>{item.step}</span>
+            <div><h3>{item.title}</h3><p>{item.desc}</p></div>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   </section>
 
@@ -133,178 +111,4 @@ const categoryIcons: Record<string, string> = {
     title="Friday acts, but you stay in control."
     description="The assistant will not send messages, change records, delete data, or touch production systems without clear authorization."
   />
-</Layout>
-
-<style>
-  .tools-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1rem;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    text-align: center;
-  }
-
-  .stat strong {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--accent);
-    font-family: var(--font-mono);
-    line-height: 1;
-  }
-
-  .stat span {
-    font-size: 0.78rem;
-    color: var(--faint);
-  }
-
-  .tools-group-head {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .tools-group-head h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0;
-    flex: 1;
-  }
-
-  .tools-group-head span {
-    font-size: 0.75rem;
-    color: var(--faint);
-  }
-
-  .tools-group-head :global(svg) {
-    color: var(--accent);
-  }
-
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-
-  .tool-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 1.1rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .tool-card__header {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-  }
-
-  .tool-card__header :global(svg) {
-    color: var(--accent);
-    flex-shrink: 0;
-  }
-
-  .tool-name {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--text);
-    background: none;
-    padding: 0;
-  }
-
-  .tool-card p {
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  .dynamic-tools-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .dynamic-tool-row {
-    display: grid;
-    grid-template-columns: 11rem 1fr;
-    gap: 1rem;
-    align-items: baseline;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--line);
-    font-size: 0.82rem;
-  }
-
-  .dynamic-tool-row:last-child {
-    border-bottom: none;
-  }
-
-  .dynamic-tool-row p {
-    color: var(--muted);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  .selection-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .selection-step {
-    display: flex;
-    gap: 1.25rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .selection-step:last-child {
-    border-bottom: none;
-  }
-
-  .step-num {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--accent);
-    font-weight: 600;
-    flex-shrink: 0;
-    padding-top: 0.15rem;
-  }
-
-  .selection-step strong {
-    display: block;
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .selection-step p {
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  @media (max-width: 640px) {
-    .tools-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .dynamic-tool-row {
-      grid-template-columns: 1fr;
-      gap: 0.25rem;
-    }
-  }
-</style>
+</ProductPageLayout>
