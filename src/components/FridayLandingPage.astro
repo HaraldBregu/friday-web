@@ -1,6 +1,7 @@
 ---
 import FridayLandingNav from "./FridayLandingNav.astro";
 import Icon from "./Icon.astro";
+import ProductMockup from "./ProductMockup.astro";
 import landingEn from "../data/friday-landing.json";
 import landingIt from "../data/friday-landing-it.json";
 import { normalizeLocale, type Locale } from "../i18n";
@@ -40,58 +41,12 @@ const extensionsHref = locale === "it" ? "/it/extensions" : "/extensions";
       </p>
     </div>
 
-    <figure class="fr-assistant-preview" role="img" aria-label={home.hero.demo.windowLabel}>
-      <div class="fr-assistant-preview__glow" aria-hidden="true"></div>
-      <div class="fr-desktop-window" aria-hidden="true">
-        <div class="fr-desktop-window__bar">
-          <span class="fr-window-dots"><i></i><i></i><i></i></span>
-          <span><img src="/icon-rounded.png" alt="" width="18" height="18" />Friday</span>
-          <Icon name="Maximize" size={13} />
-        </div>
-        <div class="fr-desktop-window__body">
-          <aside class="fr-desktop-sidebar">
-            <span class="fr-desktop-sidebar__brand"><Icon name="Sparkles" size={13} />{home.hero.demo.today}</span>
-            <span class="is-active"><Icon name="MessageSquare" size={13} />{home.hero.demo.newConversation}</span>
-            <small>{home.hero.demo.conversations}</small>
-            {home.hero.demo.conversationExamples.map((conversation) => <span>{conversation}</span>)}
-            <span class="fr-desktop-sidebar__settings"><Icon name="Wrench" size={13} />{home.hero.demo.settings}</span>
-          </aside>
-
-          <div class="fr-assistant-thread">
-            <header>
-              <img src="/icon-rounded.png" alt="" width="27" height="27" />
-              <span><strong>Friday</strong><small>{home.hero.demo.assistantStatus}</small></span>
-              <i></i>
-            </header>
-            <div class="fr-assistant-thread__messages">
-              <p class="fr-assistant-thread__user">{home.hero.demo.request}</p>
-              <div class="fr-assistant-thread__reply">
-                <span><img src="/icon-rounded.png" alt="" width="20" height="20" /><strong>Friday</strong></span>
-                <p>{home.hero.demo.response}</p>
-              </div>
-              <ul class="fr-assistant-activity" aria-label={home.hero.demo.activityLabel}>
-                {home.hero.demo.activities.map((activity, index) => (
-                  <li class:list={{ "is-scheduled": index === home.hero.demo.activities.length - 1 }}>
-                    <span>{index === home.hero.demo.activities.length - 1 ? <Icon name="Clock" size={12} /> : <Icon name="Check" size={12} />}</span>
-                    <strong>{activity.label}</strong>
-                    <small>{activity.state}</small>
-                  </li>
-                ))}
-              </ul>
-              <div class="fr-assistant-result">
-                <span><Icon name="CheckCircle2" size={16} /></span>
-                <div><strong>{home.hero.demo.resultTitle}</strong><p>{home.hero.demo.result}</p></div>
-              </div>
-            </div>
-            <div class="fr-assistant-composer">
-              <span><Icon name="Plus" size={14} />{home.hero.demo.composer}</span>
-              <i><Icon name="ArrowUp" size={13} /></i>
-            </div>
-            <footer><span><i></i>{home.hero.demo.background}</span><Icon name="Clock" size={12} /></footer>
-          </div>
-        </div>
+    <div class="fr-hero__visual">
+      <div class="fr-hero__glow" aria-hidden="true"></div>
+      <div class="fr-chat-preview">
+        <ProductMockup landingWorkflow locale={locale} />
       </div>
-    </figure>
+    </div>
 
     <ul class="fr-home-signals" aria-label={home.hero.capabilitiesLabel}>
       {home.hero.capabilities.map((capability, index) => (
