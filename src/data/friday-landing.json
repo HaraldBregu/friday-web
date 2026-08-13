@@ -26,7 +26,7 @@
         "edit": "Edit request",
         "tool": "Create visual",
         "tokens": "187 tok",
-        "assetAlt": "Generated visual of the Sun and Earth in space",
+        "assetAlt": "Generated cinematic video",
         "play": "Play generated visual",
         "pause": "Pause generated visual",
         "seek": "Seek generated visual",
@@ -55,6 +55,15 @@
             "tool": "Created sound",
             "result": "Friday opening theme",
             "meta": "0:42"
+          },
+          {
+            "type": "video",
+            "request": "Turn the strongest direction into a quiet motion study.",
+            "tool": "Created video",
+            "result": "Cinematic motion study",
+            "meta": "Ready",
+            "assetAlt": "Generated cinematic motion study",
+            "src": "/demo/video-1786619008446.mp4"
           }
         ]
       },

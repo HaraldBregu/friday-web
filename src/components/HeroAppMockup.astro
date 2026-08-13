@@ -25,12 +25,13 @@ interface Labels {
   dictate: string;
   voice: string;
   previousRequests: Array<{
-    type: "image" | "sound";
+    type: "image" | "sound" | "video";
     request: string;
     tool: string;
     result: string;
     meta: string;
     assetAlt?: string;
+    src?: string;
   }>;
 }
 
@@ -60,13 +61,17 @@ const { labels } = Astro.props;
             <article class={`fr-showcase-history__item is-${item.type}`}>
               <p>{item.request}</p>
               <div>
-                <span class="fr-showcase-history__icon"><Icon name={item.type === "image" ? "Image" : "Music"} size={14} /></span>
+                <span class="fr-showcase-history__icon"><Icon name={item.type === "image" ? "Image" : item.type === "sound" ? "Music" : "Video"} size={14} /></span>
                 {item.type === "image" ? (
                   <img src="/demo/image-1783437002924.jpeg" alt={item.assetAlt ?? ""} width="1280" height="720" loading="eager" decoding="async" />
-                ) : (
+                ) : item.type === "sound" ? (
                   <span class="fr-showcase-wave" aria-hidden="true">
                     {[8, 15, 10, 22, 17, 27, 13, 21, 30, 16, 24, 11, 19, 8].map((height) => <i style={`--wave-height:${height}px`}></i>)}
                   </span>
+                ) : (
+                  <video aria-label={item.assetAlt ?? ""} muted playsinline preload="auto">
+                    <source src={item.src} type="video/mp4" />
+                  </video>
                 )}
                 <span class="fr-showcase-history__copy"><small>{item.tool}</small><strong>{item.result}</strong></span>
                 <time>{item.meta}</time>
@@ -96,8 +101,8 @@ const { labels } = Astro.props;
           data-play-label={labels.play}
           data-unmute-label={labels.unmute}
         >
-          <video aria-label={labels.assetAlt} playsinline poster="/demo/image-1783269109315.jpeg" preload="metadata" data-showcase-video-media>
-            <source src="/demo/video-1784367922287.mp4" type="video/mp4" />
+          <video aria-label={labels.assetAlt} playsinline preload="auto" data-showcase-video-media>
+            <source src="/demo/video-1786447738614.mp4" type="video/mp4" />
           </video>
           <div class="fr-showcase-media__controls">
             <button aria-label={labels.play} type="button" data-showcase-play>

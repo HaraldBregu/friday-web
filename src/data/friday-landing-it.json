@@ -26,7 +26,7 @@
         "edit": "Modifica la richiesta",
         "tool": "Crea visual",
         "tokens": "187 tok",
-        "assetAlt": "Visual generato del Sole e della Terra nello spazio",
+        "assetAlt": "Video cinematografico generato",
         "play": "Riproduci il visual generato",
         "pause": "Metti in pausa il visual generato",
         "seek": "Scorri il visual generato",
@@ -55,6 +55,15 @@
             "tool": "Suono creato",
             "result": "Tema di apertura Friday",
             "meta": "0:42"
+          },
+          {
+            "type": "video",
+            "request": "Trasforma la direzione migliore in un quieto studio di movimento.",
+            "tool": "Video creato",
+            "result": "Studio di movimento cinematografico",
+            "meta": "Pronto",
+            "assetAlt": "Studio di movimento cinematografico generato",
+            "src": "/demo/video-1786619008446.mp4"
           }
         ]
       },
