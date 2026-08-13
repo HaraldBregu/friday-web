@@ -4711,12 +4711,6 @@
   color: #d8d7da;
 }
 
-.fr-showcase-app__actions i:first-child {
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.055);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
-}
-
 .fr-showcase-app__body {
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
