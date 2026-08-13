@@ -3278,9 +3278,11 @@
 }
 
 .fr-home-hero__accent {
+  position: relative;
   display: inline-block;
-  padding-inline: 0.025em;
-  background: linear-gradient(110deg, #f0a4ff 5%, #b98cff 46%, #72b5ff 94%);
+  padding: 0 0.035em 0.08em;
+  background: linear-gradient(110deg, #ff8fda 0%, #e2a1ff 24%, #9d7cff 52%, #69c7ff 78%, #8ff3dd 100%);
+  background-size: 180% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -3288,13 +3290,54 @@
   font-style: italic;
   font-weight: 500;
   letter-spacing: -0.045em;
-  text-shadow: 0 0 34px rgba(167, 107, 255, 0.18);
+  text-shadow: 0 0 32px rgba(167, 107, 255, 0.22), 0 0 70px rgba(65, 157, 255, 0.08);
   white-space: nowrap;
+  animation: fr-accent-shimmer 7s ease-in-out infinite alternate;
+}
+
+.fr-home-hero__accent::before,
+.fr-home-hero__accent::after {
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  content: "";
+  pointer-events: none;
+}
+
+.fr-home-hero__accent::after {
+  right: 0.01em;
+  bottom: 0.01em;
+  left: 0.02em;
+  height: 0.055em;
+  background: linear-gradient(90deg, #ff73c8 0%, #a76bff 48%, #54c8ff 78%, #72e7c7 100%);
+  box-shadow: 0 0 12px rgba(142, 112, 255, 0.42);
+  transform: rotate(-1.2deg);
+  transform-origin: left center;
+}
+
+.fr-home-hero__accent::before {
+  right: 11%;
+  bottom: -0.07em;
+  left: 18%;
+  height: 0.025em;
+  background: linear-gradient(90deg, transparent, #d58cff 20%, #62c9ff 75%, transparent);
+  opacity: 0.72;
+  transform: rotate(0.8deg);
+}
+
+@keyframes fr-accent-shimmer {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
 }
 
 [data-theme="light"] .fr-home-hero__accent {
-  background-image: linear-gradient(110deg, #a52eb5 4%, #7045bd 48%, #1e65ad 96%);
+  background-image: linear-gradient(110deg, #b11c80 0%, #9132ae 28%, #6240b7 55%, #1769ad 80%, #137c6b 100%);
   text-shadow: none;
+}
+
+[data-theme="light"] .fr-home-hero__accent::after {
+  background: linear-gradient(90deg, #bf267f 0%, #7447c5 52%, #2381bc 78%, #16816e 100%);
+  box-shadow: 0 2px 8px rgba(91, 65, 156, 0.18);
 }
 
 .fr-home-hero__lede {
