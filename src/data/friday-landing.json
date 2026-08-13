@@ -16,7 +16,7 @@
       "secondary": "See how it works",
       "note": "Open-source desktop software, built around your providers, tools, and permissions.",
       "capabilitiesLabel": "Ways Friday supports everyday work",
-      "capabilities": ["Remembers context", "Works in the background", "Connects your tools", "Returns finished work"],
+      "capabilities": ["Remembers what matters", "Handles recurring work", "Completes multi-step tasks", "Evolves through extensions"],
       "showcase": {
         "windowLabel": "Friday desktop assistant creating a visual from a natural-language request",
         "history": "Open conversation history",
