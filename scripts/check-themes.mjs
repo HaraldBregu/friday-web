@@ -46,6 +46,6 @@ assert(docsCss.includes('[data-theme="light"] .docs-product-page'), "docs styles
 assert(catalogCss.includes('[data-theme="light"] .catalog-product-page'), "catalog styles define a light product palette");
 assert(docsCss.includes('[data-theme="light"] .docs-product-page main'), "docs reading surface adapts to light mode");
 assert(docsCss.includes('[data-theme="light"] .docs-product-page .site-footer'), "docs footer adapts to light mode");
-assert(/@media \(max-width: 680px\)[\s\S]*?\.docs-product-page \.fr-nav__github \{\s*display: none;/.test(docsCss), "docs mobile navigation avoids crowded actions");
+assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-nav__github \{\s*display: none;/.test(landingCss), "shared mobile navigation avoids crowded actions");
 
 console.log(`Verified light and dark theme support across ${interactivePages.length} static routes.`);
