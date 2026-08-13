@@ -38,7 +38,7 @@ for (const [locale, html, title] of [
   ["Italian", italian, "Un assistente AI personale per desktop"],
 ]) {
   assert(html.includes(`<h1 id="hero-title" aria-label="${title}">`), `${locale} hero describes the product without repeating the app name`);
-  assert(count(html, /class="fr-home-hero__accent"/g) === 2, `${locale} highlights Desktop and AI with the display treatment`);
+  assert(count(html, /class="fr-home-hero__accent"/g) === 2, `${locale} highlights only AI Assistant with the display treatment`);
   assert(["product", "personal", "workflow", "extensions", "control"].every((id) => html.includes(`id="${id}"`)), `${locale} renders the complete homepage narrative`);
   assert(count(html, /class="fr-personal-card__top"/g) === 6, `${locale} renders all six personal assistant capabilities`);
   assert(count(html, /class="fr-workflow-step__meta"/g) === 4, `${locale} renders the four request-to-result steps`);
