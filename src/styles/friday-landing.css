@@ -3279,6 +3279,7 @@
 
 .fr-home-hero__accent {
   position: relative;
+  isolation: isolate;
   display: inline-block;
   padding: 0 0.035em 0.08em;
   background: linear-gradient(110deg, #ff8fda 0%, #e2a1ff 24%, #9d7cff 52%, #69c7ff 78%, #8ff3dd 100%);
