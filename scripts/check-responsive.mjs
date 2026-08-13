@@ -76,6 +76,8 @@ assert(landingCss.includes('[data-theme="light"] .friday-landing-page'), "landin
 assert(/@media \(max-width: 900px\)[\s\S]*?\.fr-home-hero__layout,[\s\S]*?\.fr-control-grid \{\s*grid-template-columns: 1fr;/.test(landingCss), "hero and control layouts collapse at tablet width");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-personal-grid \{\s*grid-template-columns: 1fr;/.test(landingCss), "personal capabilities collapse to one column on mobile");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-workflow-steps \{\s*grid-template-columns: 1fr;/.test(landingCss), "workflow becomes linear on mobile");
+assert(/\.fr-home-extension-gallery__grid \{[\s\S]*?grid-template-columns: repeat\(2, minmax\(0, 1fr\)\);/.test(landingCss), "extension gallery uses two large screens on the first row");
+assert(/\.fr-home-extension-gallery__grid > \.fr-extension-screen:last-child \{[\s\S]*?grid-column: 1 \/ -1;[\s\S]*?justify-self: center;/.test(landingCss), "coding screen is centered on the second row");
 assert(/@media \(max-width: 900px\)[\s\S]*?\.fr-home-extension-gallery__grid \{\s*grid-template-columns: 1fr;/.test(landingCss), "extension screens stack into one column on tablets and mobile");
 assert(/@media \(max-width: 380px\)[\s\S]*?\.fr-home-signals \{\s*grid-template-columns: 1fr;/.test(landingCss), "hero capability strip stays readable on narrow screens");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.provider-grid,\s*\.integration-grid,[\s\S]*?\.blog-product-grid \{\s*grid-template-columns: 1fr;/.test(catalogCss), "product-page grids collapse to one column on mobile");
