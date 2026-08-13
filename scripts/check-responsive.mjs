@@ -47,7 +47,7 @@ for (const [locale, html, title] of [
   assert(html.includes('class="fr-showcase-app"') && html.includes('class="fr-showcase-media"'), `${locale} renders the reference-inspired Friday application UI`);
   assert(count(html, /class="fr-showcase-history__item is-/g) === 4, `${locale} hero app includes earlier image, sound, and video requests`);
   assert(html.includes('class="fr-showcase-opening"'), `${locale} hero app begins with a natural conversation opener`);
-  assert(html.includes("data-showcase-audio") && html.includes("data-audio-progress"), `${locale} sound request uses the full playable audio treatment`);
+  assert(html.includes("sound-1786623297711.mp3") && html.includes("data-showcase-audio") && html.includes("data-audio-progress"), `${locale} sound request uses the uploaded playable audio asset`);
   assert(["video-1786447738614.mp4", "video-1786619008446.mp4", "video-1786619185438.mp4"].every((asset) => html.includes(asset)) && html.includes("data-showcase-play") && html.includes("data-showcase-progress"), `${locale} hero app uses all current demo videos with playable controls`);
   assert(html.includes('href="#workflow"'), `${locale} secondary hero action points to the workflow explanation`);
   assert(html.includes('href="https://github.com/HaraldBregu/friday/releases"'), `${locale} primary action uses the existing release destination`);
