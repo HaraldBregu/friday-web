@@ -4485,7 +4485,7 @@
 .fr-extension-workspace-ui__tree {
   min-width: 0;
   overflow: hidden;
-  padding: 0.65rem 0.45rem;
+  padding: 0.45rem 0;
   border-right: 1px solid rgba(255, 255, 255, 0.075);
   background: #151516;
 }
@@ -4506,8 +4506,7 @@
   gap: 0.35rem;
   min-width: 0;
   min-height: 26px;
-  padding: 0 0.35rem;
-  border-radius: 6px;
+  padding: 0 0.65rem;
   color: #77747c;
   font-size: 0.48rem;
 }
@@ -4550,8 +4549,8 @@
 .fr-extension-workspace-ui__selected {
   position: absolute;
   top: 29px;
-  right: 0;
-  left: 1.05rem;
+  right: 0.4rem;
+  left: 1.45rem;
   display: flex;
   align-items: center;
   gap: 0.38rem;
@@ -4568,12 +4567,6 @@
 
 .fr-extension-workspace-ui__selected svg {
   flex: 0 0 auto;
-}
-
-.fr-extension-workspace-ui__selected:not(svg) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .fr-extension-workspace-ui__board {
@@ -4712,9 +4705,9 @@
 }
 
 .fr-extension-design-ui {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  padding: 0.65rem;
+  position: relative;
+  display: block;
+  padding: 0;
   background: #0a0a0b;
 }
 
@@ -4724,11 +4717,17 @@
   justify-content: center;
   gap: 0.22rem;
   width: max-content;
-  margin: 0 auto 0.55rem;
+  position: absolute;
+  z-index: 2;
+  top: 0.65rem;
+  left: 50%;
+  margin: 0;
   padding: 0.25rem;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 9px;
   background: #151517;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  transform: translateX(-50%);
 }
 
 .fr-extension-design-ui__tools span {
@@ -4747,10 +4746,11 @@
 
 .fr-extension-design-ui__canvas {
   position: relative;
+  height: 100%;
   min-height: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 11px;
+  border: 0;
+  border-radius: 0;
   background-color: #111113;
   background-image: radial-gradient(rgba(255, 255, 255, 0.09) 0.65px, transparent 0.65px);
   background-size: 10px 10px;
@@ -4840,7 +4840,7 @@
 }
 
 .fr-extension-coding-ui {
-  padding: 0.65rem;
+  padding: 0;
   background: #09090a;
 }
 
@@ -4849,8 +4849,8 @@
   grid-template-rows: auto minmax(0, 1fr) auto;
   height: 100%;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 11px;
+  border: 0;
+  border-radius: 0;
   background: #0d0e11;
 }
 

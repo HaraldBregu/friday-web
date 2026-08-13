@@ -83,6 +83,7 @@ assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-personal-grid \{\s*grid-template
 assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-workflow-steps \{\s*grid-template-columns: 1fr;/.test(landingCss), "workflow becomes linear on mobile");
 assert(/\.fr-home-extension-gallery__grid \{[\s\S]*?width: min\(calc\(100vw - 48px\), 1120px\);/.test(landingCss) && /\.fr-showcase-app\.fr-extension-screen \{[\s\S]*?height: 500px;/.test(landingCss), "extension screens use compact showcase dimensions");
 assert(/\.fr-home-extension-row \{[\s\S]*?grid-template-columns: minmax\(0, 1\.3fr\) minmax\(280px, 0\.72fr\);/.test(landingCss), "each extension row places the interface left and description right");
+assert(/\.fr-extension-workspace-ui__tree \{[\s\S]*?padding: 0\.45rem 0;/.test(landingCss) && /\.fr-extension-design-ui \{[\s\S]*?padding: 0;/.test(landingCss) && /\.fr-extension-coding-ui \{[\s\S]*?padding: 0;/.test(landingCss), "extension work surfaces use consistent edge-to-edge layouts");
 assert(/@media \(max-width: 900px\)[\s\S]*?\.fr-home-extension-row \{\s*grid-template-columns: 1fr;/.test(landingCss), "extension rows stack interface before description on tablets and mobile");
 assert(/@media \(max-width: 380px\)[\s\S]*?\.fr-home-signals \{\s*grid-template-columns: 1fr;/.test(landingCss), "hero capability strip stays readable on narrow screens");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.provider-grid,\s*\.integration-grid,[\s\S]*?\.blog-product-grid \{\s*grid-template-columns: 1fr;/.test(catalogCss), "product-page grids collapse to one column on mobile");
