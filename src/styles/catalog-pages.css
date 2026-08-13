@@ -4,6 +4,8 @@
   --fr-panel: #101016;
   --fr-panel-2: #15151d;
   --fr-panel-3: #1a1a23;
+  --fr-paper: #f3f1ed;
+  --fr-paper-muted: #d3d0ca;
   --fr-text: #f5f3f0;
   --fr-muted: #aaa8b2;
   --fr-faint: #73717d;
@@ -44,6 +46,8 @@
   --fr-panel: #ffffff;
   --fr-panel-2: #f1efeb;
   --fr-panel-3: #e8e5df;
+  --fr-paper: #17161a;
+  --fr-paper-muted: #4f4b55;
   --fr-text: #17161a;
   --fr-muted: #5e5a65;
   --fr-faint: #77727c;
