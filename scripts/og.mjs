@@ -27,7 +27,7 @@ const cards = [
   {
     slug: "home-it",
     eyebrow: "Assistente AI desktop",
-    title: "Il tuo assistente personale AI desktop",
+    title: "Assistente Personale AI per Desktop",
     description:
       "Friday legge e modifica file, esegue comandi, cerca sul web, pilota un browser e genera media, con le tue chiavi provider.",
   },

@@ -856,7 +856,7 @@ const it = {
     footerCredit: "Creato con amore da ",
   },
   home: {
-    ogTitle: "Friday: Il tuo assistente personale AI desktop",
+    ogTitle: "Friday: Assistente Personale AI per Desktop",
     ogDescription:
       "Un agente desktop che legge e modifica file, esegue comandi, cerca sul web, pilota un browser e genera immagini, video e audio, con le tue chiavi provider e la tua approvazione su ciò che conta.",
     featuresEyebrow: "Funzioni",
