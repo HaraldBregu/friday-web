@@ -7,6 +7,8 @@ interface ExtensionScreen {
   title: string;
   status: string;
   items: string[];
+  root?: string;
+  files?: string[];
 }
 
 interface Labels {
@@ -47,15 +49,28 @@ const { screens, labels, chromeLabels } = Astro.props;
 
         <div class="fr-showcase-app__body fr-extension-screen__body">
           <div class="fr-extension-screen__workspace">
-            <header class="fr-extension-screen__head">
-              <span><Icon name={screen.icon} size={17} /></span>
-              <div><strong>{screen.title}</strong><small>{screen.status}</small></div>
-              <Icon name="ChevronDown" size={14} />
-            </header>
-
             {screen.id === "workspace" && (
               <div class="fr-extension-workspace-ui">
+                <aside class="fr-extension-workspace-ui__tree" aria-label={`${screen.title} files`}>
+                  <ul>
+                    <li>
+                      <span class="fr-extension-workspace-ui__root"><Icon name="ChevronDown" size={11} /><Icon name="FolderOpen" size={13} /><strong>{screen.root}</strong></span>
+                      <ul>
+                        {screen.files?.map((file, index) => (
+                          <li class:list={{ "is-active": index === 0 }}>
+                            <Icon name={file.endsWith("/") ? "Folder" : "ScanText"} size={12} />
+                            <span>{file.replace(/\/$/, "")}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  </ul>
+                </aside>
                 <div class="fr-extension-workspace-ui__board">
+                  <div class="fr-extension-workspace-ui__document">
+                    <span><Icon name="ScanText" size={13} /><strong>{screen.files?.[0]}</strong></span>
+                    <small><Icon name="Check" size={11} />{screen.status}</small>
+                  </div>
                   <div class="fr-extension-workspace-ui__progress"><i></i><i></i><i></i><i></i><i></i></div>
                   <ul>
                     {screen.items.map((item, index) => (
