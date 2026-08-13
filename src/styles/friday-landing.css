@@ -4345,24 +4345,28 @@
 .fr-home-extension-gallery__grid {
   position: relative;
   left: 50%;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 4.5rem;
   width: min(calc(100vw - 48px), 1120px);
   transform: translateX(-50%);
 }
 
 .fr-home-extension-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.72fr);
+  display: flex;
   gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
 }
 
 .fr-showcase-app.fr-extension-screen {
+  --fr-showcase-height: auto;
+  --fr-showcase-body-height: auto;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
   width: 100%;
-  height: 500px;
   min-width: 0;
+  aspect-ratio: 7 / 5;
   border-radius: 18px;
 }
 
@@ -4375,6 +4379,7 @@
 
 .fr-home-extension-row__copy {
   display: flex;
+  flex: 0 1 340px;
   align-items: flex-start;
   min-width: 0;
   flex-direction: column;
@@ -4441,8 +4446,18 @@
 }
 
 .fr-extension-screen .fr-showcase-app__bar {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
   min-height: 50px;
   padding-inline: 0.75rem;
+}
+
+.fr-extension-screen .fr-extension-screen__title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .fr-extension-screen .fr-showcase-app__bar .fr-window-dots i {
@@ -4456,15 +4471,16 @@
 }
 
 .fr-extension-screen__body {
-  height: calc(100% - 50px);
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
   gap: 0;
   background: #070708;
 }
 
 .fr-extension-screen__workspace {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr);
-  height: 100%;
+  display: flex;
+  flex: 1 1 auto;
   min-height: 0;
   overflow: hidden;
 }
@@ -4472,19 +4488,19 @@
 .fr-extension-workspace-ui,
 .fr-extension-design-ui,
 .fr-extension-coding-ui {
-  height: 100%;
+  flex: 1 1 auto;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
 }
 
 .fr-extension-workspace-ui {
-  display: grid;
-  grid-template-columns: minmax(135px, 30%) minmax(0, 1fr);
+  display: flex;
   background: #09090a;
 }
 
 .fr-extension-workspace-ui__tree {
+  flex: 0 0 30%;
   min-width: 0;
   overflow: hidden;
   padding: 0.45rem 0;
@@ -4502,8 +4518,7 @@
 
 .fr-extension-workspace-ui__tree li {
   position: relative;
-  display: grid;
-  grid-template-columns: 12px 14px minmax(0, 1fr);
+  display: flex;
   align-items: center;
   gap: 0.35rem;
   min-width: 0;
@@ -4524,7 +4539,6 @@
 }
 
 .fr-extension-workspace-ui__agent {
-  grid-template-columns: 12px 14px minmax(0, 1fr) auto !important;
   color: #d8d5da !important;
 }
 
@@ -4542,6 +4556,7 @@
   background: #29282b;
   color: #d8d5da;
   font-size: 0.43rem;
+  margin-left: auto;
 }
 
 .fr-extension-workspace-ui__tree li.is-open {
@@ -4572,10 +4587,10 @@
 }
 
 .fr-extension-workspace-ui__board {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
   min-width: 0;
-  height: 100%;
   padding: 0;
   background: #080809;
 }
@@ -4652,6 +4667,7 @@
 }
 
 .fr-extension-workspace-ui__content {
+  flex: 1 1 auto;
   min-height: 0;
   overflow: hidden;
   padding: 1.3rem 1.05rem;
@@ -4747,8 +4763,8 @@
 }
 
 .fr-extension-design-ui__canvas {
-  position: relative;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   min-height: 0;
   overflow: hidden;
   border: 0;
@@ -4847,9 +4863,9 @@
 }
 
 .fr-extension-coding-ui__editor {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  height: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
   overflow: hidden;
   border: 0;
   border-radius: 0;
@@ -4884,6 +4900,7 @@
 }
 
 .fr-extension-coding-ui__editor ol {
+  flex: 1 1 auto;
   margin: 0;
   padding: 0.75rem 0.6rem 0.45rem 2rem;
   color: #aaa8b0;
@@ -4915,28 +4932,24 @@
 
 @media (max-width: 900px) {
   .fr-home-extension-row {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 2rem;
   }
 
   .fr-showcase-app.fr-extension-screen {
+    flex-basis: auto;
     width: min(100%, 620px);
-    justify-self: center;
   }
 
   .fr-home-extension-row__copy {
+    flex-basis: auto;
     width: min(100%, 620px);
-    justify-self: center;
   }
 }
 
 @media (max-width: 680px) {
   .fr-home-extension-gallery {
     margin-top: 2.8rem;
-  }
-
-  .fr-showcase-app.fr-extension-screen {
-    height: 440px;
   }
 
   .fr-home-extension-gallery__grid {
@@ -5594,7 +5607,7 @@
 .fr-showcase-app {
   position: relative;
   overflow: hidden;
-  height: 595px;
+  height: var(--fr-showcase-height, 595px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 21px;
   background: #070708;
@@ -5652,7 +5665,7 @@
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   gap: 0.75rem;
-  height: calc(100% - 58px);
+  height: var(--fr-showcase-body-height, calc(100% - 58px));
   min-height: 0;
   padding: 0;
 }
