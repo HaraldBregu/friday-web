@@ -2,7 +2,7 @@
 
 This folder documents the pages and route endpoints in the Astro site. It is separate from `src/content/docs`, which contains public documentation rendered at `/docs`.
 
-For the product vision and core landing-page message, see [Friday: A Personal Desktop AI Assistant](project.md).
+For the product vision and core landing-page message, see [Friday: A Personal Desktop AI Assistant](project.md). For a reusable implementation brief based on that vision, see the [landing page prompt](prompt.md).
 
 The page notes were written from:
 
