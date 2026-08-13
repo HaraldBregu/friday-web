@@ -1,10 +1,9 @@
 ---
 import CTASection from "../components/CTASection.astro";
 import Icon from "../components/Icon.astro";
+import ProductPageHero from "../components/ProductPageHero.astro";
 import providers from "../data/providers.json";
-import Layout from "../layouts/Layout.astro";
-import "../styles/friday-landing.css";
-import "../styles/catalog-pages.css";
+import ProductPageLayout from "../layouts/ProductPageLayout.astro";
 
 const capabilityColors: Record<string, string> = {
   Assistant: "cap--blue",
@@ -56,41 +55,25 @@ const providerGroups = [
 ];
 ---
 
-<Layout
-  bodyClass="catalog-product-page"
+<ProductPageLayout
   description="Friday lets you bring your own AI provider keys and choose providers by capability."
-  footerVariant="landing"
-  headerVariant="landing"
-  hideBackgroundEffects
   image="/og/providers.png"
   title="AI Providers"
-  wide
 >
-  <section class="catalog-hero">
-    <div class="shell catalog-hero__inner">
-      <p class="catalog-eyebrow">AI Providers</p>
-      <h1>Bring your own <em>AI.</em></h1>
-      <p class="catalog-hero__lede">
-        Add your own API keys and choose the provider behind each capability. Mix models freely while credentials
-        stay in your local Friday settings.
-      </p>
-
-      <nav class="catalog-jump" aria-label="Provider categories">
-        {providerGroups.map((group) => (
-          <a href={`#${group.id}`}>
-            <Icon name={group.icon} size={15} />
-            {group.label}
-          </a>
-        ))}
-      </nav>
-
-      <div class="catalog-summary" aria-label="Provider catalog summary">
-        <div><strong>{providers.length}</strong><span>Available providers</span></div>
-        <div><strong>{allCapabilities.length}</strong><span>AI capabilities</span></div>
-        <div><strong>Local</strong><span>Credential storage</span></div>
-      </div>
-    </div>
-  </section>
+  <ProductPageHero
+    accent="AI."
+    description="Add your own API keys and choose the provider behind each capability. Mix models freely while credentials stay in your local Friday settings."
+    eyebrow="AI Providers"
+    jumpLabel="Provider categories"
+    jumps={providerGroups.map((group) => ({ href: `#${group.id}`, icon: group.icon, label: group.label }))}
+    stats={[
+      { value: providers.length, label: "Available providers" },
+      { value: allCapabilities.length, label: "AI capabilities" },
+      { value: "Local", label: "Credential storage" },
+    ]}
+    statsLabel="Provider catalog summary"
+    title="Bring your own AI."
+  />
 
   {providerGroups.map((group, groupIndex) => (
     <section class:list={["catalog-section", groupIndex % 2 === 1 && "is-tinted"]} id={group.id}>
@@ -142,4 +125,4 @@ const providerGroups = [
     title="One assistant. Your provider stack."
     description="Mix providers for quality, cost, and speed while keeping every provider key in local settings."
   />
-</Layout>
+</ProductPageLayout>

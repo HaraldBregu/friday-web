@@ -1,11 +1,9 @@
 ---
 import { getLocaleContent, normalizeLocale, type Locale } from "../i18n";
-import "../styles/friday-landing.css";
-import "../styles/catalog-pages.css";
 import CTASection from "./CTASection.astro";
-import Icon from "./Icon.astro";
 import IntegrationCard from "./IntegrationCard.astro";
-import Layout from "../layouts/Layout.astro";
+import ProductPageHero from "./ProductPageHero.astro";
+import ProductPageLayout from "../layouts/ProductPageLayout.astro";
 
 interface Props {
   locale?: Locale;
@@ -69,40 +67,27 @@ const labels = locale === "it"
     };
 ---
 
-<Layout
+<ProductPageLayout
   alternatePath="/integrations"
-  bodyClass="catalog-product-page"
   description={integrationsPage.description}
-  footerVariant="landing"
-  headerVariant="landing"
-  hideBackgroundEffects
   image="/og/integrations.png"
   locale={locale}
   title={integrationsPage.title}
-  wide
 >
-  <section class="catalog-hero">
-    <div class="shell catalog-hero__inner">
-      <p class="catalog-eyebrow">{integrationsPage.eyebrow}</p>
-      <h1>{labels.titleBefore}<em>{labels.titleAccent}</em></h1>
-      <p class="catalog-hero__lede">{integrationsPage.intro}</p>
-
-      <nav class="catalog-jump" aria-label={labels.navigation}>
-        {groupEntries.map(([category]) => (
-          <a href={`#${slugify(category)}`}>
-            <Icon name={categoryIcons[category] ?? "PlugZap"} size={15} />
-            {category}
-          </a>
-        ))}
-      </nav>
-
-      <div class="catalog-summary" aria-label={labels.catalog}>
-        <div><strong>{integrations.length}</strong><span>{labels.catalog}</span></div>
-        <div><strong>{groupEntries.length}</strong><span>{labels.categories}</span></div>
-        <div><strong>{locale === "it" ? "Locale" : "Local"}</strong><span>{labels.local}</span></div>
-      </div>
-    </div>
-  </section>
+  <ProductPageHero
+    accent={labels.titleAccent}
+    description={integrationsPage.intro}
+    eyebrow={integrationsPage.eyebrow}
+    jumpLabel={labels.navigation}
+    jumps={groupEntries.map(([category]) => ({ href: `#${slugify(category)}`, icon: categoryIcons[category] ?? "PlugZap", label: category }))}
+    stats={[
+      { value: integrations.length, label: labels.catalog },
+      { value: groupEntries.length, label: labels.categories },
+      { value: locale === "it" ? "Locale" : "Local", label: labels.local },
+    ]}
+    statsLabel={labels.catalog}
+    title={`${labels.titleBefore}${labels.titleAccent}`}
+  />
 
   {groupEntries.map(([category, items], groupIndex) => (
     <section class:list={["catalog-section", groupIndex % 2 === 1 && "is-tinted"]} id={slugify(category)}>
@@ -130,4 +115,4 @@ const labels = locale === "it"
     title={integrationsPage.ctaTitle}
     description={integrationsPage.ctaDescription}
   />
-</Layout>
+</ProductPageLayout>
