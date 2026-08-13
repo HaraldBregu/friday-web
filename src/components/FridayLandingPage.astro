@@ -1,7 +1,7 @@
 ---
 import FridayLandingNav from "./FridayLandingNav.astro";
+import HeroAppMockup from "./HeroAppMockup.astro";
 import Icon from "./Icon.astro";
-import ProductMockup from "./ProductMockup.astro";
 import landingEn from "../data/friday-landing.json";
 import landingIt from "../data/friday-landing-it.json";
 import { normalizeLocale, type Locale } from "../i18n";
@@ -47,12 +47,7 @@ const [heroTitleBefore, heroTitleAfter = ""] = home.hero.title.split(heroAccentP
       </p>
     </div>
 
-    <div class="fr-hero__visual">
-      <div class="fr-hero__glow" aria-hidden="true"></div>
-      <div class="fr-chat-preview">
-        <ProductMockup landingWorkflow locale={locale} />
-      </div>
-    </div>
+    <HeroAppMockup labels={home.hero.showcase} />
 
     <ul class="fr-home-signals" aria-label={home.hero.capabilitiesLabel}>
       {home.hero.capabilities.map((capability, index) => (

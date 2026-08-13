@@ -44,7 +44,7 @@ for (const [locale, html, title] of [
   assert(count(html, /class="fr-workflow-step__meta"/g) === 4, `${locale} renders the four request-to-result steps`);
   assert(count(html, /class="fr-extension-card fr-extension-card--/g) === 5, `${locale} renders five distinct extension examples`);
   assert(count(html, /class="fr-control-principles"/g) === 1 && count(html, /class="fr-control-principles"[\s\S]*?<\/ul>/g) === 1, `${locale} renders the user-control principles`);
-  assert(html.includes('class="product-window"') && html.includes('aria-label='), `${locale} renders the original accessible Friday application UI`);
+  assert(html.includes('class="fr-showcase-app"') && html.includes('class="fr-showcase-media"'), `${locale} renders the reference-inspired Friday application UI`);
   assert(html.includes('href="#workflow"'), `${locale} secondary hero action points to the workflow explanation`);
   assert(html.includes('href="https://github.com/HaraldBregu/friday/releases"'), `${locale} primary action uses the existing release destination`);
   assert(count(html, /class="theme-toggle" data-theme-toggle/g) === 1, `${locale} navigation renders one theme switch`);

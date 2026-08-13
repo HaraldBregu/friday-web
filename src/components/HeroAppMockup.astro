@@ -1,0 +1,79 @@
+---
+import Icon from "./Icon.astro";
+
+interface Labels {
+  windowLabel: string;
+  history: string;
+  profile: string;
+  request: string;
+  copy: string;
+  edit: string;
+  tool: string;
+  tokens: string;
+  assetAlt: string;
+  play: string;
+  duration: string;
+  volume: string;
+  fullscreen: string;
+  complete: string;
+  composer: string;
+  attach: string;
+  dictate: string;
+  voice: string;
+}
+
+interface Props {
+  labels: Labels;
+}
+
+const { labels } = Astro.props;
+---
+
+<figure class="fr-showcase" role="img" aria-label={labels.windowLabel}>
+  <div class="fr-showcase__glow" aria-hidden="true"></div>
+  <div class="fr-showcase-app" aria-hidden="true">
+    <header class="fr-showcase-app__bar">
+      <span class="fr-window-dots"><i></i><i></i><i></i></span>
+      <strong>Friday</strong>
+      <span class="fr-showcase-app__actions">
+        <i aria-label={labels.history}><Icon name="History" size={17} /></i>
+        <i aria-label={labels.profile}><Icon name="UserRound" size={17} /></i>
+      </span>
+    </header>
+
+    <div class="fr-showcase-app__body">
+      <div class="fr-showcase-request">
+        <p>{labels.request}</p>
+        <span>
+          <i aria-label={labels.copy}><Icon name="Copy" size={14} /></i>
+          <i aria-label={labels.edit}><Icon name="Pencil" size={14} /></i>
+        </span>
+      </div>
+
+      <div class="fr-showcase-tool">
+        <span><Icon name="Video" size={14} /><strong>{labels.tool}</strong><Icon name="Check" size={13} /></span>
+        <small>{labels.tokens}<Icon name="ChevronDown" size={13} /></small>
+      </div>
+
+      <figure class="fr-showcase-media">
+        <img src="/demo/image-1783269109315.jpeg" alt={labels.assetAlt} width="1280" height="720" loading="eager" decoding="async" />
+        <div class="fr-showcase-media__controls">
+          <span aria-label={labels.play}><Icon name="Play" size={18} /></span>
+          <i><b></b></i>
+          <time datetime="PT0S">0:00</time>
+          <span aria-label={labels.volume}><Icon name="Volume2" size={18} /></span>
+          <span aria-label={labels.fullscreen}><Icon name="Maximize" size={17} /></span>
+        </div>
+      </figure>
+
+      <p class="fr-showcase-complete">{labels.complete}</p>
+
+      <div class="fr-showcase-composer">
+        <span aria-label={labels.attach}><Icon name="Plus" size={18} /></span>
+        <p>{labels.composer}</p>
+        <span aria-label={labels.dictate}><Icon name="Mic" size={18} /></span>
+        <strong aria-label={labels.voice}><Icon name="AudioLines" size={19} /></strong>
+      </div>
+    </div>
+  </div>
+</figure>
