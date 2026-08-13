@@ -58,12 +58,6 @@ const { screens, labels, chromeLabels } = Astro.props;
 
             {screen.id === "workspace" && (
               <div class="fr-extension-workspace-ui">
-                <aside aria-hidden="true">
-                  <span class="is-active"><Icon name="Layers" size={14} /></span>
-                  <span><Icon name="CalendarDays" size={14} /></span>
-                  <span><Icon name="Users" size={14} /></span>
-                  <span><Icon name="FolderOpen" size={14} /></span>
-                </aside>
                 <div class="fr-extension-workspace-ui__board">
                   <div class="fr-extension-workspace-ui__progress"><i></i><i></i><i></i><i></i><i></i></div>
                   <ul>
@@ -94,14 +88,14 @@ const { screens, labels, chromeLabels } = Astro.props;
 
             {screen.id === "coding" && (
               <div class="fr-extension-coding-ui">
-                <aside>
-                  {screen.items.map((item, index) => (
-                    <span class:list={{ "is-active": index === screen.items.length - 1 }}>
-                      <Icon name={index === screen.items.length - 1 ? "ScanText" : "Folder"} size={12} />{item}
-                    </span>
-                  ))}
-                </aside>
                 <div class="fr-extension-coding-ui__editor" aria-label={screen.title}>
+                  <header>
+                    {screen.items.map((item, index) => (
+                      <span class:list={{ "is-active": index === screen.items.length - 1 }}>
+                        <Icon name={index === screen.items.length - 1 ? "ScanText" : "Folder"} size={11} />{item}
+                      </span>
+                    ))}
+                  </header>
                   <ol>
                     <li><span>const</span> friday = <em>createAssistant</em>();</li>
                     <li>friday.<em>use</em>(workspace);</li>
