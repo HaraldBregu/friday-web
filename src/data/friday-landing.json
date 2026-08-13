@@ -40,6 +40,11 @@
         "attach": "Add context",
         "dictate": "Dictate request",
         "voice": "Start voice conversation",
+        "audioPlay": "Play generated sound",
+        "audioPause": "Pause generated sound",
+        "audioSeek": "Seek generated sound",
+        "audioMute": "Mute generated sound",
+        "audioUnmute": "Unmute generated sound",
         "previousRequests": [
           {
             "type": "image",
@@ -52,9 +57,9 @@
           {
             "type": "sound",
             "request": "Now compose a short sound identity that feels curious and calm.",
-            "tool": "Created sound",
-            "result": "Friday opening theme",
-            "meta": "0:42"
+            "tool": "Create sound",
+            "result": "6.2s",
+            "meta": "124 tok"
           },
           {
             "type": "video",

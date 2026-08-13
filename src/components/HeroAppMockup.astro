@@ -24,6 +24,11 @@ interface Labels {
   attach: string;
   dictate: string;
   voice: string;
+  audioPlay: string;
+  audioPause: string;
+  audioSeek: string;
+  audioMute: string;
+  audioUnmute: string;
   previousRequests: Array<{
     type: "image" | "sound" | "video";
     request: string;
@@ -60,22 +65,49 @@ const { labels } = Astro.props;
           {labels.previousRequests.map((item) => (
             <article class={`fr-showcase-history__item is-${item.type}`}>
               <p>{item.request}</p>
-              <div>
-                <span class="fr-showcase-history__icon"><Icon name={item.type === "image" ? "Image" : item.type === "sound" ? "Music" : "Video"} size={14} /></span>
-                {item.type === "image" ? (
-                  <img src="/demo/image-1783437002924.jpeg" alt={item.assetAlt ?? ""} width="1280" height="720" loading="eager" decoding="async" />
-                ) : item.type === "sound" ? (
-                  <span class="fr-showcase-wave" aria-hidden="true">
-                    {[8, 15, 10, 22, 17, 27, 13, 21, 30, 16, 24, 11, 19, 8].map((height) => <i style={`--wave-height:${height}px`}></i>)}
-                  </span>
-                ) : (
-                  <video aria-label={item.assetAlt ?? ""} muted playsinline preload="auto">
-                    <source src={item.src} type="video/mp4" />
-                  </video>
-                )}
-                <span class="fr-showcase-history__copy"><small>{item.tool}</small><strong>{item.result}</strong></span>
-                <time>{item.meta}</time>
-              </div>
+              {item.type === "sound" ? (
+                <div
+                  class="fr-showcase-audio"
+                  data-showcase-audio
+                  data-mute-label={labels.audioMute}
+                  data-pause-label={labels.audioPause}
+                  data-play-label={labels.audioPlay}
+                  data-unmute-label={labels.audioUnmute}
+                >
+                  <audio preload="metadata" data-showcase-audio-media>
+                    <source src="/demo/video-1786619008446.mp4" type="video/mp4" />
+                  </audio>
+                  <header>
+                    <span><Icon name="AudioLines" size={14} /><strong>{item.tool}</strong><Icon name="Check" size={13} /><small>{item.result}</small></span>
+                    <small>{item.meta}<Icon name="ChevronDown" size={13} /></small>
+                  </header>
+                  <div class="fr-showcase-audio__controls">
+                    <button aria-label={labels.audioPlay} type="button" data-audio-play>
+                      <span class="fr-showcase-audio-play"><Icon name="Play" size={18} /></span>
+                      <span class="fr-showcase-audio-pause"><Icon name="Pause" size={18} /></span>
+                    </button>
+                    <input aria-label={labels.audioSeek} type="range" min="0" max="100" step="0.1" value="0" data-audio-progress />
+                    <time datetime="PT0S" data-audio-time>0:00</time>
+                    <button aria-label={labels.audioUnmute} type="button" data-audio-volume>
+                      <span class="fr-showcase-audio-volume"><Icon name="Volume2" size={18} /></span>
+                      <span class="fr-showcase-audio-muted"><Icon name="VolumeX" size={18} /></span>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <span class="fr-showcase-history__icon"><Icon name={item.type === "image" ? "Image" : "Video"} size={14} /></span>
+                  {item.type === "image" ? (
+                    <img src="/demo/image-1783437002924.jpeg" alt={item.assetAlt ?? ""} width="1280" height="720" loading="eager" decoding="async" />
+                  ) : (
+                    <video aria-label={item.assetAlt ?? ""} muted playsinline preload="auto">
+                      <source src={item.src} type="video/mp4" />
+                    </video>
+                  )}
+                  <span class="fr-showcase-history__copy"><small>{item.tool}</small><strong>{item.result}</strong></span>
+                  <time>{item.meta}</time>
+                </div>
+              )}
             </article>
           ))}
         </div>
@@ -137,9 +169,70 @@ const { labels } = Astro.props;
     document.querySelectorAll("[data-showcase-conversation]").forEach((conversation) => {
       const scrollToLatest = () => { conversation.scrollTop = conversation.scrollHeight; };
       requestAnimationFrame(scrollToLatest);
-      conversation.querySelectorAll("img, video").forEach((media) => {
-        media.addEventListener(media.tagName === "VIDEO" ? "loadedmetadata" : "load", scrollToLatest, { once: true });
+      conversation.querySelectorAll("img, video, audio").forEach((media) => {
+        media.addEventListener(media.tagName === "IMG" ? "load" : "loadedmetadata", scrollToLatest, { once: true });
       });
+    });
+
+    const formatShowcaseTime = (seconds) => {
+      const safeSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
+      const minutes = Math.floor(safeSeconds / 60);
+      return `${minutes}:${String(Math.floor(safeSeconds % 60)).padStart(2, "0")}`;
+    };
+
+    document.querySelectorAll("[data-showcase-audio]").forEach((player) => {
+      const audio = player.querySelector("[data-showcase-audio-media]");
+      const playButton = player.querySelector("[data-audio-play]");
+      const progress = player.querySelector("[data-audio-progress]");
+      const time = player.querySelector("[data-audio-time]");
+      const volumeButton = player.querySelector("[data-audio-volume]");
+      if (!audio || !playButton || !progress || !time || !volumeButton) return;
+
+      const updatePlayback = () => {
+        const percent = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+        progress.value = String(percent);
+        progress.style.setProperty("--audio-progress", `${percent}%`);
+        time.textContent = formatShowcaseTime(audio.currentTime);
+        time.dateTime = `PT${Math.floor(audio.currentTime)}S`;
+      };
+      const updatePlayState = () => {
+        const playing = !audio.paused && !audio.ended;
+        player.classList.toggle("is-playing", playing);
+        playButton.setAttribute("aria-label", playing ? player.dataset.pauseLabel : player.dataset.playLabel);
+      };
+      const updateVolumeState = () => {
+        const unmuted = !audio.muted && audio.volume > 0;
+        player.classList.toggle("is-unmuted", unmuted);
+        volumeButton.setAttribute("aria-label", unmuted ? player.dataset.muteLabel : player.dataset.unmuteLabel);
+      };
+
+      playButton.addEventListener("click", () => {
+        if (audio.paused) {
+          document.querySelectorAll("video, audio").forEach((media) => { if (media !== audio) media.pause(); });
+          audio.muted = false;
+          audio.volume = 1;
+          audio.play().catch(() => {});
+        } else {
+          audio.pause();
+        }
+        updateVolumeState();
+      });
+      progress.addEventListener("input", () => {
+        if (audio.duration) audio.currentTime = (Number(progress.value) / 100) * audio.duration;
+      });
+      volumeButton.addEventListener("click", () => {
+        audio.muted = !audio.muted;
+        if (!audio.muted) audio.volume = 1;
+        updateVolumeState();
+      });
+      audio.addEventListener("play", updatePlayState);
+      audio.addEventListener("pause", updatePlayState);
+      audio.addEventListener("ended", updatePlayState);
+      audio.addEventListener("timeupdate", updatePlayback);
+      audio.addEventListener("loadedmetadata", updatePlayback);
+      updatePlayState();
+      updateVolumeState();
+      updatePlayback();
     });
 
     document.querySelectorAll("[data-showcase-video]").forEach((player) => {
@@ -154,17 +247,11 @@ const { labels } = Astro.props;
       const fullscreenButton = player.querySelector("[data-showcase-fullscreen]");
       if (!video || !playButton || !progress || !time || !volumeButton || !fullscreenButton) return;
 
-      const formatTime = (seconds) => {
-        const safeSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
-        const minutes = Math.floor(safeSeconds / 60);
-        return `${minutes}:${String(Math.floor(safeSeconds % 60)).padStart(2, "0")}`;
-      };
-
       const updatePlayback = () => {
         const percent = video.duration ? (video.currentTime / video.duration) * 100 : 0;
         progress.value = String(percent);
         progress.style.setProperty("--showcase-progress", `${percent}%`);
-        time.textContent = formatTime(video.currentTime);
+        time.textContent = formatShowcaseTime(video.currentTime);
         time.dateTime = `PT${Math.floor(video.currentTime)}S`;
       };
 
@@ -182,6 +269,7 @@ const { labels } = Astro.props;
 
       playButton.addEventListener("click", () => {
         if (video.paused) {
+          document.querySelectorAll("video, audio").forEach((media) => { if (media !== video) media.pause(); });
           video.muted = false;
           video.volume = 1;
           updateVolumeState();

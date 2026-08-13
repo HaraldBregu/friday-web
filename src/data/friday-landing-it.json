@@ -40,6 +40,11 @@
         "attach": "Aggiungi contesto",
         "dictate": "Detta la richiesta",
         "voice": "Avvia una conversazione vocale",
+        "audioPlay": "Riproduci il suono generato",
+        "audioPause": "Metti in pausa il suono generato",
+        "audioSeek": "Scorri il suono generato",
+        "audioMute": "Disattiva il suono generato",
+        "audioUnmute": "Attiva il suono generato",
         "previousRequests": [
           {
             "type": "image",
@@ -52,9 +57,9 @@
           {
             "type": "sound",
             "request": "Ora componi una breve identità sonora, curiosa e calma.",
-            "tool": "Suono creato",
-            "result": "Tema di apertura Friday",
-            "meta": "0:42"
+            "tool": "Crea suono",
+            "result": "6,2s",
+            "meta": "124 tok"
           },
           {
             "type": "video",
