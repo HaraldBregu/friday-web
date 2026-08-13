@@ -71,12 +71,12 @@ const { screens, labels, chromeLabels } = Astro.props;
                 <aside class="fr-extension-workspace-ui__tree" aria-label={`${screen.title} files`}>
                   <ul>
                     <li class="fr-extension-workspace-ui__agent"><Icon name="ChevronRight" size={11} /><Icon name="Bot" size={13} /><strong>{screen.root}</strong><small>6</small></li>
-                    {screen.files?.map((file) => (
-                      <li class:list={{ "is-open": file === "flights/" }}>
-                        <Icon name={file === "flights/" ? "ChevronDown" : "ChevronRight"} size={11} />
-                        <Icon name={file === "flights/" ? "FolderOpen" : "Folder"} size={13} />
+                    {screen.files?.map((file, index) => (
+                      <li class:list={{ "is-open": index === 2 }}>
+                        <Icon name={index === 2 ? "ChevronDown" : "ChevronRight"} size={11} />
+                        <Icon name={index === 2 ? "FolderOpen" : "Folder"} size={13} />
                         <span>{file.replace(/\/$/, "")}</span>
-                        {file === "flights/" && (
+                        {index === 2 && (
                           <span class="fr-extension-workspace-ui__selected"><Icon name="ScanText" size={12} />{screen.document?.name}</span>
                         )}
                       </li>
