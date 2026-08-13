@@ -4747,8 +4747,6 @@
   display: grid;
   gap: 0.85rem;
   margin-bottom: 1.1rem;
-  padding-bottom: 1.1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .fr-showcase-history__item > p {
