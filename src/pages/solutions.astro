@@ -1,7 +1,8 @@
 ---
 import CTASection from "../components/CTASection.astro";
 import Icon from "../components/Icon.astro";
-import Layout from "../layouts/Layout.astro";
+import ProductPageHero from "../components/ProductPageHero.astro";
+import ProductPageLayout from "../layouts/ProductPageLayout.astro";
 
 const audiences = [
   {
@@ -45,96 +46,53 @@ const audiences = [
 ];
 ---
 
-<Layout
+<ProductPageLayout
   canonical="/solutions"
-  title="Solutions"
   description="Where Friday is headed for enterprise teams, education, and personal use, with one capability map per audience."
   image="/og/solutions.png"
+  title="Solutions"
 >
-  <section class="audience-hero">
-    <div class="shell audience-intro">
-      <p class="eyebrow">Solutions</p>
-      <h1>Built for how you <em>work.</em></h1>
-      <p class="lede">
-        The same desktop agent, mapped to three ways people use it. Every area below is product direction, designed
-        around useful automation and permissioned actions.
-      </p>
-      <nav class="audience-jump" aria-label="Jump to an audience">
-        {audiences.map((audience) => (
-          <a href={`#${audience.id}`}>
-            <Icon name={audience.icon} size={16} />
-            {audience.eyebrow}
-          </a>
-        ))}
-      </nav>
-    </div>
-  </section>
+  <ProductPageHero
+    accent="work."
+    description="The same desktop agent, mapped to three ways people use it. Each direction centers useful automation, shared context, and explicit human control."
+    eyebrow="Solutions"
+    jumpLabel="Jump to an audience"
+    jumps={audiences.map((audience) => ({ href: `#${audience.id}`, icon: audience.icon, label: audience.eyebrow }))}
+    stats={[
+      { value: audiences.length, label: "Audience paths" },
+      { value: audiences.reduce((total, audience) => total + audience.groups.length, 0), label: "Capability areas" },
+      { value: "Human", label: "Final control" },
+    ]}
+    statsLabel="Solutions summary"
+    title="Built for how you work."
+  />
 
-  {
-    audiences.map((audience) => (
-      <section class="section reference-section audience-capabilities" id={audience.id}>
-        <div class="shell">
-          <header class="audience-section-head">
-            <span class="audience-icon"><Icon name={audience.icon} size={22} /></span>
-            <span class="section-tag">Friday for {audience.eyebrow}</span>
+  {audiences.map((audience, audienceIndex) => (
+    <section class:list={["catalog-section", audienceIndex % 2 === 1 && "is-tinted"]} id={audience.id}>
+      <div class="shell">
+        <header class="catalog-section__head">
+          <div class="catalog-section__title">
+            <span class="catalog-section-tag">{String(audienceIndex + 1).padStart(2, "0")} / Friday for {audience.eyebrow}</span>
             <h2>{audience.title}</h2>
-            <p>{audience.description}</p>
-          </header>
-          <div class="audience-groups">
-            {audience.groups.map((group, index) => (
-              <article class="audience-group">
-                <div class="audience-group__top">
-                  <span>AREA {String(index + 1).padStart(2, "0")}</span>
-                  <Icon name={audience.icon} size={18} />
-                </div>
-                <h3>{group.title}</h3>
-                <ul>
-                  {group.items.map((item) => <li><Icon name="Check" size={16} />{item}</li>)}
-                </ul>
-              </article>
-            ))}
           </div>
+          <p class="catalog-section__aside">{audience.description}</p>
+        </header>
+        <div class="solution-product-grid">
+          {audience.groups.map((group, index) => (
+            <article class="solution-product-card">
+              <div><span>AREA {String(index + 1).padStart(2, "0")}</span><Icon name={audience.icon} size={18} /></div>
+              <h3>{group.title}</h3>
+              <ul>{group.items.map((item) => <li><Icon name="Check" size={15} />{item}</li>)}</ul>
+            </article>
+          ))}
         </div>
-      </section>
-    ))
-  }
+      </div>
+    </section>
+  ))}
 
   <CTASection
     eyebrow="Product direction"
     title="A roadmap built around useful coordination."
     description="Friday is designed to automate meaningful work while preserving clear permissions and human control."
   />
-</Layout>
-
-<style>
-  .audience-hero { padding: clamp(5rem, 11vw, 8rem) 0 clamp(2.5rem, 6vw, 4rem); }
-  .audience-intro { display: flex; flex-direction: column; align-items: center; max-width: 850px; text-align: center; }
-  .audience-intro h1 { max-width: 14ch; margin: 0 0 1.25rem; font-size: clamp(3.2rem, 8vw, 6.5rem); line-height: 0.96; letter-spacing: -0.05em; }
-  .audience-intro .lede { max-width: 60ch; margin: 0; }
-  .audience-jump { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2.25rem; }
-  .audience-jump a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.55rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--text); font-size: 0.9rem; text-decoration: none; }
-  .audience-jump a:hover { border-color: var(--accent); color: var(--accent); }
-  .audience-jump svg { color: var(--accent); }
-  .audience-capabilities { padding-top: 0; scroll-margin-top: 84px; }
-  .audience-section-head { display: flex; flex-direction: column; align-items: center; max-width: 680px; margin: 0 auto 3.5rem; padding-top: 3.5rem; text-align: center; }
-  .audience-icon { display: grid; width: 48px; height: 48px; place-items: center; margin-bottom: 1.1rem; border: 1px solid var(--line-strong); border-radius: 50%; background: var(--accent-soft); color: var(--accent); }
-  .audience-section-head h2 { margin: 0.75rem 0 0; font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.04em; line-height: 1.02; }
-  .audience-section-head p { max-width: 52ch; margin: 1.25rem 0 0; color: var(--muted); }
-  .audience-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
-  .audience-group { display: flex; flex-direction: column; min-height: 100%; padding-top: 1.25rem; }
-  .audience-group__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; color: var(--faint); font-family: var(--font-mono); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.06em; }
-  .audience-group__top svg { color: var(--accent); }
-  .audience-group h3 { margin: 0 0 1.2rem; font-size: 1.35rem; letter-spacing: -0.025em; }
-  .audience-group ul { display: grid; gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
-  .audience-group li { display: flex; align-items: flex-start; gap: 0.6rem; color: var(--text-soft); font-size: 0.94rem; line-height: 1.55; }
-  .audience-group li svg { flex: 0 0 auto; margin-top: 0.22rem; color: var(--accent); }
-  @media (max-width: 760px) {
-    .audience-hero { padding: 4.5rem 0 2rem; }
-    .audience-intro h1 { max-width: none; font-size: 2.4rem; line-height: 1.04; }
-    .audience-jump { gap: 0.5rem; margin-top: 1.75rem; }
-    .audience-jump a { min-height: 44px; padding: 0 0.9rem; }
-    .audience-section-head { padding-top: 2.5rem; }
-    .audience-section-head h2 { font-size: 1.9rem; }
-  }
-  @media (max-width: 620px) { .audience-groups { grid-template-columns: 1fr; gap: 2.25rem; } .audience-section-head { margin-bottom: 2.5rem; } }
-</style>
+</ProductPageLayout>
