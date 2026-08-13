@@ -5,6 +5,7 @@ interface ExtensionScreen {
   id: "workspace" | "design" | "coding";
   icon: string;
   title: string;
+  description: string;
   status: string;
   items: string[];
   root?: string;
@@ -48,11 +49,12 @@ const { screens, labels, chromeLabels } = Astro.props;
 <section class="fr-home-extension-gallery" aria-label={labels.windowLabel}>
   <div class="fr-home-extension-gallery__glow" aria-hidden="true"></div>
   <div class="fr-home-extension-gallery__grid">
-    {screens.map((screen) => (
-      <article
-        class={`fr-showcase-app fr-extension-screen is-${screen.id}`}
-        aria-label={`${screen.title} — ${labels.screenLabel}`}
-      >
+    {screens.map((screen, index) => (
+      <article class={`fr-home-extension-row is-${screen.id}`}>
+        <div
+          class={`fr-showcase-app fr-extension-screen is-${screen.id}`}
+          aria-label={`${screen.title} — ${labels.screenLabel}`}
+        >
         <header class="fr-showcase-app__bar">
           <span class="fr-window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <strong class="fr-extension-screen__title">{screen.title}</strong>
@@ -145,6 +147,15 @@ const { screens, labels, chromeLabels } = Astro.props;
               </div>
             )}
           </div>
+        </div>
+        </div>
+
+        <div class="fr-home-extension-row__copy">
+          <span class="fr-home-extension-row__icon"><Icon name={screen.icon} size={20} /></span>
+          <small>{String(index + 1).padStart(2, "0")} · {labels.screenLabel}</small>
+          <h3>{screen.title}</h3>
+          <p>{screen.description}</p>
+          <span class="fr-home-extension-row__status"><i></i>{screen.status}</span>
         </div>
       </article>
     ))}

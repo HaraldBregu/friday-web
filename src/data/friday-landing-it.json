@@ -151,6 +151,7 @@
           "id": "workspace",
           "icon": "Layers",
           "title": "Workspace",
+          "description": "Esplora i file di progetto in un albero familiare, apri Markdown strutturato e controlla risultati utili senza lasciare l’Estensione.",
           "status": "Salvato",
           "root": "Agent",
           "files": ["giornaliero/", "download/", "voli/", "investitori/", "libreria/", "note/", "personale/", "progetti/", "storie/"],
@@ -171,8 +172,8 @@
             "airline": "Wizz Air"
           }
         },
-        { "id": "design", "icon": "Shapes", "title": "Design", "status": "Modifiche salvate", "items": ["Visual principale", "Sistema del brand", "Prototipo"] },
-        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "status": "Test superati", "items": ["src", "components", "app.ts"] }
+        { "id": "design", "icon": "Shapes", "title": "Design", "description": "Sviluppa direzioni visive su una tela mirata con strumenti di disegno, livelli e risorse generate in un unico workspace.", "status": "Modifiche salvate", "items": ["Visual principale", "Sistema del brand", "Prototipo"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Lavora tra i file di progetto, esamina i dettagli dell’implementazione e segui il build in un ambiente di sviluppo compatto.", "status": "Test superati", "items": ["src", "components", "app.ts"] }
       ],
       "note": "Questi sono punti di partenza, non limiti. Friday è una base per il software di cui ogni persona ha bisogno.",
       "link": "Esplora le Estensioni"

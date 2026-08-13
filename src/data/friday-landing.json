@@ -151,6 +151,7 @@
           "id": "workspace",
           "icon": "Layers",
           "title": "Workspace",
+          "description": "Explore project files in a familiar tree, open structured Markdown, and review useful results without leaving the extension.",
           "status": "Saved",
           "root": "Agent",
           "files": ["daily/", "downloads/", "flights/", "investors/", "library/", "notes/", "personal/", "projects/", "stories/"],
@@ -171,8 +172,8 @@
             "airline": "Wizz Air"
           }
         },
-        { "id": "design", "icon": "Shapes", "title": "Design", "status": "Changes saved", "items": ["Hero artwork", "Brand system", "Prototype"] },
-        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "status": "Tests passing", "items": ["src", "components", "app.ts"] }
+        { "id": "design", "icon": "Shapes", "title": "Design", "description": "Develop visual directions on a focused canvas with drawing tools, layers, and generated assets available in one workspace.", "status": "Changes saved", "items": ["Hero artwork", "Brand system", "Prototype"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Work across project files, inspect implementation details, and follow build feedback in a compact development environment.", "status": "Tests passing", "items": ["src", "components", "app.ts"] }
       ],
       "note": "These are starting points, not limits. Friday is a foundation for the software each person needs.",
       "link": "Explore extensions"
