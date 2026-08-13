@@ -23,6 +23,8 @@
         "today": "Today",
         "conversations": "Conversations",
         "newConversation": "New conversation",
+        "conversationExamples": ["Weekly planning", "Client review", "Travel notes"],
+        "settings": "Settings",
         "assistantStatus": "Personal assistant · Ready",
         "request": "Plan the rest of my week, move anything flexible, and prepare me for Friday’s client review.",
         "response": "I’ll use your current priorities and connected calendar, then keep an eye on changes.",
@@ -95,7 +97,18 @@
         { "icon": "HeartHandshake", "title": "Personalize at your pace", "description": "Useful context should reduce repetition without taking control away from you." }
       ],
       "disclosureTitle": "Connected work can leave your device.",
-      "disclosure": "Friday stores core app data locally, but requested features may send prompts, attachments, source text, or tool data to the providers and services you configure."
+      "disclosure": "Friday stores core app data locally, but requested features may send prompts, attachments, source text, or tool data to the providers and services you configure.",
+      "panel": {
+        "title": "Access & permissions",
+        "setup": "Your setup",
+        "subtitle": "Permission-based access",
+        "items": [
+          { "icon": "FolderOpen", "label": "Files and folders", "status": "Ask every time" },
+          { "icon": "Cloud", "label": "Connected services", "status": "2 configured" },
+          { "icon": "TerminalSquare", "label": "Sensitive commands", "status": "Approval required" },
+          { "icon": "Eye", "label": "Tool activity", "status": "Visible in chat" }
+        ]
+      }
     },
     "cta": {
       "eyebrow": "Make Friday yours",

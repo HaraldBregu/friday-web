@@ -53,10 +53,8 @@ const extensionsHref = locale === "it" ? "/it/extensions" : "/extensions";
             <span class="fr-desktop-sidebar__brand"><Icon name="Sparkles" size={13} />{home.hero.demo.today}</span>
             <span class="is-active"><Icon name="MessageSquare" size={13} />{home.hero.demo.newConversation}</span>
             <small>{home.hero.demo.conversations}</small>
-            <span>Weekly planning</span>
-            <span>Client review</span>
-            <span>Travel notes</span>
-            <span class="fr-desktop-sidebar__settings"><Icon name="Wrench" size={13} />Settings</span>
+            {home.hero.demo.conversationExamples.map((conversation) => <span>{conversation}</span>)}
+            <span class="fr-desktop-sidebar__settings"><Icon name="Wrench" size={13} />{home.hero.demo.settings}</span>
           </aside>
 
           <div class="fr-assistant-thread">
@@ -221,16 +219,13 @@ const extensionsHref = locale === "it" ? "/it/extensions" : "/extensions";
     <aside class="fr-permission-panel" data-reveal>
       <div class="fr-permission-panel__bar">
         <span class="fr-window-dots"><i></i><i></i><i></i></span>
-        <strong>Access & permissions</strong>
+        <strong>{home.control.panel.title}</strong>
         <Icon name="LockKeyhole" size={14} />
       </div>
       <div class="fr-permission-panel__body">
-        <header><span><Icon name="ShieldCheck" size={19} /></span><div><strong>Your setup</strong><small>Permission-based access</small></div></header>
+        <header><span><Icon name="ShieldCheck" size={19} /></span><div><strong>{home.control.panel.setup}</strong><small>{home.control.panel.subtitle}</small></div></header>
         <ul>
-          <li><span><Icon name="FolderOpen" size={15} />Files and folders</span><small>Ask every time</small></li>
-          <li><span><Icon name="Cloud" size={15} />Connected services</span><small>2 configured</small></li>
-          <li><span><Icon name="TerminalSquare" size={15} />Sensitive commands</span><small>Approval required</small></li>
-          <li><span><Icon name="Eye" size={15} />Tool activity</span><small>Visible in chat</small></li>
+          {home.control.panel.items.map((item) => <li><span><Icon name={item.icon} size={15} />{item.label}</span><small>{item.status}</small></li>)}
         </ul>
         <div class="fr-permission-disclosure">
           <Icon name="Info" size={16} />

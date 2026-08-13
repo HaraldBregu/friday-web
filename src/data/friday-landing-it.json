@@ -23,8 +23,10 @@
         "today": "Oggi",
         "conversations": "Conversazioni",
         "newConversation": "Nuova conversazione",
+        "conversationExamples": ["Pianificazione settimanale", "Revisione cliente", "Note di viaggio"],
+        "settings": "Impostazioni",
         "assistantStatus": "Assistente personale · Pronto",
-        "request": "Organizza il resto della settimana, sposta ciò che è flessibile e prepararmi per la revisione con il cliente di venerdì.",
+        "request": "Organizza il resto della settimana, sposta ciò che è flessibile e preparami per la revisione con il cliente di venerdì.",
         "response": "Userò le tue priorità attuali e il calendario collegato, poi terrò d’occhio eventuali cambiamenti.",
         "activityLabel": "Avanzamento dell’attività di Friday",
         "activities": [
@@ -95,7 +97,18 @@
         { "icon": "HeartHandshake", "title": "Personalizza con i tuoi tempi", "description": "Il contesto utile dovrebbe ridurre la ripetizione senza toglierti il controllo." }
       ],
       "disclosureTitle": "Il lavoro connesso può lasciare il dispositivo.",
-      "disclosure": "Friday archivia localmente i dati principali dell’app, ma le funzionalità richieste possono inviare prompt, allegati, testo sorgente o dati degli strumenti ai provider e servizi che configuri."
+      "disclosure": "Friday archivia localmente i dati principali dell’app, ma le funzionalità richieste possono inviare prompt, allegati, testo sorgente o dati degli strumenti ai provider e servizi che configuri.",
+      "panel": {
+        "title": "Accessi e permessi",
+        "setup": "La tua configurazione",
+        "subtitle": "Accesso basato sui permessi",
+        "items": [
+          { "icon": "FolderOpen", "label": "File e cartelle", "status": "Chiedi ogni volta" },
+          { "icon": "Cloud", "label": "Servizi collegati", "status": "2 configurati" },
+          { "icon": "TerminalSquare", "label": "Comandi sensibili", "status": "Approvazione richiesta" },
+          { "icon": "Eye", "label": "Attività degli strumenti", "status": "Visibile nella chat" }
+        ]
+      }
     },
     "cta": {
       "eyebrow": "Rendi Friday tuo",
