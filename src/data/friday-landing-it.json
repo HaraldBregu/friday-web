@@ -141,23 +141,15 @@
       "eyebrow": "Più di un assistente",
       "title": "Un solo assistente. Tanti tipi di software.",
       "description": "Le Estensioni offrono a Friday strumenti, flussi e interfacce mirati, mantenendo la stessa esperienza di base. Inizia in modo generale, poi modella Friday intorno al lavoro che conta per te.",
-      "examplesLabel": "Aree di esempio per le Estensioni",
+      "examplesLabel": "Interfacce delle Estensioni per workspace, design e coding",
       "ui": {
-        "windowLabel": "L’app desktop Friday mostra le Estensioni installate",
-        "navigationLabel": "Estensioni Friday installate",
-        "installed": "Estensioni",
-        "selected": "Estensione selezionata",
-        "ready": "Pronta",
-        "status": "Disponibile in Friday",
-        "open": "Apri estensione",
-        "composer": "Chiedi a Friday di usare questa estensione…"
+        "windowLabel": "Tre interfacce delle Estensioni Friday",
+        "screenLabel": "Interfaccia Estensione Friday"
       },
-      "examples": [
-        { "icon": "Users", "title": "Management", "description": "Coordina progetti, organizza team, prepara report e segui il lavoro.", "accent": "violet" },
-        { "icon": "Shapes", "title": "Design", "description": "Supporta ricerca, esplorazione creativa, creazione di risorse e flussi di design.", "accent": "blue" },
-        { "icon": "Layers", "title": "Architettura", "description": "Sviluppa concetti, organizza le informazioni di progetto e supporta la documentazione tecnica.", "accent": "green" },
-        { "icon": "Play", "title": "Intrattenimento", "description": "Crea esperienze interattive, gestisci media e supporta giochi o progetti personali.", "accent": "magenta" },
-        { "icon": "Wrench", "title": "Lavoro specializzato", "description": "Collega strumenti, dati e processi ripetibili specifici del settore.", "accent": "yellow" }
+      "screens": [
+        { "id": "workspace", "icon": "Layers", "title": "Workspace", "status": "3 attività attive", "prompt": "Organizza questo progetto…", "items": ["Piano di lancio", "Ricerca clienti", "Revisione settimanale"] },
+        { "id": "design", "icon": "Shapes", "title": "Design", "status": "Modifiche salvate", "prompt": "Migliora questo design…", "items": ["Visual principale", "Sistema del brand", "Prototipo"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "status": "Test superati", "prompt": "Chiedi informazioni sul codice…", "items": ["src", "components", "app.ts"] }
       ],
       "note": "Questi sono punti di partenza, non limiti. Friday è una base per il software di cui ogni persona ha bisogno.",
       "link": "Esplora le Estensioni"

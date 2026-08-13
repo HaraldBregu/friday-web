@@ -50,7 +50,7 @@ for (const [locale, html, title] of [
   assert(["product", "personal", "workflow", "extensions", "control"].every((id) => html.includes(`id="${id}"`)), `${locale} renders the complete homepage narrative`);
   assert(count(html, /class="fr-personal-card__top"/g) === 6, `${locale} renders all six personal assistant capabilities`);
   assert(count(html, /class="fr-workflow-step__meta"/g) === 4, `${locale} renders the four request-to-result steps`);
-  assert(count(html, /data-home-extension-tab=/g) === 5, `${locale} renders five distinct extension examples inside the Friday app UI`);
+  assert(count(html, /class="fr-showcase-app fr-extension-screen is-/g) === 3, `${locale} renders Workspace, Design, and Coding as distinct Friday app screens`);
   assert(count(html, /class="fr-control-principles"/g) === 1 && count(html, /class="fr-control-principles"[\s\S]*?<\/ul>/g) === 1, `${locale} renders the user-control principles`);
   assert(html.includes('class="fr-showcase-app"') && html.includes('class="fr-showcase-media"'), `${locale} renders the reference-inspired Friday application UI`);
   assert(count(html, /class="fr-showcase-history__item is-/g) === 4, `${locale} hero app includes earlier image, sound, and video requests`);
@@ -76,7 +76,7 @@ assert(landingCss.includes('[data-theme="light"] .friday-landing-page'), "landin
 assert(/@media \(max-width: 900px\)[\s\S]*?\.fr-home-hero__layout,[\s\S]*?\.fr-control-grid \{\s*grid-template-columns: 1fr;/.test(landingCss), "hero and control layouts collapse at tablet width");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-personal-grid \{\s*grid-template-columns: 1fr;/.test(landingCss), "personal capabilities collapse to one column on mobile");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-workflow-steps \{\s*grid-template-columns: 1fr;/.test(landingCss), "workflow becomes linear on mobile");
-assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-home-extension-app__workspace \{[\s\S]*?grid-template-columns: 1fr;/.test(landingCss), "extension app collapses to a single-column workspace on mobile");
+assert(/@media \(max-width: 900px\)[\s\S]*?\.fr-home-extension-gallery__grid \{\s*grid-template-columns: 1fr;/.test(landingCss), "extension screens stack into one column on tablets and mobile");
 assert(/@media \(max-width: 380px\)[\s\S]*?\.fr-home-signals \{\s*grid-template-columns: 1fr;/.test(landingCss), "hero capability strip stays readable on narrow screens");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.provider-grid,\s*\.integration-grid,[\s\S]*?\.blog-product-grid \{\s*grid-template-columns: 1fr;/.test(catalogCss), "product-page grids collapse to one column on mobile");
 assert(/@media \(max-width: 820px\)[\s\S]*?\.docs-product-page \.docs-reader \{\s*grid-template-columns: 1fr;/.test(docsCss), "the docs reader collapses on tablets");

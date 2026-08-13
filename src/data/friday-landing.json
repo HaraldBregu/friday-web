@@ -141,23 +141,15 @@
       "eyebrow": "More than an assistant",
       "title": "One assistant. Many kinds of software.",
       "description": "Extensions give Friday focused tools, workflows, and interfaces while keeping the same core assistant experience. Start general, then shape Friday around the work that matters to you.",
-      "examplesLabel": "Example extension areas",
+      "examplesLabel": "Workspace, design, and coding extension interfaces",
       "ui": {
-        "windowLabel": "Friday desktop app showing installed extensions",
-        "navigationLabel": "Installed Friday extensions",
-        "installed": "Extensions",
-        "selected": "Selected extension",
-        "ready": "Ready",
-        "status": "Available in Friday",
-        "open": "Open extension",
-        "composer": "Ask Friday to use this extension…"
+        "windowLabel": "Three Friday extension interfaces",
+        "screenLabel": "Friday extension interface"
       },
-      "examples": [
-        { "icon": "Users", "title": "Management", "description": "Coordinate projects, organize teams, prepare reports, and follow up on work.", "accent": "violet" },
-        { "icon": "Shapes", "title": "Design", "description": "Support research, creative exploration, asset creation, and design workflows.", "accent": "blue" },
-        { "icon": "Layers", "title": "Architecture", "description": "Develop concepts, organize project information, and assist with technical documentation.", "accent": "green" },
-        { "icon": "Play", "title": "Entertainment", "description": "Create interactive experiences, manage media, and support games or personal projects.", "accent": "magenta" },
-        { "icon": "Wrench", "title": "Specialized work", "description": "Connect industry-specific tools, data, and repeatable processes.", "accent": "yellow" }
+      "screens": [
+        { "id": "workspace", "icon": "Layers", "title": "Workspace", "status": "3 tasks active", "prompt": "Organize this project…", "items": ["Launch plan", "Customer research", "Weekly review"] },
+        { "id": "design", "icon": "Shapes", "title": "Design", "status": "Changes saved", "prompt": "Refine this design…", "items": ["Hero artwork", "Brand system", "Prototype"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "status": "Tests passing", "prompt": "Ask about this code…", "items": ["src", "components", "app.ts"] }
       ],
       "note": "These are starting points, not limits. Friday is a foundation for the software each person needs.",
       "link": "Explore extensions"

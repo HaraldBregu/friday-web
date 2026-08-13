@@ -1,136 +1,128 @@
 ---
 import Icon from "./Icon.astro";
 
-interface ExtensionExample {
+interface ExtensionScreen {
+  id: "workspace" | "design" | "coding";
   icon: string;
   title: string;
-  description: string;
-  accent: string;
+  status: string;
+  prompt: string;
+  items: string[];
 }
 
 interface Labels {
   windowLabel: string;
-  navigationLabel: string;
-  installed: string;
-  selected: string;
-  ready: string;
-  status: string;
-  open: string;
-  composer: string;
+  screenLabel: string;
 }
 
 interface ChromeLabels {
   history: string;
   profile: string;
   attach: string;
-  dictate: string;
   voice: string;
 }
 
 interface Props {
-  examples: ExtensionExample[];
+  screens: ExtensionScreen[];
   labels: Labels;
   chromeLabels: ChromeLabels;
 }
 
-const { examples, labels, chromeLabels } = Astro.props;
+const { screens, labels, chromeLabels } = Astro.props;
 ---
 
-<section class="fr-home-extension-app" aria-label={labels.windowLabel} data-home-extension-app>
-  <div class="fr-home-extension-app__glow" aria-hidden="true"></div>
-  <div class="fr-showcase-app fr-home-extension-app__window">
-    <header class="fr-showcase-app__bar">
-      <span class="fr-window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-      <strong>Friday</strong>
-      <span class="fr-showcase-app__actions">
-        <i aria-label={chromeLabels.history}><Icon name="History" size={17} /></i>
-        <i aria-label={chromeLabels.profile}><Icon name="UserRound" size={17} /></i>
-      </span>
-    </header>
+<section class="fr-home-extension-gallery" aria-label={labels.windowLabel}>
+  <div class="fr-home-extension-gallery__glow" aria-hidden="true"></div>
+  <div class="fr-home-extension-gallery__grid">
+    {screens.map((screen) => (
+      <article
+        class={`fr-showcase-app fr-extension-screen is-${screen.id}`}
+        aria-label={`${screen.title} — ${labels.screenLabel}`}
+      >
+        <header class="fr-showcase-app__bar">
+          <span class="fr-window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <strong>Friday</strong>
+          <span class="fr-showcase-app__actions">
+            <i aria-label={chromeLabels.history}><Icon name="History" size={15} /></i>
+            <i aria-label={chromeLabels.profile}><Icon name="UserRound" size={15} /></i>
+          </span>
+        </header>
 
-    <div class="fr-showcase-app__body fr-home-extension-app__body">
-      <div class="fr-home-extension-app__workspace">
-        <nav class="fr-home-extension-app__nav" aria-label={labels.navigationLabel}>
-          <header>
-            <span><Icon name="Shapes" size={15} />{labels.installed}</span>
-            <small>{String(examples.length).padStart(2, "0")}</small>
-          </header>
-          <div class="fr-home-extension-app__tabs">
-            {examples.map((example, index) => (
-              <button
-                aria-controls={`home-extension-panel-${index}`}
-                aria-pressed={index === 0 ? "true" : "false"}
-                class={`is-${example.accent}`}
-                data-home-extension-tab={index}
-                type="button"
-              >
-                <span><Icon name={example.icon} size={16} /></span>
-                <strong>{example.title}</strong>
-                <Icon name="ChevronRight" size={13} />
-              </button>
-            ))}
-          </div>
-        </nav>
+        <div class="fr-showcase-app__body fr-extension-screen__body">
+          <div class="fr-extension-screen__workspace">
+            <header class="fr-extension-screen__head">
+              <span><Icon name={screen.icon} size={17} /></span>
+              <div><strong>{screen.title}</strong><small>{screen.status}</small></div>
+              <Icon name="ChevronDown" size={14} />
+            </header>
 
-        <main class="fr-home-extension-app__main">
-          {examples.map((example, index) => (
-            <article
-              class={`fr-home-extension-panel is-${example.accent}`}
-              data-home-extension-panel={index}
-              hidden={index !== 0}
-              id={`home-extension-panel-${index}`}
-            >
-              <header class="fr-home-extension-panel__head">
-                <span class="fr-home-extension-panel__icon"><Icon name={example.icon} size={23} /></span>
-                <div>
-                  <small>{labels.selected}</small>
-                  <h3>{example.title}</h3>
+            {screen.id === "workspace" && (
+              <div class="fr-extension-workspace-ui">
+                <aside aria-hidden="true">
+                  <span class="is-active"><Icon name="Layers" size={14} /></span>
+                  <span><Icon name="CalendarDays" size={14} /></span>
+                  <span><Icon name="Users" size={14} /></span>
+                  <span><Icon name="FolderOpen" size={14} /></span>
+                </aside>
+                <div class="fr-extension-workspace-ui__board">
+                  <div class="fr-extension-workspace-ui__progress"><i></i><i></i><i></i><i></i><i></i></div>
+                  <ul>
+                    {screen.items.map((item, index) => (
+                      <li><span class:list={{ "is-complete": index < 2 }}><Icon name={index < 2 ? "Check" : "Clock"} size={12} /></span><strong>{item}</strong><small>0{index + 1}</small></li>
+                    ))}
+                  </ul>
                 </div>
-                <span class="fr-home-extension-panel__status"><i></i>{labels.ready}</span>
-              </header>
-
-              <div class="fr-home-extension-panel__conversation">
-                <div class="fr-home-extension-panel__assistant">
-                  <img src="/icon-rounded.png" width="27" height="27" alt="" />
-                  <p>{example.description}</p>
-                </div>
-                <div class="fr-home-extension-panel__tool">
-                  <span><Icon name="Sparkles" size={15} /><strong>{example.title}</strong></span>
-                  <small><Icon name="Check" size={13} />{labels.status}</small>
-                </div>
-                <span class="fr-home-extension-panel__open">
-                  {labels.open}
-                  <Icon name="ArrowRight" size={15} />
-                </span>
               </div>
-            </article>
-          ))}
-        </main>
-      </div>
+            )}
 
-      <div class="fr-showcase-composer fr-home-extension-app__composer">
-        <span aria-label={chromeLabels.attach}><Icon name="Plus" size={18} /></span>
-        <p>{labels.composer}</p>
-        <span aria-label={chromeLabels.dictate}><Icon name="Mic" size={18} /></span>
-        <strong aria-label={chromeLabels.voice}><Icon name="AudioLines" size={19} /></strong>
-      </div>
-    </div>
+            {screen.id === "design" && (
+              <div class="fr-extension-design-ui">
+                <div class="fr-extension-design-ui__tools" aria-hidden="true">
+                  <span class="is-active"><Icon name="MousePointer2" size={13} /></span>
+                  <span><Icon name="Square" size={13} /></span>
+                  <span><Icon name="Type" size={13} /></span>
+                  <span><Icon name="Pencil" size={13} /></span>
+                </div>
+                <div class="fr-extension-design-ui__canvas">
+                  <div class="fr-extension-design-ui__art" aria-hidden="true"><i></i><i></i><i></i><strong>FRIDAY</strong></div>
+                  <div class="fr-extension-design-ui__layers">
+                    {screen.items.map((item, index) => <span class:list={{ "is-active": index === 0 }}><i></i>{item}</span>)}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {screen.id === "coding" && (
+              <div class="fr-extension-coding-ui">
+                <aside>
+                  {screen.items.map((item, index) => (
+                    <span class:list={{ "is-active": index === screen.items.length - 1 }}>
+                      <Icon name={index === screen.items.length - 1 ? "ScanText" : "Folder"} size={12} />{item}
+                    </span>
+                  ))}
+                </aside>
+                <div class="fr-extension-coding-ui__editor" aria-label={screen.title}>
+                  <ol>
+                    <li><span>const</span> friday = <em>createAssistant</em>();</li>
+                    <li>friday.<em>use</em>(workspace);</li>
+                    <li>friday.<em>run</em>({`{`}</li>
+                    <li>&nbsp;&nbsp;mode: <q>"focused"</q>,</li>
+                    <li>&nbsp;&nbsp;tools: <q>"enabled"</q></li>
+                    <li>{`}`});</li>
+                  </ol>
+                  <footer><Icon name="TerminalSquare" size={12} /><span>✓ build complete</span></footer>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div class="fr-showcase-composer fr-extension-screen__composer">
+            <span aria-label={chromeLabels.attach}><Icon name="Plus" size={15} /></span>
+            <p>{screen.prompt}</p>
+            <strong aria-label={chromeLabels.voice}><Icon name="AudioLines" size={16} /></strong>
+          </div>
+        </div>
+      </article>
+    ))}
   </div>
 </section>
-
-<script>
-  document.querySelectorAll("[data-home-extension-app]").forEach((root) => {
-    const tabs = Array.from(root.querySelectorAll("[data-home-extension-tab]"));
-    const panels = Array.from(root.querySelectorAll("[data-home-extension-panel]"));
-
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const selected = tab.getAttribute("data-home-extension-tab");
-        tabs.forEach((item) => item.setAttribute("aria-pressed", String(item === tab)));
-        panels.forEach((panel) => {
-          panel.toggleAttribute("hidden", panel.getAttribute("data-home-extension-panel") !== selected);
-        });
-      });
-    });
-  });
-</script>
