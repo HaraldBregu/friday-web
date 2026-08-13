@@ -1,6 +1,7 @@
 ---
 import FridayLandingNav from "./FridayLandingNav.astro";
 import HeroAppMockup from "./HeroAppMockup.astro";
+import HomeExtensionsApp from "./HomeExtensionsApp.astro";
 import Icon from "./Icon.astro";
 import landingEn from "../data/friday-landing.json";
 import landingIt from "../data/friday-landing-it.json";
@@ -131,22 +132,13 @@ const [heroTitleBefore, heroTitleAfter = ""] = home.hero.title.split(heroAccentP
       <p>{home.extensions.description}</p>
     </header>
 
-    <ul class="fr-extension-cards" aria-label={home.extensions.examplesLabel} data-reveal>
-      {home.extensions.examples.map((example, index) => (
-        <li class={`fr-extension-card fr-extension-card--${example.accent}`}>
-          <div class="fr-extension-card__window">
-            <span class="fr-window-dots"><i></i><i></i><i></i></span>
-            <small>Friday Extension</small>
-          </div>
-          <div class="fr-extension-card__body">
-            <span><Icon name={example.icon} size={19} /></span>
-            <small>{String(index + 1).padStart(2, "0")}</small>
-            <h3>{example.title}</h3>
-            <p>{example.description}</p>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <div data-reveal>
+      <HomeExtensionsApp
+        examples={home.extensions.examples}
+        labels={home.extensions.ui}
+        chromeLabels={home.hero.showcase}
+      />
+    </div>
 
     <footer class="fr-extension-footer" data-reveal>
       <p>{home.extensions.note}</p>

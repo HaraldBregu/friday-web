@@ -142,6 +142,16 @@
       "title": "One assistant. Many kinds of software.",
       "description": "Extensions give Friday focused tools, workflows, and interfaces while keeping the same core assistant experience. Start general, then shape Friday around the work that matters to you.",
       "examplesLabel": "Example extension areas",
+      "ui": {
+        "windowLabel": "Friday desktop app showing installed extensions",
+        "navigationLabel": "Installed Friday extensions",
+        "installed": "Extensions",
+        "selected": "Selected extension",
+        "ready": "Ready",
+        "status": "Available in Friday",
+        "open": "Open extension",
+        "composer": "Ask Friday to use this extension…"
+      },
       "examples": [
         { "icon": "Users", "title": "Management", "description": "Coordinate projects, organize teams, prepare reports, and follow up on work.", "accent": "violet" },
         { "icon": "Shapes", "title": "Design", "description": "Support research, creative exploration, asset creation, and design workflows.", "accent": "blue" },
