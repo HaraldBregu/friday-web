@@ -122,20 +122,20 @@
       ]
     },
     "workflow": {
-      "eyebrow": "From request to result",
-      "title": "Ask once. Stay in control.",
-      "description": "Friday is designed to act on a request, not only answer it. You can follow the work as it happens, let suitable tasks continue in the background, and step in when an approval matters.",
-      "stepsLabel": "How Friday completes a task",
+      "eyebrow": "Just ask Friday",
+      "title": "Tell Friday what you need.",
+      "description": "Start with a simple request. Friday brings together the right context and tools, keeps you informed, and checks with you before taking an action that needs your approval.",
+      "stepsLabel": "How Friday helps you get things done",
       "steps": [
-        { "number": "01", "icon": "MessageSquare", "title": "Ask naturally", "description": "Describe the outcome you want in your own words." },
-        { "number": "02", "icon": "Layers", "title": "Bring in context", "description": "Friday uses relevant preferences, tools, files, and connected services." },
-        { "number": "03", "icon": "Clock", "title": "Let the work continue", "description": "Appropriate tasks can keep moving in the background or on a schedule." },
-        { "number": "04", "icon": "CheckCircle2", "title": "Get a result", "description": "Friday returns completed work or asks before a sensitive action." }
+        { "number": "01", "icon": "MessageSquare", "title": "Say what you need", "description": "Describe what you want in your own words—no special commands required." },
+        { "number": "02", "icon": "Layers", "title": "Friday gathers what helps", "description": "It uses the preferences, files, tools, and services you have chosen to share." },
+        { "number": "03", "icon": "Clock", "title": "Let Friday handle the steps", "description": "It works through the task and can keep suitable work moving in the background." },
+        { "number": "04", "icon": "CheckCircle2", "title": "Get finished work", "description": "Friday returns a useful result and asks you before anything needs your approval." }
       ],
-      "approvalLabel": "You stay in the loop",
-      "approvalTitle": "Approval requested",
-      "approvalDescription": "Friday pauses before an action that needs your decision.",
-      "approvalActions": ["Review details", "Approve when ready"]
+      "approvalLabel": "You make the final call",
+      "approvalTitle": "Friday needs your approval",
+      "approvalDescription": "It pauses and asks before taking an action that needs your decision.",
+      "approvalActions": ["See what will happen", "Approve when ready"]
     },
     "extensions": {
       "eyebrow": "More than an assistant",
