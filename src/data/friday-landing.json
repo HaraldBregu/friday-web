@@ -45,6 +45,8 @@
         "audioSeek": "Seek generated sound",
         "audioMute": "Mute generated sound",
         "audioUnmute": "Unmute generated sound",
+        "openingAssistant": "Good morning. What would you like to create today?",
+        "openingUser": "Let’s turn the launch into a visual story, then give it sound and motion.",
         "previousRequests": [
           {
             "type": "image",

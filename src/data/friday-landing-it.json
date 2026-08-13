@@ -45,6 +45,8 @@
         "audioSeek": "Scorri il suono generato",
         "audioMute": "Disattiva il suono generato",
         "audioUnmute": "Attiva il suono generato",
+        "openingAssistant": "Buongiorno. Cosa vuoi creare oggi?",
+        "openingUser": "Trasformiamo il lancio in una storia visiva, poi diamogli suono e movimento.",
         "previousRequests": [
           {
             "type": "image",

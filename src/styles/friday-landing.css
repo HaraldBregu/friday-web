@@ -4749,6 +4749,46 @@
   margin-bottom: 1.1rem;
 }
 
+.fr-showcase-opening {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 0.25rem;
+}
+
+.fr-showcase-opening__assistant {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  max-width: 82%;
+}
+
+.fr-showcase-opening__assistant img {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  border-radius: 6px;
+}
+
+.fr-showcase-opening__assistant p {
+  margin: 0;
+  padding-top: 0.18rem;
+  color: #d0cdd3;
+  font-size: 0.61rem;
+  line-height: 1.5;
+}
+
+.fr-showcase-opening__user {
+  width: 76%;
+  margin: 0 0 0 auto;
+  padding: 0.62rem 0.72rem;
+  border-radius: 13px 13px 3px 13px;
+  background: #e7e7e8;
+  color: #252529;
+  font-size: 0.6rem;
+  font-weight: 570;
+  line-height: 1.45;
+}
+
 .fr-showcase-history__item > p {
   width: 75%;
   margin: 0 0 0.42rem auto;

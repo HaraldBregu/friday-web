@@ -29,6 +29,8 @@ interface Labels {
   audioSeek: string;
   audioMute: string;
   audioUnmute: string;
+  openingAssistant: string;
+  openingUser: string;
   previousRequests: Array<{
     type: "image" | "sound" | "video";
     request: string;
@@ -62,6 +64,13 @@ const { labels } = Astro.props;
     <div class="fr-showcase-app__body">
       <div class="fr-showcase-conversation" data-showcase-conversation>
         <div class="fr-showcase-history">
+          <div class="fr-showcase-opening">
+            <div class="fr-showcase-opening__assistant">
+              <img src="/icon-rounded.png" alt="" width="22" height="22" />
+              <p>{labels.openingAssistant}</p>
+            </div>
+            <p class="fr-showcase-opening__user">{labels.openingUser}</p>
+          </div>
           {labels.previousRequests.map((item) => (
             <article class={`fr-showcase-history__item is-${item.type}`}>
               <p>{item.request}</p>
