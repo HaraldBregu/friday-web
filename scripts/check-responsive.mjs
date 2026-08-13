@@ -61,7 +61,7 @@ for (const [locale, html, title] of [
   assert(html.includes('href="#workflow"'), `${locale} secondary hero action points to the workflow explanation`);
   assert(html.includes('href="https://github.com/HaraldBregu/friday/releases"'), `${locale} primary action uses the existing release destination`);
   assert(count(html, /class="theme-toggle" data-theme-toggle/g) === 1, `${locale} navigation renders one theme switch`);
-  assert(count(html, /class="fr-nav__group fr-nav-dropdown"/g) === 1, `${locale} uses one compact desktop navigation group`);
+  assert(count(html, /class="fr-nav__group fr-nav-dropdown"/g) === 2, `${locale} uses compact Product and Explore navigation groups`);
   assert(count(html, /class="fr-nav__direct"/g) === 2, `${locale} keeps Extensions and Docs directly discoverable`);
 }
 

@@ -101,7 +101,7 @@ const docsItem = navigation.find((item) => item.href === "/docs");
         <div class="fr-mobile-menu__panel">
           {navigationGroups.map((group) => (
             <details class="fr-mobile-menu__group">
-              <summary>
+              <summary class:list={{ "is-current": group.current }}>
                 {group.label}
                 <Icon name="ChevronDown" size={16} />
               </summary>
