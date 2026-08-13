@@ -110,11 +110,13 @@ const { screens, labels, chromeLabels } = Astro.props;
             )}
           </div>
 
-          <div class="fr-showcase-composer fr-extension-screen__composer">
-            <span aria-label={chromeLabels.attach}><Icon name="Plus" size={15} /></span>
-            <p>{screen.prompt}</p>
-            <strong aria-label={chromeLabels.voice}><Icon name="AudioLines" size={16} /></strong>
-          </div>
+          {screen.id !== "coding" && (
+            <div class="fr-showcase-composer fr-extension-screen__composer">
+              <span aria-label={chromeLabels.attach}><Icon name="Plus" size={15} /></span>
+              <p>{screen.prompt}</p>
+              <strong aria-label={chromeLabels.voice}><Icon name="AudioLines" size={16} /></strong>
+            </div>
+          )}
         </div>
       </article>
     ))}
