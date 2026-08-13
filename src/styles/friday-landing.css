@@ -4773,7 +4773,7 @@
   margin: 0;
   padding-top: 0.18rem;
   color: #d0cdd3;
-  font-size: 0.69rem;
+  font-size: 0.78rem;
   line-height: 1.5;
 }
 
@@ -4784,7 +4784,7 @@
   border-radius: 13px 13px 3px 13px;
   background: #e7e7e8;
   color: #252529;
-  font-size: 0.67rem;
+  font-size: 0.76rem;
   font-weight: 570;
   line-height: 1.45;
 }
@@ -4796,7 +4796,7 @@
   border-radius: 13px 13px 3px 13px;
   background: #e7e7e8;
   color: #252529;
-  font-size: 0.67rem;
+  font-size: 0.76rem;
   font-weight: 570;
   line-height: 1.45;
 }
@@ -4995,7 +4995,7 @@
   border-radius: 16px 16px 3px 16px;
   background: #e7e7e8;
   color: #202024;
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   font-weight: 570;
   line-height: 1.52;
 }
@@ -5158,7 +5158,7 @@
 .fr-showcase-complete {
   margin: 0.75rem 0 0;
   color: #f1f0f2;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 570;
 }
 
@@ -5249,7 +5249,7 @@
   }
 
   .fr-showcase-request > p {
-    font-size: 0.72rem;
+    font-size: 0.8rem;
   }
 
   .fr-showcase-media > video {
