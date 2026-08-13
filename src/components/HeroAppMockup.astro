@@ -12,8 +12,12 @@ interface Labels {
   tokens: string;
   assetAlt: string;
   play: string;
+  pause: string;
+  seek: string;
   duration: string;
   volume: string;
+  mute: string;
+  unmute: string;
   fullscreen: string;
   complete: string;
   composer: string;
@@ -37,9 +41,9 @@ interface Props {
 const { labels } = Astro.props;
 ---
 
-<figure class="fr-showcase" role="img" aria-label={labels.windowLabel}>
+<section class="fr-showcase" aria-label={labels.windowLabel}>
   <div class="fr-showcase__glow" aria-hidden="true"></div>
-  <div class="fr-showcase-app" aria-hidden="true">
+  <div class="fr-showcase-app">
     <header class="fr-showcase-app__bar">
       <span class="fr-window-dots"><i></i><i></i><i></i></span>
       <strong>Friday</strong>
@@ -84,14 +88,29 @@ const { labels } = Astro.props;
           <small>{labels.tokens}<Icon name="ChevronDown" size={13} /></small>
         </div>
 
-        <figure class="fr-showcase-media">
-          <img src="/demo/image-1783269109315.jpeg" alt={labels.assetAlt} width="1280" height="720" loading="eager" decoding="async" />
+        <figure
+          class="fr-showcase-media"
+          data-showcase-video
+          data-mute-label={labels.mute}
+          data-pause-label={labels.pause}
+          data-play-label={labels.play}
+          data-unmute-label={labels.unmute}
+        >
+          <video aria-label={labels.assetAlt} playsinline poster="/demo/image-1783269109315.jpeg" preload="metadata" data-showcase-video-media>
+            <source src="/demo/video-1784367922287.mp4" type="video/mp4" />
+          </video>
           <div class="fr-showcase-media__controls">
-            <span aria-label={labels.play}><Icon name="Play" size={18} /></span>
-            <i><b></b></i>
-            <time datetime="PT0S">0:00</time>
-            <span aria-label={labels.volume}><Icon name="Volume2" size={18} /></span>
-            <span aria-label={labels.fullscreen}><Icon name="Maximize" size={17} /></span>
+            <button aria-label={labels.play} type="button" data-showcase-play>
+              <span class="fr-showcase-play-icon"><Icon name="Play" size={18} /></span>
+              <span class="fr-showcase-pause-icon"><Icon name="Pause" size={18} /></span>
+            </button>
+            <input aria-label={labels.seek} type="range" min="0" max="100" step="0.1" value="0" data-showcase-progress />
+            <time datetime="PT0S" data-showcase-time>0:00</time>
+            <button aria-label={labels.unmute} type="button" data-showcase-volume>
+              <span class="fr-showcase-volume-icon"><Icon name="Volume2" size={18} /></span>
+              <span class="fr-showcase-muted-icon"><Icon name="VolumeX" size={18} /></span>
+            </button>
+            <button aria-label={labels.fullscreen} type="button" data-showcase-fullscreen><Icon name="Maximize" size={17} /></button>
           </div>
         </figure>
 
@@ -106,4 +125,66 @@ const { labels } = Astro.props;
       </div>
     </div>
   </div>
-</figure>
+</section>
+
+<script is:inline>
+  (() => {
+    document.querySelectorAll("[data-showcase-video]").forEach((player) => {
+      if (player.dataset.ready === "true") return;
+      player.dataset.ready = "true";
+
+      const video = player.querySelector("[data-showcase-video-media]");
+      const playButton = player.querySelector("[data-showcase-play]");
+      const progress = player.querySelector("[data-showcase-progress]");
+      const time = player.querySelector("[data-showcase-time]");
+      const volumeButton = player.querySelector("[data-showcase-volume]");
+      const fullscreenButton = player.querySelector("[data-showcase-fullscreen]");
+      if (!video || !playButton || !progress || !time || !volumeButton || !fullscreenButton) return;
+
+      const formatTime = (seconds) => {
+        const safeSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
+        const minutes = Math.floor(safeSeconds / 60);
+        return `${minutes}:${String(Math.floor(safeSeconds % 60)).padStart(2, "0")}`;
+      };
+
+      const updatePlayback = () => {
+        const percent = video.duration ? (video.currentTime / video.duration) * 100 : 0;
+        progress.value = String(percent);
+        progress.style.setProperty("--showcase-progress", `${percent}%`);
+        time.textContent = formatTime(video.currentTime);
+        time.dateTime = `PT${Math.floor(video.currentTime)}S`;
+      };
+
+      const updatePlayState = () => {
+        const playing = !video.paused && !video.ended;
+        player.classList.toggle("is-playing", playing);
+        playButton.setAttribute("aria-label", playing ? player.dataset.pauseLabel : player.dataset.playLabel);
+      };
+
+      const updateVolumeState = () => {
+        const unmuted = !video.muted;
+        player.classList.toggle("is-unmuted", unmuted);
+        volumeButton.setAttribute("aria-label", unmuted ? player.dataset.muteLabel : player.dataset.unmuteLabel);
+      };
+
+      playButton.addEventListener("click", () => video.paused ? video.play().catch(() => {}) : video.pause());
+      progress.addEventListener("input", () => {
+        if (!video.duration) return;
+        video.currentTime = (Number(progress.value) / 100) * video.duration;
+      });
+      volumeButton.addEventListener("click", () => {
+        video.muted = !video.muted;
+        updateVolumeState();
+      });
+      fullscreenButton.addEventListener("click", () => player.requestFullscreen?.());
+      video.addEventListener("play", updatePlayState);
+      video.addEventListener("pause", updatePlayState);
+      video.addEventListener("ended", updatePlayState);
+      video.addEventListener("timeupdate", updatePlayback);
+      video.addEventListener("loadedmetadata", updatePlayback);
+      updatePlayState();
+      updateVolumeState();
+      updatePlayback();
+    });
+  })();
+</script>
