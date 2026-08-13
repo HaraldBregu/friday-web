@@ -14,7 +14,7 @@
       "description": "Friday brings a capable AI companion directly to your computer. It can understand the context you choose to share, organize the work around you, and turn everyday requests into completed outcomes.",
       "primary": "Download Friday",
       "secondary": "See how it works",
-      "note": "You choose the providers, connections, and permissions behind your assistant.",
+      "note": "Open-source desktop software, built around your providers, tools, and permissions.",
       "capabilitiesLabel": "Ways Friday supports everyday work",
       "capabilities": ["Remembers context", "Works in the background", "Connects your tools", "Returns finished work"],
       "showcase": {
