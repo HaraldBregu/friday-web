@@ -38,7 +38,7 @@ const { screens, labels, chromeLabels } = Astro.props;
       >
         <header class="fr-showcase-app__bar">
           <span class="fr-window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <strong>Friday</strong>
+          <strong class="fr-extension-screen__title">{screen.title}</strong>
           <span class="fr-showcase-app__actions">
             <i aria-label={chromeLabels.history}><Icon name="History" size={15} /></i>
             <i aria-label={chromeLabels.profile}><Icon name="UserRound" size={15} /></i>
