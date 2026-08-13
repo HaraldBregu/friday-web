@@ -98,10 +98,10 @@ const { examples, labels, chromeLabels } = Astro.props;
                   <span><Icon name="Sparkles" size={15} /><strong>{example.title}</strong></span>
                   <small><Icon name="Check" size={13} />{labels.status}</small>
                 </div>
-                <button class="fr-home-extension-panel__open" type="button">
+                <span class="fr-home-extension-panel__open">
                   {labels.open}
                   <Icon name="ArrowRight" size={15} />
-                </button>
+                </span>
               </div>
             </article>
           ))}

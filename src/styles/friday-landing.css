@@ -3458,7 +3458,6 @@
 }
 
 .fr-desktop-window .fr-window-dots i,
-.fr-extension-card .fr-window-dots i,
 .fr-permission-panel .fr-window-dots i {
   width: 7px;
   height: 7px;
@@ -4043,10 +4042,6 @@
   pointer-events: none;
 }
 
-.fr-home-extension-app__window {
-  height: 580px;
-}
-
 .fr-home-extension-app__body {
   gap: 0;
 }
@@ -4324,12 +4319,6 @@
   color: #171719;
   font-size: 0.65rem;
   font-weight: 700;
-  cursor: pointer;
-}
-
-.fr-home-extension-panel__open:hover,
-.fr-home-extension-panel__open:focus-visible {
-  background: #fff;
 }
 
 .fr-home-extension-app__composer {
@@ -4811,10 +4800,6 @@
 
   .fr-approval-card ul {
     grid-column: 1 / -1;
-  }
-
-  .fr-home-extension-app__window {
-    height: 570px;
   }
 
   .fr-home-extension-app__workspace {
