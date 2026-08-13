@@ -4366,9 +4366,12 @@
   border-radius: 18px;
 }
 
-.fr-extension-screen.is-workspace { --screen-accent: #a76bff; }
-.fr-extension-screen.is-design { --screen-accent: #e752bc; }
-.fr-extension-screen.is-coding { --screen-accent: #419dff; }
+.fr-extension-screen.is-workspace,
+.fr-home-extension-row.is-workspace { --screen-accent: #a76bff; }
+.fr-extension-screen.is-design,
+.fr-home-extension-row.is-design { --screen-accent: #e752bc; }
+.fr-extension-screen.is-coding,
+.fr-home-extension-row.is-coding { --screen-accent: #419dff; }
 
 .fr-home-extension-row__copy {
   display: flex;
