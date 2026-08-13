@@ -43,7 +43,7 @@ assert([providers, integrations, integrationsIt].every((html) => html.includes("
 
 for (const [locale, html, title] of [
   ["English", english, "A Personal Desktop AI Assistant"],
-  ["Italian", italian, "Un assistente AI personale per desktop"],
+  ["Italian", italian, "Il tuo assistente personale AI desktop"],
 ]) {
   assert(html.includes(`<h1 id="hero-title" aria-label="${title}">`), `${locale} hero describes the product without repeating the app name`);
   assert(count(html, /class="fr-home-hero__accent"/g) === 1, `${locale} keeps the highlighted AI Assistant phrase together`);
