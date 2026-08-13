@@ -7,8 +7,8 @@ import Layout from "../../layouts/Layout.astro";
 
 const locale = "it";
 const { site } = getLocaleContent(locale);
-const title = "Friday — AI desktop che trasforma la conoscenza in azione";
-const description = "Friday è un copilota AI desktop multipiattaforma con Skill riutilizzabili, una LLM Wiki basata sulle fonti, ricerca semantica dei documenti ed Estensioni personalizzate.";
+const title = "Friday: Un assistente AI personale per desktop";
+const description = "Friday è un assistente AI personale per desktop che ricorda il contesto utile, organizza il lavoro quotidiano, si collega ai tuoi strumenti e trasforma le richieste in risultati.";
 const siteBaseUrl = Astro.site ?? new URL(site.url);
 const structuredData = buildHomepageStructuredData({
   description,
@@ -28,7 +28,7 @@ const structuredData = buildHomepageStructuredData({
   hideBackgroundEffects
   hideHeader
   image="/og/default.png"
-  imageAlt="Copilota AI desktop Friday"
+  imageAlt="Assistente AI personale per desktop Friday"
   locale={locale}
   ogDescription={description}
   ogTitle={title}
