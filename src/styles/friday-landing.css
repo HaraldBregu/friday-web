@@ -4390,7 +4390,7 @@
 
 .fr-extension-screen__workspace {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   min-height: 0;
   overflow: hidden;
 }
@@ -4454,18 +4454,123 @@
 }
 
 .fr-extension-workspace-ui {
-  padding: 0.8rem;
+  display: grid;
+  grid-template-columns: minmax(120px, 31%) minmax(0, 1fr);
   background:
     radial-gradient(circle at 85% 12%, rgba(167, 107, 255, 0.08), transparent 10rem),
     #09090a;
 }
 
+.fr-extension-workspace-ui__tree {
+  min-width: 0;
+  padding: 0.7rem 0.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.075);
+  background: #0d0d0f;
+}
+
+.fr-extension-workspace-ui__tree ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fr-extension-workspace-ui__root,
+.fr-extension-workspace-ui__tree ul ul li {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  color: #77747c;
+}
+
+.fr-extension-workspace-ui__root {
+  gap: 0.28rem;
+  min-height: 29px;
+  padding: 0 0.3rem;
+}
+
+.fr-extension-workspace-ui__root svg:nth-child(2) {
+  color: #a76bff;
+}
+
+.fr-extension-workspace-ui__root strong {
+  overflow: hidden;
+  color: #aaa7ae;
+  font-size: 0.49rem;
+  font-weight: 640;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fr-extension-workspace-ui__tree ul ul {
+  display: grid;
+  gap: 0.14rem;
+  margin-left: 0.78rem;
+  padding-left: 0.45rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fr-extension-workspace-ui__tree ul ul li {
+  gap: 0.35rem;
+  min-height: 27px;
+  padding: 0 0.38rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.43rem;
+}
+
+.fr-extension-workspace-ui__tree ul ul li.is-active {
+  background: rgba(167, 107, 255, 0.1);
+  color: #d1c9e1;
+}
+
+.fr-extension-workspace-ui__tree ul ul li span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .fr-extension-workspace-ui__board {
+  min-width: 0;
   height: 100%;
-  padding: 0.7rem;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 12px;
+  padding: 0.8rem;
   background: #0f0f11;
+}
+
+.fr-extension-workspace-ui__document {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.fr-extension-workspace-ui__document > span,
+.fr-extension-workspace-ui__document > small {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.fr-extension-workspace-ui__document strong {
+  overflow: hidden;
+  color: #c7c4ca;
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fr-extension-workspace-ui__document > span svg {
+  color: #a76bff;
+}
+
+.fr-extension-workspace-ui__document small {
+  flex: 0 0 auto;
+  color: #75d5b5;
+  font-size: 0.42rem;
 }
 
 .fr-extension-workspace-ui__progress {
@@ -4485,7 +4590,7 @@
   background: linear-gradient(90deg, #a76bff, #d277da);
 }
 
-.fr-extension-workspace-ui ul {
+.fr-extension-workspace-ui__board > ul {
   display: grid;
   gap: 0.45rem;
   margin: 0;
@@ -4493,7 +4598,7 @@
   list-style: none;
 }
 
-.fr-extension-workspace-ui li {
+.fr-extension-workspace-ui__board > ul > li {
   display: grid;
   grid-template-columns: 25px minmax(0, 1fr) auto;
   align-items: center;
@@ -4505,7 +4610,7 @@
   background: #151517;
 }
 
-.fr-extension-workspace-ui li > span {
+.fr-extension-workspace-ui__board > ul > li > span {
   display: grid;
   width: 25px;
   height: 25px;
@@ -4515,12 +4620,12 @@
   color: #e7bc65;
 }
 
-.fr-extension-workspace-ui li > span.is-complete {
+.fr-extension-workspace-ui__board > ul > li > span.is-complete {
   background: rgba(117, 213, 181, 0.08);
   color: #75d5b5;
 }
 
-.fr-extension-workspace-ui li strong {
+.fr-extension-workspace-ui__board > ul > li strong {
   overflow: hidden;
   color: #c8c5cb;
   font-size: 0.59rem;
@@ -4529,7 +4634,7 @@
   white-space: nowrap;
 }
 
-.fr-extension-workspace-ui li small {
+.fr-extension-workspace-ui__board > ul > li small {
   color: #545157;
   font-family: var(--font-mono);
   font-size: 0.46rem;
