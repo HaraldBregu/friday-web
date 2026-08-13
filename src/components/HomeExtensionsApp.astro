@@ -9,6 +9,21 @@ interface ExtensionScreen {
   items: string[];
   root?: string;
   files?: string[];
+  document?: {
+    name: string;
+    path: string;
+    title: string;
+    summary: string;
+    sectionTitle: string;
+    saved: string;
+    save: string;
+    itemLabel: string;
+    detailLabel: string;
+    priceLabel: string;
+    price: string;
+    airlineLabel: string;
+    airline: string;
+  };
 }
 
 interface Labels {
@@ -41,10 +56,12 @@ const { screens, labels, chromeLabels } = Astro.props;
         <header class="fr-showcase-app__bar">
           <span class="fr-window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
           <strong class="fr-extension-screen__title">{screen.title}</strong>
-          <span class="fr-showcase-app__actions">
-            <i aria-label={chromeLabels.history}><Icon name="History" size={15} /></i>
-            <i aria-label={chromeLabels.profile}><Icon name="UserRound" size={15} /></i>
-          </span>
+          {screen.id === "workspace" ? <span></span> : (
+            <span class="fr-showcase-app__actions">
+              <i aria-label={chromeLabels.history}><Icon name="History" size={15} /></i>
+              <i aria-label={chromeLabels.profile}><Icon name="UserRound" size={15} /></i>
+            </span>
+          )}
         </header>
 
         <div class="fr-showcase-app__body fr-extension-screen__body">
@@ -53,30 +70,37 @@ const { screens, labels, chromeLabels } = Astro.props;
               <div class="fr-extension-workspace-ui">
                 <aside class="fr-extension-workspace-ui__tree" aria-label={`${screen.title} files`}>
                   <ul>
-                    <li>
-                      <span class="fr-extension-workspace-ui__root"><Icon name="ChevronDown" size={11} /><Icon name="FolderOpen" size={13} /><strong>{screen.root}</strong></span>
-                      <ul>
-                        {screen.files?.map((file, index) => (
-                          <li class:list={{ "is-active": index === 0 }}>
-                            <Icon name={file.endsWith("/") ? "Folder" : "ScanText"} size={12} />
-                            <span>{file.replace(/\/$/, "")}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
+                    <li class="fr-extension-workspace-ui__agent"><Icon name="ChevronRight" size={11} /><Icon name="Bot" size={13} /><strong>{screen.root}</strong><small>6</small></li>
+                    {screen.files?.map((file) => (
+                      <li class:list={{ "is-open": file === "flights/" }}>
+                        <Icon name={file === "flights/" ? "ChevronDown" : "ChevronRight"} size={11} />
+                        <Icon name={file === "flights/" ? "FolderOpen" : "Folder"} size={13} />
+                        <span>{file.replace(/\/$/, "")}</span>
+                        {file === "flights/" && (
+                          <span class="fr-extension-workspace-ui__selected"><Icon name="ScanText" size={12} />{screen.document?.name}</span>
+                        )}
+                      </li>
+                    ))}
                   </ul>
                 </aside>
                 <div class="fr-extension-workspace-ui__board">
                   <div class="fr-extension-workspace-ui__document">
-                    <span><Icon name="ScanText" size={13} /><strong>{screen.files?.[0]}</strong></span>
-                    <small><Icon name="Check" size={11} />{screen.status}</small>
+                    <span><Icon name="BookOpen" size={14} /><span><strong>{screen.document?.name}</strong><small>{screen.document?.path}</small></span></span>
+                    <span class="fr-extension-workspace-ui__document-actions"><small><Icon name="Check" size={11} />{screen.document?.saved}</small><i><Icon name="Save" size={12} />{screen.document?.save}</i></span>
                   </div>
-                  <div class="fr-extension-workspace-ui__progress"><i></i><i></i><i></i><i></i><i></i></div>
-                  <ul>
-                    {screen.items.map((item, index) => (
-                      <li><span class:list={{ "is-complete": index < 2 }}><Icon name={index < 2 ? "Check" : "Clock"} size={12} /></span><strong>{item}</strong><small>0{index + 1}</small></li>
-                    ))}
-                  </ul>
+                  <div class="fr-extension-workspace-ui__content">
+                    <h3>{screen.document?.title}</h3>
+                    <p>{screen.document?.summary}</p>
+                    <hr />
+                    <h4>🏆 {screen.document?.sectionTitle}</h4>
+                    <table>
+                      <thead><tr><th>{screen.document?.itemLabel}</th><th>{screen.document?.detailLabel}</th></tr></thead>
+                      <tbody>
+                        <tr><td>{screen.document?.priceLabel}</td><td><strong>{screen.document?.price}</strong></td></tr>
+                        <tr><td>{screen.document?.airlineLabel}</td><td>{screen.document?.airline}</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             )}

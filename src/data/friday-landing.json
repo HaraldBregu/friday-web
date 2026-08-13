@@ -147,7 +147,30 @@
         "screenLabel": "Friday extension interface"
       },
       "screens": [
-        { "id": "workspace", "icon": "Layers", "title": "Workspace", "status": "3 tasks active", "root": "launch-workspace", "files": ["launch-plan.md", "research/", "weekly-review.md"], "items": ["Launch plan", "Customer research", "Weekly review"] },
+        {
+          "id": "workspace",
+          "icon": "Layers",
+          "title": "Workspace",
+          "status": "Saved",
+          "root": "Agent",
+          "files": ["daily/", "downloads/", "flights/", "investors/", "library/", "notes/", "personal/", "projects/", "stories/"],
+          "items": [],
+          "document": {
+            "name": "milan-to-albania-best-offers.md",
+            "path": "flights/milan-to-albania-best-offers.md",
+            "title": "Cheapest Flights: Milan → Albania",
+            "summary": "Live travel research for a round trip from Milan to Tirana, comparing the best direct routes and current offers.",
+            "sectionTitle": "Best offer",
+            "saved": "Saved",
+            "save": "Save",
+            "itemLabel": "Item",
+            "detailLabel": "Detail",
+            "priceLabel": "Price",
+            "price": "€30 round trip",
+            "airlineLabel": "Airline",
+            "airline": "Wizz Air"
+          }
+        },
         { "id": "design", "icon": "Shapes", "title": "Design", "status": "Changes saved", "items": ["Hero artwork", "Brand system", "Prototype"] },
         { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "status": "Tests passing", "items": ["src", "components", "app.ts"] }
       ],

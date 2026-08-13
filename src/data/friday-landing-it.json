@@ -147,7 +147,30 @@
         "screenLabel": "Interfaccia Estensione Friday"
       },
       "screens": [
-        { "id": "workspace", "icon": "Layers", "title": "Workspace", "status": "3 attività attive", "root": "workspace-lancio", "files": ["piano-lancio.md", "ricerca/", "revisione-settimanale.md"], "items": ["Piano di lancio", "Ricerca clienti", "Revisione settimanale"] },
+        {
+          "id": "workspace",
+          "icon": "Layers",
+          "title": "Workspace",
+          "status": "Salvato",
+          "root": "Agent",
+          "files": ["giornaliero/", "download/", "voli/", "investitori/", "libreria/", "note/", "personale/", "progetti/", "storie/"],
+          "items": [],
+          "document": {
+            "name": "migliori-offerte-milano-albania.md",
+            "path": "voli/migliori-offerte-milano-albania.md",
+            "title": "Voli più economici: Milano → Albania",
+            "summary": "Ricerca di viaggio in tempo reale per un volo di andata e ritorno da Milano a Tirana, confrontando le migliori rotte dirette e le offerte attuali.",
+            "sectionTitle": "Migliore offerta",
+            "saved": "Salvato",
+            "save": "Salva",
+            "itemLabel": "Voce",
+            "detailLabel": "Dettaglio",
+            "priceLabel": "Prezzo",
+            "price": "€30 andata e ritorno",
+            "airlineLabel": "Compagnia",
+            "airline": "Wizz Air"
+          }
+        },
         { "id": "design", "icon": "Shapes", "title": "Design", "status": "Modifiche salvate", "items": ["Visual principale", "Sistema del brand", "Prototipo"] },
         { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "status": "Test superati", "items": ["src", "components", "app.ts"] }
       ],
