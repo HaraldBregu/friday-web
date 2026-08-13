@@ -14,7 +14,6 @@ interface Props {
 const locale = normalizeLocale(Astro.props.locale);
 const landing = locale === "it" ? landingIt : landingEn;
 const { home, links } = landing;
-const extensionsHref = locale === "it" ? "/it/extensions" : "/extensions";
 const heroAccentPhrase = locale === "it" ? "assistente AI" : "AI Assistant";
 const [heroTitleBefore, heroTitleAfter = ""] = home.hero.title.split(heroAccentPhrase);
 ---
@@ -151,7 +150,6 @@ const [heroTitleBefore, heroTitleAfter = ""] = home.hero.title.split(heroAccentP
 
     <footer class="fr-extension-footer" data-reveal>
       <p>{home.extensions.note}</p>
-      <a href={extensionsHref}>{home.extensions.link}<Icon name="ArrowRight" size={15} /></a>
     </footer>
   </div>
 </section>

@@ -25,7 +25,7 @@ const navigationGroups = [
     items: primaryNav.map((item) => ({ ...item, label: item.href === "#product" ? (locale === "it" ? "Panoramica" : "Overview") : item.label, href: navHref(item.href) })),
   },
 ];
-const extensionsItem = { label: navigationLabels.extensions, href: localizedPath("/extensions", locale) };
+const extensionsItem = { label: navigationLabels.extensions, href: `${localizedPath("/", locale)}#extensions` };
 const docsItem = resourceNav[0];
 ---
 
