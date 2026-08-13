@@ -15,10 +15,13 @@ const collectHtml = (directory) => readdirSync(directory).flatMap((entry) => {
 
 const english = read("dist/index.html");
 const italian = read("dist/it/index.html");
-const extensions = read("dist/extensions/index.html");
+const providers = read("dist/providers/index.html");
+const integrations = read("dist/integrations/index.html");
+const integrationsIt = read("dist/it/integrations/index.html");
 const docsIndex = read("dist/docs/index.html");
 const docsArticle = read("dist/docs/getting-started/index.html");
 const landingCss = read("src/styles/friday-landing.css");
+const catalogCss = read("src/styles/catalog-pages.css");
 const docsCss = read("src/styles/docs-friday.css");
 const globalCss = read("src/styles/global.css");
 const astroConfig = read("astro.config.mjs");
@@ -31,7 +34,8 @@ assert(htmlFiles.every((path) => {
 assert(astroConfig.includes('output: "static"'), "Astro output remains fully static");
 assert(english.includes("friday-landing-page") && italian.includes("friday-landing-page"), "English and Italian share the landing shell");
 assert(docsIndex.includes("docs-product-page") && docsArticle.includes("docs-product-page"), "docs index and articles share the docs shell");
-assert(extensions.includes('id="extensions"') && extensions.includes("fr-extensions-demo"), "the detailed Extensions route remains available");
+assert([providers, integrations, integrationsIt].every((html) => html.includes("catalog-product-page") && html.includes("fr-nav-wrap")), "provider and integration routes share the current product shell");
+assert([providers, integrations, integrationsIt].every((html) => html.includes("catalog-summary") && html.includes("catalog-section")), "catalog routes render responsive summaries and grouped content");
 
 for (const [locale, html, title] of [
   ["English", english, "A Personal Desktop AI Assistant"],
@@ -70,6 +74,7 @@ assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-personal-grid \{\s*grid-template
 assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-workflow-steps \{\s*grid-template-columns: 1fr;/.test(landingCss), "workflow becomes linear on mobile");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-extension-cards \{\s*grid-template-columns: 1fr;/.test(landingCss), "extension examples collapse to one column on mobile");
 assert(/@media \(max-width: 380px\)[\s\S]*?\.fr-home-signals \{\s*grid-template-columns: 1fr;/.test(landingCss), "hero capability strip stays readable on narrow screens");
+assert(/@media \(max-width: 680px\)[\s\S]*?\.provider-grid,[\s\S]*?\.integration-grid \{\s*grid-template-columns: 1fr;/.test(catalogCss), "provider and integration catalogs collapse to one column on mobile");
 assert(/@media \(max-width: 820px\)[\s\S]*?\.docs-product-page \.docs-reader \{\s*grid-template-columns: 1fr;/.test(docsCss), "the docs reader collapses on tablets");
 assert(/@media \(max-width: 760px\)[\s\S]*?\.footer-grid \{\s*grid-template-columns: 1fr;/.test(globalCss), "the shared footer collapses on mobile");
 
