@@ -35,7 +35,24 @@
         "composer": "Ask anything",
         "attach": "Add context",
         "dictate": "Dictate request",
-        "voice": "Start voice conversation"
+        "voice": "Start voice conversation",
+        "previousRequests": [
+          {
+            "type": "image",
+            "request": "Give the launch a warmer, handcrafted visual direction.",
+            "tool": "Created image",
+            "result": "Clockwork daydream",
+            "meta": "Ready",
+            "assetAlt": "Generated clockwork whale floating above a village"
+          },
+          {
+            "type": "sound",
+            "request": "Now compose a short sound identity that feels curious and calm.",
+            "tool": "Created sound",
+            "result": "Friday opening theme",
+            "meta": "0:42"
+          }
+        ]
       },
       "demo": {
         "windowLabel": "Friday desktop assistant handling a weekly planning request",

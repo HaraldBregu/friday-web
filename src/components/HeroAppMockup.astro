@@ -20,6 +20,14 @@ interface Labels {
   attach: string;
   dictate: string;
   voice: string;
+  previousRequests: Array<{
+    type: "image" | "sound";
+    request: string;
+    tool: string;
+    result: string;
+    meta: string;
+    assetAlt?: string;
+  }>;
 }
 
 interface Props {
@@ -42,31 +50,53 @@ const { labels } = Astro.props;
     </header>
 
     <div class="fr-showcase-app__body">
-      <div class="fr-showcase-request">
-        <p>{labels.request}</p>
-        <span>
-          <i aria-label={labels.copy}><Icon name="Copy" size={14} /></i>
-          <i aria-label={labels.edit}><Icon name="Pencil" size={14} /></i>
-        </span>
-      </div>
-
-      <div class="fr-showcase-tool">
-        <span><Icon name="Video" size={14} /><strong>{labels.tool}</strong><Icon name="Check" size={13} /></span>
-        <small>{labels.tokens}<Icon name="ChevronDown" size={13} /></small>
-      </div>
-
-      <figure class="fr-showcase-media">
-        <img src="/demo/image-1783269109315.jpeg" alt={labels.assetAlt} width="1280" height="720" loading="eager" decoding="async" />
-        <div class="fr-showcase-media__controls">
-          <span aria-label={labels.play}><Icon name="Play" size={18} /></span>
-          <i><b></b></i>
-          <time datetime="PT0S">0:00</time>
-          <span aria-label={labels.volume}><Icon name="Volume2" size={18} /></span>
-          <span aria-label={labels.fullscreen}><Icon name="Maximize" size={17} /></span>
+      <div class="fr-showcase-conversation">
+        <div class="fr-showcase-history">
+          {labels.previousRequests.map((item) => (
+            <article class={`fr-showcase-history__item is-${item.type}`}>
+              <p>{item.request}</p>
+              <div>
+                <span class="fr-showcase-history__icon"><Icon name={item.type === "image" ? "Image" : "Music"} size={14} /></span>
+                {item.type === "image" ? (
+                  <img src="/demo/image-1783437002924.jpeg" alt={item.assetAlt ?? ""} width="1280" height="720" loading="eager" decoding="async" />
+                ) : (
+                  <span class="fr-showcase-wave" aria-hidden="true">
+                    {[8, 15, 10, 22, 17, 27, 13, 21, 30, 16, 24, 11, 19, 8].map((height) => <i style={`--wave-height:${height}px`}></i>)}
+                  </span>
+                )}
+                <span class="fr-showcase-history__copy"><small>{item.tool}</small><strong>{item.result}</strong></span>
+                <time>{item.meta}</time>
+              </div>
+            </article>
+          ))}
         </div>
-      </figure>
 
-      <p class="fr-showcase-complete">{labels.complete}</p>
+        <div class="fr-showcase-request">
+          <p>{labels.request}</p>
+          <span>
+            <i aria-label={labels.copy}><Icon name="Copy" size={14} /></i>
+            <i aria-label={labels.edit}><Icon name="Pencil" size={14} /></i>
+          </span>
+        </div>
+
+        <div class="fr-showcase-tool">
+          <span><Icon name="Video" size={14} /><strong>{labels.tool}</strong><Icon name="Check" size={13} /></span>
+          <small>{labels.tokens}<Icon name="ChevronDown" size={13} /></small>
+        </div>
+
+        <figure class="fr-showcase-media">
+          <img src="/demo/image-1783269109315.jpeg" alt={labels.assetAlt} width="1280" height="720" loading="eager" decoding="async" />
+          <div class="fr-showcase-media__controls">
+            <span aria-label={labels.play}><Icon name="Play" size={18} /></span>
+            <i><b></b></i>
+            <time datetime="PT0S">0:00</time>
+            <span aria-label={labels.volume}><Icon name="Volume2" size={18} /></span>
+            <span aria-label={labels.fullscreen}><Icon name="Maximize" size={17} /></span>
+          </div>
+        </figure>
+
+        <p class="fr-showcase-complete">{labels.complete}</p>
+      </div>
 
       <div class="fr-showcase-composer">
         <span aria-label={labels.attach}><Icon name="Plus" size={18} /></span>
