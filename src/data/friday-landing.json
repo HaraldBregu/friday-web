@@ -64,6 +64,15 @@
             "meta": "Ready",
             "assetAlt": "Generated cinematic motion study",
             "src": "/demo/video-1786619008446.mp4"
+          },
+          {
+            "type": "video",
+            "request": "Explore one more motion direction with a bolder sense of scale.",
+            "tool": "Created video",
+            "result": "Expansive motion concept",
+            "meta": "Ready",
+            "assetAlt": "Generated expansive cinematic motion concept",
+            "src": "/demo/video-1786447738614.mp4"
           }
         ]
       },

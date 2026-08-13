@@ -64,6 +64,15 @@
             "meta": "Pronto",
             "assetAlt": "Studio di movimento cinematografico generato",
             "src": "/demo/video-1786619008446.mp4"
+          },
+          {
+            "type": "video",
+            "request": "Esplora un’altra direzione in movimento con un senso di scala più audace.",
+            "tool": "Video creato",
+            "result": "Concept di movimento espansivo",
+            "meta": "Pronto",
+            "assetAlt": "Concept cinematografico espansivo generato",
+            "src": "/demo/video-1786447738614.mp4"
           }
         ]
       },
