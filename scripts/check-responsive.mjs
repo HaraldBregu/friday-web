@@ -61,9 +61,9 @@ for (const [locale, html, title] of [
   assert(count(html, /class="fr-nav__direct"/g) === 2, `${locale} keeps Extensions and Docs directly discoverable`);
 }
 
-assert(english.includes("Remembers context") && english.includes("Works in the background") && english.includes("Connects your tools"), "hero capability strip summarizes the core personal-assistant promise");
-assert(english.includes("Approval requested") && english.includes("Friday pauses before an action"), "workflow explains permission-based approval");
-assert(english.includes("Connected work can leave your device"), "control section includes the connected-service disclosure");
+assert(english.includes("Remembers what matters") && english.includes("Handles recurring work") && english.includes("Completes multi-step tasks"), "hero capability strip summarizes the core personal-assistant promise");
+assert(english.includes("Friday needs your approval") && english.includes("It pauses and asks before taking an action"), "workflow explains permission-based approval");
+assert(english.includes("Know when data leaves your device"), "control section includes the connected-service disclosure");
 
 assert(landingCss.includes("overflow-x: clip") && docsCss.includes("overflow-x: clip"), "landing and docs shells prevent page-level horizontal overflow");
 assert(landingCss.includes(":focus-visible"), "landing defines a visible keyboard focus treatment");
