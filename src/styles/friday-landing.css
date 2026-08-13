@@ -4464,6 +4464,7 @@
 .fr-extension-screen__workspace {
   display: grid;
   grid-template-rows: minmax(0, 1fr);
+  height: 100%;
   min-height: 0;
   overflow: hidden;
 }
@@ -4471,6 +4472,7 @@
 .fr-extension-workspace-ui,
 .fr-extension-design-ui,
 .fr-extension-coding-ui {
+  height: 100%;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
