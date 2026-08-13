@@ -4819,6 +4819,10 @@
   object-fit: cover;
 }
 
+.fr-showcase-history-media.is-image img {
+  height: 145px;
+}
+
 .fr-showcase-history__item > .fr-showcase-audio {
   display: block;
   min-height: 0;
@@ -5258,6 +5262,10 @@
 
   .fr-showcase-history-media {
     width: 88%;
+  }
+
+  .fr-showcase-history-media.is-image img {
+    height: 125px;
   }
 
   .fr-showcase-media__controls {
