@@ -153,26 +153,26 @@
       "link": "Explore extensions"
     },
     "control": {
-      "eyebrow": "Trust and user control",
-      "title": "Helpful should never feel intrusive.",
-      "description": "Friday’s personalization is built around choices you make. Access, connections, and sensitive actions should stay visible and permission-based.",
-      "pointsLabel": "Friday control principles",
+      "eyebrow": "Your choices come first",
+      "title": "You decide what Friday can access and do.",
+      "description": "Friday works with the context, files, providers, and services you choose to connect. Its actions stay visible, and it pauses when a decision needs your approval.",
+      "pointsLabel": "How you stay in control of Friday",
       "points": [
-        { "icon": "Fingerprint", "title": "Choose what Friday can access", "description": "You decide which files, providers, and connected services are part of the setup." },
-        { "icon": "Eye", "title": "Understand what is happening", "description": "Tool activity appears in the conversation, and sensitive file or command actions use permission controls." },
-        { "icon": "HeartHandshake", "title": "Personalize at your pace", "description": "Useful context should reduce repetition without taking control away from you." }
+        { "icon": "Fingerprint", "title": "Choose what you share", "description": "You select the files, providers, tools, and connected services Friday can use." },
+        { "icon": "Eye", "title": "See what Friday is doing", "description": "Tool activity appears in the conversation, so you can follow how your request is being handled." },
+        { "icon": "HeartHandshake", "title": "Approve sensitive actions", "description": "Friday pauses and asks before taking an action that requires your decision." }
       ],
-      "disclosureTitle": "Connected work can leave your device.",
-      "disclosure": "Friday stores core app data locally, but requested features may send prompts, attachments, source text, or tool data to the providers and services you configure.",
+      "disclosureTitle": "Know when data leaves your device.",
+      "disclosure": "Core app data is stored locally. When you use an AI provider or connected service, the information needed for that request may be sent to that service.",
       "panel": {
-        "title": "Access & permissions",
-        "setup": "Your setup",
-        "subtitle": "Permission-based access",
+        "title": "Your controls",
+        "setup": "Friday access",
+        "subtitle": "Configured by you",
         "items": [
-          { "icon": "FolderOpen", "label": "Files and folders", "status": "Ask every time" },
-          { "icon": "Cloud", "label": "Connected services", "status": "2 configured" },
-          { "icon": "TerminalSquare", "label": "Sensitive commands", "status": "Approval required" },
-          { "icon": "Eye", "label": "Tool activity", "status": "Visible in chat" }
+          { "icon": "FolderOpen", "label": "Files and folders", "status": "Ask before access" },
+          { "icon": "Cloud", "label": "Connected services", "status": "Only what you add" },
+          { "icon": "TerminalSquare", "label": "Sensitive commands", "status": "Your approval needed" },
+          { "icon": "Eye", "label": "Tool activity", "status": "Shown in chat" }
         ]
       }
     },
