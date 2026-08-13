@@ -4395,56 +4395,6 @@
   overflow: hidden;
 }
 
-.fr-extension-screen__head {
-  display: grid;
-  grid-template-columns: 33px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 0.55rem;
-  min-height: 54px;
-  padding: 0 0.8rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: #0d0d0f;
-}
-
-.fr-extension-screen__head > span {
-  display: grid;
-  width: 33px;
-  height: 33px;
-  place-items: center;
-  border: 1px solid color-mix(in srgb, var(--screen-accent) 24%, transparent);
-  border-radius: 9px;
-  background: color-mix(in srgb, var(--screen-accent) 8%, transparent);
-  color: var(--screen-accent);
-}
-
-.fr-extension-screen__head div {
-  min-width: 0;
-}
-
-.fr-extension-screen__head strong,
-.fr-extension-screen__head small {
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.fr-extension-screen__head strong {
-  color: #e8e6ea;
-  font-size: 0.69rem;
-  font-weight: 680;
-}
-
-.fr-extension-screen__head small {
-  margin-top: 0.12rem;
-  color: #747178;
-  font-size: 0.5rem;
-}
-
-.fr-extension-screen__head > svg {
-  color: #6d6971;
-}
-
 .fr-extension-workspace-ui,
 .fr-extension-design-ui,
 .fr-extension-coding-ui {
