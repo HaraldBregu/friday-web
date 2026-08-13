@@ -7,6 +7,105 @@
     "contributing": "https://github.com/HaraldBregu/friday/blob/main/CONTRIBUTING.md",
     "license": "https://github.com/HaraldBregu/friday/blob/main/LICENSE"
   },
+  "home": {
+    "hero": {
+      "eyebrow": "Il tuo assistente, sul desktop",
+      "title": "Friday: Un assistente AI personale per desktop",
+      "description": "Friday porta un valido compagno AI direttamente sul tuo computer. Può comprendere il contesto che scegli di condividere, organizzare il lavoro intorno a te e trasformare le richieste quotidiane in risultati completati.",
+      "primary": "Scarica Friday",
+      "secondary": "Scopri come funziona",
+      "note": "Scegli tu provider, connessioni e permessi alla base del tuo assistente.",
+      "capabilitiesLabel": "Come Friday supporta il lavoro quotidiano",
+      "capabilities": ["Ricorda il contesto", "Lavora in background", "Collega i tuoi strumenti", "Restituisce lavoro completato"],
+      "demo": {
+        "windowLabel": "L’assistente desktop Friday gestisce una richiesta di pianificazione settimanale",
+        "sidebarLabel": "Workspace di Friday",
+        "today": "Oggi",
+        "conversations": "Conversazioni",
+        "newConversation": "Nuova conversazione",
+        "assistantStatus": "Assistente personale · Pronto",
+        "request": "Organizza il resto della settimana, sposta ciò che è flessibile e prepararmi per la revisione con il cliente di venerdì.",
+        "response": "Userò le tue priorità attuali e il calendario collegato, poi terrò d’occhio eventuali cambiamenti.",
+        "activityLabel": "Avanzamento dell’attività di Friday",
+        "activities": [
+          { "label": "Priorità e calendario esaminati", "state": "Fatto" },
+          { "label": "Piano settimanale mirato preparato", "state": "Fatto" },
+          { "label": "Controllo modifiche alla pianificazione", "state": "Programmato" }
+        ],
+        "resultTitle": "La tua settimana è organizzata",
+        "result": "Due blocchi di concentrazione protetti, una riunione flessibile spostata e un briefing cliente programmato per venerdì mattina.",
+        "background": "Controllo in background attivo",
+        "composer": "Chiedi qualsiasi cosa a Friday…"
+      }
+    },
+    "personal": {
+      "eyebrow": "Personale, con il tuo permesso",
+      "title": "Un assistente che cresce con te.",
+      "description": "Friday può adattarsi nel tempo alle tue abitudini, preferenze e priorità. Più contesto utile scegli di fornire, meno configurazione ripetitiva separa una richiesta da un risultato concreto.",
+      "outcome": "Meno tempo a tenere traccia del lavoro. Più attenzione per decisioni, idee, creatività e persone.",
+      "capabilitiesLabel": "Funzionalità dell’assistente personale",
+      "capabilities": [
+        { "icon": "MessagesSquare", "title": "Conserva il contesto utile", "description": "Ricorda preferenze e dettagli rilevanti tra le conversazioni, così non devi ripartire da zero." },
+        { "icon": "CalendarDays", "title": "Organizza ciò che ti aspetta", "description": "Riunisci programmi, appuntamenti, promemoria e piani ricorrenti in un’unica conversazione di lavoro." },
+        { "icon": "Clock", "title": "Continua in background", "description": "Lascia che le attività appropriate vengano eseguite secondo una pianificazione senza dover seguire ogni passaggio." },
+        { "icon": "PlugZap", "title": "Lavora con i tuoi strumenti", "description": "Collega servizi esterni e fonti di informazione rilevanti per l’attività." },
+        { "icon": "Cloud", "title": "Trova informazioni collegate", "description": "Archivia e recupera informazioni tramite i servizi cloud configurati quando il lavoro lo richiede." },
+        { "icon": "Workflow", "title": "Completa lavori in più passaggi", "description": "Parte da una semplice richiesta, affronta i passaggi necessari e torna con qualcosa di utile." }
+      ]
+    },
+    "workflow": {
+      "eyebrow": "Dalla richiesta al risultato",
+      "title": "Chiedi una volta. Mantieni il controllo.",
+      "description": "Friday è progettato per agire su una richiesta, non solo per rispondere. Puoi seguire il lavoro mentre avviene, lasciare che le attività adatte continuino in background e intervenire quando serve un’approvazione.",
+      "stepsLabel": "Come Friday completa un’attività",
+      "steps": [
+        { "number": "01", "icon": "MessageSquare", "title": "Chiedi naturalmente", "description": "Descrivi con parole tue il risultato che desideri." },
+        { "number": "02", "icon": "Layers", "title": "Aggiungi il contesto", "description": "Friday usa preferenze, strumenti, file e servizi collegati rilevanti." },
+        { "number": "03", "icon": "Clock", "title": "Lascia continuare il lavoro", "description": "Le attività appropriate possono proseguire in background o secondo una pianificazione." },
+        { "number": "04", "icon": "CheckCircle2", "title": "Ottieni un risultato", "description": "Friday restituisce il lavoro completato o chiede conferma prima di un’azione sensibile." }
+      ],
+      "approvalLabel": "Rimani sempre coinvolto",
+      "approvalTitle": "Approvazione richiesta",
+      "approvalDescription": "Friday si ferma prima di un’azione che richiede la tua decisione.",
+      "approvalActions": ["Esamina i dettagli", "Approva quando vuoi"]
+    },
+    "extensions": {
+      "eyebrow": "Più di un assistente",
+      "title": "Un solo assistente. Tanti tipi di software.",
+      "description": "Le Estensioni offrono a Friday strumenti, flussi e interfacce mirati, mantenendo la stessa esperienza di base. Inizia in modo generale, poi modella Friday intorno al lavoro che conta per te.",
+      "examplesLabel": "Aree di esempio per le Estensioni",
+      "examples": [
+        { "icon": "Users", "title": "Management", "description": "Coordina progetti, organizza team, prepara report e segui il lavoro.", "accent": "violet" },
+        { "icon": "Shapes", "title": "Design", "description": "Supporta ricerca, esplorazione creativa, creazione di risorse e flussi di design.", "accent": "blue" },
+        { "icon": "Layers", "title": "Architettura", "description": "Sviluppa concetti, organizza le informazioni di progetto e supporta la documentazione tecnica.", "accent": "green" },
+        { "icon": "Play", "title": "Intrattenimento", "description": "Crea esperienze interattive, gestisci media e supporta giochi o progetti personali.", "accent": "magenta" },
+        { "icon": "Wrench", "title": "Lavoro specializzato", "description": "Collega strumenti, dati e processi ripetibili specifici del settore.", "accent": "yellow" }
+      ],
+      "note": "Questi sono punti di partenza, non limiti. Friday è una base per il software di cui ogni persona ha bisogno.",
+      "link": "Esplora le Estensioni"
+    },
+    "control": {
+      "eyebrow": "Fiducia e controllo dell’utente",
+      "title": "Essere utile non dovrebbe mai risultare invadente.",
+      "description": "La personalizzazione di Friday si basa sulle tue scelte. Accessi, connessioni e azioni sensibili devono restare visibili e basati sui permessi.",
+      "pointsLabel": "Principi di controllo di Friday",
+      "points": [
+        { "icon": "Fingerprint", "title": "Scegli a cosa può accedere Friday", "description": "Decidi quali file, provider e servizi collegati fanno parte della configurazione." },
+        { "icon": "Eye", "title": "Comprendi ciò che accade", "description": "L’attività degli strumenti appare nella conversazione e le azioni sensibili su file o comandi usano controlli dei permessi." },
+        { "icon": "HeartHandshake", "title": "Personalizza con i tuoi tempi", "description": "Il contesto utile dovrebbe ridurre la ripetizione senza toglierti il controllo." }
+      ],
+      "disclosureTitle": "Il lavoro connesso può lasciare il dispositivo.",
+      "disclosure": "Friday archivia localmente i dati principali dell’app, ma le funzionalità richieste possono inviare prompt, allegati, testo sorgente o dati degli strumenti ai provider e servizi che configuri."
+    },
+    "cta": {
+      "eyebrow": "Rendi Friday tuo",
+      "title": "Inizia con un assistente. Modellalo sulla tua vita e sul tuo lavoro.",
+      "description": "Lascia che Friday gestisca più lavoro ripetitivo, così puoi concentrarti sulle parti che richiedono giudizio, creatività e cura.",
+      "primary": "Scarica Friday",
+      "secondary": "Vedi su GitHub",
+      "platforms": "Disponibile per macOS, Windows e Linux."
+    }
+  },
   "copy": {
     "hero": {
       "eyebrow": "Copilota AI desktop per macOS, Windows e Linux",
@@ -148,10 +247,9 @@
   },
   "navigation": [
     { "label": "Prodotto", "href": "#product" },
-    { "label": "Skill", "href": "#skills" },
-    { "label": "Conoscenza", "href": "#knowledge" },
-    { "label": "Provider", "href": "#providers" },
-    { "label": "Estensioni", "href": "/it/extensions" },
+    { "label": "Personale", "href": "#personal" },
+    { "label": "Come funziona", "href": "#workflow" },
+    { "label": "Estensioni", "href": "#extensions" },
     { "label": "Docs", "href": "/docs" }
   ],
   "capabilities": [

@@ -7,6 +7,105 @@
     "contributing": "https://github.com/HaraldBregu/friday/blob/main/CONTRIBUTING.md",
     "license": "https://github.com/HaraldBregu/friday/blob/main/LICENSE"
   },
+  "home": {
+    "hero": {
+      "eyebrow": "Your assistant, on your desktop",
+      "title": "Friday: A Personal Desktop AI Assistant",
+      "description": "Friday brings a capable AI companion directly to your computer. It can understand the context you choose to share, organize the work around you, and turn everyday requests into completed outcomes.",
+      "primary": "Download Friday",
+      "secondary": "See how it works",
+      "note": "You choose the providers, connections, and permissions behind your assistant.",
+      "capabilitiesLabel": "Ways Friday supports everyday work",
+      "capabilities": ["Remembers context", "Works in the background", "Connects your tools", "Returns finished work"],
+      "demo": {
+        "windowLabel": "Friday desktop assistant handling a weekly planning request",
+        "sidebarLabel": "Friday workspace",
+        "today": "Today",
+        "conversations": "Conversations",
+        "newConversation": "New conversation",
+        "assistantStatus": "Personal assistant · Ready",
+        "request": "Plan the rest of my week, move anything flexible, and prepare me for Friday’s client review.",
+        "response": "I’ll use your current priorities and connected calendar, then keep an eye on changes.",
+        "activityLabel": "Friday task progress",
+        "activities": [
+          { "label": "Reviewed priorities and calendar", "state": "Done" },
+          { "label": "Prepared a focused weekly plan", "state": "Done" },
+          { "label": "Watch for scheduling changes", "state": "Scheduled" }
+        ],
+        "resultTitle": "Your week is organized",
+        "result": "Two focus blocks protected, one flexible meeting moved, and a client brief scheduled for Friday morning.",
+        "background": "Background check active",
+        "composer": "Ask Friday anything…"
+      }
+    },
+    "personal": {
+      "eyebrow": "Personal by permission",
+      "title": "An assistant that grows with you.",
+      "description": "Friday can adapt to your routines, preferences, and priorities over time. The more useful context you choose to provide, the less repetitive setup stands between a request and a useful result.",
+      "outcome": "Less time keeping track of work. More attention for decisions, ideas, creativity, and people.",
+      "capabilitiesLabel": "Personal assistant capabilities",
+      "capabilities": [
+        { "icon": "MessagesSquare", "title": "Keeps useful context", "description": "Remember preferences and relevant details across conversations, so you do not have to start from zero." },
+        { "icon": "CalendarDays", "title": "Organizes what is ahead", "description": "Bring schedules, appointments, reminders, and recurring plans into one working conversation." },
+        { "icon": "Clock", "title": "Continues in the background", "description": "Let appropriate tasks run on a schedule without needing to supervise every step." },
+        { "icon": "PlugZap", "title": "Works with your tools", "description": "Connect external services and information sources that are relevant to the task." },
+        { "icon": "Cloud", "title": "Finds connected information", "description": "Store and retrieve information through configured cloud services when the work requires it." },
+        { "icon": "Workflow", "title": "Finishes multi-step work", "description": "Move from a simple request through the necessary steps and come back with something useful." }
+      ]
+    },
+    "workflow": {
+      "eyebrow": "From request to result",
+      "title": "Ask once. Stay in control.",
+      "description": "Friday is designed to act on a request, not only answer it. You can follow the work as it happens, let suitable tasks continue in the background, and step in when an approval matters.",
+      "stepsLabel": "How Friday completes a task",
+      "steps": [
+        { "number": "01", "icon": "MessageSquare", "title": "Ask naturally", "description": "Describe the outcome you want in your own words." },
+        { "number": "02", "icon": "Layers", "title": "Bring in context", "description": "Friday uses relevant preferences, tools, files, and connected services." },
+        { "number": "03", "icon": "Clock", "title": "Let the work continue", "description": "Appropriate tasks can keep moving in the background or on a schedule." },
+        { "number": "04", "icon": "CheckCircle2", "title": "Get a result", "description": "Friday returns completed work or asks before a sensitive action." }
+      ],
+      "approvalLabel": "You stay in the loop",
+      "approvalTitle": "Approval requested",
+      "approvalDescription": "Friday pauses before an action that needs your decision.",
+      "approvalActions": ["Review details", "Approve when ready"]
+    },
+    "extensions": {
+      "eyebrow": "More than an assistant",
+      "title": "One assistant. Many kinds of software.",
+      "description": "Extensions give Friday focused tools, workflows, and interfaces while keeping the same core assistant experience. Start general, then shape Friday around the work that matters to you.",
+      "examplesLabel": "Example extension areas",
+      "examples": [
+        { "icon": "Users", "title": "Management", "description": "Coordinate projects, organize teams, prepare reports, and follow up on work.", "accent": "violet" },
+        { "icon": "Shapes", "title": "Design", "description": "Support research, creative exploration, asset creation, and design workflows.", "accent": "blue" },
+        { "icon": "Layers", "title": "Architecture", "description": "Develop concepts, organize project information, and assist with technical documentation.", "accent": "green" },
+        { "icon": "Play", "title": "Entertainment", "description": "Create interactive experiences, manage media, and support games or personal projects.", "accent": "magenta" },
+        { "icon": "Wrench", "title": "Specialized work", "description": "Connect industry-specific tools, data, and repeatable processes.", "accent": "yellow" }
+      ],
+      "note": "These are starting points, not limits. Friday is a foundation for the software each person needs.",
+      "link": "Explore extensions"
+    },
+    "control": {
+      "eyebrow": "Trust and user control",
+      "title": "Helpful should never feel intrusive.",
+      "description": "Friday’s personalization is built around choices you make. Access, connections, and sensitive actions should stay visible and permission-based.",
+      "pointsLabel": "Friday control principles",
+      "points": [
+        { "icon": "Fingerprint", "title": "Choose what Friday can access", "description": "You decide which files, providers, and connected services are part of the setup." },
+        { "icon": "Eye", "title": "Understand what is happening", "description": "Tool activity appears in the conversation, and sensitive file or command actions use permission controls." },
+        { "icon": "HeartHandshake", "title": "Personalize at your pace", "description": "Useful context should reduce repetition without taking control away from you." }
+      ],
+      "disclosureTitle": "Connected work can leave your device.",
+      "disclosure": "Friday stores core app data locally, but requested features may send prompts, attachments, source text, or tool data to the providers and services you configure."
+    },
+    "cta": {
+      "eyebrow": "Make Friday yours",
+      "title": "Start with an assistant. Shape it around your life and work.",
+      "description": "Let Friday handle more of the repetitive work, so you can stay focused on the parts that need your judgment, creativity, and care.",
+      "primary": "Download Friday",
+      "secondary": "View on GitHub",
+      "platforms": "Available for macOS, Windows, and Linux."
+    }
+  },
   "copy": {
     "hero": {
       "eyebrow": "Desktop AI copilot for macOS, Windows, and Linux",
@@ -148,10 +247,9 @@
   },
   "navigation": [
     { "label": "Product", "href": "#product" },
-    { "label": "Skills", "href": "#skills" },
-    { "label": "Knowledge", "href": "#knowledge" },
-    { "label": "Providers", "href": "#providers" },
-    { "label": "Extensions", "href": "/extensions" },
+    { "label": "Personal", "href": "#personal" },
+    { "label": "How it works", "href": "#workflow" },
+    { "label": "Extensions", "href": "#extensions" },
     { "label": "Docs", "href": "/docs" }
   ],
   "capabilities": [
