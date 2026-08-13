@@ -4637,7 +4637,7 @@
 .fr-showcase {
   position: relative;
   z-index: 1;
-  width: min(100%, 470px);
+  width: min(100%, 423px);
   min-width: 0;
   margin: 0;
   justify-self: end;
@@ -4888,7 +4888,7 @@
 
 @media (max-width: 900px) {
   .fr-showcase {
-    width: min(100%, 540px);
+    width: min(100%, 486px);
     margin-inline: auto;
     justify-self: center;
   }
