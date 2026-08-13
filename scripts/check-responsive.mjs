@@ -54,6 +54,7 @@ for (const [locale, html, title] of [
   assert(count(html, /class="fr-extension-screen__title"/g) === 3, `${locale} uses each extension name in its window title bar`);
   assert(count(html, /class="fr-extension-screen__head"/g) === 0, `${locale} removes duplicate internal headers from extension screens`);
   assert(html.includes('class="fr-extension-workspace-ui__tree"') && html.includes('class="fr-extension-workspace-ui__board"'), `${locale} renders the Workspace file tree beside its content demo`);
+  assert(html.includes('class="fr-extension-workspace-ui__content"') && html.includes('class="fr-extension-workspace-ui__document-actions"'), `${locale} renders the Workspace markdown preview and saved-file toolbar`);
   assert(count(html, /class="fr-showcase-composer fr-extension-screen__composer"/g) === 0, `${locale} omits prompt composers from every extension screen`);
   assert(count(html, /class="fr-control-principles"/g) === 1 && count(html, /class="fr-control-principles"[\s\S]*?<\/ul>/g) === 1, `${locale} renders the user-control principles`);
   assert(html.includes('class="fr-showcase-app"') && html.includes('class="fr-showcase-media"'), `${locale} renders the reference-inspired Friday application UI`);
