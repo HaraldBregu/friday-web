@@ -55,7 +55,7 @@ const { labels } = Astro.props;
     </header>
 
     <div class="fr-showcase-app__body">
-      <div class="fr-showcase-conversation">
+      <div class="fr-showcase-conversation" data-showcase-conversation>
         <div class="fr-showcase-history">
           {labels.previousRequests.map((item) => (
             <article class={`fr-showcase-history__item is-${item.type}`}>
@@ -134,6 +134,14 @@ const { labels } = Astro.props;
 
 <script is:inline>
   (() => {
+    document.querySelectorAll("[data-showcase-conversation]").forEach((conversation) => {
+      const scrollToLatest = () => { conversation.scrollTop = conversation.scrollHeight; };
+      requestAnimationFrame(scrollToLatest);
+      conversation.querySelectorAll("img, video").forEach((media) => {
+        media.addEventListener(media.tagName === "VIDEO" ? "loadedmetadata" : "load", scrollToLatest, { once: true });
+      });
+    });
+
     document.querySelectorAll("[data-showcase-video]").forEach((player) => {
       if (player.dataset.ready === "true") return;
       player.dataset.ready = "true";
