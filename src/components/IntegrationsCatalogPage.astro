@@ -1,0 +1,133 @@
+---
+import { getLocaleContent, normalizeLocale, type Locale } from "../i18n";
+import "../styles/friday-landing.css";
+import "../styles/catalog-pages.css";
+import CTASection from "./CTASection.astro";
+import Icon from "./Icon.astro";
+import IntegrationCard from "./IntegrationCard.astro";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+  locale?: Locale;
+}
+
+const locale = normalizeLocale(Astro.props.locale);
+const { integrations, integrationsPage } = getLocaleContent(locale);
+const groups = integrations.reduce<Record<string, typeof integrations>>((acc, item) => {
+  acc[item.category] = acc[item.category] ?? [];
+  acc[item.category].push(item);
+  return acc;
+}, {});
+const groupEntries = Object.entries(groups);
+const slugify = (value: string) => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+const categoryIcons: Record<string, string> = {
+  Channels: "MessageSquare",
+  Canali: "MessageSquare",
+  MCP: "PlugZap",
+  Extension: "BookOpen",
+  Estensione: "BookOpen",
+  "AI Providers": "Bot",
+  "Provider AI": "Bot",
+  Automation: "Clock",
+  Automazione: "Clock",
+  Data: "Database",
+  Dati: "Database",
+};
+const categoryDescriptions = locale === "it"
+  ? {
+      Canali: "Raggiungi Friday dalle conversazioni che usi già, con accesso, identità e risposte controllati per ogni canale.",
+      MCP: "Collega tool server locali o remoti e aggiungi capacità specializzate senza appesantire il nucleo dell'app.",
+      Estensione: "Raggruppa istruzioni, riferimenti e strumenti in workflow riutilizzabili, installabili e facili da condividere.",
+      "Provider AI": "Scegli separatamente il motore per assistente, voce e immagini mantenendo le chiavi nelle impostazioni locali.",
+      Automazione: "Affida a Friday lavori pianificati e controlli periodici che continuano anche quando non stai chattando.",
+      Dati: "Mantieni file, memoria, impostazioni e cronologia vicini al lavoro che Friday sta svolgendo sul tuo computer.",
+    }
+  : {
+      Channels: "Reach Friday from conversations you already use, with access, identity, and replies controlled per channel.",
+      MCP: "Connect local or remote tool servers and add specialist capabilities without making the core app heavier.",
+      Extension: "Package instructions, references, and tools into reusable workflows that are easy to install and share.",
+      "AI Providers": "Choose the engine for assistant, voice, and images independently while keeping keys in local settings.",
+      Automation: "Hand Friday scheduled work and periodic checks that continue even when you are not actively chatting.",
+      Data: "Keep files, memory, settings, and history close to the work Friday is doing on your computer.",
+    };
+const labels = locale === "it"
+  ? {
+      catalog: "Catalogo integrazioni",
+      categories: "Categorie",
+      local: "Configurazione locale",
+      navigation: "Categorie di integrazione",
+      titleBefore: "Collega i sistemi che rendono reale il ",
+      titleAccent: "lavoro.",
+    }
+  : {
+      catalog: "Integration catalog",
+      categories: "Categories",
+      local: "Local configuration",
+      navigation: "Integration categories",
+      titleBefore: "Connect the systems that make ",
+      titleAccent: "work real.",
+    };
+---
+
+<Layout
+  alternatePath="/integrations"
+  bodyClass="catalog-product-page"
+  description={integrationsPage.description}
+  footerVariant="landing"
+  headerVariant="landing"
+  hideBackgroundEffects
+  image="/og/integrations.png"
+  locale={locale}
+  title={integrationsPage.title}
+  wide
+>
+  <section class="catalog-hero">
+    <div class="shell catalog-hero__inner">
+      <p class="catalog-eyebrow">{integrationsPage.eyebrow}</p>
+      <h1>{labels.titleBefore}<em>{labels.titleAccent}</em></h1>
+      <p class="catalog-hero__lede">{integrationsPage.intro}</p>
+
+      <nav class="catalog-jump" aria-label={labels.navigation}>
+        {groupEntries.map(([category]) => (
+          <a href={`#${slugify(category)}`}>
+            <Icon name={categoryIcons[category] ?? "PlugZap"} size={15} />
+            {category}
+          </a>
+        ))}
+      </nav>
+
+      <div class="catalog-summary" aria-label={labels.catalog}>
+        <div><strong>{integrations.length}</strong><span>{labels.catalog}</span></div>
+        <div><strong>{groupEntries.length}</strong><span>{labels.categories}</span></div>
+        <div><strong>{locale === "it" ? "Locale" : "Local"}</strong><span>{labels.local}</span></div>
+      </div>
+    </div>
+  </section>
+
+  {groupEntries.map(([category, items], groupIndex) => (
+    <section class:list={["catalog-section", groupIndex % 2 === 1 && "is-tinted"]} id={slugify(category)}>
+      <div class="shell">
+        <header class="catalog-section__head">
+          <div class="catalog-section__title">
+            <span class="catalog-section-tag">
+              {String(groupIndex + 1).padStart(2, "0")} / {items.length} {items.length === 1 ? integrationsPage.singular : integrationsPage.plural}
+            </span>
+            <h2>{category}</h2>
+          </div>
+          <p class="catalog-section__aside">{categoryDescriptions[category as keyof typeof categoryDescriptions]}</p>
+        </header>
+
+        <div class="integration-grid">
+          {items.map((integration, index) => <IntegrationCard integration={integration} index={index} />)}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <CTASection
+    locale={locale}
+    eyebrow={integrationsPage.ctaEyebrow}
+    title={integrationsPage.ctaTitle}
+    description={integrationsPage.ctaDescription}
+  />
+</Layout>
