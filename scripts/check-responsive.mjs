@@ -31,6 +31,10 @@ assert(htmlFiles.every((path) => {
   const html = readFileSync(path, "utf8");
   return html.includes('name="viewport"') || html.includes('http-equiv="refresh"');
 }), "every rendered static page defines a mobile viewport");
+assert(htmlFiles.every((path) => {
+  const html = readFileSync(path, "utf8");
+  return html.includes('http-equiv="refresh"') || html.includes("friday-landing-page") || html.includes("docs-product-page") || html.includes("catalog-product-page");
+}), "every interactive route uses a current Friday page shell");
 assert(astroConfig.includes('output: "static"'), "Astro output remains fully static");
 assert(english.includes("friday-landing-page") && italian.includes("friday-landing-page"), "English and Italian share the landing shell");
 assert(docsIndex.includes("docs-product-page") && docsArticle.includes("docs-product-page"), "docs index and articles share the docs shell");
@@ -74,7 +78,7 @@ assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-personal-grid \{\s*grid-template
 assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-workflow-steps \{\s*grid-template-columns: 1fr;/.test(landingCss), "workflow becomes linear on mobile");
 assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-extension-cards \{\s*grid-template-columns: 1fr;/.test(landingCss), "extension examples collapse to one column on mobile");
 assert(/@media \(max-width: 380px\)[\s\S]*?\.fr-home-signals \{\s*grid-template-columns: 1fr;/.test(landingCss), "hero capability strip stays readable on narrow screens");
-assert(/@media \(max-width: 680px\)[\s\S]*?\.provider-grid,[\s\S]*?\.integration-grid \{\s*grid-template-columns: 1fr;/.test(catalogCss), "provider and integration catalogs collapse to one column on mobile");
+assert(/@media \(max-width: 680px\)[\s\S]*?\.provider-grid,\s*\.integration-grid,[\s\S]*?\.blog-product-grid \{\s*grid-template-columns: 1fr;/.test(catalogCss), "product-page grids collapse to one column on mobile");
 assert(/@media \(max-width: 820px\)[\s\S]*?\.docs-product-page \.docs-reader \{\s*grid-template-columns: 1fr;/.test(docsCss), "the docs reader collapses on tablets");
 assert(/@media \(max-width: 760px\)[\s\S]*?\.footer-grid \{\s*grid-template-columns: 1fr;/.test(globalCss), "the shared footer collapses on mobile");
 

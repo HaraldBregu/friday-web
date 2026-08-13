@@ -31,6 +31,7 @@ assert(interactivePages.every(({ html }) => html.includes('querySelectorAll("[da
 assert(landingPages.length >= 2, "English and Italian landing pages share the themed product shell");
 assert(docsPages.length >= 2, "docs index and articles share the themed docs shell");
 assert(catalogPages.length >= 3, "provider and integration routes share the themed catalog shell");
+assert(landingPages.length + docsPages.length + catalogPages.length === interactivePages.length, "every interactive route uses a current themed shell");
 
 const globalCss = read("src/styles/global.css");
 const landingCss = read("src/styles/friday-landing.css");
