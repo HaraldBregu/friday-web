@@ -1,10 +1,8 @@
 ---
 import FridayLandingNav from "./FridayLandingNav.astro";
 import Icon from "./Icon.astro";
-import ProductMockup from "./ProductMockup.astro";
 import landingEn from "../data/friday-landing.json";
 import landingIt from "../data/friday-landing-it.json";
-import providerData from "../data/landing-providers.json";
 import { normalizeLocale, type Locale } from "../i18n";
 import "../styles/friday-landing.css";
 
@@ -14,217 +12,247 @@ interface Props {
 
 const locale = normalizeLocale(Astro.props.locale);
 const landing = locale === "it" ? landingIt : landingEn;
-type ProviderCapability = keyof typeof landing.copy.providers.capabilityLabels;
-interface LandingProvider {
-  id: string;
-  name: string;
-  capabilities: ProviderCapability[];
-  iconUrl: string;
-}
-const providers = providerData as LandingProvider[];
-const {
-  capabilities,
-  copy,
-  foundationSteps,
-  knowledgeBasePoints,
-  links,
-  skillPoints,
-  wikiPoints,
-} = landing;
+const { home, links } = landing;
+const extensionsHref = locale === "it" ? "/it/extensions" : "/extensions";
 ---
 
 <FridayLandingNav locale={locale} />
 
-<section class="fr-hero" id="product">
-  <div class="fr-shell fr-hero__layout">
-    <div class="fr-hero__copy">
-      <p class="fr-eyebrow"><span></span>{copy.hero.eyebrow}</p>
-      <h1>{copy.hero.title}</h1>
-      <p class="fr-hero__lede">{copy.hero.description}</p>
+<section class="fr-hero fr-home-hero" id="product" aria-labelledby="hero-title">
+  <div class="fr-shell fr-home-hero__layout">
+    <div class="fr-home-hero__copy">
+      <p class="fr-eyebrow"><span></span>{home.hero.eyebrow}</p>
+      <h1 id="hero-title">{home.hero.title}</h1>
+      <p class="fr-home-hero__lede">{home.hero.description}</p>
       <div class="fr-actions">
         <a class="fr-button" href={links.download} target="_blank" rel="noopener noreferrer">
           <Icon name="Download" size={17} />
-          {copy.hero.download}
+          {home.hero.primary}
         </a>
-        <a class="fr-button fr-button--secondary" href={links.github} target="_blank" rel="noopener noreferrer">
-          <Icon name="Github" size={17} />
-          {copy.hero.github}
+        <a class="fr-button fr-button--secondary" href="#workflow">
+          {home.hero.secondary}
+          <Icon name="ArrowRight" size={17} />
         </a>
       </div>
-      <p class="fr-hero__note">
+      <p class="fr-home-hero__note">
         <Icon name="ShieldCheck" size={16} />
-        {copy.hero.note}
+        {home.hero.note}
       </p>
     </div>
 
-    <div class="fr-hero__visual">
-      <div class="fr-hero__glow" aria-hidden="true"></div>
-      <div class="fr-chat-preview">
-        <ProductMockup landingWorkflow locale={locale} />
-      </div>
-    </div>
+    <figure class="fr-assistant-preview" role="img" aria-label={home.hero.demo.windowLabel}>
+      <div class="fr-assistant-preview__glow" aria-hidden="true"></div>
+      <div class="fr-desktop-window" aria-hidden="true">
+        <div class="fr-desktop-window__bar">
+          <span class="fr-window-dots"><i></i><i></i><i></i></span>
+          <span><img src="/icon-rounded.png" alt="" width="18" height="18" />Friday</span>
+          <Icon name="Maximize" size={13} />
+        </div>
+        <div class="fr-desktop-window__body">
+          <aside class="fr-desktop-sidebar">
+            <span class="fr-desktop-sidebar__brand"><Icon name="Sparkles" size={13} />{home.hero.demo.today}</span>
+            <span class="is-active"><Icon name="MessageSquare" size={13} />{home.hero.demo.newConversation}</span>
+            <small>{home.hero.demo.conversations}</small>
+            <span>Weekly planning</span>
+            <span>Client review</span>
+            <span>Travel notes</span>
+            <span class="fr-desktop-sidebar__settings"><Icon name="Wrench" size={13} />Settings</span>
+          </aside>
 
-    <ul class="fr-capabilities" aria-label={copy.hero.capabilitiesLabel}>
-      {capabilities.map((capability) => (
-        <li><span><Icon name={capability.icon} size={15} /></span>{capability.label}</li>
+          <div class="fr-assistant-thread">
+            <header>
+              <img src="/icon-rounded.png" alt="" width="27" height="27" />
+              <span><strong>Friday</strong><small>{home.hero.demo.assistantStatus}</small></span>
+              <i></i>
+            </header>
+            <div class="fr-assistant-thread__messages">
+              <p class="fr-assistant-thread__user">{home.hero.demo.request}</p>
+              <div class="fr-assistant-thread__reply">
+                <span><img src="/icon-rounded.png" alt="" width="20" height="20" /><strong>Friday</strong></span>
+                <p>{home.hero.demo.response}</p>
+              </div>
+              <ul class="fr-assistant-activity" aria-label={home.hero.demo.activityLabel}>
+                {home.hero.demo.activities.map((activity, index) => (
+                  <li class:list={{ "is-scheduled": index === home.hero.demo.activities.length - 1 }}>
+                    <span>{index === home.hero.demo.activities.length - 1 ? <Icon name="Clock" size={12} /> : <Icon name="Check" size={12} />}</span>
+                    <strong>{activity.label}</strong>
+                    <small>{activity.state}</small>
+                  </li>
+                ))}
+              </ul>
+              <div class="fr-assistant-result">
+                <span><Icon name="CheckCircle2" size={16} /></span>
+                <div><strong>{home.hero.demo.resultTitle}</strong><p>{home.hero.demo.result}</p></div>
+              </div>
+            </div>
+            <div class="fr-assistant-composer">
+              <span><Icon name="Plus" size={14} />{home.hero.demo.composer}</span>
+              <i><Icon name="ArrowUp" size={13} /></i>
+            </div>
+            <footer><span><i></i>{home.hero.demo.background}</span><Icon name="Clock" size={12} /></footer>
+          </div>
+        </div>
+      </div>
+    </figure>
+
+    <ul class="fr-home-signals" aria-label={home.hero.capabilitiesLabel}>
+      {home.hero.capabilities.map((capability, index) => (
+        <li><span>{String(index + 1).padStart(2, "0")}</span>{capability}</li>
       ))}
     </ul>
   </div>
 </section>
 
-<section class="fr-section fr-foundation" aria-labelledby="foundation-title">
+<section class="fr-section fr-personal" id="personal" aria-labelledby="personal-title">
   <div class="fr-shell">
-    <header class="fr-section-head fr-section-head--split" data-reveal>
+    <header class="fr-home-section-head" data-reveal>
       <div>
-        <p class="fr-eyebrow"><span></span>{copy.foundation.eyebrow}</p>
-        <h2 id="foundation-title">{copy.foundation.title}</h2>
+        <p class="fr-eyebrow"><span></span>{home.personal.eyebrow}</p>
+        <h2 id="personal-title">{home.personal.title}</h2>
       </div>
-      <p>{copy.foundation.description}</p>
+      <div>
+        <p>{home.personal.description}</p>
+        <strong>{home.personal.outcome}</strong>
+      </div>
     </header>
 
-    <ol class="fr-flow" data-reveal>
-      {foundationSteps.map((step, index) => (
+    <ul class="fr-personal-grid" aria-label={home.personal.capabilitiesLabel} data-reveal>
+      {home.personal.capabilities.map((capability, index) => (
         <li>
-          <div class="fr-flow__top">
-            <span><Icon name={step.icon} size={18} /></span>
-            <code>{step.number}</code>
+          <div class="fr-personal-card__top">
+            <span><Icon name={capability.icon} size={18} /></span>
+            <small>{String(index + 1).padStart(2, "0")}</small>
           </div>
-          <h3>{step.title}</h3>
-          <p>{step.description}</p>
-          <ul class="fr-flow__surfaces" aria-label={`${step.title}: ${copy.foundation.surfacesLabel}`}>
-            {step.surfaces.map((surface) => <li>{surface}</li>)}
-          </ul>
-          {index < foundationSteps.length - 1 ? <Icon class="fr-flow__arrow" name="ArrowRight" size={17} /> : null}
+          <h3>{capability.title}</h3>
+          <p>{capability.description}</p>
         </li>
       ))}
-    </ol>
+    </ul>
   </div>
 </section>
 
-<section class="fr-section fr-providers" id="providers" aria-labelledby="providers-title">
+<section class="fr-section fr-workflow-section" id="workflow" aria-labelledby="workflow-title">
   <div class="fr-shell">
-    <header class="fr-section-head fr-section-head--split" data-reveal>
+    <header class="fr-home-section-head fr-home-section-head--workflow" data-reveal>
       <div>
-        <p class="fr-eyebrow"><span></span>{copy.providers.eyebrow}</p>
-        <h2 id="providers-title">{copy.providers.title}</h2>
+        <p class="fr-eyebrow"><span></span>{home.workflow.eyebrow}</p>
+        <h2 id="workflow-title">{home.workflow.title}</h2>
       </div>
-      <div class="fr-providers__intro">
-        <p>{copy.providers.description}</p>
-        <span><Icon name="Layers" size={15} />{copy.providers.inventory}</span>
-      </div>
+      <p>{home.workflow.description}</p>
     </header>
 
-    <ul class="fr-provider-grid" aria-label={copy.providers.gridLabel} data-reveal>
-      {providers.map((provider) => {
-        const capabilityText = provider.capabilities
-          .map((capability) => copy.providers.capabilityLabels[capability])
-          .join(" · ");
-        const lightIconUrl = provider.iconUrl.includes("/dark/")
-          ? provider.iconUrl.replace("/dark/", "/light/")
-          : provider.id === "deepgram"
-            ? provider.iconUrl.replace("%23ffffff", "%23111111")
-            : provider.iconUrl;
-        const initials = provider.name
-          .split(/\s+/)
-          .map((word) => word[0])
-          .join("")
-          .slice(0, 3);
-
-        return (
+    <div class="fr-workflow-stage" data-reveal>
+      <ol class="fr-workflow-steps" aria-label={home.workflow.stepsLabel}>
+        {home.workflow.steps.map((step, index) => (
           <li>
-            <div class="fr-provider-item">
-              <span class="fr-provider__mark" aria-hidden="true">
-                <span>{initials}</span>
-                <img class="fr-provider-icon fr-provider-icon--dark" src={provider.iconUrl} alt="" width="46" height="46" loading="lazy" decoding="async" onload="this.parentElement.firstElementChild.hidden=true" onerror="this.hidden=true" />
-                <img class="fr-provider-icon fr-provider-icon--light" src={lightIconUrl} alt="" width="46" height="46" loading="lazy" decoding="async" onload="this.parentElement.firstElementChild.hidden=true" onerror="this.hidden=true" />
-              </span>
-              <span class="fr-provider__copy">
-                <strong>{provider.name}</strong>
-                <small>{capabilityText}</small>
-              </span>
-            </div>
+            <div class="fr-workflow-step__meta"><code>{step.number}</code><span><Icon name={step.icon} size={17} /></span></div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+            {index < home.workflow.steps.length - 1 && <Icon class="fr-workflow-step__arrow" name="ArrowRight" size={15} />}
           </li>
-        );
-      })}
-    </ul>
+        ))}
+      </ol>
 
-    <footer class="fr-providers__footer" data-reveal>
-      <p>{copy.providers.note}</p>
-      <a href="/docs/providers">
-        {copy.providers.details}
-        <Icon name="ArrowRight" size={15} />
-      </a>
-    </footer>
-  </div>
-</section>
-
-<section class="fr-section fr-feature-section" id="skills" aria-labelledby="skills-title">
-  <div class="fr-shell fr-feature-layout fr-feature-layout--text">
-    <div class="fr-feature-copy" data-reveal>
-      <p class="fr-eyebrow"><span></span>{copy.skills.eyebrow}</p>
-      <h2 id="skills-title">{copy.skills.title}</h2>
-      <p class="fr-section-lede">{copy.skills.description}</p>
-      <ul class="fr-check-list">
-        {skillPoints.map((point) => <li><Icon name="Check" size={14} /><span>{point}</span></li>)}
-      </ul>
-      <aside class="fr-callout">
-        <span><Icon name="Sparkles" size={17} /></span>
-        <p>{copy.skills.callout}</p>
+      <aside class="fr-approval-card">
+        <span class="fr-approval-card__icon"><Icon name="ShieldCheck" size={20} /></span>
+        <div>
+          <small>{home.workflow.approvalLabel}</small>
+          <h3>{home.workflow.approvalTitle}</h3>
+          <p>{home.workflow.approvalDescription}</p>
+        </div>
+        <ul>
+          {home.workflow.approvalActions.map((action, index) => <li class:list={{ "is-primary": index === 1 }}>{action}</li>)}
+        </ul>
       </aside>
     </div>
   </div>
 </section>
 
-<section class="fr-section fr-knowledge" id="knowledge" aria-labelledby="knowledge-title">
+<section class="fr-section fr-home-extensions" id="extensions" aria-labelledby="home-extensions-title">
   <div class="fr-shell">
-    <header class="fr-section-head fr-section-head--center" data-reveal>
-      <p class="fr-eyebrow"><span></span>{copy.knowledge.eyebrow}</p>
-      <h2 id="knowledge-title">{copy.knowledge.title}</h2>
-      <p>{copy.knowledge.description}</p>
+    <header class="fr-home-section-head" data-reveal>
+      <div>
+        <p class="fr-eyebrow"><span></span>{home.extensions.eyebrow}</p>
+        <h2 id="home-extensions-title">{home.extensions.title}</h2>
+      </div>
+      <p>{home.extensions.description}</p>
     </header>
 
-    <div class="fr-knowledge-panels">
-      <article class="fr-knowledge-card fr-knowledge-card--rag" data-reveal>
-        <div class="fr-card-label"><span><Icon name="Search" size={17} /></span>Knowledge Base</div>
-        <h3>{copy.knowledge.baseTitle}</h3>
-        <p>{copy.knowledge.baseDescription}</p>
-        <span class="fr-tech-label">{copy.knowledge.baseTech}</span>
-        <ul class="fr-check-list">
-          {knowledgeBasePoints.map((point) => <li><Icon name="Check" size={14} /><span>{point}</span></li>)}
-        </ul>
-      </article>
+    <ul class="fr-extension-cards" aria-label={home.extensions.examplesLabel} data-reveal>
+      {home.extensions.examples.map((example, index) => (
+        <li class={`fr-extension-card fr-extension-card--${example.accent}`}>
+          <div class="fr-extension-card__window">
+            <span class="fr-window-dots"><i></i><i></i><i></i></span>
+            <small>Friday Extension</small>
+          </div>
+          <div class="fr-extension-card__body">
+            <span><Icon name={example.icon} size={19} /></span>
+            <small>{String(index + 1).padStart(2, "0")}</small>
+            <h3>{example.title}</h3>
+            <p>{example.description}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
 
-      <article class="fr-knowledge-card fr-knowledge-card--wiki" data-reveal>
-        <div class="fr-card-label"><span><Icon name="BookOpen" size={17} /></span>LLM Wiki</div>
-        <h3>{copy.knowledge.wikiTitle}</h3>
-        <p>{copy.knowledge.wikiDescription}</p>
-        <span class="fr-tech-label">{copy.knowledge.wikiTech}</span>
-        <ul class="fr-check-list">
-          {wikiPoints.map((point) => <li><Icon name="Check" size={14} /><span>{point}</span></li>)}
-        </ul>
-      </article>
-    </div>
-
-    <aside class="fr-callout fr-callout--wide" data-reveal>
-      <span><Icon name="GitBranch" size={18} /></span>
-      <p>{copy.knowledge.callout}</p>
-    </aside>
-
+    <footer class="fr-extension-footer" data-reveal>
+      <p>{home.extensions.note}</p>
+      <a href={extensionsHref}>{home.extensions.link}<Icon name="ArrowRight" size={15} /></a>
+    </footer>
   </div>
 </section>
 
-<section class="fr-final-cta" aria-labelledby="final-cta-title">
-  <div class="fr-final-cta__glow" aria-hidden="true"></div>
-  <div class="fr-shell fr-final-cta__inner" data-reveal>
-    <img src="/icon-rounded.png" width="74" height="74" alt="" />
-    <p class="fr-eyebrow"><span></span>{copy.cta.eyebrow}</p>
-    <h2 id="final-cta-title">{copy.cta.title}</h2>
-    <p>{copy.cta.description}</p>
-    <div class="fr-actions">
-      <a class="fr-button" href={links.download} target="_blank" rel="noopener noreferrer"><Icon name="Download" size={17} />{copy.cta.download}</a>
-      <a class="fr-button fr-button--secondary" href={links.github} target="_blank" rel="noopener noreferrer"><Icon name="Github" size={17} />{copy.cta.source}</a>
+<section class="fr-section fr-home-control" id="control" aria-labelledby="control-title">
+  <div class="fr-shell fr-control-grid">
+    <div class="fr-control-copy" data-reveal>
+      <p class="fr-eyebrow"><span></span>{home.control.eyebrow}</p>
+      <h2 id="control-title">{home.control.title}</h2>
+      <p class="fr-control-copy__lede">{home.control.description}</p>
+      <ul class="fr-control-principles" aria-label={home.control.pointsLabel}>
+        {home.control.points.map((point) => (
+          <li>
+            <span><Icon name={point.icon} size={17} /></span>
+            <div><h3>{point.title}</h3><p>{point.description}</p></div>
+          </li>
+        ))}
+      </ul>
     </div>
-    <span class="fr-platform-line"><Icon name="Monitor" size={15} />{copy.cta.platforms}</span>
+
+    <aside class="fr-permission-panel" data-reveal>
+      <div class="fr-permission-panel__bar">
+        <span class="fr-window-dots"><i></i><i></i><i></i></span>
+        <strong>Access & permissions</strong>
+        <Icon name="LockKeyhole" size={14} />
+      </div>
+      <div class="fr-permission-panel__body">
+        <header><span><Icon name="ShieldCheck" size={19} /></span><div><strong>Your setup</strong><small>Permission-based access</small></div></header>
+        <ul>
+          <li><span><Icon name="FolderOpen" size={15} />Files and folders</span><small>Ask every time</small></li>
+          <li><span><Icon name="Cloud" size={15} />Connected services</span><small>2 configured</small></li>
+          <li><span><Icon name="TerminalSquare" size={15} />Sensitive commands</span><small>Approval required</small></li>
+          <li><span><Icon name="Eye" size={15} />Tool activity</span><small>Visible in chat</small></li>
+        </ul>
+        <div class="fr-permission-disclosure">
+          <Icon name="Info" size={16} />
+          <p><strong>{home.control.disclosureTitle}</strong> {home.control.disclosure}</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="fr-final-cta fr-home-final-cta" aria-labelledby="final-cta-title">
+  <div class="fr-home-final-cta__glow" aria-hidden="true"></div>
+  <div class="fr-shell fr-home-final-cta__inner" data-reveal>
+    <img src="/icon-rounded.png" width="68" height="68" alt="" />
+    <p class="fr-eyebrow"><span></span>{home.cta.eyebrow}</p>
+    <h2 id="final-cta-title">{home.cta.title}</h2>
+    <p>{home.cta.description}</p>
+    <div class="fr-actions">
+      <a class="fr-button" href={links.download} target="_blank" rel="noopener noreferrer"><Icon name="Download" size={17} />{home.cta.primary}</a>
+      <a class="fr-button fr-button--secondary" href={links.github} target="_blank" rel="noopener noreferrer"><Icon name="Github" size={17} />{home.cta.secondary}</a>
+    </div>
+    <span class="fr-platform-line"><Icon name="Monitor" size={15} />{home.cta.platforms}</span>
   </div>
 </section>
 
