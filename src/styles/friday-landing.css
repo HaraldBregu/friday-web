@@ -4858,6 +4858,7 @@
 }
 
 .fr-extension-coding-ui {
+  display: flex;
   padding: 0;
   background: #09090a;
 }
