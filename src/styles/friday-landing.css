@@ -3289,6 +3289,7 @@
   font-weight: 500;
   letter-spacing: -0.045em;
   text-shadow: 0 0 34px rgba(167, 107, 255, 0.18);
+  white-space: nowrap;
 }
 
 [data-theme="light"] .fr-home-hero__accent {
