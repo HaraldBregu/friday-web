@@ -41,7 +41,7 @@
   color: var(--fr-text);
 }
 
-.docs-product-page .nav,
+.docs-product-page .fr-nav,
 .docs-product-page .site-footer .shell {
   width: min(calc(100% - var(--docs-gutter)), var(--docs-shell));
 }
