@@ -59,6 +59,7 @@ for (const [locale, html, title] of [
   assert(count(html, /class="fr-extension-screen__head"/g) === 0, `${locale} removes duplicate internal headers from extension screens`);
   assert(html.includes('class="fr-extension-workspace-ui__tree"') && html.includes('class="fr-extension-workspace-ui__board"'), `${locale} renders the Workspace file tree beside its content demo`);
   assert(html.includes('class="fr-extension-workspace-ui__content"') && html.includes('class="fr-extension-workspace-ui__document-actions"'), `${locale} renders the Workspace markdown preview and saved-file toolbar`);
+  assert(html.includes('class="fr-extension-design-ui__tablet"') && html.includes('class="fr-extension-design-ui__phone"') && html.includes('class="fr-extension-design-ui__shapes"'), `${locale} renders tablet, mobile, and shape artboards in the Design extension`);
   assert(html.includes("Lorem ipsum dolor sit amet") && html.includes("LOREM") && html.includes("lorem.<em>dolor</em>(sit)"), `${locale} uses placeholder content inside every extension demo`);
   assert(!html.includes("Cheapest Flights: Milan") && !html.includes("Voli più economici: Milano") && !html.includes("Wizz Air"), `${locale} omits realistic demo content from homepage extensions`);
   assert(count(html, /class="fr-showcase-composer fr-extension-screen__composer"/g) === 0, `${locale} omits prompt composers from every extension screen`);
