@@ -77,6 +77,7 @@ assert(docsIndexIt.includes('<html data-theme="dark" lang="it">') && docsIndexIt
 assert(docsArticleIt.includes("Configura Friday, collega il primo provider AI") && docsArticleIt.includes("Primo avvio") && docsArticleIt.includes("Tutta la documentazione"), "Italian documentation articles render localized content and navigation");
 assert(/href="\/docs\/getting-started\/?" hreflang="en"/.test(docsArticleIt) && /href="\/it\/docs\/getting-started\/?" hreflang="it"/.test(docsArticleIt), "documentation language switcher preserves the current article slug");
 assert(italian.includes("Chiedi a Friday ciò che ti serve") && italian.includes("Tu descrivi l’obiettivo") && italian.includes("Condividi solo ciò che serve"), "Italian landing copy uses direct, user-centered language");
+assert(/AI Personale<\/span><br>\s*<span[^>]*>Desktop<\/span>/.test(italian), "Italian hero places Desktop on its own line");
 assert(![italian, integrationsIt, operatorsIt, docsIndexIt, docsArticleIt].some((html) => ["ciclo agent", "account hosted", "lavoro finito", "tool server hosted"].some((phrase) => html.toLowerCase().includes(phrase))), "Italian routes avoid literal English calques");
 assert(operatorsIt.includes("Chat dell&#39;assistente") && operatorsIt.includes("Strumenti dell&#39;agente") && operatorsIt.includes("Esecuzione dei prompt in sviluppo"), "Italian operators route renders localized and accurate product copy");
 

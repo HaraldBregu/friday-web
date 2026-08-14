@@ -28,7 +28,8 @@ const [heroTitleBefore, heroTitleAfter = ""] = home.hero.title.split(heroAccentP
       <h1 id="hero-title" aria-label={home.hero.title}>
         <span aria-hidden="true">{heroTitleBefore}</span>
         <span class="fr-home-hero__accent" aria-hidden="true">{heroAccentPhrase}</span>
-        <span aria-hidden="true">{heroTitleAfter}</span>
+        {locale === "it" ? <br aria-hidden="true" /> : null}
+        <span aria-hidden="true">{locale === "it" ? heroTitleAfter.trim() : heroTitleAfter}</span>
       </h1>
       <p class="fr-home-hero__lede">{home.hero.description}</p>
       <div class="fr-actions">
