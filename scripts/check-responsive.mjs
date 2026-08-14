@@ -70,7 +70,7 @@ assert(english.includes("friday-landing-page") && italian.includes("friday-landi
 assert([docsIndex, docsArticle, docsIndexIt, docsArticleIt].every((html) => html.includes("docs-product-page")), "English and Italian docs indexes and articles share the docs shell");
 assert([providers, integrations, integrationsIt].every((html) => html.includes("catalog-product-page") && html.includes("fr-nav-wrap")), "provider and integration routes share the current product shell");
 assert([providers, integrations, integrationsIt].every((html) => html.includes("catalog-summary") && html.includes("catalog-section")), "catalog routes render responsive summaries and grouped content");
-assert(releasesIndex.includes("Friday releases.") && count(releasesIndex, /class="release-card(?: |")/g) === 3, "release archive renders one card for every current GitHub tag");
+assert(releasesIndex.includes("Release archive") && count(releasesIndex, /class="release-card(?: |")/g) === 3, "release archive renders one card for every current GitHub tag");
 assert(["v1.0.2", "v1.0.1", "v1.0.0"].every((tag) => releasesIndex.includes(`href="/releases/${tag}"`)), "release archive links to every statically generated tag page");
 assert(count(latestRelease, /class="release-download"/g) === 7 && latestRelease.includes("Friday-1.0.2-arm64.dmg"), "latest release presents all seven verified GitHub artifacts");
 assert(tagOnlyRelease.includes("This tag has no published installers.") && !tagOnlyRelease.includes('class="release-download"'), "tag-only release explains that no binary artifacts are available");
