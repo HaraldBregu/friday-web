@@ -29,4 +29,4 @@ Extensions can add focused capabilities for areas such as:
 - **Entertainment:** create interactive experiences, manage media, and support games or personal projects.
 - **Specialized work:** connect Friday to industry-specific tools, data, and repeatable processes.
 
-This makes Friday a foundation rather than a fixed product. It can begin as a personal desktop assistant and evolve into the software each person needs—personal, extensible, and built around the way they live and work.
+This makes Friday a foundation rather than a fixed product. It can begin as a personal desktop assistant and evolve into the software each person needs: personal, extensible, and built around the way they live and work.

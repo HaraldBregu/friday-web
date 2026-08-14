@@ -11,7 +11,7 @@
     "hero": {
       "eyebrow": "Public beta · macOS, Windows, and Linux",
       "title": "A personal AI assistant for your desktop",
-      "description": "Friday turns plain-language requests into useful work. It can edit files, search the web, use connected tools, and create media—all from one desktop app.",
+      "description": "Friday turns plain-language requests into useful work. It can edit files, search the web, use connected tools, and create media, all from one desktop app.",
       "primary": "Download Friday",
       "secondary": "See how it works",
       "note": "Open-source software. Bring your own AI providers, follow tool activity, and choose which actions require approval.",
@@ -127,7 +127,7 @@
       "description": "Friday selects the relevant context and tools, shows its progress in the conversation, and pauses when an action requires your approval.",
       "stepsLabel": "How Friday helps you get things done",
       "steps": [
-        { "number": "01", "icon": "MessageSquare", "title": "Make a request", "description": "Describe the result you want in your own words—no special commands needed." },
+        { "number": "01", "icon": "MessageSquare", "title": "Make a request", "description": "Describe the result you want in your own words. No special commands needed." },
         { "number": "02", "icon": "Layers", "title": "Friday gathers context", "description": "It uses the relevant preferences, files, tools, and services you have shared." },
         { "number": "03", "icon": "Clock", "title": "Friday does the work", "description": "It works through each step and can run suitable tasks in the background." },
         { "number": "04", "icon": "CheckCircle2", "title": "Review the result", "description": "You receive the finished work and can see the tool activity behind it." }
@@ -216,7 +216,7 @@
     "hero": {
       "eyebrow": "Desktop AI copilot for macOS, Windows, and Linux",
       "title": "Turn knowledge into action.",
-      "description": "Friday works with your files, tools, and chosen AI providers—then turns useful work into reusable Skills, grounded search, a source-aware LLM Wiki, and focused Extensions.",
+      "description": "Friday works with your files, tools, and chosen AI providers, then turns useful work into reusable Skills, grounded search, a source-aware LLM Wiki, and focused Extensions.",
       "download": "Download Friday",
       "github": "View on GitHub",
       "note": "Bring your own providers. Keep control of the setup. Follow every tool action in the conversation.",
@@ -255,7 +255,7 @@
       "eyebrow": "Reusable expertise",
       "title": "Teach Friday the way you work.",
       "description": "Turn repeatable workflows into portable Agent Skills. Friday routes requests with lightweight skill metadata, loads the full instructions only when they are relevant, and can use the scripts, references, and assets bundled with each skill.",
-      "callout": "Full instructions arrive only when the task needs them—reusable expertise without placing every playbook into every prompt."
+      "callout": "Full instructions arrive only when the task needs them. This provides reusable expertise without placing every playbook into every prompt."
     },
     "knowledge": {
       "eyebrow": "Retrieval plus durable knowledge",

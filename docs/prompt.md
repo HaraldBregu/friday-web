@@ -26,7 +26,7 @@ Design for people who want more than a chatbot. They want an assistant that can 
 
 ### 2. A Personal Assistant That Grows With You
 
-Explain that Friday can become personalized around the user's routines, preferences, and priorities—with the user's permission.
+Explain that Friday can become personalized around the user's routines, preferences, and priorities, with the user's permission.
 
 Show the core capabilities in a concise, scannable format:
 
