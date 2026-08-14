@@ -46,12 +46,17 @@ for (const file of pages) {
   const label = file.slice(dist.length) || "/index.html";
   const robots = meta(html, "robots");
   const isNoindex = robots?.includes("noindex") ?? false;
+  const isRedirect = html.includes('http-equiv="refresh"');
   const image = meta(html, "og:image");
 
   if (!html.match(/<title>[^<]+<\/title>/i)) errors.push(`${label}: missing title`);
-  if (!meta(html, "description")) errors.push(`${label}: missing meta description`);
   if (!canonical(html)?.startsWith("https://")) errors.push(`${label}: canonical must be absolute HTTPS`);
   if (!robots) errors.push(`${label}: missing robots metadata`);
+  if (isRedirect) {
+    if (!isNoindex) errors.push(`${label}: redirect page must be noindex`);
+    continue;
+  }
+  if (!meta(html, "description")) errors.push(`${label}: missing meta description`);
   if (!isNoindex && !robots?.includes("max-image-preview:large")) {
     errors.push(`${label}: indexed page does not allow large image previews`);
   }

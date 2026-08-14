@@ -1,6 +1,7 @@
 ---
 import { localizedRoutePath, normalizeLocale, type Locale } from "../i18n";
 import { formatAssetSize, formatReleaseDate, getReleaseCopy, type Release } from "../lib/releases";
+import { socialImageObject } from "../lib/social-images";
 import Icon from "./Icon.astro";
 import ProductPageLayout from "../layouts/ProductPageLayout.astro";
 
@@ -15,6 +16,10 @@ const copy = getReleaseCopy(release, locale);
 const publishedDate = new Date(release.publishedAt);
 const shortCommit = release.commit.slice(0, 7);
 const route = (path: string) => localizedRoutePath(path, locale);
+const canonicalPath = route(`/releases/${release.tag}`);
+const siteBaseUrl = Astro.site ?? new URL("https://friday.haraldbregu.com");
+const pageUrl = new URL(canonicalPath, siteBaseUrl).toString();
+const primaryImage = socialImageObject("default", siteBaseUrl, locale, pageUrl);
 const platformIcon = (platform: string) => platform === "macOS" ? "Apple" : platform === "Windows" ? "MonitorDown" : "TerminalSquare";
 const labels = locale === "it"
   ? {
@@ -79,22 +84,31 @@ const labels = locale === "it"
     };
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "Friday",
-  applicationCategory: "UtilitiesApplication",
-  operatingSystem: "macOS, Windows, Linux",
-  softwareVersion: release.tag,
-  datePublished: release.publishedAt,
-  description: copy.summary,
-  inLanguage: locale,
-  codeRepository: release.sourceUrl,
-  ...(release.assets.length > 0 ? { downloadUrl: release.assets.map((asset) => asset.url) } : {}),
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${pageUrl}#software-application`,
+      name: "Friday",
+      url: pageUrl,
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "macOS, Windows, Linux",
+      softwareVersion: release.tag,
+      datePublished: release.publishedAt,
+      description: copy.summary,
+      inLanguage: locale === "it" ? "it-IT" : "en",
+      codeRepository: release.sourceUrl,
+      image: { "@id": primaryImage["@id"] },
+      mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+      ...(release.assets.length > 0 ? { downloadUrl: release.assets.map((asset) => asset.url) } : {}),
+    },
+    primaryImage,
+  ],
 };
 ---
 
 <ProductPageLayout
   alternatePath={`/releases/${release.tag}`}
-  canonical={route(`/releases/${release.tag}`)}
+  canonical={canonicalPath}
   description={copy.summary}
   locale={locale}
   ogType="article"
