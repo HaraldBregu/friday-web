@@ -6,7 +6,7 @@
     { "label": "Download", "href": "#download" }
   ],
   "release": {
-    "version": "v1.0",
+    "version": "v1.0.2",
     "platform": "macOS / Windows / Linux",
     "phase": "Public beta"
   },

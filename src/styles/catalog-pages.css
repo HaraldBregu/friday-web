@@ -1878,7 +1878,9 @@
   .product-tile,
   .operator-product-card,
   .solution-product-card,
-  .provider-card__link svg {
+  .provider-card__link svg,
+  .release-card__footer > a svg,
+  .release-download {
     transition: none;
   }
 }

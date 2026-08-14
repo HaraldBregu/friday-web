@@ -90,7 +90,7 @@
       "Separated cron, skills, MCP, library, storage, and widget APIs into focused modules.",
       "Added storage sync and widget foundations while simplifying legacy agent plumbing."
     ],
-    "githubUrl": "https://github.com/HaraldBregu/friday/releases/tag/v1.0.1",
+    "githubUrl": "https://github.com/HaraldBregu/friday/tree/v1.0.1",
     "sourceUrl": "https://github.com/HaraldBregu/friday/tree/v1.0.1",
     "compareUrl": "https://github.com/HaraldBregu/friday/compare/v1.0.0...v1.0.1",
     "assets": []

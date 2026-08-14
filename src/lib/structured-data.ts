@@ -56,7 +56,7 @@ export function buildHomepageStructuredData({
         applicationCategory: "ProductivityApplication",
         applicationSubCategory: "AI assistant",
         operatingSystem: "macOS, Windows, Linux",
-        softwareVersion: "1.0 beta",
+        softwareVersion: "1.0.2 beta",
         inLanguage: ["en", "it"],
         featureList: featureNames,
         author: { "@id": organizationId },

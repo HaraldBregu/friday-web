@@ -24,7 +24,7 @@ const structuredData = {
   datePublished: release.publishedAt,
   description: release.summary,
   codeRepository: release.sourceUrl,
-  downloadUrl: release.assets.map((asset) => asset.url),
+  ...(release.assets.length > 0 ? { downloadUrl: release.assets.map((asset) => asset.url) } : {}),
 };
 ---
 
