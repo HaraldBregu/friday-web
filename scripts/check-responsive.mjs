@@ -1,5 +1,5 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { extname, join } from "node:path";
 
 const root = process.cwd();
 const read = (path) => readFileSync(join(root, path), "utf8");
@@ -26,6 +26,23 @@ const docsCss = read("src/styles/docs-friday.css");
 const globalCss = read("src/styles/global.css");
 const astroConfig = read("astro.config.mjs");
 const htmlFiles = collectHtml(join(root, "dist"));
+const brokenInternalLinks = htmlFiles.flatMap((sourcePath) => {
+  const html = readFileSync(sourcePath, "utf8");
+  const hrefs = [...html.matchAll(/<a\b[^>]*\shref="([^"]+)"/g)].map((match) => match[1]);
+
+  return hrefs.flatMap((href) => {
+    if (!href.startsWith("/")) return [];
+
+    const pathname = decodeURI(href.split(/[?#]/)[0]);
+    const target = pathname === "/"
+      ? join(root, "dist", "index.html")
+      : extname(pathname)
+        ? join(root, "dist", pathname.slice(1))
+        : join(root, "dist", pathname.slice(1), "index.html");
+
+    return existsSync(target) ? [] : [`${sourcePath}: ${href}`];
+  });
+});
 const homeExtensionCss = landingCss.slice(
   landingCss.indexOf(".fr-home-extension-gallery"),
   landingCss.indexOf(".fr-extension-footer"),
@@ -44,6 +61,11 @@ assert(english.includes("friday-landing-page") && italian.includes("friday-landi
 assert(docsIndex.includes("docs-product-page") && docsArticle.includes("docs-product-page"), "docs index and articles share the docs shell");
 assert([providers, integrations, integrationsIt].every((html) => html.includes("catalog-product-page") && html.includes("fr-nav-wrap")), "provider and integration routes share the current product shell");
 assert([providers, integrations, integrationsIt].every((html) => html.includes("catalog-summary") && html.includes("catalog-section")), "catalog routes render responsive summaries and grouped content");
+assert(brokenInternalLinks.length === 0, `every internal page link resolves to generated output${brokenInternalLinks.length ? ` (${brokenInternalLinks.join(", ")})` : ""}`);
+assert(!italian.includes("/it/docs") && ["/docs", "/docs/getting-started", "/docs/features", "/docs/skills-and-mcp", "/docs/privacy"].every((href) => italian.includes(`href="${href}"`)), "Italian navigation and footer keep untranslated documentation links on valid English routes");
+assert(["/it/integrations", "/it/operators", "/it/community"].every((href) => italian.includes(`href="${href}"`)), "Italian navigation uses translated routes when they are available");
+assert(!["/it/tools", "/it/providers", "/it/channels", "/it/solutions", "/it/blog"].some((href) => italian.includes(`href="${href}"`)), "Italian navigation falls back to English routes when no translation exists");
+assert(/href="\/docs" hreflang="it"/.test(docsIndex), "documentation language switcher keeps users on the current untranslated documentation route");
 
 for (const [locale, html, title] of [
   ["English", english, "A personal AI assistant for your desktop"],
