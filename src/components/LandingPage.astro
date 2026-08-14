@@ -87,7 +87,7 @@ const channelSectionText = locale === "it"
             </a>
           ) : null
         }
-        <a class="text-link" href="/releases">
+        <a class="text-link" href={localizedPath("/releases", locale)}>
           {ui.releaseNotes}
           <Icon name="ArrowRight" size={16} />
         </a>
