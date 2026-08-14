@@ -172,7 +172,7 @@
             "airline": "Elit sed eiusmod"
           }
         },
-        { "id": "design", "icon": "Shapes", "title": "Design", "description": "Develop visual directions on a focused canvas with drawing tools, layers, and generated assets available in one workspace.", "status": "Changes saved", "items": ["Lorem rectangle", "Ipsum tablet", "Dolor mobile", "Consectetur card"] },
+        { "id": "design", "icon": "Shapes", "title": "Design Agent", "description": "Develop visual directions on a focused canvas with drawing tools, layers, and generated assets available in one workspace.", "status": "Changes saved", "items": ["Lorem rectangle", "Ipsum tablet", "Dolor mobile", "Consectetur card"] },
         { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Work across project files, inspect implementation details, and follow build feedback in a compact development environment.", "status": "Tests passing", "items": ["lorem", "ipsum", "dolor.ts"] }
       ],
       "note": "These are starting points, not limits. Friday is a foundation for the software each person needs.",

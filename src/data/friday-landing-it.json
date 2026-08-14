@@ -172,7 +172,7 @@
             "airline": "Elit sed eiusmod"
           }
         },
-        { "id": "design", "icon": "Shapes", "title": "Design", "description": "Sviluppa direzioni visive su una tela mirata con strumenti di disegno, livelli e risorse generate in un unico workspace.", "status": "Modifiche salvate", "items": ["Lorem rectangle", "Ipsum tablet", "Dolor mobile", "Consectetur card"] },
+        { "id": "design", "icon": "Shapes", "title": "Design Agent", "description": "Sviluppa direzioni visive su una tela mirata con strumenti di disegno, livelli e risorse generate in un unico workspace.", "status": "Modifiche salvate", "items": ["Lorem rectangle", "Ipsum tablet", "Dolor mobile", "Consectetur card"] },
         { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Lavora tra i file di progetto, esamina i dettagli dell’implementazione e segui il build in un ambiente di sviluppo compatto.", "status": "Test superati", "items": ["lorem", "ipsum", "dolor.ts"] }
       ],
       "note": "Questi sono punti di partenza, non limiti. Friday è una base per il software di cui ogni persona ha bisogno.",

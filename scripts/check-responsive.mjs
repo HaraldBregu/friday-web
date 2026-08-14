@@ -54,7 +54,8 @@ for (const [locale, html, title] of [
   assert(["product", "personal", "workflow", "extensions", "control"].every((id) => html.includes(`id="${id}"`)), `${locale} renders the complete homepage narrative`);
   assert(count(html, /class="fr-personal-card__top"/g) === 6, `${locale} renders all six personal assistant capabilities`);
   assert(count(html, /class="fr-workflow-step__meta"/g) === 4, `${locale} renders the four request-to-result steps`);
-  assert(count(html, /class="fr-showcase-app fr-extension-screen is-/g) === 3, `${locale} renders Workspace, Design, and Coding as distinct Friday app screens`);
+  assert(count(html, /class="fr-showcase-app fr-extension-screen is-/g) === 3, `${locale} renders Workspace, Design Agent, and Coding as distinct Friday app screens`);
+  assert(html.includes("Design Agent"), `${locale} uses the Design Agent extension name consistently`);
   assert(count(html, /class="fr-extension-screen__title"/g) === 3, `${locale} uses each extension name in its window title bar`);
   assert(count(html, /class="fr-extension-screen__head"/g) === 0, `${locale} removes duplicate internal headers from extension screens`);
   assert(html.includes('class="fr-extension-workspace-ui__tree"') && html.includes('class="fr-extension-workspace-ui__board"'), `${locale} renders the Workspace file tree beside its content demo`);
