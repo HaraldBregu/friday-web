@@ -74,7 +74,7 @@ assert(!["/it/tools", "/it/providers", "/it/channels", "/it/solutions", "/it/blo
 assert(/href="\/it\/docs\/?" hreflang="it"/.test(docsIndex), "English documentation links to its Italian counterpart");
 assert(/href="\/docs\/?" hreflang="en"/.test(docsIndexIt), "Italian documentation links to its English counterpart");
 assert(docsIndexIt.includes('<html data-theme="dark" lang="it">') && docsIndexIt.includes("Documentazione di Friday") && docsIndexIt.includes("Inizia dalla panoramica"), "Italian documentation index renders Italian content and metadata");
-assert(docsArticleIt.includes("Completa la configurazione iniziale") && docsArticleIt.includes("Primo avvio") && docsArticleIt.includes("Tutta la documentazione"), "Italian documentation articles render translated content and navigation");
+assert(docsArticleIt.includes("Configura Friday, collega il primo provider AI") && docsArticleIt.includes("Primo avvio") && docsArticleIt.includes("Tutta la documentazione"), "Italian documentation articles render localized content and navigation");
 assert(/href="\/docs\/getting-started\/?" hreflang="en"/.test(docsArticleIt) && /href="\/it\/docs\/getting-started\/?" hreflang="it"/.test(docsArticleIt), "documentation language switcher preserves the current article slug");
 assert(italian.includes("Chiedi a Friday ciò che ti serve") && italian.includes("Tu descrivi l’obiettivo") && italian.includes("Condividi solo ciò che serve"), "Italian landing copy uses direct, user-centered language");
 assert(![italian, integrationsIt, operatorsIt, docsIndexIt, docsArticleIt].some((html) => ["ciclo agent", "account hosted", "lavoro finito", "tool server hosted"].some((phrase) => html.toLowerCase().includes(phrase))), "Italian routes avoid literal English calques");
