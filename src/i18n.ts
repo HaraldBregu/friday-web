@@ -354,104 +354,183 @@ const integrationsIt = [
     name: "Telegram",
     category: localizedCategory.Channels,
     description:
-      "Parla con Friday da Telegram tramite un bot configurato, con stato abilitato, allowlist, target e policy DM.",
+      "Scrivi a Friday da Telegram. Scegli chi può contattare il bot e in quali chat può rispondere.",
     icon: "MessageSquare",
   },
   {
     name: "Discord",
     category: localizedCategory.Channels,
     description:
-      "Chatta con Friday da un server Discord o in DM, con thread, riferimenti di risposta, allowlist e policy DM. Le risposte tornano nel canale o thread di origine.",
+      "Usa Friday nei server Discord o nei messaggi diretti. Le risposte tornano sempre nel canale o nel thread di origine.",
     icon: "MessageSquare",
   },
   {
     name: "Slack",
     category: localizedCategory.Channels,
     description:
-      "Canale workspace in arrivo per conversazioni di team, approvazioni e risposte assistente nel thread originale.",
+      "In arrivo: conversazioni di team, approvazioni e risposte di Friday direttamente nei thread di Slack.",
     icon: "MessageSquare",
   },
   {
     name: "WhatsApp",
     category: localizedCategory.Channels,
     description:
-      "Canale mobile in arrivo per richieste personali rapide e check-in con l'assistente.",
+      "In arrivo: richieste veloci e aggiornamenti dall'assistente direttamente su WhatsApp.",
     icon: "MessageSquare",
   },
   {
     name: "Email",
     category: localizedCategory.Channels,
     description:
-      "Canale asincrono in arrivo per richieste, riepiloghi e workflow di follow-up.",
+      "In arrivo: richieste, riepiloghi e attività di follow-up gestiti tramite email.",
     icon: "MessageSquare",
   },
   {
     name: "Server MCP remoti",
     category: "MCP",
-    description: "Collega tool server hosted via HTTP con autenticazione opzionale a token o chiave.",
+    description: "Collega server MCP remoti via HTTP e proteggili con token o chiave quando necessario.",
     icon: "PlugZap",
   },
   {
     name: "Server MCP locali",
     category: "MCP",
-    description: "Esegui tool server stdio come processi locali per aggiungere strumenti specifici a Friday.",
+    description: "Avvia server MCP stdio sul computer e aggiungi a Friday gli strumenti che ti servono.",
     icon: "Workflow",
   },
   {
     name: "Skill",
     category: "Estensione",
     description:
-      "Installa o importa workflow riutilizzabili con istruzioni, riferimenti, template, schemi e comportamento eseguibile opzionale.",
+      "Installa o importa flussi di lavoro riutilizzabili con istruzioni, riferimenti, modelli e script facoltativi.",
     icon: "BookOpen",
   },
   {
     name: "Endpoint compatibili OpenAI",
     category: localizedCategory["AI Providers"],
-    description: "Punta Friday ad altri provider compatibili configurando endpoint e chiave API.",
+    description: "Collega altri provider compatibili indicando endpoint e chiave API.",
     icon: "Cpu",
   },
   {
     name: "Provider assistente",
     category: localizedCategory["AI Providers"],
-    description: "Usa il tuo account provider e modello per chat e agente.",
+    description: "Scegli il provider e il modello che gestiscono la chat e le attività dell'agente.",
     icon: "Bot",
   },
   {
     name: "Provider voce",
     category: localizedCategory["AI Providers"],
     description:
-      "Scegli provider e modello separati per dettatura speech-to-text e lettura text-to-speech.",
+      "Scegli provider e modello separati per la dettatura e la lettura ad alta voce.",
     icon: "Mic",
   },
   {
     name: "Provider immagini",
     category: localizedCategory["AI Providers"],
-    description: "Genera immagini tramite il provider e modello text-to-image che selezioni.",
+    description: "Crea immagini con il provider e il modello che preferisci.",
     icon: "Image",
   },
   {
     name: "Task scheduler",
     category: "Automazione",
     description:
-      "Esegui lavori assistente ricorrenti come riepiloghi giornalieri, controlli periodici o pulizie di routine.",
+      "Crea, modifica e metti in pausa le pianificazioni. L'esecuzione automatica dei prompt è ancora in sviluppo.",
     icon: "Clock",
   },
   {
     name: "Health check",
     category: "Automazione",
-    description: "Fai eseguire a Friday controlli periodici sulla tua checklist e ricevi report sullo stato.",
+    description: "Esegui periodicamente la tua checklist e ricevi un avviso solo quando qualcosa richiede attenzione.",
     icon: "HeartHandshake",
   },
   {
     name: "Workspace locale",
     category: localizedCategory.Data,
     description:
-      "Mantieni file prodotti, dati di lavoro, impostazioni, credenziali, memoria e cronologia sul tuo computer.",
+      "Conserva sul computer file, dati di lavoro, impostazioni, credenziali, memoria e cronologia.",
     icon: "Database",
   },
 ] satisfies typeof integrationsEn;
 
-const operatorsIt = operatorsEn satisfies typeof operatorsEn;
+const operatorCopyIt: Record<string, {
+  name: string;
+  description: string;
+  providers: string[];
+  highlights: string[];
+  status?: string;
+}> = {
+  "assistant-chat": {
+    name: "Chat dell'assistente",
+    description: "Il punto di partenza per parlare con Friday, seguire l'attività degli strumenti e ritrovare le conversazioni salvate sul computer.",
+    providers: ["Provider dell'assistente", "Modello configurato", "Cronologia locale"],
+    highlights: ["Richieste in linguaggio naturale", "Attività degli strumenti visibile", "Markdown, codice e immagini nella chat", "Cronologia salvata in locale"],
+  },
+  "agent-tools": {
+    name: "Strumenti dell'agente",
+    description: "Gli strumenti che Friday usa per lavorare su file e processi, eseguire comandi, cercare sul web, usare il browser e creare contenuti.",
+    providers: ["Strumenti locali", "Server MCP", "Skill"],
+    highlights: ["Conferma prima delle azioni sensibili", "File, shell, web, browser, media, skill e MCP", "Risultati degli strumenti visibili", "Nessuna modifica agli account senza autorizzazione"],
+  },
+  voice: {
+    name: "Voce",
+    description: "Detta le richieste e ascolta le risposte usando il provider e il modello vocale che preferisci.",
+    providers: ["Speech-to-Text", "Text-to-Speech", "Permesso del microfono"],
+    highlights: ["Dettatura in tempo reale", "Trascrizione delle registrazioni", "Lettura delle risposte", "Scelta del provider e del modello vocale"],
+  },
+  "image-generation": {
+    name: "Generazione di immagini",
+    description: "Crea immagini da una descrizione nella chat o nel workspace dedicato.",
+    providers: ["Provider Text-to-Image", "Modello configurato"],
+    highlights: ["Immagini mostrate nella conversazione", "Salvataggio dei file generati", "Scelta di provider e modello", "Disponibile in chat e nelle Impostazioni"],
+  },
+  skills: {
+    name: "Skill",
+    description: "Flussi di lavoro riutilizzabili che spiegano a Friday come gestire un'attività specifica.",
+    providers: ["Libreria personale", "Skill abilitate"],
+    highlights: ["Importa, abilita e disabilita le skill", "Istruzioni caricate quando servono", "Strumenti e requisiti dichiarati", "Attività di caricamento visibile"],
+  },
+  "mcp-servers": {
+    name: "Server MCP",
+    description: "Collega server Model Context Protocol remoti o locali e metti i loro strumenti a disposizione dell'assistente.",
+    providers: ["MCP remoto", "MCP stdio locale"],
+    highlights: ["Server HTTP con autenticazione facoltativa", "Server eseguiti come processi locali", "Nuovi strumenti senza modificare Friday", "Strumenti disponibili dopo la connessione"],
+  },
+  channels: {
+    name: "Canali",
+    description: "Parla con Friday da Telegram e Discord e ricevi la risposta nella stessa chat. Slack, WhatsApp ed email sono in programma.",
+    providers: ["Telegram", "Discord", "Slack in arrivo", "WhatsApp in arrivo", "Email in arrivo"],
+    highlights: ["Messaggi tramite bot", "Riconnessione automatica", "Regole di accesso per messaggi diretti e canali", "Token e stato separati per ogni canale"],
+  },
+  "task-scheduler": {
+    name: "Pianificazioni",
+    description: "Crea e gestisci attività ricorrenti. Le pianificazioni vengono salvate e ripristinate, ma i prompt non vengono ancora eseguiti automaticamente.",
+    providers: ["Pianificazione cron", "Provider riservato alle attività"],
+    highlights: ["Crea, modifica, sospendi e riprendi", "Pianificazioni salvate sul computer", "Provider e modello configurabili", "Esecuzione dei prompt in sviluppo"],
+    status: "pending-runtime",
+  },
+  "health-checks": {
+    name: "Health check",
+    description: "Esegui periodicamente una checklist e ricevi un avviso quando qualcosa richiede attenzione.",
+    providers: ["Checklist", "Intervallo", "Sessione dedicata"],
+    highlights: ["Controlli periodici basati su checklist", "Intervallo configurabile", "Esecuzione saltata quando Friday è occupato", "Nessun avviso quando tutto è in ordine"],
+  },
+  memory: {
+    name: "Memoria e personalizzazione",
+    description: "Preferenze, informazioni utili e contesto del workspace aiutano Friday a darti risposte più pertinenti.",
+    providers: ["Memoria locale", "Profilo utente", "Workspace"],
+    highlights: ["Preferenze disponibili nel tempo", "Profilo e tono personalizzati", "Workspace locale per i file", "Dati di personalizzazione sul dispositivo"],
+  },
+  "media-video-audio": {
+    name: "Generazione di video e audio",
+    description: "Crea video, musica ed effetti sonori con il provider e il modello che scegli. I risultati restano nella libreria locale e si riproducono nella chat.",
+    providers: ["Text-to-Video", "Musica e audio"],
+    highlights: ["Video generati da testo", "Musica ed effetti sonori", "Scelta separata per ogni tipo di media", "File salvati nella libreria locale"],
+  },
+};
+
+const operatorsIt = operatorsEn.map((operator) => ({
+  ...operator,
+  ...operatorCopyIt[operator.id],
+})) satisfies typeof operatorsEn;
 const en = {
   locale: "en",
   site: siteEn,
