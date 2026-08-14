@@ -153,27 +153,27 @@
           "title": "Workspace",
           "description": "Explore project files in a familiar tree, open structured Markdown, and review useful results without leaving the extension.",
           "status": "Saved",
-          "root": "Agent",
-          "files": ["daily/", "downloads/", "flights/", "investors/", "library/", "notes/", "personal/", "projects/", "stories/"],
+          "root": "Lorem",
+          "files": ["ipsum/", "dolor/", "sit-amet/", "consectetur/", "adipiscing/", "tempor/", "incididunt/", "labore/", "magna/"],
           "items": [],
           "document": {
-            "name": "milan-to-albania-best-offers.md",
-            "path": "flights/milan-to-albania-best-offers.md",
-            "title": "Cheapest Flights: Milan → Albania",
-            "summary": "Live travel research for a round trip from Milan to Tirana, comparing the best direct routes and current offers.",
-            "sectionTitle": "Best offer",
+            "name": "lorem-ipsum.md",
+            "path": "sit-amet/lorem-ipsum.md",
+            "title": "Lorem ipsum dolor sit amet",
+            "summary": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "sectionTitle": "Ut enim ad minim",
             "saved": "Saved",
             "save": "Save",
-            "itemLabel": "Item",
-            "detailLabel": "Detail",
-            "priceLabel": "Price",
-            "price": "€30 round trip",
-            "airlineLabel": "Airline",
-            "airline": "Wizz Air"
+            "itemLabel": "Lorem",
+            "detailLabel": "Ipsum",
+            "priceLabel": "Dolor",
+            "price": "Sit amet, consectetur",
+            "airlineLabel": "Adipiscing",
+            "airline": "Elit sed eiusmod"
           }
         },
-        { "id": "design", "icon": "Shapes", "title": "Design", "description": "Develop visual directions on a focused canvas with drawing tools, layers, and generated assets available in one workspace.", "status": "Changes saved", "items": ["Hero artwork", "Brand system", "Prototype"] },
-        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Work across project files, inspect implementation details, and follow build feedback in a compact development environment.", "status": "Tests passing", "items": ["src", "components", "app.ts"] }
+        { "id": "design", "icon": "Shapes", "title": "Design", "description": "Develop visual directions on a focused canvas with drawing tools, layers, and generated assets available in one workspace.", "status": "Changes saved", "items": ["Lorem ipsum", "Dolor sit amet", "Consectetur"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Work across project files, inspect implementation details, and follow build feedback in a compact development environment.", "status": "Tests passing", "items": ["lorem", "ipsum", "dolor.ts"] }
       ],
       "note": "These are starting points, not limits. Friday is a foundation for the software each person needs.",
       "link": "Explore extensions"

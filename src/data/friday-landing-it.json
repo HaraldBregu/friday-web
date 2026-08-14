@@ -153,27 +153,27 @@
           "title": "Workspace",
           "description": "Esplora i file di progetto in un albero familiare, apri Markdown strutturato e controlla risultati utili senza lasciare l’Estensione.",
           "status": "Salvato",
-          "root": "Agent",
-          "files": ["giornaliero/", "download/", "voli/", "investitori/", "libreria/", "note/", "personale/", "progetti/", "storie/"],
+          "root": "Lorem",
+          "files": ["ipsum/", "dolor/", "sit-amet/", "consectetur/", "adipiscing/", "tempor/", "incididunt/", "labore/", "magna/"],
           "items": [],
           "document": {
-            "name": "migliori-offerte-milano-albania.md",
-            "path": "voli/migliori-offerte-milano-albania.md",
-            "title": "Voli più economici: Milano → Albania",
-            "summary": "Ricerca di viaggio in tempo reale per un volo di andata e ritorno da Milano a Tirana, confrontando le migliori rotte dirette e le offerte attuali.",
-            "sectionTitle": "Migliore offerta",
+            "name": "lorem-ipsum.md",
+            "path": "sit-amet/lorem-ipsum.md",
+            "title": "Lorem ipsum dolor sit amet",
+            "summary": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "sectionTitle": "Ut enim ad minim",
             "saved": "Salvato",
             "save": "Salva",
-            "itemLabel": "Voce",
-            "detailLabel": "Dettaglio",
-            "priceLabel": "Prezzo",
-            "price": "€30 andata e ritorno",
-            "airlineLabel": "Compagnia",
-            "airline": "Wizz Air"
+            "itemLabel": "Lorem",
+            "detailLabel": "Ipsum",
+            "priceLabel": "Dolor",
+            "price": "Sit amet, consectetur",
+            "airlineLabel": "Adipiscing",
+            "airline": "Elit sed eiusmod"
           }
         },
-        { "id": "design", "icon": "Shapes", "title": "Design", "description": "Sviluppa direzioni visive su una tela mirata con strumenti di disegno, livelli e risorse generate in un unico workspace.", "status": "Modifiche salvate", "items": ["Visual principale", "Sistema del brand", "Prototipo"] },
-        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Lavora tra i file di progetto, esamina i dettagli dell’implementazione e segui il build in un ambiente di sviluppo compatto.", "status": "Test superati", "items": ["src", "components", "app.ts"] }
+        { "id": "design", "icon": "Shapes", "title": "Design", "description": "Sviluppa direzioni visive su una tela mirata con strumenti di disegno, livelli e risorse generate in un unico workspace.", "status": "Modifiche salvate", "items": ["Lorem ipsum", "Dolor sit amet", "Consectetur"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Lavora tra i file di progetto, esamina i dettagli dell’implementazione e segui il build in un ambiente di sviluppo compatto.", "status": "Test superati", "items": ["lorem", "ipsum", "dolor.ts"] }
       ],
       "note": "Questi sono punti di partenza, non limiti. Friday è una base per il software di cui ogni persona ha bisogno.",
       "link": "Esplora le Estensioni"
