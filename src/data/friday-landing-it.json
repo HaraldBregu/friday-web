@@ -11,29 +11,29 @@
     "hero": {
       "eyebrow": "Beta pubblica · macOS, Windows e Linux",
       "title": "Un assistente AI personale per il tuo desktop",
-      "description": "Friday trasforma le richieste in linguaggio naturale in risultati concreti. Può modificare file, cercare sul web, usare gli strumenti collegati e creare contenuti multimediali, tutto da un’unica app desktop.",
+      "description": "Con Friday, una richiesta in linguaggio naturale diventa un risultato concreto. Può modificare file, cercare sul web, usare gli strumenti collegati e creare contenuti multimediali, tutto da un’unica app desktop.",
       "primary": "Scarica Friday",
       "secondary": "Scopri come funziona",
-      "note": "Software open source. Usa i tuoi provider AI, segui l’attività degli strumenti e scegli quali azioni richiedono la tua approvazione.",
+      "note": "Software open source. Scegli i tuoi provider AI, segui l’attività degli strumenti e decidi quali azioni richiedono la tua approvazione.",
       "capabilitiesLabel": "Come Friday supporta il lavoro quotidiano",
-      "capabilities": ["Ricorda il contesto utile", "Esegue attività pianificate", "Lavora con i tuoi strumenti", "Completa lavori in più passaggi"],
+      "capabilities": ["Ricorda il contesto utile", "Esegue attività pianificate", "Lavora con i tuoi strumenti", "Completa attività in più passaggi"],
       "showcase": {
-        "windowLabel": "L’assistente desktop Friday crea un visual da una richiesta in linguaggio naturale",
+        "windowLabel": "L’assistente desktop Friday crea un video da una richiesta in linguaggio naturale",
         "history": "Apri la cronologia delle conversazioni",
         "profile": "Apri il profilo",
-        "request": "Crea un visual cinematografico per il lancio partendo dalle mie note. Mantienilo calmo, umano e pronto da condividere.",
+        "request": "Crea un video cinematografico per il lancio partendo dalle mie note. Dagli un tono pacato e umano e rendilo pronto da condividere.",
         "copy": "Copia la richiesta",
         "edit": "Modifica la richiesta",
-        "tool": "Crea visual",
+        "tool": "Crea video",
         "tokens": "187 tok",
         "assetAlt": "Video cinematografico generato",
-        "play": "Riproduci il visual generato",
-        "pause": "Metti in pausa il visual generato",
-        "seek": "Scorri il visual generato",
-        "duration": "Durata del visual generato",
+        "play": "Riproduci il video generato",
+        "pause": "Metti in pausa il video generato",
+        "seek": "Scorri il video generato",
+        "duration": "Durata del video generato",
         "volume": "Regola il volume",
-        "mute": "Disattiva l’audio del visual generato",
-        "unmute": "Attiva l’audio del visual generato",
+        "mute": "Disattiva l’audio del video generato",
+        "unmute": "Attiva l’audio del video generato",
         "fullscreen": "Apri a schermo intero",
         "complete": "Fatto.",
         "composer": "Chiedi qualsiasi cosa",
@@ -58,14 +58,14 @@
           },
           {
             "type": "sound",
-            "request": "Ora componi una breve identità sonora, curiosa e calma.",
+            "request": "Ora componi una breve identità sonora dal tono curioso e pacato.",
             "tool": "Crea suono",
             "result": "6,2s",
             "meta": "124 tok"
           },
           {
             "type": "video",
-            "request": "Trasforma la direzione migliore in un quieto studio di movimento.",
+            "request": "Trasforma la proposta migliore in uno studio di movimento dal tono pacato.",
             "tool": "Video creato",
             "result": "Studio di movimento cinematografico",
             "meta": "Pronto",
@@ -74,22 +74,22 @@
           },
           {
             "type": "video",
-            "request": "Esplora un’altra direzione in movimento con un senso di scala più audace.",
+            "request": "Esplora un’altra proposta video con una scala più ambiziosa.",
             "tool": "Video creato",
-            "result": "Concept di movimento espansivo",
+            "result": "Sequenza cinematografica su larga scala",
             "meta": "Pronto",
-            "assetAlt": "Concept cinematografico espansivo generato",
+            "assetAlt": "Sequenza cinematografica generata su larga scala",
             "src": "/demo/video-1786447738614.mp4"
           }
         ]
       },
       "demo": {
         "windowLabel": "L’assistente desktop Friday gestisce una richiesta di pianificazione settimanale",
-        "sidebarLabel": "Workspace di Friday",
+        "sidebarLabel": "Spazio di lavoro di Friday",
         "today": "Oggi",
         "conversations": "Conversazioni",
         "newConversation": "Nuova conversazione",
-        "conversationExamples": ["Pianificazione settimanale", "Revisione cliente", "Note di viaggio"],
+        "conversationExamples": ["Pianificazione settimanale", "Revisione con il cliente", "Note di viaggio"],
         "settings": "Impostazioni",
         "assistantStatus": "Assistente personale · Pronto",
         "request": "Organizza il resto della settimana, sposta ciò che è flessibile e preparami per la revisione con il cliente di venerdì.",
@@ -97,12 +97,12 @@
         "activityLabel": "Avanzamento dell’attività di Friday",
         "activities": [
           { "label": "Priorità e calendario esaminati", "state": "Fatto" },
-          { "label": "Piano settimanale mirato preparato", "state": "Fatto" },
+          { "label": "Piano settimanale organizzato", "state": "Fatto" },
           { "label": "Controllo modifiche alla pianificazione", "state": "Programmato" }
         ],
         "resultTitle": "La tua settimana è organizzata",
-        "result": "Due blocchi di concentrazione protetti, una riunione flessibile spostata e un briefing cliente programmato per venerdì mattina.",
-        "background": "Controllo in background attivo",
+        "result": "Due blocchi di concentrazione protetti, una riunione flessibile spostata e un riepilogo per il cliente programmato per venerdì mattina.",
+        "background": "Monitoraggio in background attivo",
         "composer": "Chiedi qualsiasi cosa a Friday…"
       }
     },
@@ -115,45 +115,45 @@
       "capabilities": [
         { "icon": "MessagesSquare", "title": "Ricorda il contesto utile", "description": "Salva preferenze e dettagli importanti, così non devi ripeterli in ogni conversazione." },
         { "icon": "CalendarDays", "title": "Organizza il lavoro", "description": "Crea pianificazioni, promemoria e attività ricorrenti direttamente dalla conversazione." },
-        { "icon": "Clock", "title": "Esegue attività pianificate", "description": "Pianifica le attività adatte al lavoro in background senza dover seguire ogni passaggio." },
-        { "icon": "PlugZap", "title": "Si collega ai tuoi strumenti", "description": "Aggiungi i servizi esterni e gli strumenti specializzati che vuoi far usare a Friday." },
-        { "icon": "Cloud", "title": "Trova le informazioni necessarie", "description": "Cerca sul web e recupera informazioni dalle fonti collegate utili all’attività." },
-        { "icon": "Workflow", "title": "Completa lavori in più passaggi", "description": "Friday può usare più strumenti in sequenza e restituire un risultato concreto." }
+        { "icon": "Clock", "title": "Esegue attività pianificate", "description": "Pianifica le attività che possono essere eseguite in background, senza dover seguire ogni passaggio." },
+        { "icon": "PlugZap", "title": "Si collega agli strumenti che usi", "description": "Aggiungi i servizi esterni e gli strumenti specializzati che vuoi mettere a disposizione di Friday." },
+        { "icon": "Cloud", "title": "Trova le informazioni necessarie", "description": "Cerca sul web e recupera informazioni dalle fonti collegate quando servono." },
+        { "icon": "Workflow", "title": "Completa attività in più passaggi", "description": "Friday può usare più strumenti in sequenza e restituire un risultato concreto." }
       ]
     },
     "workflow": {
       "eyebrow": "Dalla richiesta al risultato",
-      "title": "Descrivi il risultato che vuoi ottenere.",
+      "title": "Descrivi il risultato che vuoi.",
       "description": "Friday seleziona il contesto e gli strumenti utili, mostra l’avanzamento nella conversazione e si ferma quando un’azione richiede la tua approvazione.",
       "stepsLabel": "Come Friday ti aiuta a completare il lavoro",
       "steps": [
         { "number": "01", "icon": "MessageSquare", "title": "Fai una richiesta", "description": "Descrivi il risultato che vuoi con parole tue, senza comandi speciali." },
         { "number": "02", "icon": "Layers", "title": "Friday raccoglie il contesto", "description": "Usa le preferenze, i file, gli strumenti e i servizi pertinenti che hai condiviso." },
-        { "number": "03", "icon": "Clock", "title": "Friday esegue il lavoro", "description": "Completa i vari passaggi e può eseguire le attività adatte in background." },
-        { "number": "04", "icon": "CheckCircle2", "title": "Controlla il risultato", "description": "Ricevi il lavoro completato e puoi vedere gli strumenti usati per ottenerlo." }
+        { "number": "03", "icon": "Clock", "title": "Friday esegue il lavoro", "description": "Completa i vari passaggi e può continuare in background quando l’attività lo consente." },
+        { "number": "04", "icon": "CheckCircle2", "title": "Verifica il risultato", "description": "Ricevi il lavoro completato e puoi vedere gli strumenti usati per ottenerlo." }
       ],
       "approvalLabel": "La decisione finale è tua",
       "approvalTitle": "Serve la tua approvazione",
       "approvalDescription": "Friday si ferma prima di eseguire un’azione soggetta alle tue regole di approvazione.",
-      "approvalActions": ["Controlla l’azione", "Approva e continua"]
+      "approvalActions": ["Esamina l’azione", "Approva e continua"]
     },
     "extensions": {
       "eyebrow": "Più di un assistente",
-      "title": "Strumenti dedicati per diversi tipi di lavoro.",
-      "description": "Le Estensioni aggiungono strumenti, flussi di lavoro e interfacce dedicate, mantenendo l’esperienza principale di Friday. Aggiungi quelle più adatte al tuo modo di lavorare.",
-      "examplesLabel": "Interfacce delle Estensioni per workspace, design e coding",
+      "title": "Strumenti dedicati per lavori diversi.",
+      "description": "Le Estensioni aggiungono strumenti, flussi di lavoro e interfacce dedicate senza cambiare l’esperienza principale di Friday. Scegli quelle più adatte al tuo modo di lavorare.",
+      "examplesLabel": "Interfacce delle Estensioni per gestione dei file, design e sviluppo software",
       "ui": {
         "windowLabel": "Tre interfacce delle Estensioni Friday",
-        "screenLabel": "Interfaccia Estensione Friday"
+        "screenLabel": "Interfaccia di un’Estensione Friday"
       },
       "screens": [
         {
           "id": "workspace",
           "icon": "Layers",
           "title": "Workspace",
-          "description": "Esplora i file di progetto in un albero familiare, apri Markdown strutturato e controlla risultati utili senza lasciare l’Estensione.",
+          "description": "Esplora i file del progetto in una struttura ad albero, apri documenti Markdown e controlla i risultati senza uscire dall’Estensione.",
           "status": "Salvato",
-          "meta": "File locali · Markdown",
+          "meta": "File locali · Documenti Markdown",
           "root": "Lancio",
           "files": ["brief/", "ricerca/", "campagna/", "risorse/", "social/", "revisioni/", "note/", "export/", "archivio/"],
           "items": [],
@@ -162,54 +162,54 @@
             "path": "campagna/piano-lancio.md",
             "title": "Piano di lancio di Friday",
             "summary": "Una sequenza di lancio mirata per prodotto, community e canali social.",
-            "sectionTitle": "Traguardi del lancio",
+            "sectionTitle": "Fasi del lancio",
             "saved": "Salvato",
             "save": "Salva",
-            "itemLabel": "Traguardo",
+            "itemLabel": "Fase",
             "detailLabel": "Responsabile",
-            "priceLabel": "Landing page",
-            "price": "Team prodotto",
+            "priceLabel": "Sito di lancio",
+            "price": "Gruppo prodotto",
             "airlineLabel": "Risorse demo",
-            "airline": "Team design"
+            "airline": "Gruppo design"
           }
         },
-        { "id": "design", "icon": "Shapes", "title": "Design Agent", "description": "Sviluppa direzioni visive su una tela dedicata con strumenti di disegno, livelli e risorse generate in un unico spazio di lavoro.", "status": "Modifiche salvate", "meta": "Desktop · Mobile · Componenti", "items": ["Immagine hero", "Anteprima desktop", "Layout mobile", "Scheda download"] },
-        { "id": "coding", "icon": "TerminalSquare", "title": "Coding Agent", "description": "Richiedi una modifica al codice, poi segui le chiamate agli strumenti, l’output dei comandi e gli aggiornamenti ai file in un’unica conversazione.", "status": "Attività completata", "meta": "File · Strumenti · Comandi", "root": "Friday web", "files": ["src/", "public/", "scripts/", "docs/", "tests/", "config/"], "items": ["Esamina i testi", "Esegui i controlli", "Aggiorna i contenuti"], "chat": { "userLabel": "Tu", "agentLabel": "Agente", "request": "Rivedi i testi della landing page e sostituisci le descrizioni poco chiare.", "response": "Ho trovato alcune promesse vaghe e diverse etichette provvisorie. Le allineerò al funzionamento documentato del prodotto.", "followUp": "Mantieni un tono diretto e naturale in entrambe le lingue.", "finalResponse": "Ho aggiornato i testi, chiarito privacy e permessi e sostituito i contenuti provvisori.", "complete": "Testi aggiornati", "selectedFile": "friday-landing-it.json" } }
+        { "id": "design", "icon": "Shapes", "title": "Design Agent", "description": "Esplora proposte visive su una tela dedicata, con strumenti di disegno, livelli e contenuti generati in un unico spazio di lavoro.", "status": "Modifiche salvate", "meta": "Desktop · Dispositivi mobili · Componenti", "items": ["Immagine di apertura", "Anteprima per desktop", "Layout per dispositivi mobili", "Scheda di download"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding Agent", "description": "Chiedi una modifica al codice e segui, in un’unica conversazione, gli strumenti usati, l’output dei comandi e i file aggiornati.", "status": "Attività completata", "meta": "File · Strumenti · Comandi", "root": "Friday web", "files": ["src/", "public/", "scripts/", "docs/", "tests/", "config/"], "items": ["Analizza i testi", "Esegui i controlli", "Aggiorna i contenuti"], "chat": { "userLabel": "Tu", "agentLabel": "Agente", "request": "Rivedi i testi della landing page e sostituisci le descrizioni poco chiare.", "response": "Ho trovato alcune affermazioni vaghe e alcune etichette provvisorie. Le allineo alle funzionalità documentate del prodotto.", "followUp": "Mantieni un tono diretto e naturale in entrambe le lingue.", "finalResponse": "Ho aggiornato i testi, chiarito l’uso dei dati e dei permessi e sostituito i contenuti provvisori.", "complete": "Testi aggiornati", "selectedFile": "friday-landing-it.json" } }
       ],
-      "note": "Questi esempi sono punti di partenza. Le Estensioni ti permettono di adattare Friday alle tue attività e ai tuoi flussi di lavoro.",
+      "note": "Questi esempi sono solo un punto di partenza. Le Estensioni ti permettono di adattare Friday alle tue attività e ai tuoi flussi di lavoro.",
       "link": "Esplora le Estensioni"
     },
     "control": {
       "eyebrow": "Privacy e controllo",
       "title": "Scegli a cosa può accedere Friday e cosa può fare.",
-      "description": "Imposta i permessi per file, comandi, provider e servizi collegati. L’attività degli strumenti appare nella conversazione e le azioni protette si fermano per chiedere l’approvazione.",
-      "pointsLabel": "Come mantieni il controllo di Friday",
+      "description": "Imposta i permessi per file, comandi, provider e servizi collegati. L’attività degli strumenti appare nella conversazione e Friday chiede conferma prima di eseguire le azioni protette.",
+      "pointsLabel": "Come mantenere il controllo su Friday",
       "points": [
-        { "icon": "Fingerprint", "title": "Scegli cosa può usare Friday", "description": "Seleziona i file, i provider, gli strumenti e i servizi collegati disponibili per Friday." },
-        { "icon": "Eye", "title": "Controlla l’attività degli strumenti", "description": "Segui chiamate, input, output e stato degli strumenti direttamente nella conversazione." },
-        { "icon": "HeartHandshake", "title": "Imposta le regole di approvazione", "description": "Scegli quali azioni possono essere eseguite automaticamente e quali devono chiedere conferma." }
+        { "icon": "Fingerprint", "title": "Decidi cosa può usare Friday", "description": "Scegli i file, i provider, gli strumenti e i servizi collegati da mettere a disposizione di Friday." },
+        { "icon": "Eye", "title": "Segui l’attività degli strumenti", "description": "Vedi chiamate, dati in ingresso, risultati e stato degli strumenti direttamente nella conversazione." },
+        { "icon": "HeartHandshake", "title": "Definisci le regole di approvazione", "description": "Decidi quali azioni Friday può eseguire automaticamente e quali richiedono una conferma." }
       ],
-      "disclosureTitle": "Scopri quando i dati lasciano il dispositivo.",
+      "disclosureTitle": "Scopri quando i dati possono lasciare il dispositivo.",
       "disclosure": "Friday archivia localmente i dati principali dell’app. Quando un’attività lo richiede, prompt, allegati e dati degli strumenti possono essere inviati ai tuoi provider AI e ai servizi collegati.",
       "panel": {
-        "title": "I tuoi controlli",
+        "title": "Controlli e permessi",
         "setup": "Accesso di Friday",
-        "subtitle": "Configurato da te",
+        "subtitle": "Impostato da te",
         "items": [
-          { "icon": "FolderOpen", "label": "File e cartelle", "status": "Le tue regole di accesso" },
-          { "icon": "Cloud", "label": "Servizi collegati", "status": "Solo quelli che aggiungi" },
+          { "icon": "FolderOpen", "label": "File e cartelle", "status": "Regole impostate da te" },
+          { "icon": "Cloud", "label": "Servizi collegati", "status": "Solo i servizi aggiunti" },
           { "icon": "TerminalSquare", "label": "Azioni protette", "status": "Approvazione richiesta" },
-          { "icon": "Eye", "label": "Attività degli strumenti", "status": "Visibile nella chat" }
+          { "icon": "Eye", "label": "Attività degli strumenti", "status": "Visibile in chat" }
         ]
       }
     },
     "cta": {
       "eyebrow": "Rendi Friday tuo",
       "title": "Inizia con un assistente personale. Aggiungi gli strumenti che ti servono.",
-      "description": "Usa Friday per i lavori ripetitivi e composti da più passaggi, così puoi concentrarti sulle decisioni e sulle idee che dipendono da te.",
+      "description": "Affida a Friday le attività ripetitive e articolate, così puoi concentrarti sulle decisioni e sulle idee che dipendono da te.",
       "primary": "Scarica Friday",
-      "secondary": "Vedi su GitHub",
-      "platforms": "Disponibile per macOS, Windows e Linux."
+      "secondary": "Vedi il progetto su GitHub",
+      "platforms": "Per macOS, Windows e Linux."
     }
   },
   "copy": {
@@ -356,7 +356,7 @@
     { "label": "Funzionalità", "href": "#personal" },
     { "label": "Come funziona", "href": "#workflow" },
     { "label": "Estensioni", "href": "#extensions" },
-    { "label": "Docs", "href": "/docs" }
+    { "label": "Documentazione", "href": "/docs" }
   ],
   "capabilities": [
     { "label": "Skill riutilizzabili", "icon": "Sparkles" },
