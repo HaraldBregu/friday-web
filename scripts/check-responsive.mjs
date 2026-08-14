@@ -82,7 +82,7 @@ assert(![italian, integrationsIt, operatorsIt, docsIndexIt, docsArticleIt].some(
 assert(operatorsIt.includes("Chat dell&#39;assistente") && operatorsIt.includes("Strumenti dell&#39;agente") && operatorsIt.includes("Esecuzione dei prompt in sviluppo"), "Italian operators route renders localized and accurate product copy");
 
 for (const [locale, html, title] of [
-  ["English", english, "The personal desktop AI Assistant"],
+  ["English", english, "The Personal Desktop AI Assistant"],
   ["Italian", italian, "L’Assistente AI Personale Desktop"],
 ]) {
   assert(html.includes(`<h1 id="hero-title" aria-label="${title}">`), `${locale} hero describes the product without repeating the app name`);
