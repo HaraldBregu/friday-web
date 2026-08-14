@@ -1,6 +1,6 @@
 ---
 import socialLinks from "../data/social-links.json";
-import { getLocaleContent, localeMeta, locales, localizedPath, normalizeLocale, type Locale } from "../i18n";
+import { getLocaleContent, localeMeta, locales, localizedRoutePath, normalizeLocale, type Locale } from "../i18n";
 import Icon from "./Icon.astro";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const locale = normalizeLocale(Astro.props.locale);
-const { alternatePath = "/" } = Astro.props;
+const alternatePath = Astro.props.alternatePath ?? Astro.url.pathname;
 const variant = Astro.props.variant ?? "default";
 const { site, ui } = getLocaleContent(locale);
 const landingGroupsEn = [
@@ -98,28 +98,16 @@ const landingGroupsIt = [
 const landingGroups = locale === "it" ? landingGroupsIt : landingGroupsEn;
 const groups = variant === "landing" ? landingGroups : ui.footerGroups;
 const productHuntAlt = locale === "it" ? "Scopri Friday su Product Hunt" : "View Friday on Product Hunt";
-const localizedRoutes = new Set([
-  "/",
-  "/docs",
-  "/integrations",
-  "/community",
-  "/operators",
-  "/terms-of-service",
-  "/privacy-policy",
-]);
 const footerHref = (href: string) => {
-  const [path, hash] = href.split("#");
-  const targetPath = path || "/";
-  const resolvedPath = localizedRoutes.has(targetPath) ? localizedPath(targetPath, locale) : targetPath;
-  return `${resolvedPath}${hash ? `#${hash}` : ""}`;
+  return /^https?:\/\//.test(href) ? href : localizedRoutePath(href, locale);
 };
-const localizedAlternatePath = (targetLocale: Locale) => localizedPath(alternatePath, targetLocale);
+const localizedAlternatePath = (targetLocale: Locale) => localizedRoutePath(alternatePath, targetLocale);
 ---
 
 <footer class="site-footer">
   <div class="shell footer-grid">
     <div class="footer-brand">
-      <a class="brand" href={localizedPath("/", locale)}>
+      <a class="brand" href={localizedRoutePath("/", locale)}>
         <img alt="" class="brand-logo" height="32" src="/icon-rounded.png" width="32" />
         <span class="brand__text">
           <span>{site.name}</span>

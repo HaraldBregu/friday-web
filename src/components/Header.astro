@@ -1,7 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import { getLocaleContent, localizedPath, normalizeLocale, type Locale } from "../i18n";
+import { getLocaleContent, localizedRoutePath, normalizeLocale, type Locale } from "../i18n";
 
 interface Props {
   locale?: Locale;
@@ -14,7 +14,7 @@ const { friday, ui } = getLocaleContent(locale);
 const visibleNav = friday.nav.filter((item) => item.href !== "#download");
 const primaryNav = visibleNav.filter((item) => item.href !== "/docs");
 const resourceNav = visibleNav.filter((item) => item.href === "/docs");
-const navHref = (href: string) => (href.startsWith("#") ? `${localizedPath("/", locale)}${href}` : localizedPath(href, locale));
+const navHref = (href: string) => (href.startsWith("#") ? `${localizedRoutePath("/", locale)}${href}` : localizedRoutePath(href, locale));
 const navigationLabels = locale === "it"
   ? { product: "Prodotto", extensions: "Estensioni" }
   : { product: "Product", extensions: "Extensions" };
@@ -25,13 +25,13 @@ const navigationGroups = [
     items: primaryNav.map((item) => ({ ...item, label: item.href === "#product" ? (locale === "it" ? "Panoramica" : "Overview") : item.label, href: navHref(item.href) })),
   },
 ];
-const extensionsItem = { label: navigationLabels.extensions, href: `${localizedPath("/", locale)}#extensions` };
+const extensionsItem = { label: navigationLabels.extensions, href: `${localizedRoutePath("/", locale)}#extensions` };
 const docsItem = resourceNav[0];
 ---
 
 <header class="site-header">
   <nav aria-label={ui.primaryNavigation} class="nav">
-    <a class="brand" href={`${localizedPath("/", locale)}#product`}>
+    <a class="brand" href={`${localizedRoutePath("/", locale)}#product`}>
       <img alt="" class="brand-logo" height="30" src="/icon-rounded.png" width="30" />
       <span class="brand__text">Friday</span>
     </a>
