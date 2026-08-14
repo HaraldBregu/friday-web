@@ -128,7 +128,7 @@ export function buildDocStructuredData({
       },
       breadcrumb(
         [
-          { name: locale === "it" ? "Home" : "Home", path: locale === "it" ? "/it/" : "/" },
+          { name: "Home", path: locale === "it" ? "/it/" : "/" },
           { name: locale === "it" ? "Documentazione" : "Documentation", path: locale === "it" ? "/it/docs" : "/docs" },
           { name: title, path },
         ],

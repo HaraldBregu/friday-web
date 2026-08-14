@@ -9,7 +9,7 @@ order: 60
 
 Friday è progettato per lasciarti il controllo dei tuoi dati e delle azioni. Questa pagina descrive i limiti con la stessa chiarezza delle garanzie.
 
-## Locale per impostazione predefinita
+## Dati locali per impostazione predefinita
 
 Friday salva configurazione e dati di lavoro nella cartella dei dati dell'applicazione di Electron.
 
