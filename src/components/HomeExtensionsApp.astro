@@ -55,6 +55,8 @@ interface Props {
 }
 
 const { screens, labels, chromeLabels } = Astro.props;
+// Temporarily hide the Design Agent and Coding Agent previews. Keep their data and UI code—do not delete them.
+const visibleScreens = screens.filter((screen) => screen.id === "workspace");
 const codingToolDetails = ["src/data/", "npm run build", "landing.json  +8 −8"];
 const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
 ---
@@ -62,7 +64,7 @@ const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
 <section class="fr-home-extension-gallery" aria-label={labels.windowLabel}>
   <div class="fr-home-extension-gallery__glow" aria-hidden="true"></div>
   <div class="fr-home-extension-gallery__grid">
-    {screens.map((screen, index) => (
+    {visibleScreens.map((screen, index) => (
       <article class={`fr-home-extension-row is-${screen.id}`}>
         <div
           class={`fr-showcase-app fr-extension-screen is-${screen.id}`}

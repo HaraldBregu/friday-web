@@ -141,7 +141,7 @@
       "eyebrow": "More than an assistant",
       "title": "Focused tools for different kinds of work.",
       "description": "Extensions add dedicated tools, workflows, and interfaces while keeping Friday’s core assistant experience. Add the ones that fit the way you work.",
-      "examplesLabel": "Workspace, design, and coding extension interfaces",
+      "examplesLabel": "Workspace extension interface",
       "ui": {
         "windowLabel": "Three Friday extension interfaces",
         "screenLabel": "Friday extension interface"

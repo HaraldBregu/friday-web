@@ -141,7 +141,7 @@
       "eyebrow": "Uno spazio per ogni attività",
       "title": "Interfacce dedicate, tutte collegate a Friday.",
       "description": "Le estensioni aggiungono strumenti e interfacce pensati per attività specifiche. Scegli quelle che ti servono senza cambiare il modo in cui usi Friday.",
-      "examplesLabel": "Interfacce delle Estensioni per gestione dei file, design e sviluppo software",
+      "examplesLabel": "Interfaccia dell’Estensione per la gestione dei file",
       "ui": {
         "windowLabel": "Tre interfacce delle Estensioni Friday",
         "screenLabel": "Interfaccia di un’Estensione Friday"
