@@ -8,6 +8,7 @@
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
     "check:responsive": "npm run build && node scripts/check-responsive.mjs",
+    "check:seo": "npm run build && node scripts/check-seo.mjs",
     "check:themes": "npm run build && node scripts/check-themes.mjs",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "sync:docs": "node scripts/sync-docs.mjs"

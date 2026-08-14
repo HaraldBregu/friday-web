@@ -103,8 +103,9 @@ const defaultStructuredData = noindex
         },
       ],
     };
-const serializedStructuredData = structuredData ?? defaultStructuredData
-  ? JSON.stringify(structuredData ?? defaultStructuredData).replace(/</g, "\\u003c")
+const resolvedStructuredData = structuredData ?? defaultStructuredData;
+const serializedStructuredData = resolvedStructuredData
+  ? JSON.stringify(resolvedStructuredData).replace(/</g, "\\u003c")
   : undefined;
 ---
 
