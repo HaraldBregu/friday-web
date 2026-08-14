@@ -4399,7 +4399,7 @@
 .fr-home-extension-row__copy > small {
   color: var(--screen-accent);
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -4408,7 +4408,7 @@
 .fr-home-extension-row__copy h3 {
   margin: 0.65rem 0 0;
   color: var(--fr-text);
-  font-size: clamp(2rem, 3.3vw, 3.4rem);
+  font-size: clamp(2.3rem, 3.5vw, 3.6rem);
   font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 1;
@@ -4418,7 +4418,7 @@
   max-width: 430px;
   margin: 1.25rem 0 0;
   color: var(--fr-muted);
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.75;
 }
 
@@ -4432,7 +4432,7 @@
   border-radius: 999px;
   background: color-mix(in srgb, var(--fr-panel) 72%, transparent);
   color: var(--fr-paper-muted);
-  font-size: 0.63rem;
+  font-size: 0.72rem;
   font-weight: 650;
 }
 
@@ -4456,6 +4456,7 @@
 .fr-extension-screen .fr-extension-screen__title {
   position: absolute;
   left: 50%;
+  font-size: 0.92rem;
   transform: translateX(-50%);
 }
 
@@ -4528,7 +4529,7 @@
   min-height: 26px;
   padding: 0 0.65rem;
   color: #77747c;
-  font-size: 0.48rem;
+  font-size: 0.62rem;
 }
 
 .fr-extension-workspace-ui__tree li > span:not(.fr-extension-workspace-ui__selected) {
@@ -4546,7 +4547,7 @@
 }
 
 .fr-extension-workspace-ui__agent strong {
-  font-size: 0.51rem;
+  font-size: 0.66rem;
   font-weight: 680;
 }
 
@@ -4558,7 +4559,7 @@
   border-radius: 6px;
   background: #29282b;
   color: #d8d5da;
-  font-size: 0.43rem;
+  font-size: 0.55rem;
   margin-left: auto;
 }
 
@@ -4580,7 +4581,7 @@
   border-radius: 6px;
   background: #272729;
   color: #eeecef;
-  font-size: 0.45rem;
+  font-size: 0.6rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -4628,7 +4629,7 @@
   overflow: hidden;
   max-width: 170px;
   color: #e8e6e9;
-  font-size: 0.54rem;
+  font-size: 0.68rem;
   font-weight: 680;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -4638,7 +4639,7 @@
   overflow: hidden;
   max-width: 180px;
   color: #77747a;
-  font-size: 0.4rem;
+  font-size: 0.54rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -4658,7 +4659,7 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 0.42rem;
+  font-size: 0.54rem;
   font-style: normal;
 }
 
@@ -4680,7 +4681,7 @@
   max-width: 330px;
   margin: 0;
   color: #f2f1f3;
-  font-size: 1.2rem;
+  font-size: 1.38rem;
   line-height: 1.12;
   letter-spacing: -0.04em;
 }
@@ -4688,7 +4689,7 @@
 .fr-extension-workspace-ui__content p {
   margin: 0.85rem 0 0;
   color: #d0cdd2;
-  font-size: 0.56rem;
+  font-size: 0.7rem;
   line-height: 1.75;
 }
 
@@ -4702,7 +4703,7 @@
 .fr-extension-workspace-ui__content h4 {
   margin: 0;
   color: #efedf0;
-  font-size: 0.85rem;
+  font-size: 0.98rem;
 }
 
 .fr-extension-workspace-ui__content table {
@@ -4710,7 +4711,7 @@
   margin-top: 0.75rem;
   border-collapse: collapse;
   color: #d8d5da;
-  font-size: 0.48rem;
+  font-size: 0.62rem;
 }
 
 .fr-extension-workspace-ui__content th,
@@ -4819,7 +4820,7 @@
   right: 13px;
   bottom: 12px;
   color: #fff;
-  font-size: 0.66rem;
+  font-size: 0.8rem;
   letter-spacing: 0.11em;
 }
 
@@ -4845,7 +4846,7 @@
   padding: 0 0.35rem;
   border-radius: 5px;
   color: #77747b;
-  font-size: 0.45rem;
+  font-size: 0.6rem;
 }
 
 .fr-extension-design-ui__layers span.is-active {
@@ -4894,7 +4895,7 @@
   border-right: 1px solid rgba(255, 255, 255, 0.06);
   color: #605e66;
   font-family: var(--font-mono);
-  font-size: 0.43rem;
+  font-size: 0.58rem;
 }
 
 .fr-extension-coding-ui__editor > header span.is-active {
@@ -4909,7 +4910,7 @@
   padding: 0.75rem 0.6rem 0.45rem 2rem;
   color: #aaa8b0;
   font-family: var(--font-mono);
-  font-size: 0.49rem;
+  font-size: 0.66rem;
   line-height: 1.85;
 }
 
@@ -4931,7 +4932,7 @@
   background: #111216;
   color: #75d5b5;
   font-family: var(--font-mono);
-  font-size: 0.43rem;
+  font-size: 0.58rem;
 }
 
 @media (max-width: 900px) {
