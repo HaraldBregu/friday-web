@@ -68,7 +68,7 @@ assert(brokenInternalLinks.length === 0, `every internal page link resolves to g
 assert(!italian.includes("/it/docs") && ["/docs", "/docs/getting-started", "/docs/features", "/docs/skills-and-mcp", "/docs/privacy"].every((href) => italian.includes(`href="${href}"`)), "Italian navigation and footer keep untranslated documentation links on valid English routes");
 assert(["/it/integrations", "/it/operators", "/it/community"].every((href) => italian.includes(`href="${href}"`)), "Italian navigation uses translated routes when they are available");
 assert(!["/it/tools", "/it/providers", "/it/channels", "/it/solutions", "/it/blog"].some((href) => italian.includes(`href="${href}"`)), "Italian navigation falls back to English routes when no translation exists");
-assert(/href="\/docs" hreflang="it"/.test(docsIndex), "documentation language switcher keeps users on the current untranslated documentation route");
+assert(/href="\/docs\/?" hreflang="it"/.test(docsIndex), "documentation language switcher keeps users on the current untranslated documentation route");
 
 for (const [locale, html, title] of [
   ["English", english, "A personal AI assistant for your desktop"],
