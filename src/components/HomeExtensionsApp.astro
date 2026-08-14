@@ -168,6 +168,19 @@ const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
 
             {screen.id === "coding" && (
               <div class="fr-extension-coding-ui">
+                <aside class="fr-extension-coding-ui__sidebar" aria-label={`${screen.title} tools`}>
+                  <div class="fr-extension-coding-ui__sidebar-agent">
+                    <span><Icon name="Bot" size={14} /></span><strong>{screen.chat?.agentLabel}</strong>
+                  </div>
+                  <nav>
+                    {screen.items.map((item, index) => (
+                      <span class:list={{ "is-active": index === 0 }}>
+                        <Icon name={codingToolIcons[index]} size={13} /><span>{item}</span>
+                      </span>
+                    ))}
+                  </nav>
+                  <div class="fr-extension-coding-ui__sidebar-status"><i></i><span>{screen.status}</span></div>
+                </aside>
                 <div class="fr-extension-coding-ui__chat" aria-label={screen.title}>
                   <div class="fr-extension-coding-ui__message is-user">
                     <span class="fr-extension-coding-ui__avatar"><Icon name="UserRound" size={14} /></span>
