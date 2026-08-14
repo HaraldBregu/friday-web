@@ -25,6 +25,13 @@ interface ExtensionScreen {
     airlineLabel: string;
     airline: string;
   };
+  chat?: {
+    userLabel: string;
+    agentLabel: string;
+    request: string;
+    response: string;
+    complete: string;
+  };
 }
 
 interface Labels {
@@ -44,6 +51,8 @@ interface Props {
 }
 
 const { screens, labels, chromeLabels } = Astro.props;
+const codingToolDetails = ["sit-amet/", "lorem --ipsum", "dolor.ts  +3 −1"];
+const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
 ---
 
 <section class="fr-home-extension-gallery" aria-label={labels.windowLabel}>
@@ -159,23 +168,38 @@ const { screens, labels, chromeLabels } = Astro.props;
 
             {screen.id === "coding" && (
               <div class="fr-extension-coding-ui">
-                <div class="fr-extension-coding-ui__editor" aria-label={screen.title}>
-                  <header>
-                    {screen.items.map((item, index) => (
-                      <span class:list={{ "is-active": index === screen.items.length - 1 }}>
-                        <Icon name={index === screen.items.length - 1 ? "ScanText" : "Folder"} size={11} />{item}
-                      </span>
-                    ))}
-                  </header>
-                  <ol>
-                    <li><span>const</span> lorem = <em>ipsum</em>();</li>
-                    <li>lorem.<em>dolor</em>(sit);</li>
-                    <li>lorem.<em>amet</em>({`{`}</li>
-                    <li>&nbsp;&nbsp;consectetur: <q>"adipiscing"</q>,</li>
-                    <li>&nbsp;&nbsp;tempor: <q>"incididunt"</q></li>
-                    <li>{`}`});</li>
-                  </ol>
-                  <footer><Icon name="TerminalSquare" size={12} /><span>✓ lorem ipsum</span></footer>
+                <div class="fr-extension-coding-ui__chat" aria-label={screen.title}>
+                  <div class="fr-extension-coding-ui__message is-user">
+                    <span class="fr-extension-coding-ui__avatar"><Icon name="UserRound" size={14} /></span>
+                    <div class="fr-extension-coding-ui__bubble">
+                      <small>{screen.chat?.userLabel}</small>
+                      <p>{screen.chat?.request}</p>
+                    </div>
+                  </div>
+                  <div class="fr-extension-coding-ui__message is-agent">
+                    <span class="fr-extension-coding-ui__avatar"><Icon name="Bot" size={14} /></span>
+                    <div class="fr-extension-coding-ui__bubble">
+                      <small>{screen.chat?.agentLabel}</small>
+                      <p>{screen.chat?.response}</p>
+                      <div class="fr-extension-coding-ui__tools">
+                        {screen.items.map((item, index) => (
+                          <div class={`fr-extension-coding-ui__tool is-${index + 1}`}>
+                            <span><Icon name={codingToolIcons[index]} size={13} /></span>
+                            <div><strong>{item}</strong><code>{codingToolDetails[index]}</code></div>
+                            <Icon name="Check" size={12} />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fr-extension-coding-ui__message is-agent is-result">
+                    <span class="fr-extension-coding-ui__avatar"><Icon name="Bot" size={14} /></span>
+                    <div class="fr-extension-coding-ui__change">
+                      <Icon name="Pencil" size={13} />
+                      <span><strong>{screen.chat?.complete}</strong><small>{screen.status}</small></span>
+                      <Icon name="Check" size={13} />
+                    </div>
+                  </div>
                 </div>
               </div>
             )}

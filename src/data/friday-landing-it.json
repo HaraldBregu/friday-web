@@ -173,7 +173,7 @@
           }
         },
         { "id": "design", "icon": "Shapes", "title": "Design Agent", "description": "Sviluppa direzioni visive su una tela mirata con strumenti di disegno, livelli e risorse generate in un unico workspace.", "status": "Modifiche salvate", "items": ["Lorem rectangle", "Ipsum tablet", "Dolor mobile", "Consectetur card"] },
-        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Lavora tra i file di progetto, esamina i dettagli dell’implementazione e segui il build in un ambiente di sviluppo compatto.", "status": "Test superati", "items": ["lorem", "ipsum", "dolor.ts"] }
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding", "description": "Chiedi una modifica all’agente di coding, poi segui chiamate agli strumenti, comandi e aggiornamenti dell’app in un’unica conversazione.", "status": "Attività completata", "items": ["Esamina i file", "Esegui comando", "Aggiorna app"], "chat": { "userLabel": "Tu", "agentLabel": "Agente", "request": "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", "response": "Lorem ipsum dolor sit amet. Consectetur adipiscing elit, sed do eiusmod tempor.", "complete": "Lorem ipsum aggiornato" } }
       ],
       "note": "Questi sono punti di partenza, non limiti. Friday è una base per il software di cui ogni persona ha bisogno.",
       "link": "Esplora le Estensioni"
