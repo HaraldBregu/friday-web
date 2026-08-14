@@ -5262,6 +5262,99 @@
   background: #09090a;
 }
 
+.fr-extension-coding-ui__sidebar {
+  display: flex;
+  flex: 0 0 29%;
+  min-width: 0;
+  flex-direction: column;
+  padding: 0.75rem 0.55rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.075);
+  background: #101115;
+}
+
+.fr-extension-coding-ui__sidebar-agent {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+  padding: 0 0.25rem 0.7rem;
+}
+
+.fr-extension-coding-ui__sidebar-agent > span {
+  display: grid;
+  flex: 0 0 27px;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(65, 157, 255, 0.11);
+  color: #69b6ff;
+}
+
+.fr-extension-coding-ui__sidebar-agent strong {
+  overflow: hidden;
+  color: #dedce2;
+  font-size: 0.68rem;
+  font-weight: 680;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fr-extension-coding-ui__sidebar nav {
+  display: grid;
+  gap: 0.22rem;
+}
+
+.fr-extension-coding-ui__sidebar nav > span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  min-height: 29px;
+  padding: 0 0.45rem;
+  border-radius: 7px;
+  color: #777681;
+  font-size: 0.57rem;
+}
+
+.fr-extension-coding-ui__sidebar nav > span.is-active {
+  background: rgba(65, 157, 255, 0.09);
+  color: #b9d9f7;
+}
+
+.fr-extension-coding-ui__sidebar nav > span > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fr-extension-coding-ui__sidebar-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  margin-top: auto;
+  padding: 0.5rem 0.35rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.065);
+  color: #777f7c;
+  font-size: 0.5rem;
+}
+
+.fr-extension-coding-ui__sidebar-status i {
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #75d5b5;
+  box-shadow: 0 0 8px rgba(117, 213, 181, 0.4);
+}
+
+.fr-extension-coding-ui__sidebar-status span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .fr-extension-coding-ui__chat {
   display: flex;
   flex: 1 1 auto;
