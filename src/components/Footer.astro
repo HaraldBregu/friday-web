@@ -67,9 +67,9 @@ const landingGroupsIt = [
   {
     title: "Documentazione",
     links: [
-      { label: "Panoramica docs", href: "/docs" },
-      { label: "Primi passi", href: "/docs/getting-started" },
-      { label: "Riferimento funzioni", href: "/docs/features" },
+      { label: "Panoramica", href: "/docs" },
+      { label: "Come iniziare", href: "/docs/getting-started" },
+      { label: "Funzionalità", href: "/docs/features" },
       { label: "Skill e MCP", href: "/docs/skills-and-mcp" },
       { label: "Privacy", href: "/docs/privacy" },
     ],
@@ -88,7 +88,7 @@ const landingGroupsIt = [
     title: "Progetto",
     links: [
       { label: "GitHub", href: "https://github.com/HaraldBregu/friday" },
-      { label: "Release", href: "https://github.com/HaraldBregu/friday/releases" },
+      { label: "Versioni", href: "https://github.com/HaraldBregu/friday/releases" },
       { label: "Sicurezza", href: "https://github.com/HaraldBregu/friday/blob/main/SECURITY.md" },
       { label: "Contribuisci", href: "https://github.com/HaraldBregu/friday/blob/main/CONTRIBUTING.md" },
       { label: "Licenza MIT", href: "https://github.com/HaraldBregu/friday/blob/main/LICENSE" },
@@ -97,6 +97,7 @@ const landingGroupsIt = [
 ];
 const landingGroups = locale === "it" ? landingGroupsIt : landingGroupsEn;
 const groups = variant === "landing" ? landingGroups : ui.footerGroups;
+const productHuntAlt = locale === "it" ? "Scopri Friday su Product Hunt" : "View Friday on Product Hunt";
 const localizedRoutes = new Set([
   "/",
   "/docs",
@@ -142,7 +143,7 @@ const localizedAlternatePath = (targetLocale: Locale) => localizedPath(alternate
         rel="noopener noreferrer"
       >
         <img
-          alt="Friday - Your Desktop AI Personal Assistant | Product Hunt"
+          alt={productHuntAlt}
           class="footer-badge__img footer-badge__img--dark"
           height="54"
           loading="lazy"
@@ -150,7 +151,7 @@ const localizedAlternatePath = (targetLocale: Locale) => localizedPath(alternate
           width="250"
         />
         <img
-          alt="Friday - Your Desktop AI Personal Assistant | Product Hunt"
+          alt={productHuntAlt}
           class="footer-badge__img footer-badge__img--light"
           height="54"
           loading="lazy"
