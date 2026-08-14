@@ -99,6 +99,7 @@ assert(/\.fr-showcase-app:not\(\.fr-extension-screen\) > \.fr-showcase-app__body
 assert(/\.fr-home-extension-row \{[\s\S]*?display: flex;/.test(landingCss), "each extension row places the interface left and description right without a grid template");
 assert(!homeExtensionCss.includes("grid-template-rows"), "homepage extension demos do not define grid template rows");
 assert(/\.fr-extension-workspace-ui__tree \{[\s\S]*?padding: 0\.45rem 0;/.test(landingCss) && /\.fr-extension-design-ui \{[\s\S]*?padding: 0;/.test(landingCss) && /\.fr-extension-coding-ui \{[\s\S]*?padding: 0;/.test(landingCss), "extension work surfaces use consistent edge-to-edge layouts");
+assert(/\.fr-extension-coding-ui__sidebar \{[\s\S]*?flex: 0 0 24%;/.test(landingCss), "Coding file-tree sidebar stays compact beside the conversation");
 assert(/\.fr-extension-workspace-ui__tree li \{[\s\S]*?font-size: 0\.62rem;/.test(landingCss) && /\.fr-extension-coding-ui__bubble p \{[\s\S]*?font-size: 0\.68rem;/.test(landingCss) && /\.fr-home-extension-row__copy p \{[\s\S]*?font-size: 1rem;/.test(landingCss), "extension interfaces and descriptions use the larger readable type scale");
 assert(/\.fr-extension-screen \.fr-showcase-app__bar \.fr-window-dots i \{\s*width: 13px;\s*height: 13px;/.test(landingCss), "extension window traffic lights use the larger size");
 assert(/@media \(max-width: 900px\)[\s\S]*?\.fr-home-extension-row \{\s*flex-direction: column;/.test(landingCss), "extension rows stack interface before description on tablets and mobile");
