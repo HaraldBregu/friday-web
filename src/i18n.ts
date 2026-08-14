@@ -1153,6 +1153,35 @@ export function localizedPath(path: string, locale: Locale): string {
   return normalizedPath === "/" ? "/it/" : `/it${normalizedPath}`;
 }
 
+const translatedRoutePaths = new Set([
+  "/",
+  "/community",
+  "/integrations",
+  "/operators",
+  "/privacy-policy",
+  "/terms-of-service",
+]);
+
+export function hasTranslatedRoute(path: string, locale: Locale): boolean {
+  if (locale === "en") return true;
+
+  const [pathname] = path.split("#");
+  const normalizedPath = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname || "/";
+  return translatedRoutePaths.has(normalizedPath);
+}
+
+export function localizedRoutePath(path: string, locale: Locale): string {
+  const [pathname, hash] = path.split("#");
+  const normalizedPath = pathname
+    ? pathname.startsWith("/") ? pathname : `/${pathname}`
+    : "/";
+  const resolvedPath = hasTranslatedRoute(normalizedPath, locale)
+    ? localizedPath(normalizedPath, locale)
+    : normalizedPath;
+
+  return `${resolvedPath}${hash ? `#${hash}` : ""}`;
+}
+
 export function getAlternateLinks(path: string, siteUrl: URL) {
   return locales.map((locale) => ({
     ...localeMeta[locale],
