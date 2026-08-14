@@ -3,7 +3,7 @@ import Icon from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import landingEn from "../data/friday-landing.json";
 import landingIt from "../data/friday-landing-it.json";
-import { localizedPath, normalizeLocale, type Locale } from "../i18n";
+import { localizedRoutePath, normalizeLocale, type Locale } from "../i18n";
 
 interface Props {
   home?: boolean;
@@ -14,15 +14,14 @@ const locale = normalizeLocale(Astro.props.locale);
 const landing = locale === "it" ? landingIt : landingEn;
 const { links, navigation } = landing;
 const home = Astro.props.home ?? true;
-const homePath = locale === "it" ? "/it/" : "/";
+const homePath = localizedRoutePath("/", locale);
 const labels = locale === "it"
   ? { download: "Scarica", menu: "Apri il menu di navigazione", product: "Prodotto", explore: "Esplora", overview: "Panoramica", primary: "Navigazione principale", sections: "Sezioni della pagina", home: "Pagina iniziale di Friday", theme: "Cambia tema" }
   : { download: "Download", menu: "Open navigation menu", product: "Product", explore: "Explore", overview: "Overview", primary: "Primary navigation", sections: "Page sections", home: "Friday home", theme: "Toggle color theme" };
 const sectionHref = (href: string) => href.startsWith("#") && !home ? `${homePath}${href}` : href;
 const normalizePath = (path: string) => path.length > 1 ? path.replace(/\/$/, "") : path;
 const currentPath = normalizePath(Astro.url.pathname);
-const localizedRoutes = new Set(["/integrations", "/operators", "/community"]);
-const routeHref = (path: string) => locale === "it" && localizedRoutes.has(path) ? localizedPath(path, locale) : path;
+const routeHref = (path: string) => localizedRoutePath(path, locale);
 const isCurrent = (href: string) => {
   if (href.startsWith("#")) return false;
   const path = normalizePath(href);
