@@ -30,9 +30,9 @@ const localizedCategory: Record<string, string> = {
 
 const siteIt = {
   ...siteEn,
-  tagline: "Il tuo assistente AI personale sul desktop",
+  tagline: "Il tuo assistente AI personale per desktop",
   description:
-    "Friday è un assistente AI desktop che lavora con i file, esegue comandi, cerca sul web e crea contenuti multimediali usando i provider e i permessi che scegli tu.",
+    "Friday lavora sui tuoi file, cerca sul web e usa gli strumenti che scegli. Tu controlli provider, dati e autorizzazioni.",
   audience:
     "Professionisti, power user, persone attente alla privacy, tinkerers e team che vogliono un assistente AI personale sul desktop con azioni autorizzate esplicitamente.",
   cta: {
@@ -40,7 +40,7 @@ const siteIt = {
     url: "#download",
   },
   secondaryCta: {
-    label: "Vedi integrazioni",
+    label: "Scopri le integrazioni",
     url: "/integrations",
   },
 } satisfies typeof siteEn;
@@ -808,7 +808,7 @@ const it = {
     releaseNotes: "Note di versione",
     github: "GitHub",
     starOnGithub: "Aggiungi una stella su GitHub",
-    viewAllIntegrations: "Vedi tutte le integrazioni",
+    viewAllIntegrations: "Scopri tutte le integrazioni",
     supportedChannels: "Canali di messaggistica supportati",
     footerGroups: [
       {

@@ -7,8 +7,8 @@ import Layout from "../../layouts/Layout.astro";
 
 const locale = "it";
 const { site } = getLocaleContent(locale);
-const title = "Friday: un assistente AI personale per il tuo desktop";
-const description = "Friday è un assistente AI personale per il desktop: lavora con i file, cerca sul web, usa strumenti e rispetta le regole di autorizzazione che imposti tu.";
+const title = "Friday: il tuo assistente AI personale per desktop";
+const description = "Friday lavora sui tuoi file, cerca sul web e usa gli strumenti che scegli. Tu controlli provider, dati e autorizzazioni.";
 const siteBaseUrl = Astro.site ?? new URL(site.url);
 const structuredData = buildHomepageStructuredData({
   description,
@@ -28,7 +28,7 @@ const structuredData = buildHomepageStructuredData({
   hideBackgroundEffects
   hideHeader
   image="/og/default.png"
-  imageAlt="Friday, assistente AI personale per il desktop"
+  imageAlt="Friday, assistente AI personale per desktop"
   locale={locale}
   ogDescription={description}
   ogTitle={title}

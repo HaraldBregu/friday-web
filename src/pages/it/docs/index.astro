@@ -23,7 +23,7 @@ const secondaryDocs = indexDocs.slice(1, 4);
   bodyClass="docs-product-page"
   alternatePath="/docs"
   title="Documentazione"
-  description="Consulta la documentazione di Friday per l'assistente AI desktop, i provider, gli strumenti, i canali, l'automazione, la memoria, la privacy e i primi passi."
+  description="Scopri come configurare Friday, scegliere i provider, usare gli strumenti e gestire automazione, memoria, canali e privacy."
   footerVariant="landing"
   headerVariant="landing"
   hideBackgroundEffects
@@ -35,31 +35,31 @@ const secondaryDocs = indexDocs.slice(1, 4);
     <div class="shell docs-hero__inner" data-doc-reveal>
       <div class="section-heading">
         <p class="eyebrow">Documentazione</p>
-        <h1>Documentazione del prodotto Friday</h1>
+        <h1>Documentazione di Friday</h1>
         <p>
-          Parti da una panoramica di Friday, poi approfondisci assistente,
-          strumenti, provider, canali e automazione.
+          Tutto ciò che ti serve per configurare Friday, capire come funziona
+          e usare al meglio strumenti, provider, canali e automazioni.
         </p>
         <div class="docs-hero__actions" aria-label="Link rapidi alla documentazione">
           <a class="button button--primary" href={primaryDoc ? docsPath(primaryDoc.data.sourcePath, locale) : "#inizia-qui"}>
-            Inizia a leggere
+            Inizia dalla panoramica
             <Icon name="ArrowRight" size={16} />
           </a>
-          <a class="button button--ghost" href="#sezioni">Sfoglia le sezioni</a>
+          <a class="button button--ghost" href="#sezioni">Sfoglia gli argomenti</a>
         </div>
       </div>
       <div class="docs-hero__stats" aria-label="Riepilogo della documentazione">
         <div>
           <strong>{docs.length}</strong>
-          <span>pagine aggiornate</span>
+          <span>guide disponibili</span>
         </div>
         <div>
           <strong>{categoryCount}</strong>
-          <span>sezioni</span>
+          <span>argomenti</span>
         </div>
         <div>
-          <strong>Statico</strong>
-          <span>contenuti Astro</span>
+          <strong>Open source</strong>
+          <span>documentazione pubblica</span>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@ const secondaryDocs = indexDocs.slice(1, 4);
       <header class="docs-group-head">
         <Icon name="BookOpen" size={18} />
         <h2>Inizia qui</h2>
-        <span>{indexDocs.length} guide alle sezioni</span>
+        <span>{indexDocs.length} guide per orientarti</span>
       </header>
       <div class="docs-start-grid">
         {
@@ -97,7 +97,7 @@ const secondaryDocs = indexDocs.slice(1, 4);
             <a class="docs-featured-guide" href={docsPath(primaryDoc.data.sourcePath, locale)}>
               <span class="docs-featured-guide__label">
                 <Icon name={categoryIcons[primaryDoc.data.category] ?? "BookOpen"} size={16} />
-                Prima lettura consigliata
+                Consigliato per iniziare
               </span>
               <strong>{primaryDoc.data.title}</strong>
               <span>{primaryDoc.data.description}</span>
