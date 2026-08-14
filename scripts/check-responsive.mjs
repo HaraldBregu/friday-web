@@ -20,6 +20,8 @@ const integrations = read("dist/integrations/index.html");
 const integrationsIt = read("dist/it/integrations/index.html");
 const docsIndex = read("dist/docs/index.html");
 const docsArticle = read("dist/docs/getting-started/index.html");
+const docsIndexIt = read("dist/it/docs/index.html");
+const docsArticleIt = read("dist/it/docs/getting-started/index.html");
 const landingCss = read("src/styles/friday-landing.css");
 const catalogCss = read("src/styles/catalog-pages.css");
 const docsCss = read("src/styles/docs-friday.css");
@@ -61,14 +63,18 @@ assert(htmlFiles.every((path) => {
 }), "every interactive route uses a current Friday page shell");
 assert(astroConfig.includes('output: "static"'), "Astro output remains fully static");
 assert(english.includes("friday-landing-page") && italian.includes("friday-landing-page"), "English and Italian share the landing shell");
-assert(docsIndex.includes("docs-product-page") && docsArticle.includes("docs-product-page"), "docs index and articles share the docs shell");
+assert([docsIndex, docsArticle, docsIndexIt, docsArticleIt].every((html) => html.includes("docs-product-page")), "English and Italian docs indexes and articles share the docs shell");
 assert([providers, integrations, integrationsIt].every((html) => html.includes("catalog-product-page") && html.includes("fr-nav-wrap")), "provider and integration routes share the current product shell");
 assert([providers, integrations, integrationsIt].every((html) => html.includes("catalog-summary") && html.includes("catalog-section")), "catalog routes render responsive summaries and grouped content");
 assert(brokenInternalLinks.length === 0, `every internal page link resolves to generated output${brokenInternalLinks.length ? ` (${brokenInternalLinks.join(", ")})` : ""}`);
-assert(!italian.includes("/it/docs") && ["/docs", "/docs/getting-started", "/docs/features", "/docs/skills-and-mcp", "/docs/privacy"].every((href) => italian.includes(`href="${href}"`)), "Italian navigation and footer keep untranslated documentation links on valid English routes");
+assert(["/it/docs", "/it/docs/getting-started", "/it/docs/features", "/it/docs/skills-and-mcp", "/it/docs/privacy"].every((href) => italian.includes(`href="${href}"`)), "Italian navigation and footer link to Italian documentation routes");
 assert(["/it/integrations", "/it/operators", "/it/community"].every((href) => italian.includes(`href="${href}"`)), "Italian navigation uses translated routes when they are available");
 assert(!["/it/tools", "/it/providers", "/it/channels", "/it/solutions", "/it/blog"].some((href) => italian.includes(`href="${href}"`)), "Italian navigation falls back to English routes when no translation exists");
-assert(/href="\/docs\/?" hreflang="it"/.test(docsIndex), "documentation language switcher keeps users on the current untranslated documentation route");
+assert(/href="\/it\/docs\/?" hreflang="it"/.test(docsIndex), "English documentation links to its Italian counterpart");
+assert(/href="\/docs\/?" hreflang="en"/.test(docsIndexIt), "Italian documentation links to its English counterpart");
+assert(docsIndexIt.includes('<html data-theme="dark" lang="it">') && docsIndexIt.includes("Documentazione del prodotto Friday") && docsIndexIt.includes("Inizia a leggere"), "Italian documentation index renders Italian content and metadata");
+assert(docsArticleIt.includes("Completa la configurazione iniziale") && docsArticleIt.includes("Primo avvio") && docsArticleIt.includes("Tutta la documentazione"), "Italian documentation articles render translated content and navigation");
+assert(/href="\/docs\/getting-started\/?" hreflang="en"/.test(docsArticleIt) && /href="\/it\/docs\/getting-started\/?" hreflang="it"/.test(docsArticleIt), "documentation language switcher preserves the current article slug");
 
 for (const [locale, html, title] of [
   ["English", english, "A personal AI assistant for your desktop"],
