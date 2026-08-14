@@ -122,21 +122,33 @@ const { screens, labels, chromeLabels } = Astro.props;
                   <div class="fr-extension-design-ui__tablet" aria-hidden="true">
                     <div class="fr-extension-design-ui__device-bar"><span></span><i></i><i></i></div>
                     <div class="fr-extension-design-ui__tablet-body">
-                      <aside><i></i><i></i><i></i><i></i></aside>
-                      <main>
-                        <small>LOREM IPSUM</small>
-                        <strong>DOLOR SIT</strong>
-                        <div class="fr-extension-design-ui__tablet-hero"><i></i><span></span></div>
-                        <div class="fr-extension-design-ui__tablet-cards"><i></i><i></i><i></i></div>
-                      </main>
+                      <aside><b></b><i class="is-active"></i><i></i><i></i><i></i><i></i><span></span></aside>
+                      <div class="fr-extension-design-ui__tablet-main">
+                        <div class="fr-extension-design-ui__tablet-heading">
+                          <span><small>LOREM IPSUM</small><strong>DOLOR SIT</strong></span><i></i>
+                        </div>
+                        <div class="fr-extension-design-ui__tablet-hero">
+                          <i></i><span><b></b><em></em></span><strong>+</strong>
+                        </div>
+                        <div class="fr-extension-design-ui__tablet-cards">
+                          <span><i></i><b></b><em></em></span>
+                          <span><i></i><b></b><em></em></span>
+                          <span><i></i><b></b><em></em></span>
+                        </div>
+                        <div class="fr-extension-design-ui__tablet-list">
+                          <span><i></i><b></b><em></em></span><span><i></i><b></b><em></em></span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="fr-extension-design-ui__phone" aria-hidden="true">
                     <div class="fr-extension-design-ui__phone-notch"></div>
+                    <div class="fr-extension-design-ui__phone-head"><i></i><span><b></b><em></em></span></div>
                     <small>LOREM</small>
                     <strong>IPSUM</strong>
-                    <div class="fr-extension-design-ui__phone-card"><i></i><span></span><span></span></div>
-                    <div class="fr-extension-design-ui__phone-actions"><i></i><i></i><i></i></div>
+                    <div class="fr-extension-design-ui__phone-card"><i></i><span></span><span></span><b></b></div>
+                    <div class="fr-extension-design-ui__phone-list"><span><i></i><b></b></span><span><i></i><b></b></span></div>
+                    <div class="fr-extension-design-ui__phone-actions"><i class="is-active"></i><i></i><i></i><i></i></div>
                   </div>
                   <div class="fr-extension-design-ui__layers">
                     {screen.items.map((item, index) => <span class:list={{ "is-active": index === 0 }}><i></i>{item}</span>)}
