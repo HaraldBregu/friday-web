@@ -26,6 +26,10 @@ const docsCss = read("src/styles/docs-friday.css");
 const globalCss = read("src/styles/global.css");
 const astroConfig = read("astro.config.mjs");
 const htmlFiles = collectHtml(join(root, "dist"));
+const homeExtensionCss = landingCss.slice(
+  landingCss.indexOf(".fr-home-extension-gallery"),
+  landingCss.indexOf(".fr-extension-footer"),
+);
 
 assert(htmlFiles.every((path) => {
   const html = readFileSync(path, "utf8");
@@ -84,6 +88,7 @@ assert(/@media \(max-width: 680px\)[\s\S]*?\.fr-workflow-steps \{\s*grid-templat
 assert(/\.fr-home-extension-gallery__grid \{[\s\S]*?width: min\(calc\(100vw - 48px\), 1120px\);/.test(landingCss) && /\.fr-showcase-app\.fr-extension-screen \{[\s\S]*?aspect-ratio: 7 \/ 5;/.test(landingCss), "extension screens use fluid aspect-ratio sizing");
 assert(/\.fr-extension-screen__workspace \{[\s\S]*?flex: 1 1 auto;/.test(landingCss) && /\.fr-extension-workspace-ui,[\s\S]*?\.fr-extension-coding-ui \{[\s\S]*?flex: 1 1 auto;/.test(landingCss), "every extension interface flexes to fill the app window");
 assert(/\.fr-home-extension-row \{[\s\S]*?display: flex;/.test(landingCss), "each extension row places the interface left and description right without a grid template");
+assert(!homeExtensionCss.includes("grid-template-rows"), "homepage extension demos do not define grid template rows");
 assert(/\.fr-extension-workspace-ui__tree \{[\s\S]*?padding: 0\.45rem 0;/.test(landingCss) && /\.fr-extension-design-ui \{[\s\S]*?padding: 0;/.test(landingCss) && /\.fr-extension-coding-ui \{[\s\S]*?padding: 0;/.test(landingCss), "extension work surfaces use consistent edge-to-edge layouts");
 assert(/@media \(max-width: 900px\)[\s\S]*?\.fr-home-extension-row \{\s*flex-direction: column;/.test(landingCss), "extension rows stack interface before description on tablets and mobile");
 assert(/@media \(max-width: 380px\)[\s\S]*?\.fr-home-signals \{\s*grid-template-columns: 1fr;/.test(landingCss), "hero capability strip stays readable on narrow screens");

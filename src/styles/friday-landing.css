@@ -4167,7 +4167,6 @@
 .fr-home-extension-panel {
   --extension-accent: #a76bff;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
   height: 100%;
   padding: 1.55rem 1.7rem;
 }
@@ -5442,7 +5441,6 @@
 
   .fr-home-extension-app__workspace {
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(0, 1fr);
   }
 
   .fr-home-extension-app__nav {
