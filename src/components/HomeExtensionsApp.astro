@@ -31,6 +31,7 @@ interface ExtensionScreen {
     request: string;
     response: string;
     complete: string;
+    selectedFile: string;
   };
 }
 
@@ -168,17 +169,18 @@ const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
 
             {screen.id === "coding" && (
               <div class="fr-extension-coding-ui">
-                <aside class="fr-extension-coding-ui__sidebar" aria-label={`${screen.title} tools`}>
-                  <div class="fr-extension-coding-ui__sidebar-agent">
-                    <span><Icon name="Bot" size={14} /></span><strong>{screen.chat?.agentLabel}</strong>
-                  </div>
-                  <nav>
-                    {screen.items.map((item, index) => (
-                      <span class:list={{ "is-active": index === 0 }}>
-                        <Icon name={codingToolIcons[index]} size={13} /><span>{item}</span>
-                      </span>
+                <aside class="fr-extension-coding-ui__sidebar" aria-label={`${screen.title} files`}>
+                  <ul>
+                    <li class="fr-extension-coding-ui__sidebar-agent"><Icon name="ChevronRight" size={11} /><Icon name="Bot" size={14} /><strong>{screen.root}</strong><small>3</small></li>
+                    {screen.files?.map((file, index) => (
+                      <li class:list={{ "is-open": index === 2 }}>
+                        <Icon name={index === 2 ? "ChevronDown" : "ChevronRight"} size={11} />
+                        <Icon name={index === 2 ? "FolderOpen" : "Folder"} size={13} />
+                        <span>{file.replace(/\/$/, "")}</span>
+                        {index === 2 && <span class="fr-extension-coding-ui__sidebar-selected"><Icon name="ScanText" size={12} />{screen.chat?.selectedFile}</span>}
+                      </li>
                     ))}
-                  </nav>
+                  </ul>
                   <div class="fr-extension-coding-ui__sidebar-status"><i></i><span>{screen.status}</span></div>
                 </aside>
                 <div class="fr-extension-coding-ui__chat" aria-label={screen.title}>
