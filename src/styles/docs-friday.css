@@ -249,9 +249,7 @@
   padding-top: 2.2rem;
 }
 
-.docs-product-page .docs-section-grid,
-.docs-product-page .docs-group-section > .shell,
-.docs-product-page #start-here > .shell {
+.docs-product-page .section--compact > .shell {
   width: min(calc(100% - var(--docs-gutter)), var(--docs-shell));
 }
 
@@ -634,9 +632,7 @@
   }
 
   .docs-product-page .docs-hero__inner,
-  .docs-product-page .docs-section-grid,
-  .docs-product-page .docs-group-section > .shell,
-  .docs-product-page #start-here > .shell {
+  .docs-product-page .section--compact > .shell {
     width: min(calc(100% - var(--docs-gutter)), var(--docs-shell));
   }
 
