@@ -185,14 +185,12 @@ const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
                 </aside>
                 <div class="fr-extension-coding-ui__chat" aria-label={screen.title}>
                   <div class="fr-extension-coding-ui__message is-user">
-                    <span class="fr-extension-coding-ui__avatar"><Icon name="UserRound" size={14} /></span>
                     <div class="fr-extension-coding-ui__bubble">
                       <small>{screen.chat?.userLabel}</small>
                       <p>{screen.chat?.request}</p>
                     </div>
                   </div>
                   <div class="fr-extension-coding-ui__message is-agent">
-                    <span class="fr-extension-coding-ui__avatar"><Icon name="Bot" size={14} /></span>
                     <div class="fr-extension-coding-ui__bubble">
                       <small>{screen.chat?.agentLabel}</small>
                       <p>{screen.chat?.response}</p>
@@ -208,7 +206,6 @@ const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
                     </div>
                   </div>
                   <div class="fr-extension-coding-ui__message is-agent is-result">
-                    <span class="fr-extension-coding-ui__avatar"><Icon name="Bot" size={14} /></span>
                     <div class="fr-extension-coding-ui__change">
                       <Icon name="Pencil" size={13} />
                       <span><strong>{screen.chat?.complete}</strong><small>{screen.status}</small></span>

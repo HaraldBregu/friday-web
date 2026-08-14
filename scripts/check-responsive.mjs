@@ -65,6 +65,7 @@ for (const [locale, html, title] of [
   assert(html.includes("Lorem ipsum dolor sit amet") && html.includes("LOREM") && html.includes('class="fr-extension-coding-ui__chat"'), `${locale} uses placeholder content inside every extension demo`);
   assert(count(html, /class="fr-extension-coding-ui__tool is-/g) === 3 && html.includes('class="fr-extension-coding-ui__change"'), `${locale} renders the Coding agent tool calls and completed app update`);
   assert(html.includes('class="fr-extension-coding-ui__sidebar"') && html.includes('class="fr-extension-coding-ui__sidebar-selected"') && !html.includes('class="fr-extension-coding-ui__editor"'), `${locale} renders the Coding file-tree sidebar without editor tabs`);
+  assert(!html.includes('class="fr-extension-coding-ui__avatar"'), `${locale} omits user and assistant icons from Coding chat messages`);
   assert(!html.includes("Cheapest Flights: Milan") && !html.includes("Voli più economici: Milano") && !html.includes("Wizz Air"), `${locale} omits realistic demo content from homepage extensions`);
   assert(count(html, /class="fr-showcase-composer fr-extension-screen__composer"/g) === 0, `${locale} omits prompt composers from every extension screen`);
   assert(count(html, /class="fr-control-principles"/g) === 1 && count(html, /class="fr-control-principles"[\s\S]*?<\/ul>/g) === 1, `${locale} renders the user-control principles`);

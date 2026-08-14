@@ -5402,33 +5402,13 @@
 .fr-extension-coding-ui__message {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
   width: min(88%, 470px);
   min-width: 0;
 }
 
 .fr-extension-coding-ui__message.is-user {
   align-self: flex-end;
-  flex-direction: row-reverse;
   width: min(72%, 360px);
-}
-
-.fr-extension-coding-ui__avatar {
-  display: grid;
-  flex: 0 0 28px;
-  width: 28px;
-  height: 28px;
-  place-items: center;
-  border: 1px solid rgba(65, 157, 255, 0.28);
-  border-radius: 9px;
-  background: rgba(65, 157, 255, 0.1);
-  color: #79bdff;
-}
-
-.fr-extension-coding-ui__message.is-user .fr-extension-coding-ui__avatar {
-  border-color: rgba(255, 255, 255, 0.1);
-  background: #202128;
-  color: #d6d3da;
 }
 
 .fr-extension-coding-ui__bubble {
