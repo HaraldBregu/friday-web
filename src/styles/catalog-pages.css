@@ -1754,9 +1754,9 @@
   .channel-product-grid,
   .operator-product-grid,
   .solution-product-grid,
-  .blog-product-grid,
   .release-grid,
-  .release-download-grid {
+  .release-download-grid,
+  .blog-product-grid {
     grid-template-columns: 1fr;
   }
 
