@@ -7,6 +7,7 @@ interface ExtensionScreen {
   title: string;
   description: string;
   status: string;
+  meta: string;
   items: string[];
   root?: string;
   files?: string[];
@@ -236,7 +237,7 @@ const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
           <small>{String(index + 1).padStart(2, "0")} · {labels.screenLabel}</small>
           <h3>{screen.title}</h3>
           <p>{screen.description}</p>
-          <span class="fr-home-extension-row__status"><i></i>{screen.status}</span>
+          <span class="fr-home-extension-row__meta"><i></i>{screen.meta}</span>
         </div>
       </article>
     ))}

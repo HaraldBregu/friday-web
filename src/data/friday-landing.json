@@ -153,6 +153,7 @@
           "title": "Workspace",
           "description": "Explore project files in a familiar tree, open structured Markdown, and review useful results without leaving the extension.",
           "status": "Saved",
+          "meta": "Local files · Markdown",
           "root": "Launch",
           "files": ["briefs/", "research/", "campaign/", "assets/", "social/", "reviews/", "notes/", "exports/", "archive/"],
           "items": [],
@@ -172,8 +173,8 @@
             "airline": "Design team"
           }
         },
-        { "id": "design", "icon": "Shapes", "title": "Design Agent", "description": "Develop visual directions on a focused canvas with drawing tools, layers, and generated assets in one workspace.", "status": "Changes saved", "items": ["Hero artwork", "Desktop preview", "Mobile layout", "Download card"] },
-        { "id": "coding", "icon": "TerminalSquare", "title": "Coding Agent", "description": "Request a code change, then follow the tool calls, command output, and file updates in one focused conversation.", "status": "Task complete", "root": "Friday web", "files": ["src/", "public/", "scripts/", "docs/", "tests/", "config/"], "items": ["Inspect landing copy", "Run site checks", "Update content"], "chat": { "userLabel": "You", "agentLabel": "Agent", "request": "Review the landing-page copy and replace unclear product language.", "response": "I found several vague claims and placeholder labels. I’ll align them with the documented product behavior.", "followUp": "Keep the tone direct and user-friendly in both languages.", "finalResponse": "Updated the homepage copy, clarified privacy and permission language, and replaced the placeholder text.", "complete": "Landing copy updated", "selectedFile": "friday-landing.json" } }
+        { "id": "design", "icon": "Shapes", "title": "Design Agent", "description": "Develop visual directions on a focused canvas with drawing tools, layers, and generated assets in one workspace.", "status": "Changes saved", "meta": "Desktop · Mobile · Components", "items": ["Hero artwork", "Desktop preview", "Mobile layout", "Download card"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding Agent", "description": "Request a code change, then follow the tool calls, command output, and file updates in one focused conversation.", "status": "Task complete", "meta": "Files · Tools · Commands", "root": "Friday web", "files": ["src/", "public/", "scripts/", "docs/", "tests/", "config/"], "items": ["Inspect landing copy", "Run site checks", "Update content"], "chat": { "userLabel": "You", "agentLabel": "Agent", "request": "Review the landing-page copy and replace unclear product language.", "response": "I found several vague claims and placeholder labels. I’ll align them with the documented product behavior.", "followUp": "Keep the tone direct and user-friendly in both languages.", "finalResponse": "Updated the homepage copy, clarified privacy and permission language, and replaced the placeholder text.", "complete": "Landing copy updated", "selectedFile": "friday-landing.json" } }
       ],
       "note": "These examples are starting points. Extensions let you adapt Friday to your own tasks and workflows.",
       "link": "Explore extensions"

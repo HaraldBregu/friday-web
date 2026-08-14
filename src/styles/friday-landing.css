@@ -4422,7 +4422,7 @@
   line-height: 1.75;
 }
 
-.fr-home-extension-row__status {
+.fr-home-extension-row__meta {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -4436,12 +4436,12 @@
   font-weight: 650;
 }
 
-.fr-home-extension-row__status i {
+.fr-home-extension-row__meta i {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #75d5b5;
-  box-shadow: 0 0 9px rgba(117, 213, 181, 0.55);
+  background: var(--screen-accent);
+  box-shadow: 0 0 9px color-mix(in srgb, var(--screen-accent) 55%, transparent);
 }
 
 .fr-extension-screen .fr-showcase-app__bar {

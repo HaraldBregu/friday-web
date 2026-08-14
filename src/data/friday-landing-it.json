@@ -153,6 +153,7 @@
           "title": "Workspace",
           "description": "Esplora i file di progetto in un albero familiare, apri Markdown strutturato e controlla risultati utili senza lasciare l’Estensione.",
           "status": "Salvato",
+          "meta": "File locali · Markdown",
           "root": "Lancio",
           "files": ["brief/", "ricerca/", "campagna/", "risorse/", "social/", "revisioni/", "note/", "export/", "archivio/"],
           "items": [],
@@ -172,8 +173,8 @@
             "airline": "Team design"
           }
         },
-        { "id": "design", "icon": "Shapes", "title": "Design Agent", "description": "Sviluppa direzioni visive su una tela dedicata con strumenti di disegno, livelli e risorse generate in un unico spazio di lavoro.", "status": "Modifiche salvate", "items": ["Immagine hero", "Anteprima desktop", "Layout mobile", "Scheda download"] },
-        { "id": "coding", "icon": "TerminalSquare", "title": "Coding Agent", "description": "Richiedi una modifica al codice, poi segui le chiamate agli strumenti, l’output dei comandi e gli aggiornamenti ai file in un’unica conversazione.", "status": "Attività completata", "root": "Friday web", "files": ["src/", "public/", "scripts/", "docs/", "tests/", "config/"], "items": ["Esamina i testi", "Esegui i controlli", "Aggiorna i contenuti"], "chat": { "userLabel": "Tu", "agentLabel": "Agente", "request": "Rivedi i testi della landing page e sostituisci le descrizioni poco chiare.", "response": "Ho trovato alcune promesse vaghe e diverse etichette provvisorie. Le allineerò al funzionamento documentato del prodotto.", "followUp": "Mantieni un tono diretto e naturale in entrambe le lingue.", "finalResponse": "Ho aggiornato i testi, chiarito privacy e permessi e sostituito i contenuti provvisori.", "complete": "Testi aggiornati", "selectedFile": "friday-landing-it.json" } }
+        { "id": "design", "icon": "Shapes", "title": "Design Agent", "description": "Sviluppa direzioni visive su una tela dedicata con strumenti di disegno, livelli e risorse generate in un unico spazio di lavoro.", "status": "Modifiche salvate", "meta": "Desktop · Mobile · Componenti", "items": ["Immagine hero", "Anteprima desktop", "Layout mobile", "Scheda download"] },
+        { "id": "coding", "icon": "TerminalSquare", "title": "Coding Agent", "description": "Richiedi una modifica al codice, poi segui le chiamate agli strumenti, l’output dei comandi e gli aggiornamenti ai file in un’unica conversazione.", "status": "Attività completata", "meta": "File · Strumenti · Comandi", "root": "Friday web", "files": ["src/", "public/", "scripts/", "docs/", "tests/", "config/"], "items": ["Esamina i testi", "Esegui i controlli", "Aggiorna i contenuti"], "chat": { "userLabel": "Tu", "agentLabel": "Agente", "request": "Rivedi i testi della landing page e sostituisci le descrizioni poco chiare.", "response": "Ho trovato alcune promesse vaghe e diverse etichette provvisorie. Le allineerò al funzionamento documentato del prodotto.", "followUp": "Mantieni un tono diretto e naturale in entrambe le lingue.", "finalResponse": "Ho aggiornato i testi, chiarito privacy e permessi e sostituito i contenuti provvisori.", "complete": "Testi aggiornati", "selectedFile": "friday-landing-it.json" } }
       ],
       "note": "Questi esempi sono punti di partenza. Le Estensioni ti permettono di adattare Friday alle tue attività e ai tuoi flussi di lavoro.",
       "link": "Esplora le Estensioni"
