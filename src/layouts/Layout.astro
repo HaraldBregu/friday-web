@@ -74,8 +74,37 @@ const openGraphImageAlt = imageAlt ?? socialImage.alt;
 const openGraphLocale = locale === "it" ? "it_IT" : "en_US";
 const alternateOpenGraphLocale = locale === "it" ? "en_US" : "it_IT";
 const alternateLinks = alternatePath ? getAlternateLinks(alternatePath, siteBaseUrl) : [];
-const serializedStructuredData = structuredData
-  ? JSON.stringify(structuredData).replace(/</g, "\\u003c")
+const defaultStructuredData = noindex
+  ? undefined
+  : {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ImageObject",
+          "@id": `${canonicalUrl}#primaryimage`,
+          url: imageUrl,
+          contentUrl: imageUrl,
+          width: socialImage.width,
+          height: socialImage.height,
+          encodingFormat: socialImage.type,
+          caption: openGraphImageAlt,
+          inLanguage: localeMeta[locale].hreflang,
+          representativeOfPage: true,
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${canonicalUrl}#webpage`,
+          url: canonicalUrl,
+          name: pageTitle,
+          description,
+          inLanguage: localeMeta[locale].hreflang,
+          isPartOf: { "@id": new URL("/#website", siteBaseUrl).toString() },
+          primaryImageOfPage: { "@id": `${canonicalUrl}#primaryimage` },
+        },
+      ],
+    };
+const serializedStructuredData = structuredData ?? defaultStructuredData
+  ? JSON.stringify(structuredData ?? defaultStructuredData).replace(/</g, "\\u003c")
   : undefined;
 ---
 

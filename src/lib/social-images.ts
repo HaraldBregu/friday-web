@@ -26,7 +26,8 @@ export const socialImages = {
 export type SocialImageKey = keyof typeof socialImages;
 
 export function socialImageForPath(path: string, locale: Locale) {
-  const image = Object.values(socialImages).find((candidate) => candidate.path === path) ?? socialImages.default;
+  const knownImage = Object.values(socialImages).find((candidate) => candidate.path === path);
+  const image = knownImage ?? { ...socialImages.default, path };
 
   return {
     ...image,
