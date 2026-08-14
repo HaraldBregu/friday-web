@@ -1,13 +1,13 @@
 ---
 title: "Panoramica delle funzionalità"
-description: "Le principali funzioni di Friday: chat, strumenti dell'agente, voce, generazione di media, progetti, memoria, widget e backup cloud."
+description: "Scopri cosa puoi fare con chat, strumenti, voce, generazione di contenuti, progetti, memoria, widget e backup cloud."
 category: "Product"
 locale: "it"
 sourcePath: "features.md"
 order: 10
 ---
 
-Friday è costruito attorno a un assistente conversazionale che agisce tramite strumenti.
+Friday non si limita a rispondere: usa strumenti per aiutarti a portare a termine il lavoro. In questa pagina trovi una panoramica delle funzioni disponibili e dei loro limiti attuali.
 
 ## Chat dell'assistente
 

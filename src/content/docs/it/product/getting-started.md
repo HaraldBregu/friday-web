@@ -1,6 +1,6 @@
 ---
 title: "Come iniziare"
-description: "Completa la configurazione iniziale, aggiungi le chiavi dei provider, scegli un modello per ogni funzione e scopri cosa aspettarti sulle diverse piattaforme."
+description: "Configura Friday, collega il primo provider AI, scegli i modelli e inizia a usare l'assistente sul tuo computer."
 category: "Product"
 locale: "it"
 sourcePath: "getting-started.md"

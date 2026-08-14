@@ -1,13 +1,13 @@
 ---
 title: "Cos'è Friday"
-description: "Friday è un assistente desktop Electron multipiattaforma che trasforma le richieste in chat in azioni con strumenti, file e processi, ricerche sul web e contenuti multimediali generati."
+description: "Scopri cos'è Friday, a chi serve e come trasforma una richiesta in azioni controllabili sul tuo computer."
 category: "Product"
 locale: "it"
 sourcePath: "overview.md"
 order: 0
 ---
 
-Friday è un'app desktop Electron multipiattaforma per Windows, macOS e Linux. Porta un assistente AI personale sul tuo computer: puoi chiedere ciò che ti serve in linguaggio naturale e ottenere un risultato concreto, come una risposta con fonti, un file modificato, un'immagine generata, una registrazione trascritta o un'attività completata su una pagina web reale.
+Friday è un assistente AI personale che lavora direttamente dal desktop. Puoi chiedergli ciò che ti serve con parole tue e ottenere un risultato concreto: una risposta con fonti, un file aggiornato, un'immagine, una trascrizione o un'attività completata su una pagina web. È disponibile come app Electron per Windows, macOS e Linux.
 
 A differenza di un chatbot sul web, Friday funziona come applicazione sul tuo computer. Usi le chiavi dei tuoi provider AI, impostazioni e credenziali restano nei dati locali dell'applicazione e le azioni sensibili richiedono un'autorizzazione esplicita.
 

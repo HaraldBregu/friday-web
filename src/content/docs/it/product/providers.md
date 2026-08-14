@@ -1,13 +1,13 @@
 ---
 title: "Provider"
-description: "Friday ti lascia scegliere l'AI: aggiungi le tue chiavi API e seleziona provider e modello separatamente per ogni funzione."
+description: "Collega i tuoi provider AI e scegli un modello diverso per chat, voce, immagini, video e audio."
 category: "Providers"
 locale: "it"
 sourcePath: "providers.md"
 order: 20
 ---
 
-Friday non ti vincola a un unico modello integrato. Colleghi i provider che preferisci aggiungendo le tue chiavi API e ogni funzione conserva una scelta indipendente.
+Con Friday scegli tu quali provider AI usare. Aggiungi le tue chiavi API e configura un provider e un modello diversi per ogni funzione, senza legare tutto a un unico servizio.
 
 | Servizio | Scopo |
 | --- | --- |

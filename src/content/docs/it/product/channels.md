@@ -1,13 +1,13 @@
 ---
 title: "Canali"
-description: "Usa Friday da Telegram e Discord con token separati, policy per i mittenti e risposte inviate alla conversazione di origine."
+description: "Parla con Friday da Telegram e Discord e scegli chi può contattarlo e in quali conversazioni può rispondere."
 category: "Channels"
 locale: "it"
 sourcePath: "channels.md"
 order: 40
 ---
 
-I canali ti permettono di parlare con Friday fuori dall'app desktop. Quando arriva un messaggio, Friday esegue un turno dell'agente e invia la risposta attraverso lo stesso canale. I canali abilitati e dotati di token si avviano quando l'app è pronta.
+Con i canali puoi parlare con Friday anche quando non hai davanti l'app desktop. Invia un messaggio da Telegram o Discord: Friday gestisce la richiesta e risponde nella stessa conversazione. I canali abilitati e dotati di token si avviano insieme all'app.
 
 | Canale | Stato | Note |
 | --- | --- | --- |

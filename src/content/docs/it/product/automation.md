@@ -1,13 +1,13 @@
 ---
 title: "Automazione"
-description: "Gli health check periodici eseguono una checklist definita da te. Le pianificazioni cron vengono salvate e ripristinate, ma l'esecuzione dei relativi prompt non è ancora disponibile."
+description: "Configura controlli periodici e pianificazioni cron. Scopri cosa funziona già e quali parti sono ancora in sviluppo."
 category: "Automation"
 locale: "it"
 sourcePath: "automation.md"
 order: 50
 ---
 
-Friday offre due funzioni in background: gli health check periodici, già funzionanti, e le pianificazioni cron, che vengono salvate ma non eseguono ancora una richiesta dell'agente.
+Friday può controllare periodicamente una checklist definita da te e conservare pianificazioni cron. Gli health check sono già disponibili; l'esecuzione automatica dei prompt pianificati è ancora in sviluppo.
 
 ## Health check
 

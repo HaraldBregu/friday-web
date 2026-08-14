@@ -1,13 +1,13 @@
 ---
 title: "Skill e MCP"
-description: "Estendi Friday con cartelle di skill locali e server Model Context Protocol collegati via HTTP o stdio."
+description: "Aggiungi skill locali e collega server Model Context Protocol remoti o in esecuzione sul tuo computer."
 category: "Extension"
 locale: "it"
 sourcePath: "skills-and-mcp.md"
 order: 30
 ---
 
-Puoi estendere Friday senza modificare l'applicazione principale.
+Puoi insegnare a Friday nuovi flussi di lavoro e collegare strumenti esterni senza modificare l'applicazione principale.
 
 ## Skill
 

@@ -1,13 +1,13 @@
 ---
 title: "Privacy e sicurezza"
-description: "Cosa salva Friday in locale, quando i dati lasciano il computer, come vengono risolti i permessi e quali sono i limiti di sicurezza."
+description: "Scopri quali dati restano sul computer, quando vengono inviati a servizi esterni e come funzionano permessi e credenziali."
 category: "Privacy"
 locale: "it"
 sourcePath: "privacy.md"
 order: 60
 ---
 
-Friday è progettato per lasciarti il controllo dei tuoi dati e delle azioni. Questa pagina descrive i limiti con la stessa chiarezza delle garanzie.
+Friday ti permette di scegliere quali dati e strumenti usare. Qui trovi una spiegazione chiara di cosa resta sul computer, cosa può essere inviato a servizi esterni e quali limiti devi conoscere.
 
 ## Dati locali per impostazione predefinita
 
