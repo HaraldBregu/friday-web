@@ -4460,9 +4460,14 @@
   transform: translateX(-50%);
 }
 
+.fr-extension-screen .fr-showcase-app__bar .fr-window-dots {
+  gap: 0.5rem;
+  width: auto;
+}
+
 .fr-extension-screen .fr-showcase-app__bar .fr-window-dots i {
-  width: 9px;
-  height: 9px;
+  width: 13px;
+  height: 13px;
 }
 
 .fr-extension-screen .fr-showcase-app__actions i {
