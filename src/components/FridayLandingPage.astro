@@ -15,7 +15,7 @@ interface Props {
 const locale = normalizeLocale(Astro.props.locale);
 const landing = locale === "it" ? landingIt : landingEn;
 const { home, links } = landing;
-const heroAccentPhrase = locale === "it" ? "AI Personale" : "AI assistant";
+const heroAccentPhrase = locale === "it" ? "AI Personale" : "AI Assistant";
 const [heroTitleBefore, heroTitleAfter = ""] = home.hero.title.split(heroAccentPhrase);
 ---
 
