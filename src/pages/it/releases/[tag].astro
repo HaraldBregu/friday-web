@@ -1,6 +1,6 @@
 ---
-import ReleaseDetailPage from "../../components/ReleaseDetailPage.astro";
-import { releases, type Release } from "../../lib/releases";
+import ReleaseDetailPage from "../../../components/ReleaseDetailPage.astro";
+import { releases, type Release } from "../../../lib/releases";
 
 export function getStaticPaths() {
   return releases.map((release) => ({
@@ -12,4 +12,4 @@ export function getStaticPaths() {
 const { release } = Astro.props as { release: Release };
 ---
 
-<ReleaseDetailPage locale="en" release={release} />
+<ReleaseDetailPage locale="it" release={release} />
