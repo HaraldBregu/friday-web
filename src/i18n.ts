@@ -34,9 +34,9 @@ const siteIt = {
   description:
     "Friday lavora sui tuoi file, cerca sul web e usa gli strumenti che scegli. Tu controlli provider, dati e autorizzazioni.",
   audience:
-    "Professionisti, power user, persone attente alla privacy, tinkerers e team che vogliono un assistente AI personale sul desktop con azioni autorizzate esplicitamente.",
+    "Professionisti, persone attente alla privacy e team che vogliono un assistente AI personale sul desktop, con azioni sempre sotto controllo.",
   cta: {
-    label: "Scarica app desktop",
+    label: "Scarica Friday",
     url: "#download",
   },
   secondaryCta: {
@@ -58,10 +58,10 @@ const fridayIt = {
     phase: "Beta pubblica",
   },
   hero: {
-    eyebrow: "Assistente AI desktop local-first",
+    eyebrow: "Assistente AI per desktop",
     headline: "Friday.",
     description:
-      "Friday è un agente desktop che trasforma una richiesta in lavoro finito. Chiedi via testo o voce: legge e modifica file, esegue comandi, cerca sul web, pilota un browser e genera media, con le tue chiavi provider e sulla tua macchina.",
+      "Chiedi a Friday ciò che ti serve, con la voce o per iscritto. Lavora sui file, esegue comandi, cerca sul web, usa il browser e crea contenuti con i provider che scegli tu.",
   },
   demoSuggestions: [
     {
@@ -81,9 +81,9 @@ const fridayIt = {
     },
   ],
   heroPillars: [
-    { icon: "Sparkles", title: "Ciclo agent", text: "Pianifica, chiama strumenti e continua finché il compito non è finito." },
-    { icon: "Cpu", title: "Cross provider", text: "Scegli provider e modello diversi per chat, voce, immagini, video e audio." },
-    { icon: "ShieldCheck", title: "Local first", text: "Chiavi, cronologia, memoria e media generati restano nei dati locali." },
+    { icon: "Sparkles", title: "Attività in più passaggi", text: "Sceglie gli strumenti e continua finché il compito non è completo." },
+    { icon: "Cpu", title: "Provider a tua scelta", text: "Scegli provider e modello diversi per chat, voce, immagini, video e audio." },
+    { icon: "ShieldCheck", title: "Dati salvati in locale", text: "Chiavi, cronologia, memoria e contenuti generati restano nei dati dell'app." },
     { icon: "Cloud", title: "Backup cloud", text: "Salva le cartelle che scegli su un tuo bucket S3-compatibile." },
   ],
   landingFeatures: [
@@ -92,21 +92,21 @@ const fridayIt = {
       status: "Chat",
       title: "Chat che agisce",
       description:
-        "Chiedi in linguaggio naturale e Friday esegue un ciclo di strumenti fino a lavoro finito: legge file, applica patch multi-file, esegue comandi shell, tiene aperti processi lunghi, cerca sul web e pilota un browser reale.",
+        "Descrivi ciò che ti serve e Friday usa gli strumenti necessari: legge file, applica modifiche, esegue comandi, gestisce processi, cerca sul web e usa un browser reale.",
     },
     {
       key: "02",
       status: "Local-first",
       title: "I tuoi dati restano tuoi",
       description:
-        "Friday è un'app desktop Electron. Chiavi provider, cronologia delle conversazioni, memoria, progetti e media generati vivono nei dati applicativi locali, non in un account hosted.",
+        "Friday è un'app desktop Electron. Chiavi dei provider, conversazioni, memoria, progetti e contenuti generati restano nei dati locali dell'app, senza richiedere un account online.",
     },
     {
       key: "03",
       status: "Permessi",
       title: "Il lavoro sensibile richiede approvazione",
       description:
-        "Ogni strumento ha la sua policy. Modifiche ai file, comandi shell e patch chiedono conferma per default, e ogni prompt offre nega, consenti una volta o consenti sempre, con regole per le cartelle di cui ti fidi.",
+        "Ogni strumento segue regole precise. Modifiche ai file, comandi shell e patch chiedono conferma per impostazione predefinita. Puoi negare, consentire una volta o creare una regola per le cartelle di cui ti fidi.",
     },
     {
       key: "04",
@@ -158,7 +158,7 @@ const fridayIt = {
     {
       name: "Server MCP remoti",
       label: "Estensione",
-      description: "Collega tool server hosted via HTTP con bearer token o OAuth. I server abilitati si connettono in parallelo all'inizio di ogni esecuzione, espongono i loro strumenti e si chiudono alla fine.",
+      description: "Collega server MCP remoti via HTTP con bearer token o OAuth. I server abilitati si connettono all'inizio dell'esecuzione, mettono a disposizione i propri strumenti e si chiudono al termine.",
       icon: "PlugZap",
     },
     {
@@ -309,7 +309,7 @@ const fridayIt = {
     {
       question: "Che cos'è Friday?",
       answer:
-        "Friday è un assistente desktop Electron multipiattaforma. Chatti in linguaggio naturale e lui esegue un ciclo agent su file, shell, processi lunghi, web, un browser gestito, memoria, workspace di progetto, skill, tool MCP e generazione media, fino a venti turni con strumenti per richiesta.",
+        "Friday è un assistente desktop per Windows, macOS e Linux. Può lavorare su file e processi, eseguire comandi, cercare sul web, usare il browser, ricordare informazioni, caricare skill, collegarsi a server MCP e creare contenuti.",
     },
     {
       question: "Friday invia i miei dati da qualche parte?",
@@ -324,12 +324,12 @@ const fridayIt = {
     {
       question: "Come funzionano i permessi?",
       answer:
-        "Ogni strumento ha la sua policy con regole allow, ask e deny. Letture, scritture e controllo processi sono consentiti per default; modifiche, comandi shell e patch chiedono conferma. La card di permesso offre nega, consenti una volta o consenti sempre, e puoi pre-autorizzare intere cartelle per singolo strumento. La policy sui comandi valuta la stringa del comando, quindi è una protezione, non una sandbox di sistema.",
+        "Ogni strumento ha regole per consentire, chiedere o negare un'azione. Letture, scritture e controllo dei processi sono consentiti per impostazione predefinita; modifiche, comandi shell e patch chiedono conferma. Puoi negare, consentire una volta o autorizzare in anticipo cartelle specifiche. Il controllo dei comandi è una protezione, non una sandbox di sistema.",
     },
     {
       question: "Friday può lavorare fuori dall'app?",
       answer:
-        "Sì. I bot Telegram e Discord instradano messaggi diretti, di gruppo e nei thread verso l'agent e rispondono nello stesso punto. Ogni canale ha token, policy per i messaggi diretti (allowlist per default, oppure aperto e negato), allowlist dei mittenti e modello di risposta propri.",
+        "Sì. I bot Telegram e Discord inviano a Friday messaggi diretti, di gruppo e nei thread, poi riportano la risposta nella stessa conversazione. Ogni canale ha token, regole di accesso, elenco dei mittenti consentiti e modello di risposta propri.",
     },
     {
       question: "Cosa si può automatizzare?",
@@ -430,7 +430,7 @@ const integrationsIt = [
     icon: "Image",
   },
   {
-    name: "Task scheduler",
+    name: "Pianificazioni",
     category: "Automazione",
     description:
       "Crea, modifica e metti in pausa le pianificazioni. L'esecuzione automatica dei prompt è ancora in sviluppo.",
@@ -898,7 +898,7 @@ const it = {
           { label: "Come funziona", href: "/#how" },
           { label: "MCP", href: "/#mcp" },
           { label: "Strumenti", href: "/tools" },
-          { label: "Docs", href: "/docs" },
+          { label: "Documentazione", href: "/docs" },
         ],
       },
       {
@@ -920,7 +920,7 @@ const it = {
         ],
       },
       {
-        title: "Company",
+        title: "Azienda",
         links: [
           { label: "Community", href: "/community" },
           { label: "Blog", href: "/blog" },
@@ -955,7 +955,7 @@ const it = {
     faqEyebrow: "FAQ",
     faqTitle: "Domande comuni.",
     downloadTitle: "Scarica Friday per desktop.",
-    downloadLabel: "Scarica app desktop",
+    downloadLabel: "Scarica Friday",
     downloadNote: "Beta desktop per macOS, Windows e Linux.",
     releaseFootnote: "build desktop",
   },
@@ -1177,10 +1177,10 @@ const it = {
     listeningLabel: "Sto ascoltando...",
     dictationText: "Riassumi la mia mattina e suggerisci il prossimo compito.",
     interactiveReply:
-      "Posso farlo. Usero gli strumenti configurati, terro visibile l'attività e chiedero prima di scrivere file, inviare messaggi o toccare dati privati.",
+      "Posso farlo. Userò gli strumenti configurati, terrò visibile l'attività e chiederò conferma prima di scrivere file, inviare messaggi o usare dati privati.",
     assistantStatus: "usa strumenti con controlli di approvazione",
     planItems: ["Ispeziona file modificati", "Prepara note di release", "Chiedi prima di eseguire i test"],
-    toolActivityLabel: "Attivita strumenti",
+    toolActivityLabel: "Attività degli strumenti",
     toolActivityValue: "read / web search / image",
     toolRequest: "Richiesta strumento",
     toolCommand: "Esegui `bun run build`",
