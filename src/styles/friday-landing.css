@@ -4819,8 +4819,8 @@
 .fr-extension-design-ui__phone {
   position: absolute;
   overflow: hidden;
-  border: 3px solid #2c2b31;
-  background: #f1eef5;
+  border: 3px solid #383943;
+  background: #111218;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42);
 }
 
@@ -4839,8 +4839,8 @@
   gap: 4px;
   min-height: 22px;
   padding: 0 7px;
-  border-bottom: 1px solid #ddd8e4;
-  background: #faf8fc;
+  border-bottom: 1px solid #292a33;
+  background: #181920;
 }
 
 .fr-extension-design-ui__device-bar span {
@@ -4848,14 +4848,14 @@
   height: 5px;
   margin-right: auto;
   border-radius: 999px;
-  background: #c9c2d2;
+  background: #4b4d59;
 }
 
 .fr-extension-design-ui__device-bar i {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #d0cad8;
+  background: #525460;
 }
 
 .fr-extension-design-ui__tablet-body {
@@ -4868,43 +4868,78 @@
   flex: 0 0 18%;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
-  padding-top: 13px;
-  background: #292531;
+  gap: 9px;
+  padding: 11px 0 8px;
+  background: #0b0c11;
 }
 
 .fr-extension-design-ui__tablet-body aside i {
   width: 38%;
   height: 7px;
   border-radius: 3px;
-  background: #756a82;
+  background: #454650;
 }
 
-.fr-extension-design-ui__tablet-body aside i:first-child {
-  background: #e752bc;
+.fr-extension-design-ui__tablet-body aside i.is-active {
+  width: 48%;
+  background: #c15aa8;
 }
 
-.fr-extension-design-ui__tablet-body main {
+.fr-extension-design-ui__tablet-body aside b {
+  width: 16px;
+  height: 16px;
+  margin-bottom: 4px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #a76bff, #e752bc);
+}
+
+.fr-extension-design-ui__tablet-body aside span {
+  width: 15px;
+  height: 15px;
+  margin-top: auto;
+  border: 1px solid #3e404b;
+  border-radius: 50%;
+  background: #202129;
+}
+
+.fr-extension-design-ui__tablet-main {
   flex: 1 1 auto;
-  padding: 10% 8%;
-  color: #312c37;
+  min-width: 0;
+  padding: 6%;
+  background: #121319;
+  color: #efedf2;
 }
 
-.fr-extension-design-ui__tablet-body small,
+.fr-extension-design-ui__tablet-main small,
 .fr-extension-design-ui__phone small {
   display: block;
-  color: #9d57c3;
+  color: #c887ed;
   font-size: 0.43rem;
   font-weight: 750;
   letter-spacing: 0.1em;
 }
 
-.fr-extension-design-ui__tablet-body strong,
+.fr-extension-design-ui__tablet-main strong,
 .fr-extension-design-ui__phone strong {
   display: block;
   margin-top: 3px;
+  color: #f3f1f5;
   font-size: 0.72rem;
   letter-spacing: -0.025em;
+}
+
+.fr-extension-design-ui__tablet-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fr-extension-design-ui__tablet-heading > i {
+  width: 25px;
+  height: 17px;
+  border: 1px solid #333541;
+  border-radius: 5px;
+  background: #1a1b23;
 }
 
 .fr-extension-design-ui__tablet-hero {
@@ -4913,22 +4948,49 @@
   gap: 7px;
   margin-top: 9px;
   padding: 8px;
+  border: 1px solid #373044;
   border-radius: 7px;
-  background: linear-gradient(135deg, #ddd0ff, #f7cce8);
+  background: linear-gradient(135deg, #252036, #281b2b);
 }
 
-.fr-extension-design-ui__tablet-hero i {
+.fr-extension-design-ui__tablet-hero > i {
   width: 28px;
   height: 28px;
   border-radius: 7px;
-  background: #a76bff;
+  background: linear-gradient(135deg, #7b4cc4, #bd477f);
 }
 
 .fr-extension-design-ui__tablet-hero span {
-  width: 43%;
-  height: 6px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fr-extension-design-ui__tablet-hero span b,
+.fr-extension-design-ui__tablet-hero span em {
+  width: 58%;
+  height: 5px;
   border-radius: 999px;
-  background: rgba(49, 44, 55, 0.33);
+  background: #777180;
+}
+
+.fr-extension-design-ui__tablet-hero span em {
+  width: 38%;
+  height: 4px;
+  background: #4f4b57;
+}
+
+.fr-extension-design-ui__tablet-hero > strong {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  place-items: center;
+  border-radius: 5px;
+  background: #a76bff;
+  color: #fff;
+  font-size: 0.65rem;
 }
 
 .fr-extension-design-ui__tablet-cards {
@@ -4937,12 +4999,79 @@
   margin-top: 7px;
 }
 
-.fr-extension-design-ui__tablet-cards i {
+.fr-extension-design-ui__tablet-cards > span {
+  display: flex;
   flex: 1 1 0;
+  flex-direction: column;
+  gap: 4px;
   min-height: 38px;
-  border: 1px solid #ded8e5;
+  padding: 5px;
+  border: 1px solid #2c2e37;
   border-radius: 6px;
-  background: #fff;
+  background: #191a21;
+}
+
+.fr-extension-design-ui__tablet-cards i {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  background: #7150aa;
+}
+
+.fr-extension-design-ui__tablet-cards span:nth-child(2) i { background: #b34b8c; }
+.fr-extension-design-ui__tablet-cards span:nth-child(3) i { background: #367eae; }
+
+.fr-extension-design-ui__tablet-cards b,
+.fr-extension-design-ui__tablet-cards em {
+  width: 68%;
+  height: 4px;
+  border-radius: 999px;
+  background: #5d5e68;
+}
+
+.fr-extension-design-ui__tablet-cards em {
+  width: 42%;
+  height: 3px;
+  background: #393a43;
+}
+
+.fr-extension-design-ui__tablet-list {
+  display: grid;
+  gap: 4px;
+  margin-top: 7px;
+}
+
+.fr-extension-design-ui__tablet-list > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 16px;
+  padding: 3px 5px;
+  border: 1px solid #292b34;
+  border-radius: 5px;
+  background: #17181f;
+}
+
+.fr-extension-design-ui__tablet-list i {
+  width: 8px;
+  height: 8px;
+  border-radius: 3px;
+  background: #4e505b;
+}
+
+.fr-extension-design-ui__tablet-list b {
+  width: 35%;
+  height: 4px;
+  border-radius: 999px;
+  background: #555762;
+}
+
+.fr-extension-design-ui__tablet-list em {
+  width: 12%;
+  height: 4px;
+  margin-left: auto;
+  border-radius: 999px;
+  background: #373944;
 }
 
 .fr-extension-design-ui__phone {
@@ -4951,9 +5080,11 @@
   right: 7%;
   bottom: 10%;
   width: 23%;
-  padding: 13% 6% 7%;
+  display: flex;
+  flex-direction: column;
+  padding: 11% 6% 6%;
   border-radius: 16px;
-  color: #312c37;
+  color: #efedf2;
 }
 
 .fr-extension-design-ui__phone-notch {
@@ -4963,8 +5094,43 @@
   width: 34%;
   height: 5px;
   border-radius: 999px;
-  background: #2c2b31;
+  background: #555762;
   transform: translateX(-50%);
+}
+
+.fr-extension-design-ui__phone-head {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.fr-extension-design-ui__phone-head > i {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #5a4a68;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7444a9, #b54983);
+}
+
+.fr-extension-design-ui__phone-head span {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fr-extension-design-ui__phone-head b,
+.fr-extension-design-ui__phone-head em {
+  width: 55%;
+  height: 3px;
+  border-radius: 999px;
+  background: #62636e;
+}
+
+.fr-extension-design-ui__phone-head em {
+  width: 36%;
+  background: #3c3d47;
 }
 
 .fr-extension-design-ui__phone-card {
@@ -4974,40 +5140,83 @@
   gap: 4px;
   margin-top: 8px;
   padding: 7px;
+  border: 1px solid #332d40;
   border-radius: 7px;
-  background: #e4d8ff;
+  background: #1c1924;
 }
 
 .fr-extension-design-ui__phone-card i {
   width: 100%;
   height: 30px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #a76bff, #e752bc);
+  background: linear-gradient(135deg, #5c358f, #a43d79);
 }
 
 .fr-extension-design-ui__phone-card span {
   width: 76%;
   height: 4px;
   border-radius: 999px;
-  background: rgba(49, 44, 55, 0.32);
+  background: #64606b;
 }
 
 .fr-extension-design-ui__phone-card span:last-child {
   width: 48%;
 }
 
+.fr-extension-design-ui__phone-card b {
+  width: 24px;
+  height: 9px;
+  margin-top: 2px;
+  border-radius: 3px;
+  background: #9354cc;
+}
+
+.fr-extension-design-ui__phone-list {
+  display: grid;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.fr-extension-design-ui__phone-list > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 17px;
+  padding: 3px 4px;
+  border-radius: 5px;
+  background: #191a21;
+}
+
+.fr-extension-design-ui__phone-list i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: #343641;
+}
+
+.fr-extension-design-ui__phone-list b {
+  width: 52%;
+  height: 3px;
+  border-radius: 999px;
+  background: #555762;
+}
+
 .fr-extension-design-ui__phone-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: auto;
+  padding-top: 6px;
+  border-top: 1px solid #292b34;
 }
 
 .fr-extension-design-ui__phone-actions i {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 5px;
-  background: #ded9e4;
+  background: #292b34;
 }
+
+.fr-extension-design-ui__phone-actions i.is-active { background: #8e52c9; }
 
 .fr-extension-design-ui__layers {
   position: absolute;
