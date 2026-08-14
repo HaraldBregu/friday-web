@@ -1,7 +1,7 @@
 {
   "name": "Friday",
-  "tagline": "Your desktop AI assistant for everyday tasks.",
-  "description": "Friday is a desktop AI assistant that edits files, runs commands, searches the web, and generates media, all with your own provider keys, on your own machine.",
+  "tagline": "Your personal AI assistant on the desktop.",
+  "description": "Friday is a desktop AI assistant that works with files, runs commands, searches the web, and creates media using the providers and permissions you choose.",
   "audience": "Professionals, power users, privacy-minded people, tinkerers, and teams who want a personal AI assistant that lives on their desktop and acts with explicit permission.",
   "url": "https://friday.haraldbregu.com",
   "cta": {

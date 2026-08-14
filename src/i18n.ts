@@ -30,9 +30,9 @@ const localizedCategory: Record<string, string> = {
 
 const siteIt = {
   ...siteEn,
-  tagline: "Il tuo assistente AI desktop",
+  tagline: "Il tuo assistente AI personale sul desktop",
   description:
-    "Friday è un assistente AI desktop che modifica file, esegue comandi, cerca sul web e genera media, con le tue chiavi provider e sulla tua macchina.",
+    "Friday è un assistente AI desktop che lavora con i file, esegue comandi, cerca sul web e crea contenuti multimediali usando i provider e i permessi che scegli tu.",
   audience:
     "Professionisti, power user, persone attente alla privacy, tinkerers e team che vogliono un assistente AI personale sul desktop con azioni autorizzate esplicitamente.",
   cta: {

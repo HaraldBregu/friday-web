@@ -9,12 +9,12 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Il tuo assistente personale sul desktop",
+      "eyebrow": "Beta pubblica · macOS, Windows e Linux",
       "title": "Un assistente AI personale per il tuo desktop",
       "description": "Friday trasforma le richieste in linguaggio naturale in risultati concreti. Può modificare file, cercare sul web, usare gli strumenti collegati e creare contenuti multimediali, tutto da un’unica app desktop.",
       "primary": "Scarica Friday",
       "secondary": "Scopri come funziona",
-      "note": "Software desktop open source. Usa i tuoi provider AI e scegli quali azioni richiedono la tua approvazione.",
+      "note": "Software open source. Usa i tuoi provider AI, segui l’attività degli strumenti e scegli quali azioni richiedono la tua approvazione.",
       "capabilitiesLabel": "Come Friday supporta il lavoro quotidiano",
       "capabilities": ["Ricorda il contesto utile", "Esegue attività pianificate", "Lavora con i tuoi strumenti", "Completa lavori in più passaggi"],
       "showcase": {
