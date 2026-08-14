@@ -47,4 +47,4 @@ La documentazione usa gli stessi stati del riferimento interno alle funzionalit�
 | Disponibile | Interfaccia e processo principale sono collegati a un'implementazione funzionante. Potrebbero comunque servire credenziali del provider o permessi del sistema operativo. |
 | Parziale | Una parte utile funziona, ma manca un controllo importante o un percorso di esecuzione. |
 | Segnaposto | Il controllo o la schermata esiste, ma il flusso previsto non è collegato. |
-| Solo catalogo | Il provider o modello è selezionabile, ma non esiste un adapter di esecuzione funzionante. |
+| Solo catalogo | Il provider o modello è selezionabile, ma non esiste ancora un'integrazione in grado di eseguire la richiesta. |

@@ -78,7 +78,7 @@ assert(docsArticleIt.includes("Configura Friday, collega il primo provider AI") 
 assert(/href="\/docs\/getting-started\/?" hreflang="en"/.test(docsArticleIt) && /href="\/it\/docs\/getting-started\/?" hreflang="it"/.test(docsArticleIt), "documentation language switcher preserves the current article slug");
 assert(italian.includes("Chiedi a Friday ciò che ti serve") && italian.includes("Tu descrivi l’obiettivo") && italian.includes("Condividi solo ciò che serve"), "Italian landing copy uses direct, user-centered language");
 assert(![italian, integrationsIt, operatorsIt, docsIndexIt, docsArticleIt].some((html) => ["ciclo agent", "account hosted", "lavoro finito", "tool server hosted"].some((phrase) => html.toLowerCase().includes(phrase))), "Italian routes avoid literal English calques");
-assert(operatorsIt.includes("Chat dell'assistente") && operatorsIt.includes("Strumenti dell'agente") && operatorsIt.includes("Esecuzione dei prompt in sviluppo"), "Italian operators route renders localized and accurate product copy");
+assert(operatorsIt.includes("Chat dell&#39;assistente") && operatorsIt.includes("Strumenti dell&#39;agente") && operatorsIt.includes("Esecuzione dei prompt in sviluppo"), "Italian operators route renders localized and accurate product copy");
 
 for (const [locale, html, title] of [
   ["English", english, "A personal AI assistant for your desktop"],

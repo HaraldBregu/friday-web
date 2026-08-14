@@ -57,7 +57,7 @@ Descrivi un'immagine, un video, una traccia musicale o un effetto sonoro e Frida
 
 I media creati dall'agente vengono salvati nella cartella locale `library` dell'app e mostrati nella chat. La schermata Libreria elenca immagini, video e audio dal più recente, con nome del file e data di creazione. Al momento non offre ricerca, filtri, aggiornamento o eliminazione.
 
-Consulta [Provider](/it/docs/providers) per sapere quali adapter multimediali eseguono davvero le richieste.
+Consulta [Provider](/it/docs/providers) per sapere quali integrazioni multimediali eseguono davvero le richieste.
 
 ## Progetti
 

@@ -54,7 +54,7 @@ La trascrizione in tempo reale e quella registrata conservano scelte indipendent
 | Qwen | Qwen3 ASR Flash Realtime | Stream |
 | xAI | xAI STT Batch; xAI STT Streaming | Batch; stream |
 
-Il testo per il text-to-speech è obbligatorio e può contenere al massimo 4.096 caratteri. Tutti i sette provider seguenti dispongono di adapter funzionanti.
+Il testo per il text-to-speech è obbligatorio e può contenere al massimo 4.096 caratteri. Tutti i sette provider seguenti dispongono di integrazioni funzionanti.
 
 | Provider text-to-speech | Modelli |
 | --- | --- |
@@ -66,7 +66,7 @@ Il testo per il text-to-speech è obbligatorio e può contenere al massimo 4.096
 | Mistral | Voxtral Mini TTS 2603 |
 | OpenAI | GPT-4o Mini TTS; TTS-1 HD |
 
-## Adapter per i media
+## Provider per immagini, video e audio
 
 | Stato | Immagine |
 | --- | --- |
