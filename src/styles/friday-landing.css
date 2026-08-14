@@ -4469,17 +4469,20 @@
   height: 27px;
 }
 
-.fr-extension-screen__body {
+.fr-showcase-app.fr-extension-screen .fr-extension-screen__body {
   display: flex;
-  flex: 1 1 auto;
+  flex: 1 1 0;
   flex-direction: column;
+  width: 100%;
+  min-height: 0;
   gap: 0;
   background: #070708;
 }
 
 .fr-extension-screen__workspace {
   display: flex;
-  flex: 1 1 auto;
+  flex: 1 1 0;
+  width: 100%;
   min-height: 0;
   overflow: hidden;
 }
@@ -4487,7 +4490,8 @@
 .fr-extension-workspace-ui,
 .fr-extension-design-ui,
 .fr-extension-coding-ui {
-  flex: 1 1 auto;
+  flex: 1 1 0;
+  width: 100%;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
@@ -5661,12 +5665,15 @@
 }
 
 .fr-showcase-app__body {
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: 0.75rem;
   height: var(--fr-showcase-body-height, calc(100% - 58px));
   min-height: 0;
   padding: 0;
+}
+
+.fr-showcase-app:not(.fr-extension-screen) > .fr-showcase-app__body {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.75rem;
 }
 
 .fr-showcase-conversation {
