@@ -30,6 +30,8 @@ interface ExtensionScreen {
     agentLabel: string;
     request: string;
     response: string;
+    followUp: string;
+    finalResponse: string;
     complete: string;
     selectedFile: string;
   };
@@ -191,7 +193,7 @@ const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
                     </div>
                   </div>
                   <div class="fr-extension-coding-ui__message is-agent">
-                    <div class="fr-extension-coding-ui__bubble">
+                    <div class="fr-extension-coding-ui__assistant-text">
                       <small>{screen.chat?.agentLabel}</small>
                       <p>{screen.chat?.response}</p>
                       <div class="fr-extension-coding-ui__tools">
@@ -205,12 +207,22 @@ const codingToolIcons = ["ScanText", "TerminalSquare", "Pencil"];
                       </div>
                     </div>
                   </div>
-                  <div class="fr-extension-coding-ui__message is-agent is-result">
-                    <div class="fr-extension-coding-ui__change">
-                      <Icon name="Pencil" size={13} />
-                      <span><strong>{screen.chat?.complete}</strong><small>{screen.status}</small></span>
-                      <Icon name="Check" size={13} />
+                  <div class="fr-extension-coding-ui__message is-user">
+                    <div class="fr-extension-coding-ui__bubble">
+                      <small>{screen.chat?.userLabel}</small>
+                      <p>{screen.chat?.followUp}</p>
                     </div>
+                  </div>
+                  <div class="fr-extension-coding-ui__message is-agent">
+                    <div class="fr-extension-coding-ui__assistant-text">
+                      <small>{screen.chat?.agentLabel}</small>
+                      <p>{screen.chat?.finalResponse}</p>
+                    </div>
+                  </div>
+                  <div class="fr-extension-coding-ui__change">
+                    <Icon name="Pencil" size={13} />
+                    <span><strong>{screen.chat?.complete}</strong><small>{screen.status}</small></span>
+                    <Icon name="Check" size={13} />
                   </div>
                 </div>
               </div>

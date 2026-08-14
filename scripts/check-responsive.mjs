@@ -64,6 +64,7 @@ for (const [locale, html, title] of [
   assert(html.includes('class="fr-extension-design-ui__tablet-list"') && html.includes('class="fr-extension-design-ui__phone-list"') && html.includes('class="fr-extension-design-ui__phone-actions"'), `${locale} renders detailed dark interface elements inside the Design artboards`);
   assert(html.includes("Lorem ipsum dolor sit amet") && html.includes("LOREM") && html.includes('class="fr-extension-coding-ui__chat"'), `${locale} uses placeholder content inside every extension demo`);
   assert(count(html, /class="fr-extension-coding-ui__tool is-/g) === 3 && html.includes('class="fr-extension-coding-ui__change"'), `${locale} renders the Coding agent tool calls and completed app update`);
+  assert(count(html, /class="fr-extension-coding-ui__message is-user"/g) === 2 && count(html, /class="fr-extension-coding-ui__assistant-text"/g) === 2, `${locale} renders the expanded Coding conversation with plain assistant replies`);
   assert(html.includes('class="fr-extension-coding-ui__sidebar"') && html.includes('class="fr-extension-coding-ui__sidebar-selected"') && !html.includes('class="fr-extension-coding-ui__editor"'), `${locale} renders the Coding file-tree sidebar without editor tabs`);
   assert(!html.includes('class="fr-extension-coding-ui__avatar"'), `${locale} omits user and assistant icons from Coding chat messages`);
   assert(!html.includes("Cheapest Flights: Milan") && !html.includes("Voli più economici: Milano") && !html.includes("Wizz Air"), `${locale} omits realistic demo content from homepage extensions`);

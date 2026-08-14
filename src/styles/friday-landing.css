@@ -5389,7 +5389,7 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.5rem;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
@@ -5441,6 +5441,30 @@
 }
 
 .fr-extension-coding-ui__bubble p {
+  margin: 0;
+  padding-top: 0.28rem;
+  color: #d8d6dc;
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.fr-extension-coding-ui__assistant-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.1rem 0.15rem;
+}
+
+.fr-extension-coding-ui__assistant-text > small {
+  display: block;
+  color: #6caee9;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fr-extension-coding-ui__assistant-text > p {
   margin: 0;
   padding-top: 0.28rem;
   color: #d8d6dc;
@@ -5514,13 +5538,9 @@
   color: #75d5b5;
 }
 
-.fr-extension-coding-ui__message.is-result {
-  width: min(78%, 410px);
-}
-
 .fr-extension-coding-ui__change {
   display: flex;
-  flex: 1 1 auto;
+  width: min(78%, 410px);
   align-items: center;
   gap: 0.5rem;
   min-width: 0;
