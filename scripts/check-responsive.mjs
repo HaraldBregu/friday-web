@@ -46,11 +46,11 @@ assert([providers, integrations, integrationsIt].every((html) => html.includes("
 assert([providers, integrations, integrationsIt].every((html) => html.includes("catalog-summary") && html.includes("catalog-section")), "catalog routes render responsive summaries and grouped content");
 
 for (const [locale, html, title] of [
-  ["English", english, "A Personal Desktop AI Assistant"],
-  ["Italian", italian, "Assistente Personale AI per Desktop"],
+  ["English", english, "A personal AI assistant for your desktop"],
+  ["Italian", italian, "Un assistente AI personale per il tuo desktop"],
 ]) {
   assert(html.includes(`<h1 id="hero-title" aria-label="${title}">`), `${locale} hero describes the product without repeating the app name`);
-  assert(count(html, /class="fr-home-hero__accent"/g) === 1, `${locale} keeps the highlighted AI Assistant phrase together`);
+  assert(count(html, /class="fr-home-hero__accent"/g) === 1, `${locale} keeps the highlighted assistant phrase together`);
   assert(["product", "personal", "workflow", "extensions", "control"].every((id) => html.includes(`id="${id}"`)), `${locale} renders the complete homepage narrative`);
   assert(count(html, /class="fr-personal-card__top"/g) === 6, `${locale} renders all six personal assistant capabilities`);
   assert(count(html, /class="fr-workflow-step__meta"/g) === 4, `${locale} renders the four request-to-result steps`);
@@ -63,7 +63,7 @@ for (const [locale, html, title] of [
   assert(html.includes('class="fr-extension-workspace-ui__content"') && html.includes('class="fr-extension-workspace-ui__document-actions"'), `${locale} renders the Workspace markdown preview and saved-file toolbar`);
   assert(html.includes('class="fr-extension-design-ui__tablet"') && html.includes('class="fr-extension-design-ui__phone"') && html.includes('class="fr-extension-design-ui__shapes"'), `${locale} renders tablet, mobile, and shape artboards in the Design extension`);
   assert(html.includes('class="fr-extension-design-ui__tablet-list"') && html.includes('class="fr-extension-design-ui__phone-list"') && html.includes('class="fr-extension-design-ui__phone-actions"'), `${locale} renders detailed dark interface elements inside the Design artboards`);
-  assert(html.includes("Lorem ipsum dolor sit amet") && html.includes("LOREM") && html.includes('class="fr-extension-coding-ui__chat"'), `${locale} uses placeholder content inside every extension demo`);
+  assert(!html.includes("Lorem ipsum") && html.includes("FRIDAY") && html.includes('class="fr-extension-coding-ui__chat"'), `${locale} uses meaningful content instead of placeholders in every extension demo`);
   assert(count(html, /class="fr-extension-coding-ui__tool is-/g) === 3 && html.includes('class="fr-extension-coding-ui__change"'), `${locale} renders the Coding agent tool calls and completed app update`);
   assert(count(html, /class="fr-extension-coding-ui__message is-user"/g) === 2 && count(html, /class="fr-extension-coding-ui__assistant-text"/g) === 2, `${locale} renders the expanded Coding conversation with plain assistant replies`);
   assert(html.includes('class="fr-extension-coding-ui__sidebar"') && html.includes('class="fr-extension-coding-ui__sidebar-selected"') && !html.includes('class="fr-extension-coding-ui__editor"'), `${locale} renders the Coding file-tree sidebar without editor tabs`);
@@ -84,9 +84,9 @@ for (const [locale, html, title] of [
   assert(count(html, /class="fr-nav__direct"/g) === 2, `${locale} keeps Extensions and Docs directly discoverable`);
 }
 
-assert(english.includes("Remembers what matters") && english.includes("Handles recurring work") && english.includes("Completes multi-step tasks"), "hero capability strip summarizes the core personal-assistant promise");
-assert(english.includes("Friday needs your approval") && english.includes("It pauses and asks before taking an action"), "workflow explains permission-based approval");
-assert(english.includes("Know when data leaves your device"), "control section includes the connected-service disclosure");
+assert(english.includes("Remembers useful context") && english.includes("Runs scheduled tasks") && english.includes("Completes multi-step work"), "hero capability strip summarizes the core personal-assistant promise");
+assert(english.includes("Your approval is required") && english.includes("covered by your approval rules"), "workflow explains permission-based approval");
+assert(english.includes("Understand when data leaves your device"), "control section includes the connected-service disclosure");
 
 assert(landingCss.includes("overflow-x: clip") && docsCss.includes("overflow-x: clip"), "landing and docs shells prevent page-level horizontal overflow");
 assert(landingCss.includes(":focus-visible"), "landing defines a visible keyboard focus treatment");
