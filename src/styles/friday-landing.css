@@ -5651,7 +5651,7 @@
 .fr-control-copy__lede {
   max-width: 620px;
   margin: 1.6rem 0 0;
-  font-size: 0.94rem;
+  font-size: 1rem;
   line-height: 1.75;
 }
 
@@ -5687,12 +5687,12 @@
 
 .fr-control-principles h3 {
   margin: 0.1rem 0 0;
-  font-size: 0.84rem;
+  font-size: 0.98rem;
 }
 
 .fr-control-principles p {
   margin: 0.35rem 0 0;
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   line-height: 1.6;
 }
 
@@ -5708,7 +5708,7 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  min-height: 45px;
+  min-height: 50px;
   padding: 0 0.9rem;
   border-bottom: 1px solid var(--fr-line);
   background: var(--fr-panel-2);
@@ -5716,7 +5716,17 @@
 
 .fr-permission-panel__bar strong {
   color: var(--fr-paper-muted);
-  font-size: 0.61rem;
+  font-size: 0.92rem;
+}
+
+.fr-permission-panel .fr-window-dots {
+  gap: 0.5rem;
+  width: auto;
+}
+
+.fr-permission-panel .fr-window-dots i {
+  width: 13px;
+  height: 13px;
 }
 
 .fr-permission-panel__bar > svg {
@@ -5752,13 +5762,13 @@
 
 .fr-permission-panel__body > header strong {
   color: var(--fr-text);
-  font-size: 0.82rem;
+  font-size: 0.98rem;
 }
 
 .fr-permission-panel__body > header small {
   margin-top: 0.15rem;
   color: var(--fr-faint);
-  font-size: 0.56rem;
+  font-size: 0.68rem;
 }
 
 .fr-permission-panel__body > ul {
@@ -5787,7 +5797,7 @@
   align-items: center;
   gap: 0.55rem;
   color: var(--fr-paper-muted);
-  font-size: 0.66rem;
+  font-size: 0.78rem;
 }
 
 .fr-permission-panel__body > ul li span svg {
@@ -5796,7 +5806,7 @@
 
 .fr-permission-panel__body > ul li small {
   color: var(--fr-faint);
-  font-size: 0.55rem;
+  font-size: 0.66rem;
 }
 
 .fr-permission-disclosure {
@@ -5814,7 +5824,7 @@
 .fr-permission-disclosure p {
   margin: 0;
   color: var(--fr-muted);
-  font-size: 0.61rem;
+  font-size: 0.72rem;
   line-height: 1.58;
 }
 
