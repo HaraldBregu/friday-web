@@ -1,0 +1,175 @@
+[
+  {
+    "tag": "v1.0.2",
+    "name": "Friday 2026.07.25-beta.2",
+    "publishedAt": "2026-07-25T22:26:53Z",
+    "stage": "Beta 2",
+    "latest": true,
+    "availability": "release",
+    "commit": "dad4f9dc6fd043252c1d2094e94fb701c6c56ce8",
+    "summary": "A maintenance beta focused on dependable release builds and current installers for every supported desktop platform.",
+    "highlights": [
+      "Stabilized the release toolchain with a compatible TypeScript version.",
+      "Corrected the macOS distribution environment used by packaged builds.",
+      "Published fresh installers for Apple silicon, Intel Macs, Windows, and Linux."
+    ],
+    "githubUrl": "https://github.com/HaraldBregu/friday/releases/tag/v1.0.2",
+    "sourceUrl": "https://github.com/HaraldBregu/friday/tree/v1.0.2",
+    "compareUrl": "https://github.com/HaraldBregu/friday/compare/v1.0.1...v1.0.2",
+    "assets": [
+      {
+        "platform": "macOS",
+        "architecture": "Apple silicon",
+        "format": "DMG",
+        "name": "Friday-1.0.2-arm64.dmg",
+        "size": 245808217,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.2/Friday-1.0.2-arm64.dmg"
+      },
+      {
+        "platform": "macOS",
+        "architecture": "Intel",
+        "format": "DMG",
+        "name": "Friday-1.0.2-x64.dmg",
+        "size": 252214884,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.2/Friday-1.0.2-x64.dmg"
+      },
+      {
+        "platform": "macOS",
+        "architecture": "Apple silicon",
+        "format": "PKG",
+        "name": "Friday-installer-1.0.2-arm64.pkg",
+        "size": 245030780,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.2/Friday-installer-1.0.2-arm64.pkg"
+      },
+      {
+        "platform": "macOS",
+        "architecture": "Intel",
+        "format": "PKG",
+        "name": "Friday-installer-1.0.2-x64.pkg",
+        "size": 251486160,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.2/Friday-installer-1.0.2-x64.pkg"
+      },
+      {
+        "platform": "Windows",
+        "architecture": "x64",
+        "format": "EXE",
+        "name": "Friday-1.0.2.exe",
+        "size": 201812254,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.2/Friday-1.0.2.exe"
+      },
+      {
+        "platform": "Linux",
+        "architecture": "x64",
+        "format": "AppImage",
+        "name": "Friday-1.0.2.AppImage",
+        "size": 250984164,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.2/Friday-1.0.2.AppImage"
+      },
+      {
+        "platform": "Linux",
+        "architecture": "x64",
+        "format": "DEB",
+        "name": "Friday-1.0.2.deb",
+        "size": 186453000,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.2/Friday-1.0.2.deb"
+      }
+    ]
+  },
+  {
+    "tag": "v1.0.1",
+    "name": "Friday v1.0.1",
+    "publishedAt": "2026-07-25T18:42:29Z",
+    "stage": "Tagged build",
+    "latest": false,
+    "availability": "tag",
+    "commit": "486b623a51655218edb7e5b3f35707c1b9bc0ed3",
+    "summary": "A source checkpoint for a broad architecture update across projects, app integrations, storage, and the typed Friday SDK.",
+    "highlights": [
+      "Introduced project-aware sessions and project management tools.",
+      "Added a typed SDK and local HTTP API for calling Friday outside the renderer.",
+      "Separated cron, skills, MCP, library, storage, and widget APIs into focused modules.",
+      "Added storage sync and widget foundations while simplifying legacy agent plumbing."
+    ],
+    "githubUrl": "https://github.com/HaraldBregu/friday/releases/tag/v1.0.1",
+    "sourceUrl": "https://github.com/HaraldBregu/friday/tree/v1.0.1",
+    "compareUrl": "https://github.com/HaraldBregu/friday/compare/v1.0.0...v1.0.1",
+    "assets": []
+  },
+  {
+    "tag": "v1.0.0",
+    "name": "Friday 2026.07.22-beta.1",
+    "publishedAt": "2026-07-19T20:01:12Z",
+    "stage": "Beta 1",
+    "latest": false,
+    "availability": "release",
+    "commit": "a6ca6e46a674e1322761d68224c271abcf3934b3",
+    "summary": "The first public beta of Friday: a cross-platform desktop AI assistant that turns conversations into visible, controllable actions.",
+    "highlights": [
+      "Works with files, commands, web research, browser automation, and recurring tasks.",
+      "Supports text, image and PDF input, speech, and generated media.",
+      "Connects user-selected AI providers, reusable skills, MCP servers, Telegram, and Discord.",
+      "Keeps settings, provider keys, conversations, and workspace data on the local machine."
+    ],
+    "githubUrl": "https://github.com/HaraldBregu/friday/releases/tag/v1.0.0",
+    "sourceUrl": "https://github.com/HaraldBregu/friday/tree/v1.0.0",
+    "compareUrl": null,
+    "assets": [
+      {
+        "platform": "macOS",
+        "architecture": "Apple silicon",
+        "format": "DMG",
+        "name": "Friday-1.0.0-arm64.dmg",
+        "size": 257766981,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.0/Friday-1.0.0-arm64.dmg"
+      },
+      {
+        "platform": "macOS",
+        "architecture": "Intel",
+        "format": "DMG",
+        "name": "Friday-1.0.0-x64.dmg",
+        "size": 264248287,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.0/Friday-1.0.0-x64.dmg"
+      },
+      {
+        "platform": "macOS",
+        "architecture": "Apple silicon",
+        "format": "PKG",
+        "name": "Friday-installer-1.0.0-arm64.pkg",
+        "size": 257037491,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.0/Friday-installer-1.0.0-arm64.pkg"
+      },
+      {
+        "platform": "macOS",
+        "architecture": "Intel",
+        "format": "PKG",
+        "name": "Friday-installer-1.0.0-x64.pkg",
+        "size": 263530568,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.0/Friday-installer-1.0.0-x64.pkg"
+      },
+      {
+        "platform": "Windows",
+        "architecture": "x64",
+        "format": "EXE",
+        "name": "Friday-1.0.0.exe",
+        "size": 209534297,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.0/Friday-1.0.0.exe"
+      },
+      {
+        "platform": "Linux",
+        "architecture": "x64",
+        "format": "AppImage",
+        "name": "Friday-1.0.0.AppImage",
+        "size": 268646201,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.0/Friday-1.0.0.AppImage"
+      },
+      {
+        "platform": "Linux",
+        "architecture": "x64",
+        "format": "DEB",
+        "name": "Friday-1.0.0.deb",
+        "size": 197557704,
+        "url": "https://github.com/HaraldBregu/friday/releases/download/v1.0.0/Friday-1.0.0.deb"
+      }
+    ]
+  }
+]
