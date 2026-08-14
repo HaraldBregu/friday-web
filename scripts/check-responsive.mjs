@@ -82,7 +82,7 @@ assert(operatorsIt.includes("Chat dell&#39;assistente") && operatorsIt.includes(
 
 for (const [locale, html, title] of [
   ["English", english, "A personal AI assistant for your desktop"],
-  ["Italian", italian, "Tu chiedi. Friday si mette al lavoro."],
+  ["Italian", italian, "Dalle idee ai risultati, insieme a Friday."],
 ]) {
   assert(html.includes(`<h1 id="hero-title" aria-label="${title}">`), `${locale} hero describes the product without repeating the app name`);
   assert(count(html, /class="fr-home-hero__accent"/g) === 1, `${locale} keeps the highlighted assistant phrase together`);
