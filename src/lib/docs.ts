@@ -1,4 +1,5 @@
 import type { CollectionEntry } from "astro:content";
+import type { Locale } from "../i18n";
 
 export type DocEntry = CollectionEntry<"docs">;
 
@@ -18,13 +19,31 @@ export const categoryIcons: Record<string, string> = {
   Tasks: "Clock",
 };
 
+const categoryLabelsIt: Record<string, string> = {
+  Automation: "Automazione",
+  Channels: "Canali",
+  Extension: "Estensioni",
+  Privacy: "Privacy",
+  Providers: "Provider",
+  Product: "Prodotto",
+};
+
 export function docsSlug(sourcePath: string) {
   return sourcePath.replace(/\.mdx?$/, "").replace(/\/index$/, "");
 }
 
-export function docsPath(sourcePath: string) {
+export function docsPath(sourcePath: string, locale: Locale = "en") {
   const slug = docsSlug(sourcePath);
-  return `/docs/${slug ? `${slug}/` : ""}`;
+  const docsRoot = locale === "it" ? "/it/docs" : "/docs";
+  return `${docsRoot}/${slug ? `${slug}/` : ""}`;
+}
+
+export function docsForLocale(docs: DocEntry[], locale: Locale) {
+  return docs.filter((doc) => doc.data.locale === locale);
+}
+
+export function docCategoryLabel(category: string, locale: Locale) {
+  return locale === "it" ? categoryLabelsIt[category] ?? category : category;
 }
 
 export function categoryId(category: string) {

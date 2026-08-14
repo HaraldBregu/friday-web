@@ -97,6 +97,7 @@ interface DocStructuredDataInput {
   path: string;
   siteBaseUrl: URL;
   title: string;
+  locale?: Locale;
 }
 
 export function buildDocStructuredData({
@@ -105,6 +106,7 @@ export function buildDocStructuredData({
   path,
   siteBaseUrl,
   title,
+  locale = "en",
 }: DocStructuredDataInput) {
   const pageUrl = new URL(path, siteBaseUrl).toString();
   const organizationId = new URL("/#organization", siteBaseUrl).toString();
@@ -118,7 +120,7 @@ export function buildDocStructuredData({
         headline: title,
         description,
         url: pageUrl,
-        inLanguage: "en",
+        inLanguage: locale === "it" ? "it-IT" : "en",
         articleSection: category,
         isPartOf: { "@id": new URL("/#website", siteBaseUrl).toString() },
         author: { "@id": organizationId },
@@ -126,8 +128,8 @@ export function buildDocStructuredData({
       },
       breadcrumb(
         [
-          { name: "Home", path: "/" },
-          { name: "Documentation", path: "/docs" },
+          { name: locale === "it" ? "Home" : "Home", path: locale === "it" ? "/it/" : "/" },
+          { name: locale === "it" ? "Documentazione" : "Documentation", path: locale === "it" ? "/it/docs" : "/docs" },
           { name: title, path },
         ],
         siteBaseUrl,

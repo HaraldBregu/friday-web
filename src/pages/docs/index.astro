@@ -4,11 +4,11 @@ import DocCard from "../../components/DocCard.astro";
 import DocsEffects from "../../components/DocsEffects.astro";
 import Icon from "../../components/Icon.astro";
 import Layout from "../../layouts/Layout.astro";
-import { categoryIcons, categoryId, docsPath, groupDocs } from "../../lib/docs";
+import { categoryIcons, categoryId, docsForLocale, docsPath, groupDocs } from "../../lib/docs";
 import "../../styles/friday-landing.css";
 import "../../styles/docs-friday.css";
 
-const docs = await getCollection("docs");
+const docs = docsForLocale(await getCollection("docs"), "en");
 const groups = groupDocs(docs);
 const categoryCount = groups.length;
 const indexDocs = groups
@@ -20,6 +20,7 @@ const secondaryDocs = indexDocs.slice(1, 4);
 
 <Layout
   bodyClass="docs-product-page"
+  alternatePath="/docs"
   title="Documentation"
   description="Browse Friday documentation for the desktop AI assistant, providers, tools, channels, automation, memory, privacy, and getting started."
   footerVariant="landing"
@@ -27,6 +28,7 @@ const secondaryDocs = indexDocs.slice(1, 4);
   hideBackgroundEffects
   image="/og/docs.png"
   wide={true}
+  locale="en"
 >
   <section class="section page-hero docs-hero">
     <div class="shell docs-hero__inner" data-doc-reveal>

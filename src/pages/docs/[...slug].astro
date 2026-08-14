@@ -3,13 +3,13 @@ import { getCollection, render } from "astro:content";
 import Icon from "../../components/Icon.astro";
 import DocsEffects from "../../components/DocsEffects.astro";
 import Layout from "../../layouts/Layout.astro";
-import { categoryIcons, compareDocs, docsPath, docsSlug, readingTime } from "../../lib/docs";
+import { categoryIcons, compareDocs, docsForLocale, docsPath, docsSlug, readingTime } from "../../lib/docs";
 import { buildDocStructuredData } from "../../lib/structured-data";
 import "../../styles/friday-landing.css";
 import "../../styles/docs-friday.css";
 
 export async function getStaticPaths() {
-  const docs = await getCollection("docs");
+  const docs = docsForLocale(await getCollection("docs"), "en");
 
   return docs.map((doc) => ({
     params: { slug: docsSlug(doc.data.sourcePath) },
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 }
 
 const { doc } = Astro.props;
-const allDocs = (await getCollection("docs")).sort(compareDocs);
+const allDocs = docsForLocale(await getCollection("docs"), "en").sort(compareDocs);
 const currentPath = docsPath(doc.data.sourcePath);
 const currentIndex = allDocs.findIndex((item) => item.data.sourcePath === doc.data.sourcePath);
 const previousDoc = currentIndex > 0 ? allDocs[currentIndex - 1] : undefined;
@@ -38,6 +38,7 @@ const structuredData = buildDocStructuredData({
 
 <Layout
   bodyClass="docs-product-page"
+  alternatePath={currentPath}
   canonical={currentPath}
   title={doc.data.title}
   description={doc.data.description}
@@ -47,6 +48,7 @@ const structuredData = buildDocStructuredData({
   image="/og/docs.png"
   structuredData={structuredData}
   wide={true}
+  locale="en"
 >
   <section class="docs-reader">
     <aside class="docs-sidebar" aria-label={`${doc.data.category} documentation`} data-doc-reveal>

@@ -15,11 +15,12 @@ const blog = defineCollection({
 });
 
 const docs = defineCollection({
-  loader: glob({ pattern: "product/**/[^_]*.{md,mdx}", base: "./src/content/docs" }),
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/docs" }),
   schema: z.object({
     title: z.string(),
     description: z.string().default(""),
     category: z.string(),
+    locale: z.enum(["en", "it"]).default("en"),
     sourcePath: z.string(),
     order: z.number().default(999),
   }),

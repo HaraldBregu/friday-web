@@ -1156,6 +1156,7 @@ export function localizedPath(path: string, locale: Locale): string {
 const translatedRoutePaths = new Set([
   "/",
   "/community",
+  "/docs",
   "/integrations",
   "/operators",
   "/privacy-policy",
@@ -1167,7 +1168,7 @@ export function hasTranslatedRoute(path: string, locale: Locale): boolean {
 
   const [pathname] = path.split("#");
   const normalizedPath = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname || "/";
-  return translatedRoutePaths.has(normalizedPath);
+  return translatedRoutePaths.has(normalizedPath) || normalizedPath.startsWith("/docs/");
 }
 
 export function localizedRoutePath(path: string, locale: Locale): string {

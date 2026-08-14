@@ -8,9 +8,10 @@ interface Props {
   category: string;
   icon?: string;
   meta?: string;
+  linkLabel?: string;
 }
 
-const { title, description, href, category, icon = "BookOpen", meta = category } = Astro.props;
+const { title, description, href, category, icon = "BookOpen", meta = category, linkLabel = "Read docs" } = Astro.props;
 ---
 
 <a class="doc-card" href={href}>
@@ -23,7 +24,7 @@ const { title, description, href, category, icon = "BookOpen", meta = category }
   <h3>{title}</h3>
   <p>{description}</p>
   <span class="doc-card__link">
-    Read docs
+    {linkLabel}
     <Icon name="ArrowRight" size={14} />
   </span>
 </a>
