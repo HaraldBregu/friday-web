@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import Starfield from "../components/Starfield.astro";
 import Daylight from "../components/Daylight.astro";
 import { getAlternateLinks, getLocaleContent, localeMeta, normalizeLocale, type Locale } from "../i18n";
+import { socialImageForPath, socialImages } from "../lib/social-images";
 import "../styles/global.css";
 
 interface Props {
@@ -39,7 +40,7 @@ const { site, ui } = getLocaleContent(locale);
 const {
   title = site.name,
   description = site.description,
-  image = "/og/default.png",
+  image = socialImages.default.path,
   imageAlt,
   canonical,
   noindex = false,
@@ -65,10 +66,11 @@ const {
 const pageTitle = exactTitle ? title : title === site.name ? `${site.name} - ${site.tagline}` : `${title} | ${site.name}`;
 const siteBaseUrl = Astro.site ?? new URL(site.url);
 const canonicalUrl = new URL(canonical ?? Astro.url.pathname, siteBaseUrl).toString();
-const imageUrl = new URL(image, siteBaseUrl).toString();
+const socialImage = socialImageForPath(image, locale);
+const imageUrl = new URL(socialImage.path, siteBaseUrl).toString();
 const openGraphTitle = ogTitle ?? pageTitle;
 const openGraphDescription = ogDescription ?? description;
-const openGraphImageAlt = imageAlt ?? pageTitle;
+const openGraphImageAlt = imageAlt ?? socialImage.alt;
 const openGraphLocale = locale === "it" ? "it_IT" : "en_US";
 const alternateOpenGraphLocale = locale === "it" ? "en_US" : "it_IT";
 const alternateLinks = alternatePath ? getAlternateLinks(alternatePath, siteBaseUrl) : [];
@@ -109,7 +111,10 @@ const serializedStructuredData = structuredData
     </script>
     <title>{pageTitle}</title>
     <meta content={description} name="description" />
-    {noindex ? <meta content="noindex, nofollow" name="robots" /> : null}
+    <meta
+      content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+      name="robots"
+    />
     <link href={canonicalUrl} rel="canonical" />
     {
       alternateLinks.map((link) => (
@@ -128,9 +133,11 @@ const serializedStructuredData = structuredData
     <meta content={openGraphDescription} property="og:description" />
     <meta content={canonicalUrl} property="og:url" />
     <meta content={imageUrl} property="og:image" />
-    <meta content="image/png" property="og:image:type" />
-    <meta content="1200" property="og:image:width" />
-    <meta content="630" property="og:image:height" />
+    <meta content={imageUrl} property="og:image:url" />
+    <meta content={imageUrl} property="og:image:secure_url" />
+    <meta content={socialImage.type} property="og:image:type" />
+    <meta content={String(socialImage.width)} property="og:image:width" />
+    <meta content={String(socialImage.height)} property="og:image:height" />
     <meta content={openGraphImageAlt} property="og:image:alt" />
     <meta content={ogType} property="og:type" />
     <meta content={openGraphLocale} property="og:locale" />
@@ -154,6 +161,7 @@ const serializedStructuredData = structuredData
     <meta content="@HaraldBregu" name="twitter:creator" />
     <meta content={openGraphTitle} name="twitter:title" />
     <meta content={openGraphDescription} name="twitter:description" />
+    <meta content={canonicalUrl} name="twitter:url" />
     <meta content={imageUrl} name="twitter:image" />
     <meta content={openGraphImageAlt} name="twitter:image:alt" />
     {

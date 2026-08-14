@@ -1,4 +1,5 @@
 import type { Locale } from "../i18n";
+import { socialImageObject } from "./social-images";
 
 interface HomepageStructuredDataInput {
   description: string;
@@ -26,6 +27,7 @@ export function buildHomepageStructuredData({
   const organizationId = new URL("/#organization", siteBaseUrl).toString();
   const websiteId = new URL("/#website", siteBaseUrl).toString();
   const applicationId = new URL("/#software-application", siteBaseUrl).toString();
+  const primaryImage = socialImageObject("default", siteBaseUrl, locale, homepageUrl);
 
   return {
     "@context": "https://schema.org",
@@ -47,6 +49,9 @@ export function buildHomepageStructuredData({
         publisher: { "@id": organizationId },
       },
       {
+        ...primaryImage,
+      },
+      {
         "@type": "SoftwareApplication",
         "@id": applicationId,
         name: "Friday",
@@ -59,6 +64,7 @@ export function buildHomepageStructuredData({
         softwareVersion: "1.0.2 beta",
         inLanguage: ["en", "it"],
         featureList: featureNames,
+        image: { "@id": primaryImage["@id"] },
         author: { "@id": organizationId },
       },
       {
@@ -71,6 +77,7 @@ export function buildHomepageStructuredData({
         isPartOf: { "@id": websiteId },
         about: { "@id": applicationId },
         mainEntity: { "@id": applicationId },
+        primaryImageOfPage: { "@id": primaryImage["@id"] },
       },
       ...(faqs.length > 0
         ? [
@@ -110,6 +117,7 @@ export function buildDocStructuredData({
 }: DocStructuredDataInput) {
   const pageUrl = new URL(path, siteBaseUrl).toString();
   const organizationId = new URL("/#organization", siteBaseUrl).toString();
+  const primaryImage = socialImageObject("default", siteBaseUrl, locale, pageUrl);
 
   return {
     "@context": "https://schema.org",
@@ -125,7 +133,10 @@ export function buildDocStructuredData({
         isPartOf: { "@id": new URL("/#website", siteBaseUrl).toString() },
         author: { "@id": organizationId },
         publisher: { "@id": organizationId },
+        image: { "@id": primaryImage["@id"] },
+        mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
       },
+      primaryImage,
       breadcrumb(
         [
           { name: "Home", path: locale === "it" ? "/it/" : "/" },
@@ -161,6 +172,7 @@ export function buildBlogPostStructuredData({
 }: BlogPostStructuredDataInput) {
   const pageUrl = new URL(path, siteBaseUrl).toString();
   const organizationId = new URL("/#organization", siteBaseUrl).toString();
+  const primaryImage = socialImageObject("blog", siteBaseUrl, "en", pageUrl);
 
   return {
     "@context": "https://schema.org",
@@ -178,7 +190,9 @@ export function buildBlogPostStructuredData({
         author: { "@type": "Organization", name: author },
         publisher: { "@id": organizationId },
         mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+        image: { "@id": primaryImage["@id"] },
       },
+      primaryImage,
       breadcrumb(
         [
           { name: "Home", path: "/" },
