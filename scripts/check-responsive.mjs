@@ -34,13 +34,16 @@ const brokenInternalLinks = htmlFiles.flatMap((sourcePath) => {
     if (!href.startsWith("/")) return [];
 
     const pathname = decodeURI(href.split(/[?#]/)[0]);
-    const target = pathname === "/"
-      ? join(root, "dist", "index.html")
+    const targets = pathname === "/"
+      ? [join(root, "dist", "index.html")]
       : extname(pathname)
-        ? join(root, "dist", pathname.slice(1))
-        : join(root, "dist", pathname.slice(1), "index.html");
+        ? [join(root, "dist", pathname.slice(1))]
+        : [
+            join(root, "dist", pathname.slice(1), "index.html"),
+            join(root, "dist", `${pathname.slice(1).replace(/\/$/, "")}.html`),
+          ];
 
-    return existsSync(target) ? [] : [`${sourcePath}: ${href}`];
+    return targets.some((target) => existsSync(target)) ? [] : [`${sourcePath}: ${href}`];
   });
 });
 const homeExtensionCss = landingCss.slice(
